@@ -1,0 +1,199 @@
+.EligibilityCalculator_container__sEYUL {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f4f8fc;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+.EligibilityCalculator_cal_container__SnqR1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.EligibilityCalculator_cal_input1__cDNY9 {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  width: 100%;
+  line-height: 100%;
+  margin-right: 20px;
+  grid-column: 1/4;
+}
+.EligibilityCalculator_eli_title__c474V {
+  font-size: 26px;
+  line-height: 150%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.EligibilityCalculator_eli_label__nlZ4Y {
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.EligibilityCalculator_eli_input__VWoKf,
+.EligibilityCalculator_eli_select__M_wfF {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  width: 100%;
+  line-height: 100%;
+  margin-right: 20px;
+}
+.EligibilityCalculator_eli_select__M_wfF {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.EligibilityCalculator_eli_result__cSGN_ {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: var(--light-mustard-bg);
+  border: 1px solid #e89e26;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.EligibilityCalculator_eli_examlist__qJbQb {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.EligibilityCalculator_eli_examlist__qJbQb p {
+  margin: 5px 0;
+}
+@media screen and (max-width: 550px) {
+  .EligibilityCalculator_cal_container__SnqR1 {
+    display: block;
+    gap: 10px;
+  }
+  .EligibilityCalculator_eli_label__nlZ4Y {
+    margin-top: 20px;
+  }
+}
+.EligibilityCalculatorContent_EligibilityCalculator__content_container__X__1O {
+  max-width: 100%;
+}
+.EligibilityCalculatorContent_EligibilityCalculator__content_container__row__Kg9dO {
+  padding: 5% 8%;
+}
+.EligibilityCalculatorContent_EligibilityCalculator__content_container__heading__C4DQP {
+  font-size: 34px;
+  line-height: 150%;
+}
+.EligibilityCalculatorContent_EligibilityCalculator__content_container__para__RVjeA {
+  font-size: 16px;
+  line-height: 150%;
+  padding-bottom: 20px;
+}
+.EligibilityCalculatorContent_EligibilityCalculator__content_container__ul__JGkqL {
+  line-height: 150%;
+  font-size: 16px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.EligibilityCalculatorContent_EligibilityCalculator__table__HJxqr {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #0c2d4f;
+  margin-bottom: 30px;
+}
+.EligibilityCalculatorContent_EligibilityCalculator__table__HJxqr td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+.EligibilityCalculatorContent_EligibilityCalculator__table__HJxqr th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  background-color: #0c2d4f;
+  color: #fff;
+}
+@media screen and (max-width: 1024px) {
+  .EligibilityCalculatorContent_EligibilityCalculator__content_container__heading__C4DQP {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .EligibilityCalculatorContent_EligibilityCalculator__content_container__heading__C4DQP {
+    font-size: 24px;
+  }
+  .EligibilityCalculatorContent_EligibilityCalculator__content_container__para__RVjeA,
+  .EligibilityCalculatorContent_EligibilityCalculator__content_container__ul__JGkqL {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .EligibilityCalculatorContent_EligibilityCalculator__content_container__heading__C4DQP {
+    font-size: 22px;
+  }
+}
+.EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__container__gK01a {
+  width: 100%;
+  height: 550px;
+  padding: 231px 0 300px;
+  background-image: linear-gradient(
+      180deg,
+      #000 9.48%,
+      rgba(0, 0, 0, 0.61) 40.91%,
+      rgba(0, 0, 0, 0.5) 99.99%
+    ),
+    url(../media/usefultoolsbanner5.d5bbd12a.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__headingContainer__KoaJr {
+  width: 85%;
+  color: var(--white);
+  margin: auto;
+}
+.EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__heading__E7wQ5 {
+  text-shadow: 5px 5px 5px var(--black);
+  font-size: 34px;
+  margin-bottom: 24px;
+}
+.EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__subheading__I6O_T {
+  width: 45%;
+  text-shadow: 2px 3px 5px var(--black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media screen and (max-width: 1024px) {
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__heading__E7wQ5 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__container__gK01a {
+    padding: 180px 0 250px;
+  }
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__headingContainer__KoaJr {
+    margin-left: 4%;
+  }
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__heading__E7wQ5 {
+    font-size: 24px;
+  }
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__subheading__I6O_T {
+    width: 60%;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__container__gK01a {
+    padding: 160px 0 220px;
+    height: 274px;
+  }
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__headingContainer__KoaJr {
+    margin-left: 4%;
+  }
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__heading__E7wQ5 {
+    font-size: 22px;
+  }
+  .EligibilityCalculatorHeroSection_EligibilityCalculator_Hero__subheading__I6O_T {
+    width: 80%;
+  }
+}

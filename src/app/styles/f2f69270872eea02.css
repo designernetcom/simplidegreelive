@@ -1,0 +1,176 @@
+.GMATCalculatorContent_GMATCalculator__content_container__vbH7M {
+  max-width: 100%;
+}
+.GMATCalculatorContent_GMATCalculator__content_container__row__E2elA {
+  padding: 5% 8%;
+}
+.GMATCalculatorContent_GMATCalculator__content_container__heading__FI_Zz {
+  font-size: 34px;
+  line-height: 150%;
+}
+.GMATCalculatorContent_GMATCalculator__content_container__para__31rtY {
+  font-size: 16px;
+  line-height: 150%;
+  padding-bottom: 20px;
+}
+.GMATCalculatorContent_GMATCalculator__content_container__ul__Tpd8z {
+  line-height: 150%;
+  font-size: 16px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.GMATCalculatorContent_GMATCalculator__table__5qBXh {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #0c2d4f;
+  margin-bottom: 30px;
+}
+.GMATCalculatorContent_GMATCalculator__table__5qBXh td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+.GMATCalculatorContent_GMATCalculator__table__5qBXh th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  background-color: #0c2d4f;
+  color: #fff;
+}
+@media screen and (max-width: 1024px) {
+  .GMATCalculatorContent_GMATCalculator__content_container__heading__FI_Zz {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .GMATCalculatorContent_GMATCalculator__content_container__heading__FI_Zz {
+    font-size: 24px;
+  }
+  .GMATCalculatorContent_GMATCalculator__content_container__para__31rtY,
+  .GMATCalculatorContent_GMATCalculator__content_container__ul__Tpd8z {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .GMATCalculatorContent_GMATCalculator__content_container__heading__FI_Zz {
+    font-size: 22px;
+  }
+}
+.GMATCalculator_converter__gg3oh {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f4f8fc;
+  margin-bottom: 20px;
+}
+.GMATCalculator_GMATtitle__wNxne {
+  font-size: 26px;
+  line-height: 150%;
+  margin-bottom: 20px;
+}
+.GMATCalculator_GMATlabel__YW6Yj {
+  margin-top: 30px;
+  font-size: 18px;
+  padding-left: 10px;
+}
+.GMATCalculator_GMATinput__2uV9U {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  line-height: 100%;
+  margin-right: 20px;
+}
+.GMATCalculator_GMATbutton__9vKEf {
+  padding: 10px 20px;
+  background-color: var(--dark-blue);
+  color: #fff;
+  border: 5px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.GMATCalculator_button__TeJXk:hover {
+  background-color: #0056b3;
+}
+.GMATCalculator_GMATresult__VtIIC {
+  padding-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .GMATCalculator_GMATinput__2uV9U {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .GMATCalculator_GMATtitle__wNxne {
+    margin-bottom: 30px;
+  }
+}
+.GMATCalculatorHeroSection_GMATCalculator_Hero__container__pXT9X {
+  width: 100%;
+  height: 550px;
+  padding: 231px 0 300px;
+  background-image: linear-gradient(
+      180deg,
+      #000 9.48%,
+      rgba(0, 0, 0, 0.61) 40.91%,
+      rgba(0, 0, 0, 0.5) 99.99%
+    ),
+    url(../media/usefultoolsbanner3.48277594.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.GMATCalculatorHeroSection_GMATCalculator_Hero__headingContainer__ZiuhN {
+  width: 85%;
+  color: var(--white);
+  margin: auto;
+}
+.GMATCalculatorHeroSection_GMATCalculator_Hero__heading__I1miu {
+  text-shadow: 5px 5px 5px var(--black);
+  font-size: 34px;
+  margin-bottom: 24px;
+}
+.GMATCalculatorHeroSection_GMATCalculator_Hero__subheading__sxhZ0 {
+  width: 45%;
+  text-shadow: 2px 3px 5px var(--black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media screen and (max-width: 1024px) {
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__heading__I1miu {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__container__pXT9X {
+    padding: 180px 0 250px;
+  }
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__headingContainer__ZiuhN {
+    margin-left: 4%;
+  }
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__heading__I1miu {
+    font-size: 24px;
+  }
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__subheading__sxhZ0 {
+    width: 60%;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__container__pXT9X {
+    padding: 160px 0 220px;
+    height: 274px;
+  }
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__headingContainer__ZiuhN {
+    margin-left: 4%;
+  }
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__heading__I1miu {
+    font-size: 22px;
+  }
+  .GMATCalculatorHeroSection_GMATCalculator_Hero__subheading__sxhZ0 {
+    width: 80%;
+  }
+}

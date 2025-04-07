@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --mustard-yellow: #e89e26;
+  --light-mustard-bg: #fff3df;
+  --lighter-mustard-bg: #fef9ed;
+  --dark-blue: #0c2d50;
+  --light-blue-bg: #f8fbff;
+  --light-blue: #cbe0ff;
+  --dark-black: #000;
+  --black: #0c0c0c;
+  --white: #fff;
+  --olive: #d2de32;
+  --bulish: #006b72;
+  --light-grey: #f8f8f8;
+  --dark-grey: #8e8e8e;
+  --water-blue: #66dce5;
+  --dark-yellow: #d2dd27;
+  --very-light-grey: #ccc;
+  --light-cyan: #dcfbff;
+  --light-black: #272d3b;
+  --sky-blue: #046bd212;
+  --input-border: #38383845;
+  --social-icon-border: #ddd;
+  --background: #00292c;
+  --unicard-background: #25f3ff;
+  --unicards-divider: #efefba;
+  --scrollbar-track: #d8fbff;
+  --white-grey: #e9e9e9;
+  --light_green: #a2c579;
+  --sharda-heading: #17479e;
+}
+.react-tel-input .form-control {
+  width: 100% !important;
+}
+.react-tel-input .flag-dropdown {
+  background: #fff;
+}
+.opt-container {
+  display: flex !important;
+  justify-content: center !important;
+}
+.float {
+  position: fixed;
+  width: 52px;
+  height: 52px;
+  bottom: 40px;
+  border-radius: 100%;
+  left: 40px;
+  color: #fff;
+  background-color: #25d366;
+  text-align: center;
+  z-index: 100;
+}
+.my_float {
+  position: relative;
+  height: 40px;
+  width: 38px;
+  margin: 5px;
+}
+@media screen and (max-width: 768px) {
+  .react-tel-input .form-control {
+    height: 30px;
+  }
+  .float {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    left: 20px;
+  }
+  .my_float {
+    position: relative;
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+  }
+}

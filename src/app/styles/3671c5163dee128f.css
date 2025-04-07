@@ -1,0 +1,181 @@
+.BlogHero_blogCarousal__p0NiS {
+  display: inherit;
+  position: relative;
+  width: 100%;
+  height: 516px;
+  max-height: 516px;
+  size: 100% 100%;
+}
+.BlogHero_gradientOverlayStyle__lD9yl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #000 1.48%,
+    rgba(0, 0, 0, 0.31) 99.91%,
+    transparent 0
+  );
+}
+.BlogHero_blogHeadingContainer__4t38N {
+  position: absolute;
+  top: 260px;
+  width: 100%;
+  color: var(--white);
+  padding-left: 8%;
+}
+.BlogHero_blogHeading__P85ns {
+  text-shadow: 5px 5px 5px #000;
+  font-size: 3.35vw;
+  margin-bottom: 20px;
+}
+.BlogHero_blogSubHeading__4WOpq {
+  font-size: 24px;
+  max-width: 95%;
+  line-height: 150%;
+}
+.BlogHero_blog_banner__7jgJK {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: contain;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+@media screen and (max-width: 768px) {
+  .BlogHero_blogCarousal__p0NiS {
+    height: 286px;
+    max-height: 286px;
+  }
+  .BlogHero_blogHeadingContainer__4t38N {
+    top: 100px;
+    padding-left: 8%;
+  }
+  .BlogHero_blogHeading__P85ns {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .BlogHero_blogSubHeading__4WOpq {
+    font-size: 18px;
+  }
+}
+.BlogCategories_blog_category_container__ndM2Q {
+  width: 30%;
+}
+.BlogCategories_latest_blog_container__S9l_v {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+.BlogCategories_cat_sub_heading__ubSMq {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 10px 1px 10px 10px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.BlogCategories_home_browse_course_list_main_box__YIXik {
+  height: 111rem;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0 0 4px 0 #e7f2fb;
+  scrollbar-width: 5px;
+  border-bottom: 4px solid var(--dark-blue);
+}
+.BlogCategories_home_browse_course_list_main_box__YIXik::-webkit-scrollbar {
+  width: 5px;
+  margin-top: 5px;
+}
+.BlogCategories_home_browse_course_list_main_box__YIXik::-webkit-scrollbar-thumb {
+  background-color: var(--dark-blue);
+  border-radius: 6px;
+}
+.BlogCategories_bgColor__OcNNX {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+.BlogCategories_home_course_list_btn__qdxNr {
+  background-color: transparent;
+  text-align: left;
+}
+.BlogCategories_home_course_list_single_box__P2vIc {
+  border-radius: 5px;
+  text-align: left;
+  margin-bottom: 5px;
+  padding: 10px 1px 10px 10px;
+  font-weight: 500;
+  font-size: 0.83vw;
+  color: var(--black);
+  cursor: pointer;
+}
+.BlogCategories_home_course_list_single_box__P2vIc:hover {
+  background-color: var(--dark-blue);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: var(--white);
+}
+.BlogCategories_main_blogs__hkQlJ {
+  width: 100%;
+}
+@media screen and (max-width: 1440px) {
+  .BlogCategories_home_course_list_single_box__P2vIc {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .BlogCategories_blog_category_container__ndM2Q {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+  }
+  .BlogCategories_latest_blog_container__S9l_v {
+    display: block;
+    gap: 0;
+    width: 100%;
+  }
+  .BlogCategories_cat_sub_heading__ubSMq {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .BlogCategories_home_browse_course_list_main_box__YIXik {
+    height: auto;
+    overflow-y: hidden !important;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    padding: 0;
+    border-radius: 0;
+    border-bottom: 0;
+  }
+  .BlogCategories_home_browse_course_list_main_box__YIXik::-webkit-scrollbar {
+    height: 10px;
+  }
+  .BlogCategories_home_browse_course_list_main_box__YIXik::-webkit-scrollbar-thumb {
+    height: 2px;
+  }
+  .BlogCategories_home_course_list_single_box__P2vIc {
+    margin-bottom: 0;
+    padding: 10px;
+    font-size: 14px;
+    min-width: -moz-max-content;
+    min-width: max-content;
+  }
+  .BlogCategories_main_blogs__hkQlJ {
+    margin-top: 10px;
+  }
+}

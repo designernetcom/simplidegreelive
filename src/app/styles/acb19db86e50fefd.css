@@ -1,0 +1,183 @@
+.CGPACalculatorContent_CGPACalculator__content_container__mhyay {
+  max-width: 100%;
+}
+.CGPACalculatorContent_CGPACalculator__content_container__row___Fju1 {
+  padding: 5% 8% 2%;
+}
+.CGPACalculatorContent_CGPACalculator__content_container__heading__BVjMe {
+  font-size: 34px;
+  line-height: 150%;
+  margin-top: 15px;
+}
+.CGPACalculatorContent_CGPACalculator__content_container__para__7kO7z {
+  font-size: 16px;
+  line-height: 150%;
+  padding-bottom: 20px;
+}
+.CGPACalculatorContent_CGPAconverter__YC_ad {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f4f8fc;
+  margin-bottom: 30px;
+}
+.CGPACalculatorContent_CGPAlabel__Orqbp {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.CGPACalculatorContent_CGPACalculator__content_container__subheading__Z0GBv {
+  font-size: 26px;
+  line-height: 150%;
+}
+.CGPACalculatorContent_CGPAinput__UrUKH {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  line-height: 150%;
+}
+.CGPACalculatorContent_CGPAselect__Wc778 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  width: 50%;
+  line-height: 150%;
+}
+.CGPACalculatorContent_CGPAbutton__pFp5n {
+  margin-bottom: 10px;
+  padding: 8px 20px;
+  font-size: 16px;
+  background-color: #000f23;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+.CGPACalculatorContent_CGPAresult__JkQVE {
+  margin-bottom: 0;
+}
+.CGPACalculatorContent_CGPACalculator__content_container__ul__G_rDd {
+  line-height: 150%;
+  font-size: 16px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.CGPACalculatorContent_CGPACalculator__table__PMH8v {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #0c2d4f;
+  margin-bottom: 30px;
+}
+.CGPACalculatorContent_CGPACalculator__table__PMH8v tr {
+  display: flex;
+}
+.CGPACalculatorContent_CGPACalculator__table__PMH8v th {
+  background-color: #0c2d4f;
+  color: #fff;
+}
+.CGPACalculatorContent_CGPACalculator__table__PMH8v td,
+.CGPACalculatorContent_CGPACalculator__table__PMH8v th {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+.CGPACalculatorContent_note__ysXlp {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 130%;
+}
+@media screen and (max-width: 1024px) {
+  .CGPACalculatorContent_CGPACalculator__content_container__heading__BVjMe {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CGPACalculatorContent_CGPACalculator__content_container__heading__BVjMe {
+    font-size: 24px;
+  }
+  .CGPACalculatorContent_CGPACalculator__content_container__para__7kO7z,
+  .CGPACalculatorContent_CGPACalculator__content_container__ul__G_rDd {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CGPACalculatorContent_CGPACalculator__content_container__heading__BVjMe {
+    font-size: 22px;
+  }
+  .CGPACalculatorContent_note__ysXlp {
+    font-size: 14px;
+  }
+}
+.CGPACalculatorHeroSection_CGPACalculator_Hero__container__PJUCI {
+  width: 100%;
+  height: 550px;
+  padding: 231px 0 300px;
+  background-image: linear-gradient(
+      180deg,
+      #000 9.48%,
+      rgba(0, 0, 0, 0.61) 40.91%,
+      rgba(0, 0, 0, 0.5) 99.99%
+    ),
+    url(../media/usefultoolsbanner2.b9a3712a.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.CGPACalculatorHeroSection_CGPACalculator_Hero__headingContainer__8ppOV {
+  width: 85%;
+  color: var(--white);
+  margin: auto;
+}
+.CGPACalculatorHeroSection_CGPACalculator_Hero__heading__kRMjO {
+  text-shadow: 5px 5px 5px var(--black);
+  font-size: 34px;
+  margin-bottom: 24px;
+}
+.CGPACalculatorHeroSection_CGPACalculator_Hero__subheading__9Zmap {
+  width: 45%;
+  text-shadow: 2px 3px 5px var(--black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media screen and (max-width: 1024px) {
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__heading__kRMjO {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__container__PJUCI {
+    padding: 180px 0 250px;
+  }
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__headingContainer__8ppOV {
+    margin-left: 4%;
+  }
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__heading__kRMjO {
+    font-size: 24px;
+  }
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__subheading__9Zmap {
+    width: 60%;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__container__PJUCI {
+    padding: 160px 0 220px;
+    height: 274px;
+  }
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__headingContainer__8ppOV {
+    margin-left: 4%;
+  }
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__heading__kRMjO {
+    font-size: 22px;
+  }
+  .CGPACalculatorHeroSection_CGPACalculator_Hero__subheading__9Zmap {
+    width: 80%;
+  }
+}

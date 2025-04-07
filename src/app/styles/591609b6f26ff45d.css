@@ -1,0 +1,179 @@
+.NEETRankPredictorContent_NEETRankPredictor__content_container__VoNe8 {
+  max-width: 100%;
+}
+.NEETRankPredictorContent_NEETRankPredictor__content_container__row__Blhci {
+  padding: 5% 8%;
+}
+.NEETRankPredictorContent_NEETRankPredictor__content_container__heading__eTeXJ {
+  font-size: 34px;
+  line-height: 120%;
+  margin: 10px 0;
+}
+.NEETRankPredictorContent_NEETRankPredictor__content_container__para__BLXNI {
+  font-size: 16px;
+  line-height: 150%;
+  padding-bottom: 20px;
+}
+.NEETRankPredictorContent_NEETRankPredictor__content_container__ul__u468j {
+  line-height: 150%;
+  font-size: 16px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.NEETRankPredictorContent_NEETRankPredictor__table__SfBR2 {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #0c2d4f;
+  margin-bottom: 30px;
+}
+.NEETRankPredictorContent_NEETRankPredictor__table__SfBR2 td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  width: 33%;
+}
+.NEETRankPredictorContent_NEETRankPredictor__table__SfBR2 th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  background-color: #0c2d4f;
+  color: #fff;
+}
+@media screen and (max-width: 1024px) {
+  .NEETRankPredictorContent_NEETRankPredictor__content_container__heading__eTeXJ {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .NEETRankPredictorContent_NEETRankPredictor__content_container__heading__eTeXJ {
+    font-size: 24px;
+  }
+  .NEETRankPredictorContent_NEETRankPredictor__content_container__para__BLXNI,
+  .NEETRankPredictorContent_NEETRankPredictor__content_container__ul__u468j {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .NEETRankPredictorContent_NEETRankPredictor__content_container__heading__eTeXJ {
+    font-size: 22px;
+  }
+}
+.NEETRankPredictor_NEETcontainer__5lsZb {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f4f8fc;
+  margin-bottom: 20px;
+}
+.NEETRankPredictor_NEETtitle__6XHIu {
+  font-size: 26px;
+  line-height: 150%;
+  margin-bottom: 20px;
+}
+.NEETRankPredictor_NEETlabel__yPt3_ {
+  margin-top: 30px;
+  font-size: 18px;
+  padding-left: 10px;
+}
+.NEETRankPredictor_NEETinput__AWydw {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  line-height: 100%;
+  margin-right: 20px;
+}
+.NEETRankPredictor_NEETbutton__Pn8Au {
+  padding: 10px 20px;
+  background-color: var(--dark-blue);
+  color: #fff;
+  border: 5px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.NEETRankPredictor_button__DR_Ir:hover {
+  background-color: #0056b3;
+}
+.NEETRankPredictor_NEETresult__Pei9W {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+@media screen and (max-width: 768px) {
+  .NEETRankPredictor_NEETinput__AWydw {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .NEETRankPredictor_NEETtitle__6XHIu {
+    margin-bottom: 30px;
+  }
+}
+.NEETRankPredictorHeroSection_NeetRankPredictor_Hero__container__jGldV {
+  width: 100%;
+  height: 550px;
+  padding: 231px 0 300px;
+  background-image: linear-gradient(
+      180deg,
+      #000 9.48%,
+      rgba(0, 0, 0, 0.61) 40.91%,
+      rgba(0, 0, 0, 0.5) 99.99%
+    ),
+    url(../media/neetrankbanner.0ce4c1f2.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.NEETRankPredictorHeroSection_NeetRankPredictor_Hero__headingContainer__br7VA {
+  width: 85%;
+  color: var(--white);
+  margin: auto;
+}
+.NEETRankPredictorHeroSection_NeetRankPredictor_Hero__heading__VHA3S {
+  text-shadow: 5px 5px 5px var(--black);
+  font-size: 34px;
+  margin-bottom: 24px;
+}
+.NEETRankPredictorHeroSection_NeetRankPredictor_Hero__subheading__vOMQV {
+  width: 45%;
+  text-shadow: 2px 3px 5px var(--black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+}
+@media screen and (max-width: 1024px) {
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__heading__VHA3S {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__container__jGldV {
+    padding: 180px 0 250px;
+  }
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__headingContainer__br7VA {
+    margin-left: 4%;
+  }
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__heading__VHA3S {
+    font-size: 24px;
+  }
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__subheading__vOMQV {
+    width: 60%;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__container__jGldV {
+    padding: 160px 0 220px;
+    height: 274px;
+  }
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__headingContainer__br7VA {
+    margin-left: 4%;
+  }
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__heading__VHA3S {
+    font-size: 22px;
+  }
+  .NEETRankPredictorHeroSection_NeetRankPredictor_Hero__subheading__vOMQV {
+    width: 80%;
+  }
+}

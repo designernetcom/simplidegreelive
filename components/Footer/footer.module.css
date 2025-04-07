@@ -1,0 +1,1336 @@
+.enquirynow_enquirynow_btn__mRuEZ {
+  border-radius: 10px 10px 0 0;
+  padding: 10px 15px;
+  background: var(--mustard-yellow);
+  position: fixed;
+  top: 200px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 100%;
+  transform: rotate(-90deg);
+  border: none;
+  color: var(--black);
+  z-index: 1000;
+  right: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+}
+@media screen and (min-width: 1500px) {
+  .enquirynow_enquirynow_btn__mRuEZ {
+    min-width: 200px;
+    font-size: 20px;
+    padding: 15px 20px;
+  }
+}
+.TopNavbar_topNavBar__Container__Ugq6B {
+  width: 100%;
+  padding: 15px 0 0;
+  position: absolute;
+  z-index: 3;
+}
+.TopNavbar_topNavBar__flexContainer__ELwWP {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin: auto;
+  color: #fff;
+}
+.TopNavbar_topNavBar__linksContainer__sYHv4 {
+  display: flex;
+  gap: 28px;
+  min-width: 55%;
+  max-width: auto;
+  text-align: center;
+  align-items: center;
+  flex-direction: row;
+}
+.TopNavbar_topNavBar__link__Zu_Pz {
+  font-size: 14px;
+}
+.TopNavbar_linkComp__UgCfz {
+  color: var(--white);
+  text-decoration: none;
+}
+.TopNavbar_topNavBar__link_span__UMR8w {
+  font-size: 10px;
+  background: #0c2d50;
+  color: #fff;
+  border-radius: 2px;
+  margin-left: 3px;
+  padding: 2px 3px;
+}
+.TopNavbar_topNavBar__loginContainer__bevfK {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+}
+.TopNavbar_topNavBar__login__JBL7b {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.TopNavbar_topNavBar__login_icon__4AY56 {
+  font-size: 20px;
+  color: #000;
+}
+.TopNavbar_topNavBar__login_text__ZvF_3 {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--white);
+  cursor: pointer;
+}
+.TopNavbar_topNavBar__freeCoursesBtn__amUTi {
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: var(--mustard-yellow);
+  color: var(--black);
+  font-size: 14px;
+  border: none;
+}
+.TopNavbar_topNavBar__freeCoursesBtn__amUTi:hover {
+  background-color: #014487;
+  color: #e89e26;
+}
+.TopNavbar_phoneBtn__3WEF_ {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--white);
+}
+@media screen and (max-width: 1440px) {
+  .TopNavbar_topNavBar__linksContainer__sYHv4 {
+    gap: 24px;
+  }
+  .TopNavbar_topNavBar__link__Zu_Pz {
+    font-size: 12px;
+  }
+  .TopNavbar_topNavBar__login_icon__4AY56 {
+    font-size: 18px;
+  }
+  .TopNavbar_topNavBar__login_text__ZvF_3 {
+    font-size: 12px;
+  }
+  .TopNavbar_topNavBar__freeCoursesBtn__amUTi {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .TopNavbar_topNavBar__loginContainer__bevfK {
+    gap: 28px;
+  }
+}
+@media screen and (max-width: 1180px) {
+  .TopNavbar_topNavBar__linksContainer__sYHv4 {
+    gap: 20px;
+  }
+  .TopNavbar_topNavBar__link__Zu_Pz {
+    font-size: 11px;
+  }
+  .TopNavbar_topNavBar__freeCoursesBtn__amUTi {
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1110px) {
+  .TopNavbar_topNavBar__flexContainer__ELwWP {
+    display: none;
+  }
+}
+.MobileNav_glowEffect__dcMDN {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: var(--dark-blue);
+  position: relative;
+  z-index: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 5px;
+  cursor: pointer;
+}
+.MobileNav_glowEffect__dcMDN:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #e89e26,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #e89e26
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: MobileNav_glowing__Py_S_ 20s linear infinite;
+  border-radius: 10px;
+}
+@keyframes MobileNav_glowing__Py_S_ {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.MobileNav_mobileNav__fGaWP {
+  display: none;
+}
+.MobileNav_mobileNavLogoImg__SULsK {
+  width: 150px;
+  height: auto;
+}
+.MobileNav_phoneBtn__Lk5_P {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--white);
+}
+.MobileNav_flashingIcon__FUest {
+  color: #ff0;
+  animation: MobileNav_flash__dFlej 2s infinite;
+  vertical-align: middle;
+  display: inline-block;
+}
+@keyframes MobileNav_flash__dFlej {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 1110px) {
+  .MobileNav_mobileNav__fGaWP {
+    width: 92%;
+    margin: auto;
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+  }
+  .MobileNav_menu__FvTyP {
+    background-color: transparent;
+    -o-object-fit: contain;
+    object-fit: contain;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: inline-block;
+    color: var(--white);
+    border: none;
+    outline: none;
+    font-size: 25px;
+    align-self: center;
+  }
+  .MobileNav_drawer___2_ZL {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 26rem;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 2rem 0;
+    background: hsla(0, 0%, 8%, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+  }
+  .MobileNav_drawer___2_ZL:before {
+    content: "";
+    background: #161617;
+    height: 85px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  .MobileNav_drawerButton__0MbuV {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #ccc;
+    cursor: pointer;
+  }
+  .MobileNav_MobNav_loginContainer__WcwDK {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-left: 2rem;
+    text-decoration: none;
+  }
+  .MobileNav_MobNav_login__iZA0l {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+  .MobileNav_MobNav_login_icon__67alb {
+    font-size: 20px;
+    color: #fff;
+  }
+  .MobileNav_MobNav_login_text__lrIxo {
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+  }
+  .MobileNav_MobNav_freeCoursesBtn__DZz3d {
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 6px;
+    background-color: var(--mustard-yellow);
+    color: var(--black);
+    font-size: 16px;
+    border: none;
+  }
+  .MobileNav_MobNav_freeCoursesBtn__DZz3d:hover {
+    cursor: pointer;
+  }
+  .MobileNav_MobNav_close_icon__Lkmh_ {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 1.4rem;
+  }
+  .MobileNav_menuItemsContainerOne__WO_qa {
+    padding: 2rem 0 1rem 2rem;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border-bottom: 1px solid gray;
+  }
+  .MobileNav_mobNavAi__6pMa0 {
+    border-radius: 5px;
+    background-color: var(--dark-blue);
+    padding: 5px;
+    font-size: 12px;
+  }
+  .MobileNav_menuItemsContainerTwo__3cvLB {
+    padding: 1rem 0 0 2rem;
+    color: #fff;
+    line-height: 40px;
+  }
+  .MobileNav_closeBottomButtonContainer__sYQZt {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 90%;
+    margin: auto;
+  }
+  .MobileNav_closeBottomButton__3wgji {
+    background-color: var(--mustard-yellow);
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+  }
+}
+@media screen and (max-width: 435px) {
+  .MobileNav_drawer___2_ZL {
+    width: 100%;
+    height: 100%;
+  }
+  .MobileNav_mobileNav__fGaWP {
+    margin-top: -5px;
+  }
+  .MobileNav_mobileNavLogoImg__SULsK {
+    width: 120px;
+  }
+}
+.Modal_ModalContainer__HlLYT {
+  text-align: center;
+}
+.Modal_buttonXl__ZcExg {
+  background-color: transparent;
+  color: var(--white);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  font-weight: 500;
+}
+.Modal_modal__OsI9a {
+  position: fixed;
+  top: 45.2vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 99%;
+  max-width: 99%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #fff;
+  background: hsla(0, 0%, 8%, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.Modal_modal__OsI9a:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+.Modal_modalCloseBtn__5F_e2 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+}
+.Modal_modalCloseBtn__5F_e2:hover {
+  cursor: pointer;
+}
+.Modal_topUniversitiesMegaMenu__Container__ecBDt {
+  padding-top: 60px;
+}
+.Modal_topUniversitiesMegaMenu__citiesContainer_text__zEkE0 {
+  font-size: 30px;
+  color: #fff;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.Modal_topUniversitiesMegaMenu__inputContainer__0Qmf_ {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  height: 60px;
+  background: #fff;
+  border-radius: 30px;
+  color: #000;
+  padding: 0 0 0 10px;
+  margin: auto auto 50px;
+}
+.Modal_topUniversitiesMegaMenu__input__Fm6YP {
+  outline: none;
+  width: 100%;
+  border: none;
+  height: 40px;
+  font-size: 20px;
+}
+.Modal_topUniversitiesMegaMenu__input__Fm6YP::-moz-placeholder {
+  font-size: 16px;
+}
+.Modal_topUniversitiesMegaMenu__input__Fm6YP::placeholder {
+  font-size: 16px;
+}
+.Modal_topUniversitiesModal_iconContainer__qtR1Y {
+  background-color: #d2dd27;
+  padding: 15px 20px;
+  border-radius: 100%;
+}
+.Modal_topUniversitiesModal__citiesContainer_flexRow__K0Zw7 {
+  overflow-x: scroll;
+  display: flex;
+  gap: 20px;
+  height: auto;
+}
+.Modal_topUniversitiesMegaMenu__cityContainer__4wuvL {
+  height: 180px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  transition: 0.5s;
+  padding: 1px;
+}
+.Modal_topUniversitiesMegaMenu__cityImgContainer__cZ_Yn {
+  height: 80%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+}
+.Modal_cityImage__pM_xq {
+  display: flex;
+  align-self: center;
+  max-width: 200px;
+  width: 200px;
+  max-height: 100px;
+  height: 100px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.Modal_topUniversitiesMegaMenu__cityContainer__4wuvL:hover {
+  transform: translateY(3px);
+}
+.Modal_topUniversitiesMegaMenu__city_text__SHF9r {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+.Modal_topUniversitiesMegaMenu__viewAllBtn__e_guT {
+  width: 10%;
+  margin: 100px auto auto;
+  transition: 0.2s;
+  border-radius: 33px;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+.Modal_topUniversitiesMegaMenu__viewAllBtn__e_guT:hover {
+  background: #d2dd27;
+  color: #000;
+  border: 1.5px solid #000;
+}
+@media screen and (max-width: 1600px) {
+  .Modal_modal__OsI9a {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  }
+  .Modal_topUniversitiesMegaMenu__cityContainer__4wuvL {
+    display: flex;
+    height: 100px;
+    width: 140px;
+  }
+  .Modal_topUniversitiesMegaMenu__cityImgContainer__cZ_Yn {
+    height: 80%;
+  }
+  .Modal_cityImage__pM_xq {
+    max-width: 180px;
+    width: 150px;
+    max-height: 60px;
+    height: 50px;
+  }
+  .Modal_buttonXl__ZcExg {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .Modal_modal__OsI9a {
+    position: fixed;
+    top: 53vh;
+    left: 50%;
+  }
+  .Modal_topUniversitiesMegaMenu__cityContainer__4wuvL {
+    display: flex;
+    height: 110px;
+  }
+  .Modal_cityImage__pM_xq {
+    width: 110px;
+    height: 50px;
+  }
+  .Modal_topUniversitiesMegaMenu__viewAllBtn__e_guT {
+    width: 20vh;
+    margin: 50px auto auto;
+  }
+  .Modal_topUniversitiesMegaMenu__city_text__SHF9r {
+    font-size: 14px;
+    padding: 0 8px 8px;
+  }
+  .Modal_buttonXl__ZcExg {
+    font-size: 14px;
+  }
+}
+.TopUniversityNav_topUniversitiesMegaMenu__Container__BA5jS {
+  padding: 50px;
+}
+.TopUniversityNav_topUniversitiesMegaMenu__citiesContainer_text__T1LQH {
+  font-size: 26px;
+  color: #fff;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.TopUniversityNav_topUniversitiesMegaMenu__inputContainer__YJHtB {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  height: 45px;
+  background: #fff;
+  border-radius: 30px;
+  color: #000;
+  padding: 0 0 0 10px;
+  margin: auto auto 50px;
+}
+.TopUniversityNav_topUniversitiesMegaMenu__input__uFtJS {
+  outline: none;
+  width: 100%;
+  border: none;
+  height: 35px;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.TopUniversityNav_topUniversitiesModal_iconContainer__XRLIf {
+  padding: 15px 20px;
+  border-radius: 100%;
+  color: var(--mustard-yellow);
+}
+.TopUniversityNav_cityImage__rKtrO {
+  filter: hue-rotate(45deg) saturate(100%) brightness(100%);
+}
+.TopUniversityNav_topUniversitiesModal__citiesContainer_flexRow__KFQS3 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+.TopUniversityNav_topUniversitiesMegaMenu__cityContainer__sCc_G {
+  background-color: var(--white);
+  padding: 15px;
+  border-bottom: 3px solid var(--mustard-yellow);
+  border-radius: 13px;
+  transition: transform 0.3s ease;
+}
+.TopUniversityNav_topUniversitiesMegaMenu__city_text__wFH4h {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+.TopUniversityNav_topUniversitiesMegaMenu__cityContainer__sCc_G:hover {
+  transform: translateY(3px);
+}
+.TopUniversityNav_topUniversitiesMegaMenu__viewAllBtn__yuIby {
+  width: 10%;
+  margin: 30px auto auto;
+  transition: 0.2s;
+  border-radius: 33px;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+.TopUniversityNav_topUniversitiesMegaMenu__viewAllBtn__yuIby:hover {
+  background: var(--mustard-yellow);
+  color: #000;
+  border: 1.5px solid var(--dark-blue);
+}
+.MobTopUni_ModalContainer__1xW4j {
+  text-align: center;
+}
+.MobTopUni_buttonXl__PaJyH {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  align-items: center;
+  text-align: center;
+}
+.MobTopUni_modal__mFs9C {
+  position: fixed;
+  top: 45.2vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 99%;
+  max-width: 99%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #fff;
+  background: hsla(0, 0%, 8%, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.MobTopUni_modal__mFs9C:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+.MobTopUni_mob_modalCloseBtn__m0s3B {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+}
+.MobTopUni_modalCloseBtn__rTlKw:hover {
+  cursor: pointer;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__Container__HBoUo {
+  padding-top: 20px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__citiesContainer_text__KDpvg {
+  font-size: 16px;
+  color: #fff;
+  text-align: left;
+  font-weight: 500;
+  line-height: 100%;
+  margin-bottom: 20px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__inputContainer__kfYbx {
+  height: 50px;
+  padding: 0 0 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  border-radius: 30px;
+  background: #fff;
+  color: #000;
+  margin-bottom: 0;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__input__y7OVe {
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  border: none;
+  max-height: 40px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__input__y7OVe::-moz-placeholder {
+  font-size: 14px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__input__y7OVe::placeholder {
+  font-size: 14px;
+}
+.MobTopUni_mob_topUniversitiesModal_iconContainer__iwZRf {
+  padding: 12px 20px 7px;
+  border-radius: 50%;
+  color: var(--mustard-yellow);
+}
+.MobTopUni_mob_topUniversitiesModal__citiesContainer_flexRow__pNAFB {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__cityContainer__mLwp8 {
+  max-height: 140px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  transition: 0.5s;
+  padding: 5px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__cityImgContainer__DR10X {
+  height: 80%;
+  width: 90%;
+}
+.MobTopUni_mob_top_uni_cityImage__vb0As {
+  display: flex;
+  max-width: 100px;
+  width: 100px;
+  max-height: 55px;
+  height: 55px;
+  margin-top: 5px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__cityContainer__mLwp8:hover {
+  transform: translateY(3px);
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__city_text_container__TRbkV {
+  color: #000;
+  text-align: center;
+  line-height: 100%;
+  margin-top: 5px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__city_text__Ar5tk {
+  font-size: 14px;
+  line-height: 100%;
+  margin: 5px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__viewAllBtn___DE0w {
+  width: 30%;
+  margin-top: 20px;
+  transition: 0.2s;
+  border-radius: 33px;
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 20px;
+}
+.MobTopUni_mob_topUniversitiesMegaMenu__viewAllBtn___DE0w:hover {
+  background: var(--mustard-yellow);
+  color: #000;
+  border: 1.5px solid #000;
+}
+@media screen and (max-width: 425px) {
+  .MobTopUni_mob_topUniversitiesMegaMenu__inputContainer__kfYbx {
+    height: 45px;
+    padding: 0 0 0 15px;
+  }
+  .MobTopUni_mob_topUniversitiesMegaMenu__Container__HBoUo {
+    padding-top: 20px;
+  }
+  .MobTopUni_mob_topUniversitiesMegaMenu__input__y7OVe {
+    font-size: 15px;
+  }
+  .MobTopUni_mob_topUniversitiesMegaMenu__input__y7OVe::-moz-placeholder {
+    font-size: 14px;
+  }
+  .MobTopUni_mob_topUniversitiesMegaMenu__input__y7OVe::placeholder {
+    font-size: 14px;
+  }
+  .MobTopUni_mob_topUniversitiesModal_iconContainer__iwZRf {
+    color: var(--mustard-yellow);
+    padding: 5px 12px 0;
+    border-radius: 100%;
+  }
+  .MobTopUni_mob_topUniversitiesMegaMenu__viewAllBtn___DE0w {
+    width: 30%;
+    margin-top: 15px;
+    transition: 0.2s;
+    border-radius: 33px;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 2px;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+  }
+}
+@media screen and (max-width: 1110px) {
+  .MobNavExpModal_bgColor__QB_zZ {
+    background-color: var(--dark-blue);
+    color: #fff;
+  }
+  .MobNavExpModal_mob_nav_browse_container__cLpSL {
+    padding: 0 4% 0 0;
+    margin: auto;
+    line-height: 120%;
+  }
+  .MobNavExpModal_mob_nav_course_list_single_box__4YkmZ {
+    border-radius: 5px;
+    text-align: left;
+    padding: 0 20px 0 1px;
+    margin: 0 15px 0 0;
+    font-size: 15px;
+    color: #0c0c0c;
+  }
+  .MobNavExpModal_mob_nav_course_list_single_box__4YkmZ:hover {
+    background-color: var(--dark-blue);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: #fff;
+  }
+  .MobNavExpModal_mob_nav_browse_slide_individual_box__dh_Uj {
+    width: 120%;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    line-height: 120%;
+  }
+  .MobNavExpModal_mob_nav_course_list_btn__riFLq {
+    background-color: transparent;
+    text-align: left;
+  }
+  .MobNavExpModal_mob_nav_browse_course_container___tqJy {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+  }
+  .MobNavExpModal_mob_nav_browse_course_list_main_box__t7Klt {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    border: 1px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 2px 0 #e7f2fb;
+  }
+  .MobNavExpModal_mob_nav_browse_course_list_main_box__t7Klt::-webkit-scrollbar {
+    display: none;
+  }
+  .MobNavExpModal_mob_nav_course_grid_box__eA81Z {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  .MobNavExpModal_mob_nav_browse_course_card__HEedV {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 1px 1px 9px 9px;
+    margin-bottom: 10px;
+  }
+  .MobNavExpModal_mob_nav_browse_course_card_top_container__aihwk {
+    width: 100%;
+    padding: 15px 15px 0;
+    flex-shrink: 0;
+  }
+  .MobNavExpModal_mob_nav_browse_course_card_img__3eoXt {
+    border-radius: 5px;
+    max-width: 100%;
+    max-height: 85px;
+  }
+  .MobNavExpModal_mob_nav_browse_course_card_view__ZTxM3 {
+    box-sizing: border-box;
+    text-align: center;
+    color: var(--black);
+    font-weight: 500;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 0 0 8px 8px;
+    background: #cbe0ff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .MobNavExpModal_mob_nav_browse_course_card_heading__yDE6u {
+    color: #0c0c0c;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+    margin: 4px 0;
+    font-size: 14px;
+  }
+  .MobNavExpModal_mob_nav_browse_course_card_duration__Ohiiy {
+    color: #0c0c0c;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 4px 0;
+  }
+  .MobNavExpModal_mob_nav_browse_course_card_compare__ZWg86 {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 6px;
+    color: #006b78;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .MobNavExpModal_compare_arrow__dVLrG {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .MobNavExpModal_mob_nav_browse_course_view_all_btn__9Aq_O {
+    margin: 10px auto auto;
+    border-radius: 20px;
+    border: none;
+    padding: 12px 20px;
+    width: 90%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background-color: var(--dark-blue);
+    color: #fff;
+  }
+}
+@media screen and (max-width: 380px) {
+  .MobNavExpModal_mob_nav_browse_course_card_top_container__aihwk {
+    width: 100%;
+    padding: 8px;
+  }
+  .MobNavExpModal_mob_nav_browse_course_card__HEedV {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    gap: 2px;
+  }
+}
+.MainNavbar_glowEffect__rDwyX {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: var(--dark-blue);
+  position: relative;
+  z-index: 0;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 5px;
+  cursor: pointer;
+}
+.MainNavbar_glowEffect__rDwyX:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #e89e26,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #e89e26
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: MainNavbar_glowing__n5aat 20s linear infinite;
+  border-radius: 10px;
+}
+@keyframes MainNavbar_glowing__n5aat {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.MainNavbar_link__iO0Mw {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+}
+.MainNavbar_navMenu__OVz2R {
+  display: none;
+}
+.MainNavbar_mainNavBar__container__z6qtu {
+  width: 100%;
+  padding: 20px 0 0;
+  color: #fff;
+  position: absolute;
+  z-index: 2;
+  top: 55px;
+}
+.MainNavbar_mainNavBar__flexContainer__vrduk {
+  display: flex;
+  width: 88%;
+  margin: auto;
+  justify-content: space-between;
+}
+.MainNavbar_mainNavBar__image__PzG4X {
+  width: 200px;
+  height: auto;
+}
+.MainNavbar_mainNavBar__buttonsContainer__cd5rz {
+  gap: 2vw;
+  display: flex;
+  align-items: center;
+}
+.MainNavbar_mainNavBar__exploreButton__5Zbpj {
+  display: flex;
+  background: #014487;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.MainNavbar_mainNavBar__exploreButton__5Zbpj:hover {
+  background: #e89e26;
+  font-weight: 500;
+}
+.MainNavbar_mainNavBar__universityButton__gcLg0 {
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+  color: #fff !important;
+}
+.MainNavbar_mainNavBar__buttons__d4Wd3:hover,
+.MainNavbar_mainNavBar__universityButton__gcLg0:hover {
+  background: rgba(232, 158, 38, 0.5);
+}
+.MainNavbar_mainNavBar__topUniversities__6O3dP {
+  font-size: 16px;
+  color: #fff !important;
+}
+.MainNavbar_mainNavBar__buttons__d4Wd3 {
+  font-weight: 400;
+  font-size: 16px;
+  padding: 7px 12px;
+  color: #fff;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.MainNavbar_mainNavBar__referral__YsfZj {
+  transform: scale(1);
+}
+.MainNavbar_tooltip__cUQ11 {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.MainNavbar_tooltipText__ktv3w {
+  visibility: hidden;
+  width: 130px;
+  background-color: var(--white);
+  text-align: center;
+  color: var(--black);
+  border-radius: 6px;
+  padding: 5px 1px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-weight: 600;
+}
+.MainNavbar_tooltip__cUQ11 .MainNavbar_tooltipText__ktv3w {
+  visibility: visible;
+  opacity: 1;
+}
+.MainNavbar_rupee__Vz2cU {
+  color: var(--mustard-yellow);
+  font-weight: 700;
+}
+.MainNavbar_hamburger__login__Z2UXZ {
+  width: 100%;
+  align-items: center;
+  gap: 5px;
+  background-color: #161617;
+  color: #fff;
+  padding: 20px 25px;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.16);
+}
+.MainNavbar_hamburger__login_icon___kV9J {
+  font-size: 16px;
+  color: #fff;
+}
+.MainNavbar_hamburger__login_text__OdLJu {
+  font-size: 12px;
+}
+.MainNavbar_hamburger__link_1__j35QB {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.MainNavbar_hamburger__link_2__1evAZ {
+  color: #fff;
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+.MainNavbar_hamburger__link_span__7ks6c {
+  font-size: 10px;
+  background: #016a70;
+  color: #fff;
+  border-radius: 2px;
+  margin-left: 3px;
+  padding: 2px 3px;
+}
+@keyframes MainNavbar_flash__k_if3 {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.MainNavbar_flashingIcon__CnDNy {
+  color: #ff0;
+  animation: MainNavbar_flash__k_if3 2s infinite;
+  vertical-align: middle;
+  display: inline-block;
+}
+@media screen and (max-width: 1700px) {
+  .MainNavbar_mainNavBar__buttonsContainer__cd5rz {
+    gap: 1vw;
+  }
+  @keyframes MainNavbar_flash__k_if3 {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .MainNavbar_flashingIcon__CnDNy {
+    color: #ff0;
+    animation: MainNavbar_flash__k_if3 2s infinite;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .MainNavbar_mainNavBar__buttonsContainer__cd5rz {
+    gap: 0.8vw;
+  }
+  .MainNavbar_mainNavBar__buttons__d4Wd3 {
+    font-weight: 400;
+    font-size: 14px;
+  }
+  .MainNavbar_mainNavBar__referral__YsfZj {
+    transform: scale(0.8);
+  }
+  .MainNavbar_mainNavBar__exploreButton__5Zbpj {
+    font-size: 14px;
+    padding: 5px 8px;
+    border-radius: 5px;
+  }
+  .MainNavbar_mainNavBar__topUniversities__6O3dP {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1350px) {
+  .MainNavbar_mainNavBar__container__z6qtu {
+    width: 100%;
+    padding: 0;
+    top: 50px;
+  }
+  .MainNavbar_mainNavBar__buttonsContainer__cd5rz {
+    gap: 0.2vw;
+  }
+  .MainNavbar_mainNavBar__buttons__d4Wd3 {
+    font-weight: 400;
+    font-size: 13px;
+  }
+  .MainNavbar_mainNavBar__referral__YsfZj {
+    transform: scale(0.8);
+  }
+  .MainNavbar_mainNavBar__exploreButton__5Zbpj {
+    font-size: 13px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  .MainNavbar_mainNavBar__topUniversities__6O3dP {
+    font-size: 13px;
+    margin-right: 5px;
+  }
+  .MainNavbar_mainNavBar__image__PzG4X {
+    width: 150px;
+  }
+  .MainNavbar_mainNavBar__buttons__d4Wd3 {
+    padding: 5px 10px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .MainNavbar_mainNavBar__flexContainer__vrduk {
+    display: none;
+  }
+  .MainNavbar_navMenu__OVz2R {
+    display: block;
+  }
+}
+@media screen and (max-width: 991px) {
+  .MainNavbar_mainNavBar__button__1rmif {
+    display: none;
+  }
+  .MainNavbar_mainNavBar__container__z6qtu {
+    padding: 10px 0;
+    top: 0;
+  }
+  .MainNavbar_mainNavBar__flexContainer__vrduk {
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .MainNavbar_topUniversitiesModal__viewAllBtn__kWvRx {
+    padding: 10px 30px;
+    font-size: 12px;
+    margin-bottom: 50px;
+  }
+  .MainNavbar_topUniversitiesModal__citiesContainer_flexRow__u4cZ9 {
+    margin-bottom: 20px;
+  }
+  .MainNavbar_topUniversitiesModal__inputContainer__qP5uY {
+    width: 80%;
+  }
+  .MainNavbar_topUniversitiesModal_iconContainer__RT3A3 {
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .MainNavbar_topUniversitiesModal__Container__mihgT {
+    padding: 80px 20px 0;
+  }
+  .MainNavbar_topUniversitiesModal__input__2kXlM {
+    padding-left: 0;
+  }
+  .MainNavbar_topUniversitiesModal__input__2kXlM::-moz-placeholder {
+    font-size: 12px;
+  }
+  .MainNavbar_topUniversitiesModal__input__2kXlM::placeholder {
+    font-size: 12px;
+  }
+  .MainNavbar_topUniversitiesModal__inputContainer__qP5uY {
+    width: 90%;
+  }
+}

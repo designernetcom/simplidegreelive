@@ -1,0 +1,224 @@
+.examdetails_heroContainer__i_27q {
+  width: 85%;
+  margin: auto;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  padding: 25px 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.examdetails_applyBtn__uRLq_ {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.examdetails_heading__jgRra {
+  font-size: 30px;
+  font-weight: 600;
+}
+.examdetails_button_section__r5G1v {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.examdetails_course_content_container__CWuKQ {
+  width: 85%;
+  margin: auto;
+}
+.examdetails_course_accordion_data_container__d960b {
+  margin-top: 50px;
+}
+.examdetails_eligible_tbody__VgQnk > td {
+  border: 1px solid var(--dark-blue);
+  padding: 10px;
+  font-size: 16px;
+  line-height: 150%;
+}
+.examdetails_eligible_table__89bvS {
+  border-collapse: collapse;
+  text-align: left;
+  border: 1px solid var(--dark-blue);
+  margin-top: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+.examdetails_eligible_table__89bvS > thead {
+  background: var(--dark-blue);
+}
+.examdetails_eligible_head__iHff1 > th {
+  color: var(--white);
+  padding: 10px;
+  font-size: 16px;
+  font-size: 400;
+  width: 33%;
+}
+.examdetails_row_white__WFM9S {
+  background-color: var(--white);
+}
+.examdetails_row_blue__V6qV8 {
+  background-color: #d6e7f8;
+}
+.examdetails_sliderWrapper__VCWTR {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  position: relative;
+  margin: 40px auto;
+  border: 1px solid #d8d8d8;
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.examdetails_menuContainer__jmxdl {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin: auto;
+  overflow-x: scroll;
+}
+.examdetails_menuContainer__jmxdl::-webkit-scrollbar {
+  display: none;
+}
+.examdetails_titleName__SZCT0 {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #d8d8d8;
+  border-radius: 7px;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+.examdetails_active__maL5y {
+  background-color: var(--dark-blue);
+  color: #fff;
+}
+.examdetails_register__TNkf5 {
+  margin: 5px 0 0;
+}
+.examdetails_registerdescription__nqDsl {
+  line-height: 150%;
+  margin: 10px 20px 20px;
+}
+.examdetails_resevationText__RV6fF {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  line-height: 150%;
+  gap: 5px;
+}
+.examdetails_reservationIcon__vf7Rg {
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  min-height: 15px;
+  margin-top: 4px;
+}
+.examdetails_faqMainContainer__hWXOW {
+  width: 100%;
+}
+.examdetails_questionContainer__PVtoe {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  background-color: #d6e7f8;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.examdetails_accordionIcon__sYbUm,
+.examdetails_ques__eSZ_y {
+  font-size: 16px;
+}
+.examdetails_ans__NCkHU {
+  font-size: 16px;
+  margin-top: 10px;
+  line-height: 120%;
+  padding: 0 20px;
+}
+.examdetails_icon__mivW7 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.examdetails_navbarContainer__qfLvU {
+  padding-top: 170px;
+  background: #0c2d50;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+.examdetails_dataContainer__M5pul {
+  background-color: #f8fbff;
+  padding: 30px 0;
+}
+.examdetails_arrayPoints__E_CXK {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+  width: 100%;
+  margin: 10px;
+  gap: 4px;
+}
+.examdetails_PreviousYearPaperpara__P_dDL,
+.examdetails_answerkeypara__oy_ps {
+  margin: 0 0 15px;
+}
+@media screen and (max-width: 1024px) {
+  .examdetails_navbarContainer__qfLvU {
+    height: 100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .examdetails_navbarContainer__qfLvU {
+    height: 80px;
+  }
+}
+@media screen and (max-width: 426px) {
+  .examdetails_course_content_container__CWuKQ {
+    width: 90%;
+  }
+  .examdetails_course_accordion_data_container__d960b {
+    font-size: 14px;
+  }
+  .examdetails_heroContainer__i_27q {
+    width: 90%;
+  }
+  .examdetails_sliderWrapper__VCWTR {
+    width: 100%;
+  }
+  .examdetails_titleName__SZCT0 {
+    font-size: 16px;
+  }
+  .examdetails_heading__jgRra {
+    font-size: 22px;
+  }
+  .examdetails_ans__NCkHU,
+  .examdetails_eligible_tbody__VgQnk > td,
+  .examdetails_ques__eSZ_y {
+    font-size: 14px;
+  }
+  .examdetails_navbarContainer__qfLvU {
+    height: 60px;
+    padding: 20px 0;
+  }
+}

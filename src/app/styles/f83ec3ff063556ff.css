@@ -1,0 +1,81 @@
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__UNS2H {
+  max-width: 100%;
+}
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__row__y14AI {
+  padding: 5% 8% 2%;
+}
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__heading__V_t9W {
+  font-size: 34px;
+  line-height: 150%;
+  margin-top: 15px;
+}
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__para__7UflN {
+  font-size: 16px;
+  line-height: 150%;
+  padding-bottom: 20px;
+}
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__subheading__KWvuc {
+  font-size: 26px;
+  line-height: 150%;
+}
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__ul___VGCm {
+  line-height: 150%;
+  font-size: 16px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__table__z67hm {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #0c2d4f;
+  margin-bottom: 30px;
+}
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__table__z67hm
+  td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+.GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__table__z67hm
+  th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  background-color: #0c2d4f;
+  color: #fff;
+}
+.GPACalculatorAnnaUniversityContent_faq__questions__mvInH {
+  padding-bottom: 5px;
+}
+.GPACalculatorAnnaUniversityContent_faq__ul__k6L82 {
+  line-height: 150%;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  margin-top: -15px;
+}
+@media screen and (max-width: 1024px) {
+  .GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__heading__V_t9W {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__heading__V_t9W {
+    font-size: 24px;
+  }
+  .GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__para__7UflN,
+  .GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__content_container__ul___VGCm,
+  .GPACalculatorAnnaUniversityContent_faq__ul__k6L82 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity_content_container_heading__2N6De {
+    font-size: 22px;
+    line-height: 120%;
+    margin-bottom: 10px;
+  }
+  .GPACalculatorAnnaUniversityContent_GPACalculatorAnnaUniversity__table__z67hm {
+    font-size: 12px;
+  }
+}

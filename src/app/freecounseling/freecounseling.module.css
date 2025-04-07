@@ -1,0 +1,371 @@
+.VideoMeetForm_meet_container__g_Jua {
+  padding: 50px;
+  border: 5px solid #fff;
+}
+.VideoMeetForm_nav_container___QBDb {
+  background-color: var(--dark-blue);
+  padding-top: 160px;
+}
+.VideoMeetForm_heading__okOaX {
+  color: var(--dark-blue);
+  font-size: 34px;
+}
+.VideoMeetForm_heading2__Jkx8d {
+  color: var(--mustard-yellow);
+  margin-top: 10px;
+  font-size: 34px;
+  line-height: 140%;
+}
+.VideoMeetForm_meet_heading__r_PMq {
+  margin-bottom: 30px;
+}
+.VideoMeetForm_container__BpLnG {
+  background-color: rgba(167, 224, 224, 0.273);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 10px 6% 0;
+}
+.VideoMeetForm_form_img_container__HZVf6 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8%;
+}
+.VideoMeetForm_form_container__Fs_AO {
+  background-color: #fff;
+  padding: 10px 10px 0;
+  max-height: 480px;
+  overflow-y: auto;
+}
+.VideoMeetForm_leftcontainer__UsEyw,
+.VideoMeetForm_rightcontainer__OedA8 {
+  flex: 50%;
+}
+.VideoMeetForm_form_lable__QhKEV {
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.VideoMeetForm_date_time_container__z2u_4 {
+  display: flex;
+  gap: 5px;
+}
+.VideoMeetForm_form_input__GBYSX {
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 15px;
+  color: grey;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+}
+.VideoMeetForm_meet_form_container__cJbrA {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: auto;
+}
+.VideoMeetForm_meet_btn__gwwpe {
+  padding: 10px 15px;
+  color: var(--white);
+  font-size: 16px;
+  background-color: var(--dark-blue);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.VideoMeetForm_message__4vSsU {
+  color: green;
+}
+.VideoMeetForm_meet_link__kuuhd {
+  margin: 10px;
+  background-color: #147ad8;
+  color: #fff;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  text-decoration: none;
+  align-items: center;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  border-radius: 5px;
+}
+.VideoMeetForm_phoneInput__jtAyQ {
+  border-radius: 5px;
+  margin-top: 15px;
+}
+.VideoMeetForm_image_video__hrX7g {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.VideoMeetForm_phone_input__V6Oim {
+  margin-bottom: 15px;
+}
+.VideoMeetForm_phone_input__V6Oim::-moz-placeholder {
+  opacity: 0.5;
+}
+.VideoMeetForm_phone_input__V6Oim::placeholder {
+  opacity: 0.5;
+}
+.VideoMeetForm_subheading__FqkDv {
+  margin: 15px 0 0;
+  color: var(--dark-blue);
+  line-height: 150%;
+  font-size: 16px;
+  font-weight: 600;
+}
+.VideoMeetForm_subheading2__u7_2_ {
+  margin: 0 0 30px;
+  color: var(--dark-blue);
+  line-height: 150%;
+  font-size: 14px;
+}
+.VideoMeetForm_formheadsec__1hYid {
+  text-align: center;
+}
+.VideoMeetForm_formheading__MIX0Y {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.VideoMeetForm_formtext__A6tJX {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 1020px) {
+  .VideoMeetForm_nav_container___QBDb {
+    padding-top: 80px;
+  }
+  .VideoMeetForm_container__BpLnG {
+    padding: 50px;
+  }
+  .VideoMeetForm_heading__okOaX {
+    font-size: 28px;
+  }
+  .VideoMeetForm_heading2__Jkx8d {
+    font-size: 22px;
+  }
+  .VideoMeetForm_form_img_container__HZVf6 {
+    display: block;
+  }
+  .VideoMeetForm_form_container__Fs_AO {
+    margin-top: 10px;
+    max-width: 100%;
+    min-width: 80%;
+    justify-content: center;
+  }
+  .VideoMeetForm_image_video__hrX7g {
+    -o-object-fit: contain;
+    object-fit: contain;
+    max-width: 100%;
+  }
+  .VideoMeetForm_date_time_container__z2u_4 {
+    flex-wrap: wrap;
+    gap: 0;
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .VideoMeetForm_nav_container___QBDb {
+    padding-top: 80px;
+  }
+  .VideoMeetForm_heading__okOaX {
+    font-size: 24px;
+  }
+  .VideoMeetForm_heading2__Jkx8d {
+    font-size: 18px;
+  }
+  .VideoMeetForm_container__BpLnG {
+    padding: 10px 4% 0;
+  }
+  .VideoMeetForm_leftcontainer__UsEyw {
+    text-align: center;
+  }
+  .VideoMeetForm_subheading2__u7_2_,
+  .VideoMeetForm_subheading__FqkDv {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .VideoMeetForm_nav_container___QBDb {
+    padding-top: 60px;
+  }
+  .VideoMeetForm_heading__okOaX {
+    font-size: 22px;
+  }
+  .VideoMeetForm_heading2__Jkx8d {
+    font-size: 20px;
+  }
+  .VideoMeetForm_image_video__hrX7g {
+    padding: 20px 20px 0;
+  }
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/media/0822b6067e7c0dee-s.woff2) format("woff2");
+  unicode-range: u+0102-0103, u+0110-0111, u+0128-0129, u+0168-0169, u+01a0-01a1,
+    u+01af-01b0, u+0300-0301, u+0303-0304, u+0308-0309, u+0323, u+0329,
+    u+1ea0-1ef9, u+20ab;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/media/67354d9f27664b22-s.woff2) format("woff2");
+  unicode-range: u+0100-02ba, u+02bd-02c5, u+02c7-02cc, u+02ce-02d7, u+02dd-02ff,
+    u+0304, u+0308, u+0329, u+1d00-1dbf, u+1e00-1e9f, u+1ef2-1eff, u+2020,
+    u+20a0-20ab, u+20ad-20c0, u+2113, u+2c60-2c7f, u+a720-a7ff;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/media/6905431624c34d00-s.p.woff2) format("woff2");
+  unicode-range: u+00??, u+0131, u+0152-0153, u+02bb-02bc, u+02c6, u+02da,
+    u+02dc, u+0304, u+0308, u+0329, u+2000-206f, u+20ac, u+2122, u+2191, u+2193,
+    u+2212, u+2215, u+feff, u+fffd;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/media/0822b6067e7c0dee-s.woff2) format("woff2");
+  unicode-range: u+0102-0103, u+0110-0111, u+0128-0129, u+0168-0169, u+01a0-01a1,
+    u+01af-01b0, u+0300-0301, u+0303-0304, u+0308-0309, u+0323, u+0329,
+    u+1ea0-1ef9, u+20ab;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/media/67354d9f27664b22-s.woff2) format("woff2");
+  unicode-range: u+0100-02ba, u+02bd-02c5, u+02c7-02cc, u+02ce-02d7, u+02dd-02ff,
+    u+0304, u+0308, u+0329, u+1d00-1dbf, u+1e00-1e9f, u+1ef2-1eff, u+2020,
+    u+20a0-20ab, u+20ad-20c0, u+2113, u+2c60-2c7f, u+a720-a7ff;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/media/6905431624c34d00-s.p.woff2) format("woff2");
+  unicode-range: u+00??, u+0131, u+0152-0153, u+02bb-02bc, u+02c6, u+02da,
+    u+02dc, u+0304, u+0308, u+0329, u+2000-206f, u+20ac, u+2122, u+2191, u+2193,
+    u+2212, u+2215, u+feff, u+fffd;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/media/0822b6067e7c0dee-s.woff2) format("woff2");
+  unicode-range: u+0102-0103, u+0110-0111, u+0128-0129, u+0168-0169, u+01a0-01a1,
+    u+01af-01b0, u+0300-0301, u+0303-0304, u+0308-0309, u+0323, u+0329,
+    u+1ea0-1ef9, u+20ab;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/media/67354d9f27664b22-s.woff2) format("woff2");
+  unicode-range: u+0100-02ba, u+02bd-02c5, u+02c7-02cc, u+02ce-02d7, u+02dd-02ff,
+    u+0304, u+0308, u+0329, u+1d00-1dbf, u+1e00-1e9f, u+1ef2-1eff, u+2020,
+    u+20a0-20ab, u+20ad-20c0, u+2113, u+2c60-2c7f, u+a720-a7ff;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/media/6905431624c34d00-s.p.woff2) format("woff2");
+  unicode-range: u+00??, u+0131, u+0152-0153, u+02bb-02bc, u+02c6, u+02da,
+    u+02dc, u+0304, u+0308, u+0329, u+2000-206f, u+20ac, u+2122, u+2191, u+2193,
+    u+2212, u+2215, u+feff, u+fffd;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/media/0822b6067e7c0dee-s.woff2) format("woff2");
+  unicode-range: u+0102-0103, u+0110-0111, u+0128-0129, u+0168-0169, u+01a0-01a1,
+    u+01af-01b0, u+0300-0301, u+0303-0304, u+0308-0309, u+0323, u+0329,
+    u+1ea0-1ef9, u+20ab;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/media/67354d9f27664b22-s.woff2) format("woff2");
+  unicode-range: u+0100-02ba, u+02bd-02c5, u+02c7-02cc, u+02ce-02d7, u+02dd-02ff,
+    u+0304, u+0308, u+0329, u+1d00-1dbf, u+1e00-1e9f, u+1ef2-1eff, u+2020,
+    u+20a0-20ab, u+20ad-20c0, u+2113, u+2c60-2c7f, u+a720-a7ff;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/media/6905431624c34d00-s.p.woff2) format("woff2");
+  unicode-range: u+00??, u+0131, u+0152-0153, u+02bb-02bc, u+02c6, u+02da,
+    u+02dc, u+0304, u+0308, u+0329, u+2000-206f, u+20ac, u+2122, u+2191, u+2193,
+    u+2212, u+2215, u+feff, u+fffd;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/media/0822b6067e7c0dee-s.woff2) format("woff2");
+  unicode-range: u+0102-0103, u+0110-0111, u+0128-0129, u+0168-0169, u+01a0-01a1,
+    u+01af-01b0, u+0300-0301, u+0303-0304, u+0308-0309, u+0323, u+0329,
+    u+1ea0-1ef9, u+20ab;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/media/67354d9f27664b22-s.woff2) format("woff2");
+  unicode-range: u+0100-02ba, u+02bd-02c5, u+02c7-02cc, u+02ce-02d7, u+02dd-02ff,
+    u+0304, u+0308, u+0329, u+1d00-1dbf, u+1e00-1e9f, u+1ef2-1eff, u+2020,
+    u+20a0-20ab, u+20ad-20c0, u+2113, u+2c60-2c7f, u+a720-a7ff;
+}
+@font-face {
+  font-family: __Work_Sans_8a48d8;
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  
+  
+  unicode-range: u+00??, u+0131, u+0152-0153, u+02bb-02bc, u+02c6, u+02da,
+    u+02dc, u+0304, u+0308, u+0329, u+2000-206f, u+20ac, u+2122, u+2191, u+2193,
+    u+2212, u+2215, u+feff, u+fffd;
+}
+@font-face {
+  font-family: __Work_Sans_Fallback_8a48d8;
+  src: local("Arial");
+  ascent-override: 83.09%;
+  descent-override: 21.71%;
+  line-gap-override: 0%;
+  size-adjust: 111.93%;
+}
+.__className_8a48d8 {
+  font-family: __Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8;
+  font-style: normal;
+}
+

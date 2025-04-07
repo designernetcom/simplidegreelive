@@ -1,0 +1,719 @@
+.CareerFormSection_customContainer__3lq_T {
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+}
+.CareerFormSection_inputContainer__9A4mo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.CareerFormSection_floatingLabelGroup___brYd {
+  flex: 1;
+  position: relative;
+  margin-bottom: 0.625vw;
+}
+.CareerFormSection_floatingLabel__NEE6r {
+  font-size: 0.9375vw;
+  color: var(--very-light-grey);
+  position: absolute;
+  pointer-events: none;
+  top: 1.3625vw;
+  left: 0.625vw;
+  transition: all 0.3s ease;
+  max-width: calc(100% - 1.25vw);
+}
+.CareerFormSection_formControl____7o4 {
+  border: 1px solid var(--very-light-grey);
+  outline: none;
+  background: transparent;
+  width: 100%;
+  padding: 0.9375vw 5px 5px 10px;
+  height: 3.85vw;
+  font-size: 0.9375vw;
+  border-radius: 0.52vw;
+  transition: border-color 0.2s ease;
+}
+.CareerFormSection_formControl____7o4:focus
+  ~ .CareerFormSection_floatingLabel__NEE6r,
+.CareerFormSection_formControl____7o4:not(:focus):valid
+  ~ .CareerFormSection_floatingLabel__NEE6r,
+.CareerFormSection_textareaStyle__gAbN1:focus
+  ~ .CareerFormSection_floatingLabel__NEE6r,
+.CareerFormSection_textareaStyle__gAbN1:not(:focus):valid
+  ~ .CareerFormSection_floatingLabel__NEE6r {
+  top: 5px;
+  height: auto;
+  padding-left: 5px;
+  margin-left: 8px;
+  left: 0;
+  font-size: 0.833vw;
+  opacity: 1;
+  color: var(--dark-blue);
+}
+.CareerFormSection_contact_submit_button__anmIv {
+  border-radius: 1.041vw;
+  font-size: 1.041vw;
+  border: 1px solid var(--very-light-grey);
+  background: var(--mustard-yellow);
+  width: 100%;
+  line-height: 120%;
+  padding: 1.4583vw 0;
+  cursor: pointer;
+}
+.CareerFormSection_resume_choose_input__YQUA_ {
+  color: var(--dark-blue);
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .CareerFormSection_inputContainer__9A4mo {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0;
+    height: auto;
+    margin-top: 5px;
+  }
+  .CareerFormSection_floatingLabel__NEE6r {
+    font-size: 14px;
+    top: 15px;
+  }
+  .CareerFormSection_formControl____7o4 {
+    height: 45px;
+    font-size: 14px;
+  }
+  .CareerFormSection_formControl____7o4:focus
+    ~ .CareerFormSection_floatingLabel__NEE6r,
+  .CareerFormSection_formControl____7o4:not(:focus):valid
+    ~ .CareerFormSection_floatingLabel__NEE6r,
+  .CareerFormSection_textareaStyle__gAbN1:focus
+    ~ .CareerFormSection_floatingLabel__NEE6r,
+  .CareerFormSection_textareaStyle__gAbN1:not(:focus):valid
+    ~ .CareerFormSection_floatingLabel__NEE6r {
+    font-size: 12px;
+    top: 2px;
+    padding-left: 8px;
+    margin-left: 0;
+  }
+  .CareerFormSection_floatingLabelGroup___brYd {
+    margin-bottom: 0.625vw;
+  }
+  .CareerFormSection_contact_submit_button__anmIv {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CareerFormSection_formControl____7o4:focus
+    ~ .CareerFormSection_floatingLabel__NEE6r,
+  .CareerFormSection_formControl____7o4:not(:focus):valid
+    ~ .CareerFormSection_floatingLabel__NEE6r,
+  .CareerFormSection_textareaStyle__gAbN1:focus
+    ~ .CareerFormSection_floatingLabel__NEE6r,
+  .CareerFormSection_textareaStyle__gAbN1:not(:focus):valid
+    ~ .CareerFormSection_floatingLabel__NEE6r {
+    top: 1px;
+    left: 10px;
+    height: 10px;
+    padding-left: 5px;
+    margin-left: 0;
+    margin-bottom: 4px;
+  }
+  .CareerFormSection_formControl____7o4 {
+    width: 100%;
+    padding: 6vw 25px 25px 10px;
+    height: 30px;
+  }
+  .CareerFormSection_floatingLabelGroup___brYd {
+    margin-bottom: 20px;
+  }
+  .CareerFormSection_floatingLabel__NEE6r {
+    font-size: 18px;
+    top: 4vw;
+    left: 10px;
+  }
+  .CareerFormSection_customContainer__3lq_T
+    div:nth-child(6)
+    div
+    .CareerFormSection_formControl____7o4 {
+    padding: 10px;
+    height: 40px;
+  }
+  .CareerFormSection_contact_submit_button__anmIv {
+    font-size: 16px;
+    padding: 16px 0;
+  }
+}
+.CareerHeroSection_Career_page_Hero__container__mAVuD {
+  width: 100%;
+  height: 550px;
+  padding: 231px 0 300px;
+ /* background-image: url('/media/careerbg1.1eca35fc.webp'); */
+background-repeat: no-repeat;
+background-size: cover;
+background-position: top;
+}
+.CareerHeroSection_Career_page_Hero__headingContainer__Zuaf6 {
+  width: 85%;
+  color: var(--white);
+  margin: auto;
+}
+.CareerHeroSection_Career_page_Hero__heading__mxV_U {
+  text-shadow: 5px 5px 5px var(--dark-black);
+  font-size: 3.33vw;
+  margin-bottom: 5px;
+}
+.CareerHeroSection_Career_page_Hero__subheading__T6okQ {
+  width: 45%;
+  text-shadow: 2px 3px 5px var(--dark-black);
+  font-size: 30px;
+  line-height: 150%;
+}
+@media screen and (max-width: 1600px) {
+  .CareerHeroSection_Career_page_Hero__container__mAVuD {
+    padding: 231px 0 300px;
+  }
+  .CareerHeroSection_Career_page_Hero__headingContainer__Zuaf6 {
+    width: 75%;
+    margin-left: 8%;
+  }
+  .CareerHeroSection_Career_page_Hero__heading__mxV_U {
+    font-size: 44px;
+  }
+  .CareerHeroSection_Career_page_Hero__subheading__T6okQ {
+    font-size: 22px;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .CareerHeroSection_Career_page_Hero__container__mAVuD {
+    height: 436px;
+    padding: 231px 0 300px;
+  }
+  .CareerHeroSection_Career_page_Hero__headingContainer__Zuaf6 {
+    width: 85%;
+  }
+  .CareerHeroSection_Career_page_Hero__subheading__T6okQ {
+    width: 50%;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CareerHeroSection_Career_page_Hero__container__mAVuD {
+    padding: 180px 0 250px;
+  }
+  .CareerHeroSection_Career_page_Hero__headingContainer__Zuaf6 {
+    width: 85%;
+    margin-left: 4%;
+  }
+  .CareerHeroSection_Career_page_Hero__heading__mxV_U {
+    width: 75;
+    font-size: 30px;
+  }
+  .CareerHeroSection_Career_page_Hero__subheading__T6okQ {
+    width: 60%;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CareerHeroSection_Career_page_Hero__container__mAVuD {
+    padding: 160px 0 220px;
+    height: 274px;
+  }
+  .CareerHeroSection_Career_page_Hero__headingContainer__Zuaf6 {
+    width: 85%;
+    margin-left: 4%;
+  }
+  .CareerHeroSection_Career_page_Hero__heading__mxV_U {
+    font-size: 6.25vw;
+    text-transform: uppercase;
+  }
+  .CareerHeroSection_Career_page_Hero__subheading__T6okQ {
+    width: 80%;
+    font-size: 3.33vw;
+  }
+}
+.CareerEmpSection_CareerEmp__container__lxXg6 {
+  max-width: 100%;
+}
+.CareerEmpSection_CareerEmp__row__4Z2gW {
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;
+  padding: 3% 8% 5%;
+  align-items: center;
+}
+.CareerEmpSection_CareerEmp__column__w_zJw {
+  flex: 1;
+  margin-bottom: -10px;
+}
+.CareerEmpSection_CareerEmp__heading__gL77n {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 120%;
+  color: var(--dark-blue);
+  margin-top: 30px;
+}
+.CareerEmpSection_CareerEmp__para__6WcIA {
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 400 !important;
+  line-height: 150%;
+  margin-top: 30px;
+}
+.CareerEmpSection_CareerEmp__video__e4kwg {
+  border: 2px solid transparent;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1;
+}
+.CareerEmpSection_CareerEmp__leftimage__kOn8_ {
+  background-color: var(--light-mustard-bg);
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 13;
+}
+.CareerEmpSection_About_form_leftimage__d2WwE {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.CareerEmpSection_CareerEmp_bulletarea__JftmE {
+  padding: 20px 0;
+}
+.CareerEmpSection_CareerEmp__bullet__5zHb0 {
+  margin: 10px 0;
+  display: inline-flex;
+  gap: 20px;
+  align-items: center;
+}
+.CareerEmpSection_CareerEmp__bulletpara__qLynj {
+  font-size: 13px;
+  flex: 100%;
+}
+.CareerEmpSection_CareerEmp__ciricon__oFH49 {
+  color: var(--mustard-yellow);
+  width: 30px;
+  height: 30px;
+}
+.CareerEmpSection_details_form_heading__o99Zz {
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--black);
+  text-align: center;
+  padding-top: 30px;
+}
+.CareerEmpSection_details_form_heading__o99Zz span {
+  font-weight: 700;
+  color: var(--dark-blue);
+  text-align: center;
+}
+@media screen and (max-width: 1024px) {
+  .CareerEmpSection_CareerEmp__heading__gL77n {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+  .CareerEmpSection_details_form_heading__o99Zz {
+    font-size: 28px;
+  }
+  .CareerEmpSection_CareerEmp__para__6WcIA {
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 400 !important;
+    line-height: 150%;
+    margin-top: 30px;
+  }
+  .CareerEmpSection_CareerEmp__bullet__5zHb0 {
+    margin: 15px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    gap: 10px;
+  }
+  .CareerEmpSection_About_form_leftimage__d2WwE {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CareerEmpSection_CareerEmp__heading__gL77n,
+  .CareerEmpSection_details_form_heading__o99Zz {
+    font-size: 24px;
+  }
+  .CareerEmpSection_CareerEmp__row__4Z2gW {
+    display: block;
+  }
+  .CareerEmpSection_CareerEmp__leftimage__kOn8_ {
+    padding: 20px;
+    margin-bottom: 50px;
+    border: 2px solid transparent;
+    border-radius: 13px;
+  }
+  .CareerEmpSection_CareerEmp__ciricon__oFH49 {
+    flex: 5%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CareerEmpSection_CareerEmp__heading__gL77n {
+    font-size: 22px;
+  }
+  .CareerEmpSection_CareerEmp__para__6WcIA {
+    margin-top: 20px;
+  }
+  .CareerEmpSection_CareerEmp__ciricon__oFH49 {
+    flex: 10%;
+  }
+  .CareerEmpSection_details_form_heading__o99Zz {
+    text-align: center;
+    font-size: 22px;
+  }
+}
+.CareerJobsSection_bloc_tabs__ArH8E {
+  display: flex;
+  padding-top: 10px;
+  gap: 20px;
+  border-bottom: 1px solid var(--very-light-grey);
+}
+.CareerJobsSection_active_tabs__QfJTG {
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--dark-blue);
+  text-align: center;
+}
+.CareerJobsSection_bloc_tabs__ArH8E > div {
+  width: 50%;
+}
+.CareerJobsSection_tabs__cWwNR {
+  cursor: pointer;
+  text-align: center;
+}
+.CareerJobsSection_content__GHu__ {
+  display: none;
+  background: var(--white);
+  width: 100%;
+}
+.CareerJobsSection_active_content__tUia3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+.CareerJobsSection_Career_tab__card__zjB0v {
+  flex: 1 0 calc(50% - 1em);
+  margin: 2em 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: var(--white);
+  padding: 15px;
+  box-shadow: 2px 8px 24px rgba(138, 191, 234, 0.24);
+  max-width: 100%;
+  border: 2px solid transparent;
+  border-radius: 13px;
+}
+.CareerJobsSection_Career_tab_cards__heading__A4ApS {
+  font-size: 18px;
+  font-weight: 500;
+}
+.CareerJobsSection_Career_tab_cards__para__cFHlA {
+  font-size: 14px;
+  line-height: 150%;
+  padding-top: 10px;
+}
+.CareerJobsSection_Career_tab_cards__button__pow9z {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  background: var(--dark-blue);
+  color: var(--white);
+  padding: 10px 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.CareerJobsSection_modal__9p5tm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  padding: 50px;
+  border: 2px solid var(--very-light-grey);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  width: 80%;
+  z-index: 2;
+}
+.CareerJobsSection_modal_row__sWNPm {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.CareerJobsSection_modal_leftColumn__5UwZ0,
+.CareerJobsSection_modal_rightColumn__P6miK {
+  min-width: 50%;
+}
+.CareerJobsSection_modal_heading__6a5Rw {
+  color: var(--dark-blue);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 120%;
+  text-transform: capitalize;
+}
+.CareerJobsSection_modal_para__dG7b5 {
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 200%;
+  text-transform: capitalize;
+}
+.CareerJobsSection_modal_subheading__kUwaB {
+  font-size: 15px;
+  padding-top: 20px;
+  font-weight: 400;
+  line-height: 200%;
+}
+.CareerJobsSection_modal_bullets__RLqRI {
+  font-size: 13px;
+  line-height: 150%;
+  padding-left: 5%;
+}
+.CareerJobsSection_modal_closeButton__HEnF2 {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+@media screen and (max-width: 1024px) {
+  .CareerJobsSection_modal_heading__6a5Rw {
+    font-size: 16px;
+  }
+  .CareerJobsSection_modal_subheading__kUwaB {
+    font-size: 13px;
+  }
+  .CareerJobsSection_modal_bullets__RLqRI {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CareerJobsSection_modal__9p5tm {
+    transform: translate(-50%, -50%);
+    padding: 20px;
+  }
+  .CareerJobsSection_modal_row__sWNPm {
+    display: block;
+    gap: 30px;
+  }
+  .CareerJobsSection_modal_bullets__RLqRI,
+  .CareerJobsSection_modal_subheading__kUwaB {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CareerJobsSection_Career_tab_cards__heading__A4ApS {
+    font-size: 14px;
+  }
+  .CareerJobsSection_Career_tab_cards__heading__A4ApS,
+  .CareerJobsSection_Career_tab_cards__para__cFHlA {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .CareerJobsSection_Career_tab_cards__para__cFHlA {
+    font-size: 12px;
+  }
+  .CareerJobsSection_CareerTabs_tabs__syz9H {
+    font-size: 16px;
+  }
+  .CareerJobsSection_Career_tab_cards__button__pow9z {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+  .CareerJobsSection_modal__9p5tm {
+    width: 80%;
+  }
+}
+.CareerTabSection_Career_tab__container__4q1GB {
+  max-width: 100%;
+}
+.CareerTabSection_Career_tab__row__AaZi_ {
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+  padding: 5% 8% 2%;
+}
+.CareerTabSection_Career_tab__column__auR1D {
+  flex: 1;
+  margin-bottom: -10px;
+}
+.CareerTabSection_Career_tab__row2__9hq_6 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+  padding: 2% 8% 5%;
+}
+.CareerTabSection_Career_tab__column2__3ozxT {
+  flex: 1;
+  margin-bottom: -10px;
+}
+.CareerTabSection_Career_tab__heading__NUMsW {
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #000;
+  text-align: center;
+}
+.CareerTabSection_Career_tab__heading__NUMsW span {
+  font-weight: 700;
+  line-height: 120%;
+  color: var(--dark-blue);
+  text-align: center;
+}
+.CareerTabSection_Career_tab__subheading__GIRHE {
+  font-size: 18px;
+  color: #0c0c0c;
+  margin-bottom: 24px;
+  text-align: center;
+}
+@media screen and (max-width: 1024px) {
+  .CareerTabSection_Career_tab__subheading__GIRHE {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  .CareerTabSection_Career_tab__heading__NUMsW {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CareerTabSection_Career_tab__subheading__GIRHE {
+    font-size: 16px;
+  }
+  .CareerTabSection_Career_tab__heading__NUMsW {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CareerTabSection_Career_tab__subheading__GIRHE {
+    font-size: 16px;
+  }
+  .CareerTabSection_Career_tab__heading__NUMsW {
+    font-size: 22px;
+  }
+}
+.CareerWhySection_CareerWhySection__bg__c41DZ {
+  background-image: url(/media/careerwhybg1.d79fd54b.webp);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.CareerWhySection_CareerWhySection__mainheading__VqrH5 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 120%;
+  color: var(--white);
+  text-align: center;
+  padding: 5% 0 3%;
+}
+.CareerWhySection_CareerWhySection__row__3vg2u {
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+  padding: 5% 8% 2%;
+}
+.CareerWhySection_CareerWhySection__columnone__Oj36M {
+  flex: 50%;
+}
+.CareerWhySection_CareerWhySection__columntwo__X3L_R {
+  padding-top: 50px;
+  flex: 50%;
+}
+.CareerWhySection_CareerWhySection__cards__nGuMw {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.CareerWhySection_CareerWhySection__card__PK7IF {
+  flex: 0 1 calc(100% - 1em);
+  margin-bottom: 3.5em;
+  border-radius: 16px;
+  padding: 15px;
+  border: 1px solid var(--water-blue);
+  background: linear-gradient(
+    92deg,
+    rgba(12, 45, 80, 0.66) -1.39%,
+    rgba(232, 158, 38, 0.2) 99.55%
+  );
+}
+.CareerWhySection_CareerWhySection__cardnumber__Xb__z {
+  color: var(--water-blue);
+  font-family: Poppins;
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 100%;
+  margin-top: -52px;
+  float: right;
+}
+.CareerWhySection_CareerWhySection__cardheading__uNDYR {
+  font-size: 18px;
+  color: var(--white);
+  padding-bottom: 10px;
+}
+.CareerWhySection_CareerWhySection__cardpara__i_HFt {
+  font-size: 14px;
+  color: #86b0b3;
+}
+@media screen and (max-width: 1024px) {
+  .CareerWhySection_CareerWhySection__mainheading__VqrH5 {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  .CareerWhySection_CareerWhySection__cardheading__uNDYR {
+    font-size: 16px;
+  }
+  .CareerWhySection_CareerWhySection__cardpara__i_HFt {
+    font-size: 14px;
+  }
+  .CareerWhySection_CareerWhySection__card__PK7IF {
+    flex: 0 1 calc(100% - 10px);
+    margin-bottom: 3.5em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CareerWhySection_CareerWhySection__mainheading__VqrH5 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CareerWhySection_CareerWhySection__mainheading__VqrH5 {
+    font-size: 22px;
+    padding: 10% 0 3%;
+  }
+  .CareerWhySection_CareerWhySection__row__3vg2u {
+    display: block;
+  }
+  .CareerWhySection_CareerWhySection__columnone__Oj36M {
+    padding-bottom: 0;
+  }
+  .CareerWhySection_CareerWhySection__columntwo__X3L_R {
+    padding-top: 0;
+  }
+  .CareerWhySection_CareerWhySection__cardheading__uNDYR {
+    font-size: 14px;
+  }
+  .CareerWhySection_CareerWhySection__cardpara__i_HFt {
+    font-size: 12px;
+  }
+  .CareerWhySection_CareerWhySection__cardnumber__Xb__z {
+    font-size: 34px;
+    margin-top: -44px;
+  }
+}

@@ -1,0 +1,78 @@
+.AllCollegeCards_college_card_container__Ts4Zo {
+  background-color: var(--dark-blue);
+  margin: auto;
+  padding: 10px 0;
+}
+.AllCollegeCards_college_grid_container__PA9Ro {
+  max-width: 1600px;
+  display: grid;
+  padding: 50px 6%;
+  overflow-x: scroll;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  margin: auto;
+}
+.AllCollegeCards_college_grid_container__PA9Ro::-webkit-scrollbar {
+  display: none;
+}
+.AllCollegeCards_college_indi_card__d9m_r {
+  background-color: var(--white);
+  padding: 10px;
+  color: var(--black);
+  border-radius: 10px;
+  border-bottom: 5px solid var(--mustard-yellow);
+}
+.AllCollegeCards_college_indi_card_img__8_YF2 {
+  -o-object-fit: contain;
+  object-fit: contain;
+  display: flex;
+  margin: auto;
+}
+.AllCollegeCards_college_indi_card_name__25zbO {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 150%;
+  margin-top: 10px;
+}
+.AllCollegeCards_viewAllLink__R1QMr {
+  max-width: -moz-max-content;
+  max-width: max-content;
+  color: var(--white);
+  padding: 10px 40px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  margin: 0 auto 20px;
+  background-color: var(--mustard-yellow);
+}
+.AllCollegeCards_viewAllLink__R1QMr:hover {
+  background-color: #014487;
+}
+@media screen and (max-width: 1024px) {
+  .AllCollegeCards_college_grid_container__PA9Ro {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .AllCollegeCards_college_indi_card__d9m_r {
+    background-color: var(--white);
+    padding: 8px;
+  }
+  .AllCollegeCards_college_indi_card_name__25zbO {
+    line-height: 150%;
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .AllCollegeCards_college_indi_card__d9m_r {
+    background-color: var(--white);
+    padding: 5px;
+  }
+  .AllCollegeCards_college_indi_card_name__25zbO {
+    line-height: 120%;
+    margin-top: 0;
+  }
+  .AllCollegeCards_college_indi_card_img__8_YF2 {
+    width: 140 !important;
+    height: 40 !important;
+    border: 5px solid transparent;
+  }
+}

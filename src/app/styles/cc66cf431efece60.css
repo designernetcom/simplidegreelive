@@ -1,0 +1,3088 @@
+.compare_table_container_div__fJexs {
+  padding: 40px 6%;
+  max-width: 100%;
+}
+.compare_styled_table__Lbc_J {
+  border-collapse: collapse;
+  max-width: 100%;
+  width: 100%;
+  line-height: 150%;
+  background-color: #fff;
+  margin-top: -100px;
+  border: 1px solid #ddd;
+}
+.compare_styled_table__Lbc_J td,
+.compare_styled_table__Lbc_J th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+.compare_styled_table__Lbc_J th {
+  background-color: #fff;
+}
+.compare_styled_table__Lbc_J tr td {
+  padding: 20px;
+}
+.compare_color_tr__HZ_Da {
+  background-color: var(--light-blue-bg);
+}
+.compare_th_heading_left__nZ1WI {
+  padding-left: 20px;
+}
+.compare_td_heading_left__HX2A0 {
+  line-height: 150%;
+  font-weight: 600;
+  max-width: 20% !important;
+  width: 18% !important;
+}
+.compare_deletebtn__gItdA {
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .compare_table_container_div__fJexs {
+    padding: 20px 4%;
+  }
+  .compare_styled_table__Lbc_J {
+    margin-top: -80px;
+    font-size: 14px !important;
+    line-height: 120%;
+  }
+  .compare_styled_table__Lbc_J tr td {
+    padding: 10px;
+  }
+  .compare_th_heading_left__nZ1WI {
+    padding-left: 10px;
+  }
+  .compare_clg_img_name__bIGBI {
+    padding: 10px !important;
+  }
+}
+@media screen and (max-width: 520px) {
+  .compare_styled_table__Lbc_J {
+    overflow: hidden;
+    margin-top: -50px;
+    font-size: 12px !important;
+  }
+  .compare_styled_table__Lbc_J > table > td:last-child {
+    display: none !important;
+  }
+  .compare_last_th__eLYFa {
+    width: 0;
+    display: none !important;
+    overflow: hidden !important;
+    border: none !important;
+  }
+  .compare_last_td__FitVS {
+    width: 0;
+    display: none !important;
+    overflow: hidden;
+  }
+  .compare_hideClass__GyKLy {
+    display: none;
+  }
+  .compare_table_container_div__fJexs {
+    padding: 20px 6%;
+    max-width: 100%;
+  }
+  .compare_styled_table__Lbc_J {
+    border-collapse: collapse;
+    max-width: 100%;
+    width: 100%;
+    line-height: 150%;
+    background-color: #fff;
+    margin-top: 0;
+    border: 1px solid #ddd;
+  }
+  .compare_deletebtn__gItdA {
+    top: 0 !important;
+    right: 5px !important;
+    margin-top: 0 !important;
+    z-index: 2 !important;
+  }
+  .compare_styled_table__Lbc_J td,
+  .compare_styled_table__Lbc_J th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  .compare_styled_table__Lbc_J th {
+    background-color: #fff;
+  }
+  .compare_styled_table__Lbc_J td:last-child,
+  .compare_styled_table__Lbc_J th:last-child {
+    display: none;
+  }
+  .compare_th_heading_left__nZ1WI {
+    padding-left: 5px;
+  }
+  .compare_td_heading_left__HX2A0 {
+    line-height: 100%;
+    font-weight: 500;
+  }
+  .compare_add_button__q_oVK {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: #000;
+  }
+  .compare_delete_button__iCoe6 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
+    border-radius: 5%;
+    border: none;
+    padding: 2px 6px;
+    color: #fff;
+    background: #000;
+  }
+  .compare_college_info__iJIp7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .compare_college_name__cXRC8 {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 340px) {
+  .compare_table_container_div__fJexs {
+    overflow-x: scroll;
+    padding: 20px 2%;
+  }
+  .compare_styled_table__Lbc_J th td,
+  .compare_styled_table__Lbc_J tr td {
+    padding: 4px;
+  }
+}
+.compare_compare_colleges__stH6Q {
+  max-width: 100%;
+  width: 72%;
+  margin-left: 17%;
+  display: flex;
+  gap: 40px;
+  border: 5px solid pink;
+}
+.compare_compare_colleges__stH6Q > div {
+  width: 330px;
+  position: relative;
+  height: 120px;
+  background: var(--white);
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  border: 5px solid red;
+}
+.compare_cross_button__AQdOF {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  background: #000;
+  border-radius: 5px;
+  color: var(--white);
+  border: none;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+.compare_main_table__LMVTm {
+  border-collapse: collapse;
+  border: 5px solid tomato;
+}
+.compare_row__YeNLp > td {
+  border: 1px solid #cdcdcd;
+}
+.compare_row__YeNLp:nth-child(odd) {
+  background-color: #e7edf5;
+}
+.compare_row__YeNLp > td:first-child {
+  background-color: var(--white);
+  padding: 20px 5px;
+  width: 180px;
+  font-weight: 600;
+  border: 4px solid green;
+}
+.compare_row__YeNLp td:nth-child(2),
+.compare_row__YeNLp td:nth-child(3),
+.compare_row__YeNLp td:nth-child(4) {
+  width: 340px;
+  padding: 20px 5px;
+  border: 4px solid blue;
+}
+.compare_compare_lists__V1BTT {
+  position: relative;
+  text-align: center;
+}
+.compare_compare_lists__V1BTT > div {
+  position: absolute;
+  bottom: 0;
+  background: #ffffde;
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+.compare_clg_name__9sodr {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+}
+.compare_placement_company_logo__6gcIG {
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  padding: 5px;
+}
+.compare_no_data_text__5NTyj {
+  margin: 40px 0;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  .compare_bestcollege_explore_heading__c_h8C {
+    font-size: 18px;
+  }
+  .compare_compare_colleges__stH6Q {
+    width: 90%;
+  }
+  .compare_compare_colleges__stH6Q > div:nth-child(3) {
+    display: none;
+  }
+  .compare_compare_colleges__stH6Q > div:first-child,
+  .compare_compare_colleges__stH6Q > div:nth-child(2) {
+    width: 50%;
+  }
+  .compare_clg_name__9sodr {
+    font-size: 12px;
+  }
+  .compare_clg_icon__DJ3Xn > img {
+    width: 30px;
+    height: 30px;
+  }
+  .compare_main_table__LMVTm {
+    font-size: 14px;
+  }
+  .compare_row__YeNLp > td:first-child,
+  .compare_row__YeNLp > td:nth-child(2),
+  .compare_row__YeNLp > td:nth-child(3) {
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 950px) {
+  .compare_compare_colleges__stH6Q {
+    width: 90%;
+  }
+  .compare_compare_colleges__stH6Q > div {
+    height: 140px;
+  }
+  .compare_clg_name__9sodr {
+    font-size: 12px;
+  }
+  .compare_row__YeNLp > td {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+.bestcollege_main__G_q2G {
+  position: relative;
+  width: 100%;
+}
+.bestcollege_banner_image__0XOk4 {
+  width: 100%;
+  height: 500px;
+}
+.bestcollege_banner__DvNyN {
+  position: absolute;
+  z-index: 1;
+  left: 95px;
+  top: 50%;
+  color: var(--white);
+}
+.bestcollege_explore_heading__IahiT {
+  font-size: 34px;
+}
+.bestcollege_banner_description__OxDnN {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+.bestcollege_back_btn__7LFfg {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+.bestcollege_gradientOverlayStyle__Mh9Kl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #000 1.48%,
+    rgba(0, 0, 0, 0.31) 99.91%,
+    transparent 0
+  );
+  z-index: 10;
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .bestcollege_explore_heading__IahiT {
+    font-size: 28px;
+  }
+  .bestcollege_banner_description__OxDnN {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .bestcollege_explore_heading__IahiT {
+    font-size: 34px;
+  }
+  .bestcollege_banner_description__OxDnN {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .bestcollege_banner_image__0XOk4 {
+    width: 100%;
+    height: 350px;
+  }
+  .bestcollege_banner__DvNyN {
+    left: 25px;
+    top: 50%;
+  }
+  .bestcollege_explore_heading__IahiT {
+    font-size: 24px;
+    text-align: left;
+    margin-top: 10px;
+  }
+  .bestcollege_banner_description__OxDnN {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 426px) {
+  .bestcollege_banner_image__0XOk4 {
+    width: 100%;
+    height: 350px;
+  }
+  .bestcollege_banner__DvNyN {
+    left: 25px;
+    top: 50%;
+  }
+  .bestcollege_explore_heading__IahiT {
+    font-size: 22px;
+    text-align: left;
+    margin-top: 10px;
+  }
+  .bestcollege_banner_description__OxDnN {
+    font-size: 14px;
+  }
+}
+.topuniversity_explore_heading__e5Cnd {
+  text-align: center;
+  margin-top: 60px;
+}
+.topuniversity_results___WE2_ {
+  text-align: center;
+  margin-top: 10px;
+}
+.topuniversity_filter_button__Ra_9x {
+  display: none;
+}
+.topuniversity_filter_main_section__cyltJ {
+  display: flex;
+  padding: 0 6%;
+  margin: 30px auto;
+  gap: 5%;
+}
+.topuniversity_filter__EWbBt {
+  width: 25%;
+}
+.topuniversity_cards_section__7b6S3 {
+  width: 70%;
+}
+.topuniversity_searchWrapper__BhTUU {
+  display: flex;
+  margin: 15px 0;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.topuniversity_searchBar__y4a94 {
+  width: 100%;
+  display: inherit;
+  justify-content: space-between;
+  border-radius: 50px;
+  background-color: var(--light-grey);
+  padding: 10px 0;
+}
+.topuniversity_Hero_input__D594i {
+  width: 100%;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background: var(--light-grey);
+  padding-left: 10px;
+}
+.topuniversity_Hero_input__D594i::-moz-placeholder {
+  font-size: 11px;
+}
+.topuniversity_Hero_input__D594i::placeholder {
+  font-size: 11px;
+}
+.topuniversity_Hero_input__D594i:focus {
+  border: none;
+  outline: none;
+}
+.topuniversity_Hero_iconContainer__xDo7e {
+  align-items: center;
+  background: var(--mustard-yellow);
+  border-radius: 30px;
+  padding: 4px 8px;
+}
+.topuniversity_Hero_iconContainer__xDo7e:hover > svg {
+  color: var(--white);
+}
+.topuniversity_Hero_icon__Xj4xY {
+  font-size: 15px;
+  color: var(--black);
+}
+.topuniversity_filter_main__b2Dto {
+  margin-top: 10px;
+}
+.topuniversity_filter_main__b2Dto
+  > div:first-child
+  .topuniversity_select_btn__Ew4vM::-webkit-scrollbar {
+  display: none;
+}
+.topuniversity_filter_main__b2Dto
+  > div:nth-child(3)
+  .topuniversity_select_btn__Ew4vM,
+.topuniversity_filter_main__b2Dto
+  > div:nth-child(4)
+  .topuniversity_select_btn__Ew4vM {
+  height: 200px;
+  overflow-y: scroll;
+}
+.topuniversity_study_mode__MxEoA {
+  box-shadow: 0 3px 6px rgba(138, 191, 234, 0.24),
+    0 3px 6px rgba(138, 191, 234, 0.24);
+  padding-bottom: 20px;
+  border-radius: 5px;
+}
+.topuniversity_study_mode_select__eKz3p {
+  background: var(--dark-blue);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: var(--white);
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.topuniversity_select_btn__Ew4vM {
+  margin-top: 10px;
+  padding: 10px 20px;
+  overflow-y: scroll;
+  width: 95%;
+}
+.topuniversity_select_btn__Ew4vM::-webkit-scrollbar {
+  width: 6px;
+}
+.topuniversity_select_btn__Ew4vM::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 5px;
+}
+.topuniversity_select_btn__Ew4vM::-webkit-scrollbar-thumb {
+  background-color: var(--dark-blue);
+  border-radius: 14px;
+}
+.topuniversity_select_btn__Ew4vM input {
+  margin-top: 10px;
+}
+.topuniversity_label_name__Ron3s {
+  margin-left: 5px;
+  font-size: 13px;
+}
+.topuniversity_ranges__b6dJv {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+.topuniversity_ranges__b6dJv > p {
+  font-size: 13px;
+}
+.topuniversity_input_range__0gw4x {
+  width: 80%;
+  margin: auto;
+}
+.topuniversity_input_range__0gw4x input {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  accent-color: var(--dark-blue);
+}
+.topuniversity_mobile_heading__lFBnc {
+  display: none;
+}
+.topuniversity_label_name__Ron3s input[type="checkbox"] {
+  border: 2px solid var(--dark-blue);
+}
+.topuniversity_modal_overlay__YZwN7 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: grid;
+  gap: 10px;
+  overflow: hidden;
+  z-index: 400;
+}
+.topuniversity_modal__pXNiF {
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.topuniversity_close_button__QxPRA {
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-weight: 700;
+  background: var(--white);
+}
+.topuniversity_join_popup__ZCEtU {
+  border-radius: 8px;
+  color: var(--light-black);
+  padding: 10px;
+  height: 92%;
+  overflow-y: scroll;
+}
+.topuniversity_apply_btn__En3zC {
+  height: 8%;
+  display: flex;
+  justify-content: flex-end;
+}
+.topuniversity_apply_btn__En3zC button {
+  background: var(--mustard-yellow);
+  border: none;
+  padding: 0 20px;
+  border-radius: 5px;
+}
+@media screen and (max-width: 768px) {
+  .topuniversity_container__3aJeI {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 20px auto;
+  }
+  .topuniversity_filter_button__Ra_9x {
+    display: block;
+    background: var(--white);
+    border: 1px solid var(--black);
+    padding: 5px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+  }
+  .topuniversity_filter__EWbBt {
+    width: 100%;
+    display: none;
+  }
+  .topuniversity_cards_section__7b6S3 {
+    width: 100%;
+  }
+  .topuniversity_explore_heading__e5Cnd {
+    font-size: 15px;
+    text-align: left;
+    margin-top: 0;
+    width: 85%;
+  }
+  .topuniversity_mobile_heading__lFBnc {
+    display: block;
+    width: 90%;
+    justify-content: space-between;
+    margin: 10px auto auto;
+  }
+  .topuniversity_mobile_explore__RuihO {
+    font-size: 15px;
+    width: 60%;
+  }
+  .topuniversity_study_mode__MxEoA {
+    padding-bottom: 5px;
+  }
+  .topuniversity_study_mode_select__eKz3p {
+    padding: 5px 20px;
+    font-size: 12px;
+  }
+  .topuniversity_select_btn__Ew4vM {
+    margin-top: 5px;
+    padding: 5px 20px;
+  }
+  .topuniversity_select_btn__Ew4vM input {
+    margin-top: 0;
+  }
+  .topuniversity_label_name__Ron3s {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+  .topuniversity_ranges__b6dJv {
+    font-size: 12px;
+  }
+  .topuniversity_filter_main__b2Dto
+    > div:nth-child(3)
+    .topuniversity_select_btn__Ew4vM,
+  .topuniversity_filter_main__b2Dto
+    > div:nth-child(4)
+    .topuniversity_select_btn__Ew4vM {
+    height: 135px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .topuniversity_filter_main_section__cyltJ {
+    padding: 0 2%;
+  }
+  .topuniversity_filter_button__Ra_9x {
+    padding: 5px;
+  }
+}
+.collegecards_main_container_cards__VLuAV {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.collegecards_cards__mTbVk {
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-bottom: 4px solid var(--mustard-yellow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.collegecards_college_link__ctlCY {
+  text-decoration: none;
+}
+.collegecards_institute_name__OAwls {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  transition: all 0.3s ease;
+}
+.collegecards_tooltip__17nZF {
+  position: relative;
+  display: inline-block;
+}
+.collegecards_tooltip_text__4LshK {
+  visibility: hidden;
+  width: 100%;
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+}
+.collegecards_tooltip__17nZF:hover .collegecards_tooltip_text__4LshK {
+  visibility: visible;
+}
+.collegecards_card_img_container__iiTp9 {
+  box-sizing: border-box;
+}
+.collegecards_card_image__nl5Bj {
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  height: 180px;
+}
+.collegecards_card_course__ZOkTv {
+  font-size: 10px;
+  color: var(--dark-grey);
+  margin-top: 5px;
+}
+.collegecards_card_fees__dMiDC {
+  font-size: 13px;
+  color: var(--dark-blue);
+  font-weight: 700;
+  margin-bottom: auto;
+}
+.collegecards_fees_div__rwOdY {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  gap: 10px;
+  margin: 10px 0;
+}
+.collegecards_per_year_fees__cS4cb {
+  width: 100%;
+}
+.collegecards_add_to_compare_btn__HFjXO {
+  text-align: center;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--dark-blue);
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 14px;
+  cursor: pointer;
+  border-top: 1px solid var(--white-grey);
+}
+.collegecards_add_to_compare_btn__HFjXO:hover {
+  background: var(--mustard-yellow);
+  color: var(--black);
+  transition: all 0.8s ease;
+}
+.collegecards_download_btn____fUC {
+  border: none;
+  background: var(--mustard-yellow);
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.collegecards_college_icon_div__t487O {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.collegecards_college_logo__jE0gt {
+  height: 30px;
+  width: 30px;
+}
+.collegecards_loader__oYXe4 {
+  border: 10px solid #eaf0f6;
+  border-radius: 50%;
+  border-top: 10px solid var(--mustard-yellow);
+  width: 100px;
+  height: 100px;
+  animation: collegecards_spinner__9w0r6 1s linear infinite;
+}
+.collegecards_view_more_btn__r5h33 {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+@keyframes collegecards_spinner__9w0r6 {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.collegecards_compare_modal_overlay__7qc_a {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: rgba(0, 0, 0, 0.8);
+  display: grid;
+  gap: 10px;
+  overflow: hidden;
+  z-index: 400;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.collegecards_compare_modal__MPKix {
+  background: var(--white);
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--dark-blue);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.collegecards_compare_close_button__GrIjL {
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  font-weight: 700;
+  background: var(--white);
+  border-radius: 100%;
+}
+.collegecards_colleges_container__zEbgd {
+  text-align: center;
+}
+.collegecards_colleges__CRAZN {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  gap: 10px;
+}
+.collegecards_colleges__CRAZN > div {
+  width: 33%;
+  border: 1px solid var(--white);
+  position: relative;
+  border-radius: 5px;
+  background-color: var(--white);
+  height: 110px;
+  text-align: center;
+  font-size: 14px;
+}
+.collegecards_cross_button__07Q6Z {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  background: var(--black);
+  border-radius: 5px;
+  color: var(--white);
+  border: none;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+.collegecards_fee_div__OvE06 {
+  width: 100%;
+  font-size: 12px;
+  color: var(--black);
+  margin: 10px 0;
+}
+.collegecards_compare_now_btn__uJ7Vf {
+  cursor: pointer;
+  background: var(--mustard-yellow);
+  border: none;
+  color: var(--black);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.collegecards_icon_div__RWVec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.collegecards_icon_div__RWVec > img {
+  width: 45px;
+  height: 45px;
+}
+.collegecards_modal_compare_btn__oOOWc {
+  margin: 20px 0;
+}
+@media screen and (max-width: 600px) {
+  .collegecards_main_container_cards__VLuAV {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  .collegecards_colleges__CRAZN {
+    width: 98%;
+    gap: 10px;
+  }
+  .collegecards_colleges__CRAZN > div:first-child,
+  .collegecards_colleges__CRAZN > div:nth-child(2) {
+    width: 50%;
+    height: auto;
+  }
+  .collegecards_colleges__CRAZN > div:nth-child(3) {
+    display: none;
+  }
+  .collegecards_icon_div__RWVec {
+    display: grid;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .collegecards_icon_div__RWVec > p {
+    font-size: 12px;
+  }
+  .collegecards_icon_div__RWVec > img {
+    width: 45px;
+    height: 45px;
+    margin: auto;
+  }
+  .collegecards_compare_modal_overlay__7qc_a {
+    height: 400px;
+    max-height: 450px;
+  }
+  .collegecards_compare_modal__MPKix {
+    padding: 40px;
+  }
+  .collegecards_fee_div__OvE06 {
+    bottom: 15px;
+    padding: 0;
+  }
+  .collegecards_modal_compare_btn__oOOWc {
+    margin: 60px 0;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 950px) {
+  .collegecards_main_container_cards__VLuAV {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .collegecards_card_image__nl5Bj {
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 130px;
+  }
+  .collegecards_institute_name__OAwls {
+    font-size: 12px;
+  }
+  .collegecards_download_btn____fUC {
+    padding: 5px;
+  }
+  .collegecards_per_year_fees__cS4cb {
+    width: 60%;
+  }
+  .collegecards_card_course__ZOkTv {
+    font-size: 9px;
+    margin-top: 5px;
+  }
+  .collegecards_card_fees__dMiDC {
+    font-size: 10px;
+  }
+  .collegecards_add_to_compare_btn__HFjXO,
+  .collegecards_icon_div__RWVec > p {
+    font-size: 12px;
+  }
+  .collegecards_compare_close_button__GrIjL {
+    right: 40px;
+  }
+  .collegecards_compare_modal_overlay__7qc_a {
+    height: 365px;
+  }
+  .collegecards_colleges__CRAZN {
+    width: 90%;
+    gap: 10px;
+    margin: 30px auto;
+  }
+  .collegecards_colleges__CRAZN > div {
+    height: auto;
+  }
+  .collegecards_icon_div__RWVec {
+    display: grid;
+  }
+  .collegecards_icon_div__RWVec > img {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+  }
+  .collegecards_fee_div__OvE06 {
+    padding: 8px;
+    bottom: 10px;
+    font-size: 10px;
+  }
+  .collegecards_modal_compare_btn__oOOWc {
+    margin: 40px 0;
+  }
+}
+@media screen and (min-width: 951px) and (max-width: 1024px) {
+  .collegecards_card_image__nl5Bj {
+    height: 175px;
+  }
+  .collegecards_compare_modal_overlay__7qc_a {
+    height: 320px;
+  }
+  .collegecards_colleges__CRAZN {
+    margin: 30px auto;
+  }
+  .collegecards_colleges__CRAZN > div {
+    height: 120px;
+  }
+  .collegecards_compare_close_button__GrIjL {
+    right: 40px;
+  }
+}
+.abroad_heading__S_rYp {
+  font-size: 34px;
+  text-align: center;
+  margin-top: 60px;
+}
+.abroad_collegeDetailsHeading__RHVTq {
+  font-size: 34px;
+  margin: 20px 0;
+}
+.abroad_main_container_cards__uzKDE {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 40px auto;
+}
+.abroad_cards__81FQw {
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-bottom: 4px solid var(--mustard-yellow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.abroad_cards__81FQw:hover {
+  transform: translateY(-2px);
+}
+.abroad_college_link__0oyJa {
+  text-decoration: none;
+}
+.abroad_card_img_container__s1_2Z {
+  height: 180px;
+}
+.abroad_card_image__tQiug {
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+}
+.abroad_card_course__7MIhM {
+  font-size: 10px;
+  color: var(--dark-grey);
+  margin-top: 5px;
+}
+.abroad_card_fees__HgBs0 {
+  font-size: 13px;
+  color: var(--dark-blue);
+  font-weight: 700;
+  margin-bottom: auto;
+}
+.abroad_fees_div__U28lM {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  gap: 10px;
+  margin: 10px 0;
+}
+.abroad_per_year_fees__YXauv {
+  width: 100%;
+}
+.abroad_institute_name__K52yL {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  transition: all 0.3s ease;
+}
+.abroad_tooltip__Q2tD1 {
+  position: relative;
+  display: inline-block;
+}
+.abroad_tooltip_text__FsRAP {
+  visibility: hidden;
+  width: 100%;
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+}
+.abroad_tooltip__Q2tD1:hover .abroad_tooltip_text__FsRAP {
+  visibility: visible;
+}
+.abroad_college_icon_div__zWBXf {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.abroad_college_logo__QwFnF {
+  height: 30px;
+  width: 30px;
+}
+.abroad_add_to_compare_btn__p27Wp {
+  text-align: center;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--dark-blue);
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 14px;
+  cursor: pointer;
+  border-top: 1px solid var(--white-grey);
+}
+.abroad_add_to_compare_btn__p27Wp:hover {
+  background: var(--mustard-yellow);
+  color: var(--black);
+  transition: all 0.8s ease;
+}
+@media screen and (max-width: 426px) {
+  .abroad_heading__S_rYp {
+    font-size: 22px;
+    padding: 0 10px;
+  }
+  .abroad_result__34h_P {
+    font-size: 14px;
+  }
+  .abroad_main_container_cards__uzKDE {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin: 20px auto;
+  }
+  .abroad_collegeDetailsHeading__RHVTq {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 427px) and (max-width: 768px) {
+  .abroad_heading__S_rYp {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+  .abroad_result__34h_P {
+    font-size: 14px;
+  }
+  .abroad_main_container_cards__uzKDE {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 90%;
+  }
+  .abroad_collegeDetailsHeading__RHVTq {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .abroad_heading__S_rYp {
+    font-size: 22px;
+    padding: 0 10px;
+  }
+  .abroad_result__34h_P {
+    font-size: 14px;
+  }
+  .abroad_main_container_cards__uzKDE {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+  }
+}
+.introduction_collegeDetails__VifLT {
+  margin-bottom: 60px;
+  max-width: 100%;
+}
+.introduction_collegeDetailsHeading__aBNh_ {
+  font-size: 34px;
+  margin: 20px 0;
+}
+.introduction_collegeDetailsDescription__xKxCl {
+  font-size: 16px;
+  white-space: pre-line;
+  line-height: 150%;
+  font-style: normal;
+  font-weight: 400;
+}
+@media screen and (max-width: 1024px) {
+  .introduction_collegeDetailsHeading__aBNh_ {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .introduction_collegeDetailsHeading__aBNh_ {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .introduction_collegeDetailsDescription__xKxCl {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .introduction_collegeDetailsHeading__aBNh_ {
+    font-size: 22px;
+    margin: 20px 0 10px;
+  }
+}
+.study_course_content_container__4ZErF {
+  padding: 0 8%;
+  line-height: 120%;
+  color: var(--black);
+}
+.study_collegWrapper__qXs_p {
+  display: flex;
+  width: 100%;
+}
+.study_collegeContainer__INeVI {
+  width: 100%;
+  height: 100%;
+  display: inherit;
+  flex-direction: column;
+}
+.study_dataSection__nZyfU {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin: auto;
+  color: var(--black);
+  background: linear-gradient(180deg, #f8fbff 0.01%, #fff);
+  padding: 50px 7.5% 0;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.study_Heading__ko4H6 {
+  font-size: 44px;
+  margin: 20px 0 40px;
+}
+.study_specialHeading__oiVkV {
+  margin: 60px 0 40px;
+  font-size: 40px;
+}
+.study_selectedBox__R_Hf6 {
+  background-color: var(--dark-blue);
+}
+.study_maxWidth__jJbIL {
+  width: 100%;
+}
+.study_textWhite__vL0PK {
+  color: #fff;
+}
+.study_textBlack__oAexD {
+  color: #000;
+}
+.study_detailsPage__aSGLr {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.8rem;
+}
+.study_scroller__CgT7N {
+  height: 350px;
+  display: flex;
+  min-width: 22%;
+  width: 25%;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 10px;
+  justify-content: space-between;
+  background: var(--white);
+  box-shadow: 0 0 4px 0 #cee0ef;
+  border-bottom: 5px solid var(--dark-blue);
+}
+.study_scrollerElement__eu_OA {
+  text-decoration: none;
+}
+.study_sectionBox__Lv2hr {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+  padding: 16px 0 16px 10px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  cursor: pointer;
+}
+.study_sectionBox__Lv2hr:hover {
+  background-color: var(--dark-blue);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: var(--white);
+}
+.study_detailsContainer__xkYZm {
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 76%;
+  width: 76%;
+  color: var(--black);
+}
+@media screen and (max-width: 1024px) {
+  .study_course_content_container__4ZErF {
+    padding: 0 4%;
+    line-height: 150%;
+  }
+  .study_detailsPage__aSGLr {
+    flex-direction: column;
+    align-items: center;
+  }
+  .study_scroller__CgT7N {
+    height: auto;
+    min-width: 100%;
+    width: 100%;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: auto;
+    gap: 5px;
+  }
+  .study_sectionBox__Lv2hr {
+    padding: 13px 10px;
+    font-size: 16px;
+    min-width: -moz-max-content;
+    min-width: max-content;
+  }
+  .study_detailsContainer__xkYZm {
+    max-width: 100%;
+    width: 100%;
+  }
+  .study_dataSection__nZyfU {
+    padding: 4%;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .study_course_content_container__4ZErF {
+    padding: 0 4%;
+    line-height: 150%;
+  }
+}
+.whystudy_collegeDetails__GLEaf {
+  margin-bottom: 60px;
+  max-width: 100%;
+}
+.whystudy_collegeDetailsHeading__wLkZR {
+  font-size: 34px;
+  margin: 20px 0;
+}
+.whystudy_collegeDetailsDescription__k1hSd {
+  font-size: 16px;
+  white-space: pre-line;
+  line-height: 150%;
+  font-style: normal;
+  font-weight: 400;
+}
+.whystudy_points_of_study__yzSPv {
+  padding-left: 20px;
+}
+.whystudy_points_of_study__yzSPv li {
+  margin-top: 20px;
+  line-height: 150%;
+}
+.whystudy_whyabroad_heading__ZSVvV {
+  font-weight: 600;
+  font-size: 18px;
+}
+@media screen and (max-width: 1024px) {
+  .whystudy_collegeDetailsHeading__wLkZR {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .whystudy_collegeDetailsHeading__wLkZR {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .whystudy_collegeDetailsDescription__k1hSd {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .whystudy_collegeDetailsHeading__wLkZR {
+    font-size: 22px;
+    margin: 20px 0 10px;
+  }
+  .whystudy_points_of_study__yzSPv li {
+    list-style: none;
+  }
+}
+.way_collegeDetails__fxXQ_ {
+  margin-bottom: 60px;
+  max-width: 100%;
+}
+.way_collegeDetailsHeading__Uxvq6 {
+  font-size: 34px;
+  margin: 20px 0;
+}
+.way_collegeDetailsDescription___ov5e {
+  font-size: 16px;
+  white-space: pre-line;
+  line-height: 150%;
+  font-style: normal;
+  font-weight: 400;
+}
+.way_main_way_box__Du7Vv {
+  margin-top: 20px;
+  line-height: 150%;
+}
+.way_main_way_box__Du7Vv p {
+  margin-top: 10px;
+}
+.way_heading__MHfMI {
+  font-size: 16px;
+  font-weight: 600;
+}
+@media screen and (max-width: 1024px) {
+  .way_collegeDetailsHeading__Uxvq6 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .way_collegeDetailsHeading__Uxvq6 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .way_collegeDetailsDescription___ov5e {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .way_collegeDetailsHeading__Uxvq6 {
+    font-size: 22px;
+    margin: 20px 0 10px;
+  }
+}
+.Accordion_accordion__5wgWj {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  line-height: 140%;
+}
+.Accordion_section__GAliP {
+  margin-bottom: 8px;
+}
+.Accordion_section_input__JFMqB {
+  display: none;
+}
+.Accordion_section_label__URJGe {
+  background-color: var(--dark-blue);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.Accordion_section_label_heading__xcEiW {
+  font-size: 24px;
+  line-height: 120%;
+  font-weight: 600;
+}
+.Accordion_section_input__JFMqB:checked + .Accordion_section_label__URJGe {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+.Accordion_symbol__FZc6B:after {
+  content: "+";
+  margin-right: 8px;
+  font-size: 36px;
+}
+.Accordion_section_input__JFMqB:checked
+  + .Accordion_section_label__URJGe
+  .Accordion_symbol__FZc6B:after {
+  content: "-";
+  font-size: 36px;
+}
+.Accordion_section_content__OZp9o {
+  display: none;
+  padding: 8px;
+  border-top: 1px solid #ddd;
+}
+.Accordion_section_input__JFMqB:checked
+  + .Accordion_section_label__URJGe
+  + .Accordion_section_content__OZp9o {
+  display: block;
+}
+.Accordion_section_input__JFMqB:not(:checked)
+  + .Accordion_section_label__URJGe
+  + .Accordion_section_content__OZp9o {
+  display: none;
+}
+.Accordion_section_input__JFMqB:not(:checked)
+  + .Accordion_section_label__URJGe {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+@media screen and (max-width: 1024px) {
+  .Accordion_section_label_heading__xcEiW {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Accordion_accordion__5wgWj {
+    line-height: 150%;
+  }
+  .Accordion_section_input__JFMqB:checked
+    + .Accordion_section_label__URJGe
+    .Accordion_symbol__FZc6B:after,
+  .Accordion_symbol__FZc6B:after {
+    font-size: 18px;
+  }
+  .Accordion_section_label_heading__xcEiW {
+    font-size: 18px !important;
+    line-height: 150%;
+  }
+  .Accordion_section_input__JFMqB:not(:checked)
+    + .Accordion_section_label__URJGe {
+    font-size: 18px;
+  }
+  .Accordion_section_label__URJGe {
+    padding: 12px;
+  }
+}
+.CourseContent_course_content_container__mlHEy {
+  padding: 0 8%;
+  line-height: 120%;
+  color: var(--black);
+}
+.CourseContent_course_accordion_data_container__KN_1W {
+  margin-top: 50px;
+  line-height: 120%;
+}
+.CourseContent_course_content_table_single_data__ySHub {
+  font-size: 18px;
+  margin-top: 20px;
+  line-height: 100%;
+}
+.CourseContent_course_benifit__OPBZ7 {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.CourseContent_course_benifit_sub_heading__aAq45 {
+  font-weight: 600;
+  font-size: 16px;
+}
+.CourseContent_course_benifit_point__pa8zH {
+  font-size: 16px;
+}
+.CourseContent_course_process_img_data_container__Q08aq {
+  display: flex;
+  flex-direction: column;
+}
+.CourseContent_course_process_img_mob__QLQBD {
+  display: none;
+}
+.CourseContent_course_process_img___B893 {
+  width: 100%;
+  margin-top: 20px;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.CourseContent_course_process_img_bottom_text_container__8SS9d {
+  display: flex;
+  gap: 40px;
+  max-width: 100%;
+  width: 100%;
+  padding-left: 40px;
+  text-align: center;
+  justify-content: space-between;
+  line-height: 120%;
+}
+.CourseContent_course_process_img_bottom_text_container__8SS9d > div {
+  width: 20%;
+}
+.CourseContent_course_process_heading__VDWQj {
+  font-size: 16px;
+}
+.CourseContent_course_process_subheading__8msmu {
+  font-size: 14px;
+}
+.CourseContent_course_process_img_bottom_text_heading__culzM {
+  color: var(--dark-blue);
+  font-size: 18px;
+  line-height: 120%;
+}
+.CourseContent_course_process_img_bottom_text_desc__pJ2dk {
+  font-size: 16px;
+  line-height: 120%;
+}
+.CourseContent_course_process_desc__rPHy3 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+.CourseContent_course_doc_icon_text_container__ebhnN {
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+  justify-content: space-between;
+  gap: 10px;
+  padding: auto;
+  margin: 40px auto;
+  font-size: 16px;
+  line-height: 120%;
+}
+.CourseContent_course_doc_icon_line_container__UH_pc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.CourseContent_course_doc_text__TmfAU {
+  font-size: 18px;
+  margin-top: 20px;
+}
+.CourseContent_course_doc_icon_img__uvpb4 {
+  -o-object-fit: contain;
+  object-fit: contain;
+  height: 76px;
+  width: 76px;
+}
+.CourseContent_course_doc_icon_text_box__rME0o {
+  display: flex;
+  flex-direction: column;
+  padding: auto;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+.CourseContent_course_doc_icon_line_img__hZqYx {
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.CourseContent_course_fee_container__Qm5Mk {
+  font-size: 16px;
+  margin-top: 30px;
+  line-height: 150%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.CourseContent_course_spsl_grid_container__NIn8E {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-bottom: 1px solid var(--dark-blue);
+  border-right: 1px solid var(--dark-blue);
+  max-width: 100%;
+  width: 100%;
+}
+.CourseContent_gridItem__fSOLu {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid var(--dark-blue);
+  border-bottom: none;
+  border-right: none;
+}
+.CourseContent_row_white__9z4WV {
+  background-color: #fff;
+}
+.CourseContent_row_gray__P__3v {
+  background-color: #d6e7f8;
+}
+.CourseContent_course_imp_benifit_box__KHHKH {
+  gap: 10px;
+  margin-top: 20px;
+}
+.CourseContent_course_imp_sub_heading__RO6lm {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.CourseContent_course_imp_desc__qQAPA {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.CourseContent_course_syllabus_table_container__MRXYt {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--dark-blue);
+}
+.CourseContent_course_syllabus_desc___ob_L {
+  font-size: 16px;
+  margin: 10px 0 40px;
+}
+.CourseContent_course_syllabus_table_heading_row_container__ygDPo {
+  background-color: var(--dark-blue);
+  width: 50%;
+}
+.CourseContent_course_syllabus_table_heading__figut {
+  color: var(--white);
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 400;
+  width: 50%;
+  font-size: 18px;
+  padding: 10px 0 10px 10px;
+}
+.CourseContent_course_syllabus_subject__VPt2D {
+  border: 1px solid var(--dark-blue);
+  font-size: 16px;
+  padding: 5px 0 5px 10px;
+}
+.CourseContent_evenBackground__2rq6j {
+  background-color: #fff;
+}
+.CourseContent_oddBackground__0aOGT {
+  background-color: #d6e7f8;
+}
+.CourseContent_course_career_desc__1BiFa {
+  font-size: 16px;
+  margin-top: 20px;
+}
+.CourseContent_course_career_table__SpC_j {
+  border: 1px solid var(--dark-blue);
+  border-collapse: collapse;
+  margin-top: 50px;
+}
+.CourseContent_course_career_table_heading__SpeCq {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 18px 0 18px 12px;
+}
+.CourseContent_course_career_row_container_blue__nIuxp {
+  background-color: #d6e7f8;
+}
+.CourseContent_course_career_row_container_white__v65y_ {
+  background-color: #fff;
+}
+.CourseContent_course_career_row_job__b9Iuf {
+  border: 1px solid var(--dark-blue);
+  width: 25%;
+  font-size: 16px;
+  padding: 12px;
+  vertical-align: top;
+}
+.CourseContent_course_career_row_desc__GKquq {
+  border: 1px solid var(--dark-blue);
+  padding: 12px;
+  text-align: start;
+  font-size: 16px;
+}
+.CourseContent_course_career_sal_table__abBdm {
+  border: 1px solid var(--dark-blue);
+  border-collapse: collapse;
+  margin-top: 50px;
+  width: 80%;
+}
+.CourseContent_course_career_row_job_sal__3KSfi {
+  border: 1px solid var(--dark-blue);
+  width: 50%;
+  font-size: 16px;
+  padding: 12px;
+  vertical-align: top;
+}
+.CourseContent_course_career_row_desc_sal__gPon7 {
+  border: 1px solid var(--dark-blue);
+  padding: 12px;
+  width: 50%;
+  text-align: start;
+  font-size: 16px;
+}
+.CourseContent_course_placement_container__tRa51 {
+  background-color: #00292c;
+  color: var(--white);
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 40px;
+  max-width: 100%;
+}
+.CourseContent_course_placement_imgs_container__J6SiO {
+  display: grid;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow: scroll;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 30px;
+  align-items: center;
+  justify-items: center;
+}
+.CourseContent_course_placement_img_container___LTrF {
+  background-color: var(--white);
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.CourseContent_course_placement_img__ZbIQE {
+  height: 120px;
+  width: 100px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.CourseContent_course_summary_container__hUA8M {
+  border-collapse: collapse;
+  padding: 20px;
+  margin-top: 40px;
+}
+.CourseContent_course_summary_heading__NNpwr {
+  font-size: 35px;
+  line-height: 150%;
+}
+.CourseContent_course_summary_table__bRtD3 {
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.CourseContent_course_summary_row_heading__Rsz_n {
+  border: 1px solid #a2c579;
+  border-collapse: collapse;
+  padding: 10px;
+  width: 25%;
+  font-weight: 600;
+}
+.CourseContent_course_summary_row_desc__OiTMD {
+  border: 1px solid #a2c579;
+  padding: 20px;
+  font-weight: 400;
+}
+.CourseContent_course_faq_container__4fOwM {
+  display: flex;
+  margin: 40px 0;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #ffe 0.01%, #fffff1);
+  padding: 30px;
+}
+.CourseContent_course_faq_left_col__Ashu4 {
+  min-width: 50%;
+  max-width: 50%;
+}
+.CourseContent_course_faq_heading__T1bpl {
+  font-size: 35px;
+  margin-bottom: 40px;
+  line-height: 150%;
+  color: var(--black);
+}
+.CourseContent_course_faq_img__8nJIQ {
+  height: 500px;
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  margin: 20px 0;
+}
+.CourseContent_addmissionDescMobile__5yNlx {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .CourseContent_course_content_container__mlHEy {
+    padding: 0 4%;
+    line-height: 150%;
+  }
+  .CourseContent_course_process_img_bottom_text_container__8SS9d {
+    display: flex;
+    gap: 20px;
+    max-width: 100%;
+    width: 100%;
+    padding-left: 20px;
+    text-align: center;
+    justify-content: space-between;
+    line-height: 120%;
+  }
+  .CourseContent_course_doc_icon_line_container__UH_pc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CourseContent_course_content_container__mlHEy {
+    padding: 0 4%;
+    line-height: 150%;
+  }
+  .CourseContent_course_faq_left_col__Ashu4 {
+    min-width: 80%;
+    max-width: 80%;
+  }
+  .CourseContent_course_doc_icon_img__uvpb4 {
+    height: 50px;
+    width: 50px;
+  }
+  .CourseContent_course_placement_imgs_container__J6SiO {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .CourseContent_course_process_img_bottom_text_container__8SS9d {
+    gap: 5px;
+    max-width: 100%;
+    width: 100%;
+    padding-left: 0;
+    text-align: left;
+    line-height: 120%;
+  }
+  .CourseContent_course_process_img_bottom_text_heading__culzM {
+    color: var(--dark-blue);
+    font-size: 14px;
+    line-height: 120%;
+  }
+  .CourseContent_course_process_img_bottom_text_desc__pJ2dk {
+    font-size: 14px;
+    line-height: 120%;
+  }
+  .CourseContent_course_faq_container__4fOwM {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    margin: 40px 0;
+    justify-content: center;
+    background: linear-gradient(180deg, #ffe 0.01%, #fffff1);
+    padding: 10px;
+  }
+  .CourseContent_course_process_img_data_container__Q08aq {
+    flex-direction: row;
+    max-width: 100%;
+    width: 100%;
+    gap: 15px;
+    justify-content: space-between;
+  }
+  .CourseContent_course_process_img_bottom_text_container__8SS9d {
+    flex-direction: column;
+    padding-top: 30px;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .CourseContent_course_process_img_bottom_text_container__8SS9d > div {
+    width: 100%;
+  }
+  .CourseContent_course_process_heading__VDWQj {
+    font-size: 14px;
+  }
+  .CourseContent_course_process_img_container__RunFs {
+    max-width: 40%;
+  }
+  .CourseContent_course_process_img___B893 {
+    display: none;
+  }
+  .CourseContent_course_process_img_mob__QLQBD {
+    display: inline;
+    width: 100px;
+    height: 100%;
+  }
+  .CourseContent_course_process_desc__rPHy3 {
+    font-size: 16px;
+  }
+  .CourseContent_addmissionDesc__jiNag {
+    display: none;
+  }
+  .CourseContent_addmissionDescMobile__5yNlx {
+    display: block;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CourseContent_course_content_table_single_data__ySHub {
+    font-size: 16px;
+    margin-top: 16px;
+    line-height: 150%;
+  }
+  .CourseContent_course_benifit_point__pa8zH {
+    font-size: 14px;
+    line-height: 150%;
+  }
+  .CourseContent_course_process_img_data_container__Q08aq {
+    flex-direction: row;
+    max-width: 100%;
+    width: 100%;
+    gap: 5px;
+    justify-content: space-between;
+  }
+  .CourseContent_course_process_img_bottom_text_container__8SS9d {
+    flex-direction: column;
+    padding-top: 30px;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .CourseContent_course_process_img_bottom_text_container__8SS9d > div {
+    width: 100%;
+  }
+  .CourseContent_course_process_heading__VDWQj {
+    font-size: 14px;
+  }
+  .CourseContent_course_process_img_container__RunFs {
+    max-width: 40%;
+  }
+  .CourseContent_course_process_img___B893 {
+    display: none;
+  }
+  .CourseContent_course_process_img_mob__QLQBD {
+    display: inline;
+    width: 100px;
+    height: 98%;
+  }
+  .CourseContent_course_process_desc__rPHy3 {
+    font-size: 16px;
+  }
+  .CourseContent_gridItem__fSOLu {
+    padding: 5px;
+    font-size: 14px;
+  }
+  .CourseContent_course_doc_icon_text_container__ebhnN {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .CourseContent_course_doc_icon_line_container__UH_pc {
+    display: none;
+  }
+  .CourseContent_course_doc_text__TmfAU {
+    font-size: 16px;
+  }
+  .CourseContent_course_doc_icon_img__uvpb4 {
+    height: 36px;
+    width: 36px;
+  }
+  .CourseContent_course_doc_icon_text_box__rME0o {
+    max-width: 35%;
+    width: 55px;
+  }
+  .CourseContent_course_fee_container__Qm5Mk {
+    font-size: 14px;
+    margin-top: 20px;
+    line-height: 150%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .CourseContent_course_syllabus_desc___ob_L {
+    font-size: 14px;
+    margin: 10px 0 20px;
+    line-height: 120%;
+  }
+  .CourseContent_course_syllabus_subject__VPt2D {
+    font-size: 14px;
+  }
+  .CourseContent_course_syllabus_table_heading__figut {
+    font-size: 16px;
+  }
+  .CourseContent_course_career_desc__1BiFa {
+    font-size: 14px;
+  }
+  .CourseContent_course_career_table_heading__SpeCq {
+    font-size: 16px;
+    padding: 10px 0 10px 10px;
+  }
+  .CourseContent_course_career_sal_table__abBdm {
+    margin-top: 50px;
+    width: 100%;
+  }
+  .CourseContent_course_placement_heading__UGIa9 {
+    font-size: 18px;
+  }
+  .CourseContent_course_placement_imgs_container__J6SiO {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+  }
+  .CourseContent_course_placement_img_container___LTrF {
+    width: 80px;
+    height: 50px;
+  }
+  .CourseContent_course_placement_img__ZbIQE {
+    height: 70px;
+    width: 50px;
+  }
+  .CourseContent_course_career_row_desc__GKquq,
+  .CourseContent_course_career_row_desc_sal__gPon7,
+  .CourseContent_course_career_row_job__b9Iuf,
+  .CourseContent_course_career_row_job_sal__3KSfi {
+    font-size: 14px;
+  }
+  .CourseContent_course_imp_sub_heading__RO6lm {
+    font-size: 16px;
+    line-height: 150% !important;
+    margin-bottom: 5px;
+  }
+  .CourseContent_course_imp_desc__qQAPA {
+    font-size: 14px;
+  }
+  .CourseContent_course_summary_container__hUA8M {
+    padding: 0;
+    margin-top: 20px;
+  }
+  .CourseContent_course_summary_heading__NNpwr {
+    font-size: 22px;
+  }
+  .CourseContent_course_summary_table__bRtD3 {
+    font-size: 16px;
+  }
+  .CourseContent_course_summary_row_heading__Rsz_n {
+    padding: 5px;
+    width: 25%;
+    line-height: 120%;
+    font-size: 14px;
+  }
+  .CourseContent_course_summary_row_desc__OiTMD {
+    padding: 5px;
+    font-size: 14px;
+  }
+  .CourseContent_course_faq_heading__T1bpl {
+    font-size: 22px !important;
+    margin-bottom: 40px;
+  }
+  .CourseContent_course_faq_img__8nJIQ {
+    height: 300px;
+  }
+  .CourseContent_course_faq_left_col__Ashu4 {
+    min-width: 85%;
+    max-width: 85%;
+  }
+}
+.CourseSlider_container__kRwmW {
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  display: grid;
+  place-items: center;
+  background-color: var(--dark-blue);
+  padding: 0 6%;
+  position: -webkit-sticky;
+}
+.CourseSlider_slider__yObeM {
+  height: 140px;
+  margin: auto;
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.CourseSlider_slide_track__gm93x {
+  display: flex;
+  width: calc(300px * 10);
+  animation: CourseSlider_scroll__nGVSk 20s linear infinite;
+}
+.CourseSlider_slide-track__5if9n:hover {
+  animation-play-state: paused;
+}
+@keyframes CourseSlider_scroll__nGVSk {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-250px * 3));
+  }
+}
+.CourseSlider_course_slide_single_box__NcLvg {
+  border-radius: 10px;
+  margin-left: 25px;
+  transform: translateZ(10px);
+  position: relative;
+  top: 0;
+  transition: top 0.5s ease;
+  max-width: 170px;
+  min-width: 170px;
+}
+.CourseSlider_course_slide_single_box__NcLvg:hover {
+  cursor: pointer;
+  top: -10px;
+}
+.CourseSlider_slider_top_row__6yb7Y {
+  display: flex;
+  gap: 15px;
+  background-color: var(--white);
+  border-radius: 10px 10px 10px 10px;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 300px;
+}
+.CourseSlider_course_slide_college_icon__u0gyo {
+  height: 50px;
+  width: 50px;
+}
+.CourseSlider_slider_top_row_col_two__YT0eR {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.CourseSlider_slider_top_row__6yb7Y:before {
+  content: "";
+  height: 70%;
+  width: 0.5px;
+  background-color: #000;
+  position: absolute;
+  top: 5;
+  left: calc(40% - 0.5px);
+}
+.CourseSlider_course_college_rating_container__05E_b {
+  background: #ffffde;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+@media screen and (max-width: 768px) {
+  .CourseSlider_container__kRwmW {
+    padding: 0 4%;
+  }
+  .CourseSlider_slider__yObeM {
+    height: 150px;
+    margin-top: 0;
+  }
+  .CourseSlider_slider_top_row__6yb7Y {
+    gap: 10px;
+    padding: 10px;
+  }
+  .CourseSlider_course_slide_single_box__NcLvg {
+    min-width: 150px;
+    max-width: 150px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CourseSlider_slider__yObeM {
+    height: 125px;
+    margin-top: 0;
+  }
+  .CourseSlider_course_slide_single_box__NcLvg {
+    border-radius: 10px;
+    margin-left: 15px;
+    max-width: 180px;
+    min-width: 180px;
+  }
+  .CourseSlider_slider_top_row__6yb7Y {
+    gap: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .CourseSlider_course_slide_college_icon__u0gyo {
+    max-height: 70px;
+    width: 60px;
+  }
+  .CourseSlider_slider_top_row_col_two__YT0eR {
+    gap: 5px;
+  }
+}
+.CourseBenefits_benefits_container__HTmun {
+  margin: 1rem auto;
+  padding: 0;
+}
+.CourseBenefits_benefit_card__MSZpX {
+  margin: 1rem 0;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.CourseBenefits_benefit_card_with_heading__GQe2M,
+.CourseBenefits_benefit_card_with_heading__GQe2M:hover {
+  background-color: #f4feff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px dotted #002d62;
+}
+.CourseBenefits_benefit_card_with_heading__GQe2M:hover {
+  background-color: #fff7ee;
+  transform: translateY(-5px);
+}
+.CourseBenefits_benefit_card_without_heading__mx5F0 {
+  background: #fff;
+}
+.CourseBenefits_benefit_content__o7da3 {
+  padding: 1.2rem;
+}
+.CourseBenefits_benefit_heading__VaifU {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--dark-blue);
+}
+.CourseBenefits_benefit_description__xKviE {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.CourseBenefits_benefit_card_with_heading__GQe2M
+  .CourseBenefits_benefit_description__xKviE,
+.CourseBenefits_benefit_card_without_heading__mx5F0
+  .CourseBenefits_benefit_description__xKviE {
+  color: #333;
+}
+@media (max-width: 768px) {
+  .CourseBenefits_benefit_content__o7da3 {
+    padding: 1.5rem;
+    font-size: 14px;
+  }
+  .CourseBenefits_benefit_heading__VaifU {
+    font-size: 1rem;
+  }
+  .CourseBenefits_benefit_description__xKviE {
+    font-size: 14px;
+  }
+}
+.TableOfContents_toc_container__Tu4fl {
+  margin: 1rem auto 0;
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(12, 45, 81, 0.08);
+}
+.TableOfContents_content_item__Ik7VM {
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  background: rgba(12, 45, 81, 0.02);
+}
+.TableOfContents_content_item__Ik7VM:hover {
+  background: rgba(12, 45, 81, 0.05);
+  border-left: 3px solid #e89e26;
+  background-color: #fdf7ee;
+  transform: translateX(5px);
+}
+.TableOfContents_content_link__PJdPu {
+  text-decoration: none;
+  color: #0c2d51;
+  display: flex;
+  align-items: center;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.TableOfContents_content_link__PJdPu:hover {
+  color: #f09f1e !important;
+}
+.TableOfContents_content_number__FsXh9 {
+  min-width: 28px;
+  height: 28px;
+  background: #0c2d51;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.TableOfContents_content_text__Ff7hf {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .TableOfContents_content_item__Ik7VM {
+    padding: 0.6rem 0.8rem;
+  }
+  .TableOfContents_content_link__PJdPu {
+    font-size: 15px;
+  }
+  .TableOfContents_content_number__FsXh9 {
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+}
+.CourseFaqAccordion_faq_accordion__UfRag {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  border-bottom: 1px solid #d2d2d2;
+  padding-bottom: 20px;
+  margin-top: 25px;
+}
+.CourseFaqAccordion_faq_section__f95iw {
+  margin-bottom: 8px;
+}
+.CourseFaqAccordion_faq_section_input___0D1u {
+  display: none;
+}
+.CourseFaqAccordion_faq_section_label__Gy2lP {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 18px !important;
+}
+.CourseFaqAccordion_faq_section_input___0D1u:checked
+  + .CourseFaqAccordion_section_label__Jpu8c {
+  font-size: 18px !important;
+}
+.CourseFaqAccordion_faq_symbol__t00Lf:after {
+  content: "+";
+  font-size: 20px;
+  margin-left: 10px;
+}
+.CourseFaqAccordion_faq_section_input___0D1u:checked
+  + .CourseFaqAccordion_faq_section_label__Gy2lP
+  .CourseFaqAccordion_faq_symbol__t00Lf:after {
+  content: "x";
+  font-size: 18px;
+}
+.CourseFaqAccordion_faq_section_content__sJuZj {
+  display: none;
+}
+.CourseFaqAccordion_faq_section_input___0D1u:checked
+  + .CourseFaqAccordion_faq_section_label__Gy2lP
+  + .CourseFaqAccordion_faq_section_content__sJuZj {
+  display: block;
+  font-size: 16px;
+  color: var(--text-txt-secondary, rgba(60, 60, 67, 0.85));
+  margin-top: 15px;
+}
+.CourseFaqAccordion_faq_section_input___0D1u:not(:checked)
+  + .CourseFaqAccordion_faq_section_label__Gy2lP
+  + .CourseFaqAccordion_faq_section_content__sJuZj {
+  display: none;
+}
+.CourseFaqAccordion_faq_section_input___0D1u:not(:checked)
+  + .CourseFaqAccordion_faq_section_label__Gy2lP {
+  font-size: 18px !important;
+}
+.CourseFaqAccordion_course_faq_question__ZUh8K {
+  font-size: 18px;
+}
+@media screen and (max-width: 480px) {
+  .CourseFaqAccordion_course_faq_question__ZUh8K {
+    font-size: 16px;
+  }
+}
+.placementBanner_container__upl7e {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  max-width: 100%;
+  justify-content: space-around;
+  gap: 10px;
+}
+.placementBanner_heading__yGlah {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 120%;
+}
+.placementBanner_description__O3FqH {
+  font-size: 16px;
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@media screen and (max-width: 1024px) {
+  .placementBanner_heading__yGlah {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .placementBanner_heading__yGlah {
+    font-size: 30px;
+  }
+  .placementBanner_description__O3FqH {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .placementBanner_heading__yGlah {
+    font-size: 4.2vw;
+    line-height: 100%;
+  }
+  .placementBanner_description__O3FqH {
+    font-size: 2.8vw;
+  }
+  .placementBanner_container__upl7e {
+    margin-right: 10px;
+  }
+}
+.ctacard_collegeDetails__bB9sk {
+  margin-bottom: 60px;
+  max-width: 100%;
+}
+.ctacard_collegeDetailsHeading__hZq5i {
+  font-size: 34px;
+  margin: 20px 0;
+}
+.ctacard_placementBanner__XM1jY {
+  display: flex;
+  justify-content: space-between;
+  background: var(--dark-blue);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 40px;
+  max-width: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .ctacard_collegeDetailsHeading__hZq5i {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ctacard_collegeDetailsHeading__hZq5i {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .ctacard_collegeDetailsDescription__DNOdq {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .ctacard_collegeDetailsHeading__hZq5i {
+    font-size: 22px;
+  }
+}
+.Admissions_container__lpKQv {
+  margin-top: 60px;
+}
+.Admissions_heading__paqsP {
+  font-size: 34px;
+  margin-top: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.Admissions_description__sKdUj {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.Admissions_step__4mDzm {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+.Admissions_stepCount__f9yhl,
+.Admissions_stepText___L_GT {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  font-weight: 600;
+}
+.Admissions_stepCount__f9yhl {
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 4px;
+  background: var(--dark-blue);
+  padding: 1.25rem 1rem;
+  max-width: 150px;
+  width: 150px;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+.Admissions_stepCount__f9yhl:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin-bottom: -40px;
+  margin-left: 70px;
+  width: 1px;
+  z-index: -1;
+  background-color: var(--black);
+}
+.Admissions_stepCount__f9yhl:not(:first-child):before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  border-left: 1px solid var(--black);
+  z-index: 0;
+}
+.Admissions_stepCount__f9yhl:not(:last-child):before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background-color: var(--black);
+  z-index: -1;
+}
+.Admissions_stepCount__f9yhl:not(:last-child):after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 20px;
+  border-left: 1px solid var(--black);
+  z-index: -1;
+}
+.Admissions_stepHide__nIt_6 {
+  background-color: #fffef7;
+  height: 100px;
+  z-index: 1;
+  position: relative;
+}
+@media screen and (max-width: 1024px) {
+  .Admissions_heading__paqsP {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Admissions_heading__paqsP {
+    font-size: 24px;
+  }
+  .Admissions_description__sKdUj,
+  .Admissions_stepCount__f9yhl,
+  .Admissions_stepText___L_GT {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Admissions_heading__paqsP {
+    font-size: 22px;
+    margin: 20px 0;
+  }
+  .Admissions_stepCount__f9yhl {
+    width: 100px;
+  }
+  .Admissions_step__4mDzm {
+    padding: 0;
+    gap: 0;
+  }
+  .Admissions_stepText___L_GT {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  .Admissions_stepCount__f9yhl:before {
+    margin-left: 50px;
+  }
+}
+.placementSubpoint_subHeadingPoints__uE7MR {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 768px) {
+  .placementSubpoint_subHeadingPoints__uE7MR {
+    font-size: 14px;
+  }
+}
+.Certificates_wrapper__hjNB4 {
+  width: 100%;
+  margin-top: 60px;
+}
+.Certificates_container__X9Jsj {
+  border-radius: 12px;
+  background: var(--light-mustard-bg);
+  padding: 1.5rem;
+}
+.Certificates_heading__Jr9Js {
+  font-size: 34px;
+  margin: 20px 0 10px;
+}
+.Certificates_subHeading__CKwq6 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+}
+.Certificates_detail_img_container__jHvTy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.Certificates_pointBox__xwwq4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+.Certificates_point__XYWLq {
+  font-size: 16px;
+}
+.Certificates_img__GOe9v {
+  position: relative;
+  border: 10px solid #000;
+  box-shadow: 0 0 55px hsla(60, 24%, 53%, 0.7);
+}
+@media screen and (max-width: 1024px) {
+  .Certificates_heading__Jr9Js {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Certificates_container__X9Jsj {
+    padding: 1rem;
+    flex-direction: column;
+  }
+  .Certificates_heading__Jr9Js {
+    font-size: 24px;
+  }
+  .Certificates_subHeading__CKwq6 {
+    font-size: 16px;
+  }
+  .Certificates_point__XYWLq {
+    color: var(--black);
+    font-size: 14px;
+  }
+  .Certificates_detail_img_container__jHvTy {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Certificates_heading__Jr9Js {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 20px 0 10px;
+  }
+  .Certificates_img__GOe9v {
+    max-width: 100%;
+    width: 100%;
+    height: 180px;
+  }
+}
+.partners_container___c9cx {
+  max-width: 100%;
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+  overflow-x: auto;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+.partners_container___c9cx::-webkit-scrollbar {
+  display: none;
+}
+.partners_imgBox__yD_6o {
+  border-radius: 10px;
+  border: 1px solid #bebebe;
+  background: var(--white);
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  height: 85px;
+  flex-shrink: 0;
+}
+.partners_plac_img__htNsk {
+  -o-object-fit: contain;
+  object-fit: contain;
+  padding: 10px 15px;
+}
+@media screen and (max-width: 480px) {
+  .partners_imgBox__yD_6o {
+    width: 100px;
+    height: 65px;
+  }
+  .partners_container___c9cx::-webkit-scrollbar {
+    display: none;
+  }
+}
+.Exam_container__muz_Z {
+  margin-top: 60px;
+}
+.Exam_heading__jCWCC {
+  font-size: 34px;
+  margin: 20px 0 10px;
+}
+.Exam_examDesc___HPjs {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.Exam_Button__4a7Yw {
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+  margin-top: 32px;
+  margin-bottom: 60px;
+  background: var(--dark-blue);
+  color: var(--white);
+}
+.Exam_eligibilityCriteriaHeading__4obqg {
+  color: var(--black);
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.Exam_eligibilityCriteriaDescription__I_o2n {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.Exam_title__zgD3N {
+  color: 16px;
+  font-weight: 600;
+}
+.Exam_paragraph__CFH4S {
+  margin: 10px 0;
+  line-height: 150%;
+}
+.Exam_text__iZpVR {
+  line-height: 150%;
+}
+@media screen and (max-width: 1024px) {
+  .Exam_examDesc___HPjs {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .Exam_heading__jCWCC {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 786px) {
+  .Exam_examDesc___HPjs {
+    font-size: 14px;
+  }
+  .Exam_heading__jCWCC {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Exam_heading__jCWCC {
+    font-size: 22px;
+  }
+  .Exam_Button__4a7Yw {
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .Exam_eligibilityCriteriaHeading__4obqg {
+    font-size: 20px;
+  }
+  .Exam_eligibilityCriteriaDescription__I_o2n {
+    font-size: 16px;
+  }
+}
+.Highlights_container__yqw8t {
+  margin: 40px 0;
+}
+.Highlights_heading__QnGK2 {
+  font-size: 34px;
+  margin: 0 0 30px;
+}
+.Highlights_grid__zFaon {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  line-height: 150%;
+  gap: 25px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.Highlights_pointContainer__5_snP {
+  display: flex;
+  align-items: center;
+}
+.Highlights_pointIcon__m_iYg {
+  color: var(--dark-blue);
+  justify-items: center;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 20px;
+  line-height: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .Highlights_heading__QnGK2 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .Highlights_heading__QnGK2 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .Highlights_heading__QnGK2 {
+    font-size: 22px;
+    margin: 20px 0;
+  }
+  .Highlights_grid__zFaon {
+    grid-template-columns: repeat(1, 1fr);
+    font-size: 14px;
+    gap: 15px;
+  }
+  .Highlights_pointContainer__5_snP {
+    align-items: flex-start;
+  }
+  .Highlights_pointIcon__m_iYg {
+    margin-right: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    min-width: 16px;
+    min-height: 16px;
+    width: 16px;
+    height: 16px;
+  }
+  .Highlights_container__yqw8t {
+    margin: 10px 0 40px;
+  }
+}
+.courseEligibility_wrapper__WDP1x {
+  margin-bottom: 40px;
+}
+.courseEligibility_eligible_heading__5Qd_3 {
+  font-size: 34px;
+}
+.courseEligibility_eligible_tbody__q_tOM > td {
+  border: 1px solid var(--dark-blue);
+  padding: 10px;
+  font-size: 16px;
+  line-height: 150%;
+}
+.courseEligibility_eligible_table__ZvMdh {
+  border-collapse: collapse;
+  text-align: left;
+  border: 1px solid var(--dark-blue);
+  margin-top: 20px;
+}
+.courseEligibility_eligible_table__ZvMdh > thead {
+  background: var(--dark-blue);
+}
+.courseEligibility_eligible_head__GsY_a > th {
+  color: var(--white);
+  padding: 10px;
+  font-size: 16px;
+  /* font-size: 400; */
+}
+.courseEligibility_eligible_head__GsY_a > th:first-child {
+  width: 25%;
+}
+@media screen and (max-width: 1024px) {
+  .courseEligibility_eligible_heading__5Qd_3 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .courseEligibility_eligible_heading__5Qd_3 {
+    font-size: 24px;
+  }
+  .courseEligibility_eligible_tbody__q_tOM > td {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .courseEligibility_eligible_heading__5Qd_3 {
+    font-size: 22px;
+  }
+}
+.scholarshop_heading__wLasH {
+  font-size: 34px;
+  margin: 20px 0 10px;
+}
+.scholarshop_container__KSXI8 {
+  margin-top: 60px;
+}
+.scholarshop_scholarDesc__hpzVr {
+  display: flex;
+  margin: 10px 0;
+}
+.scholarshop_diamondIcon__Spg2t {
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+.scholarshop_title__k4_Sc {
+  font-weight: 600;
+}
+.scholarshop_description__Qzg2d,
+.scholarshop_title__k4_Sc {
+  font-size: 16px;
+  line-height: 150%;
+}
+.scholarshop_scholarshipDetail__m_Jhr {
+  line-height: 150%;
+}
+@media screen and (max-width: 1024px) {
+  .scholarshop_heading__wLasH {
+    font-size: 28px;
+  }
+  .scholarshop_scholarDesc__hpzVr {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .scholarshop_heading__wLasH {
+    font-size: 24px;
+  }
+  .scholarshop_scholarDesc__hpzVr {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .scholarshop_heading__wLasH {
+    font-size: 22px;
+    margin: 0 0 10px;
+  }
+}
+.emi_heading__fOAZV {
+  font-size: 34px;
+  margin: 20px 0 10px;
+}
+.emi_container__k2QbZ {
+  padding-top: 60px;
+}
+.emi_title__UXhF1 {
+  color: 16px;
+  font-weight: 600;
+}
+.emi_para__0BeXd {
+  margin: 10px 0;
+  line-height: 150%;
+}
+.emi_diamondIcon__XqB7W {
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+.emi_emiDetail__gOPHp {
+  line-height: 150%;
+}
+@media screen and (max-width: 1024px) {
+  .emi_heading__fOAZV {
+    font-size: 28px;
+  }
+  .emi_emiDesc__GhNMM {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .emi_heading__fOAZV {
+    font-size: 24px;
+  }
+  .emi_emiDesc__GhNMM {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .emi_heading__fOAZV {
+    font-size: 22px;
+    margin: 0 0 10px;
+  }
+}

@@ -1,0 +1,37 @@
+.freecourse_table_body__bQQfJ > tr > td {
+  width: 50%;
+  border: 2px solid green;
+}
+.freecourse_table_body__bQQfJ > tr {
+  width: 100%;
+}
+.freecourse_learn_point_main__OODfZ {
+  display: flex;
+}
+.freecourse_learn_point_main__OODfZ div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 0;
+}
+.freecourse_icon_size__1H3VU {
+  font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+  .freecourse_learn_point_main__OODfZ {
+    display: grid;
+  }
+  .freecourse_learn_point_main__OODfZ div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .freecourse_icon_size__1H3VU {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+  }
+}

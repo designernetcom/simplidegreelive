@@ -1,0 +1,558 @@
+.SGPACalculatorContent_SGPACalculator__content_container__NFSVm {
+  max-width: 1440px;
+  margin: auto;
+}
+.SGPACalculatorContent_SGPACalculator__content_container__row__kQGZs {
+  padding: 5% 6% 2%;
+}
+.SGPACalculatorContent_SGPACalculator__content_container__textrow__Vzp5m {
+  margin: 3% 6% 4%;
+  padding: 30px;
+  box-shadow: 0 10px 36px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+}
+.SGPACalculatorContent_SGPACalculator__content_textcontainer__H_hoz {
+  box-shadow: 0 10px 36px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  max-width: 1440px;
+  margin: auto;
+}
+.SGPACalculatorContent_SGPACalculator__content_container__heading__rW5fI {
+  font-size: 28px;
+  line-height: 150%;
+  margin: 20px 0 8px;
+  font-weight: 600;
+}
+.SGPACalculatorContent_SGPACalculator__content_container__para__5oIO5 {
+  font-size: 16px;
+  line-height: 150%;
+  padding-bottom: 20px;
+}
+.SGPACalculatorContent_sgpaconverter__V4njR {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 36px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  background-color: #f6f7f6;
+  margin: auto;
+  align-items: center;
+  border-left: 4px solid #d9a248;
+  border-right: 4px solid #014487;
+}
+.SGPACalculatorContent_sgpalabel__5sorj {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.SGPACalculatorContent_SGPACalculator__content_container__subheading__RHxKz {
+  font-size: 26px;
+  line-height: 150%;
+}
+.SGPACalculatorContent_SGPACalculator__content_container__calheading__XUJbA {
+  font-size: 28px;
+  line-height: 150%;
+  margin: 10px 0 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.SGPACalculatorContent_sgpainput__nGebl {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  line-height: 150%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.SGPACalculatorContent_sgpabutton__abZpM {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000f23;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  width: 80%;
+}
+.SGPACalculatorContent_sgparesult__mP6VT {
+  margin: auto;
+  padding: 15px 20px;
+  background: linear-gradient(145deg, #fff, #f5f5f5);
+  border-radius: 8px;
+  box-shadow: 0 10px 36px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  animation: SGPACalculatorContent_fadeIn__z0wPn 0.5s ease-out;
+  border-left: 4px solid #d9a248;
+  border-right: 4px solid #014487;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@keyframes SGPACalculatorContent_fadeIn__z0wPn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.SGPACalculatorContent_SGPACalculator__content_container__ul__bTuWO {
+  list-style-type: none;
+  font-size: 16px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.SGPACalculatorContent_SGPACalculator__content_container__li__ojWz0 {
+  display: flex;
+  margin-bottom: 12px;
+  line-height: 150%;
+}
+.SGPACalculatorContent_SGPACalculator__tick__LEJz8 {
+  font-size: 20px;
+  color: #2aaa52;
+  margin-right: 10px;
+}
+.SGPACalculatorContent_stepsList___2l_m {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+.SGPACalculatorContent_step__laKDu {
+  background-color: #f1f4f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 12px 0;
+  border-left: 5px solid #d9a248;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.SGPACalculatorContent_step__laKDu:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+.SGPACalculatorContent_stepNumber__WakTL {
+  font-size: 16px;
+  font-weight: 700;
+  color: #014487;
+}
+.SGPACalculatorContent_subStep__npi4K {
+  list-style-type: none;
+  margin: 10px 0 0 20px;
+  padding-left: 0;
+}
+.SGPACalculatorContent_subStep__npi4K li {
+  background-color: #e1f0fc;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.SGPACalculatorContent_subStep__npi4K li:nth-child(odd) {
+  background-color: #c3daf9;
+}
+.SGPACalculatorContent_subStep__npi4K li:nth-child(2n) {
+  background-color: #e1f0fc;
+}
+.SGPACalculatorContent_formulaContainer__zcSeV {
+  background-color: #f4f7fa;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+.SGPACalculatorContent_title__eZxDO {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.SGPACalculatorContent_formula__PvxUt {
+  font-size: 18px;
+  text-align: center;
+  color: #34495e;
+}
+.SGPACalculatorContent_highlight__sPEGd {
+  color: #e74c3c;
+  font-weight: 700;
+}
+.SGPACalculatorContent_steps__zK6E9 {
+  background-color: #ecf0f1;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 20px 0;
+}
+.SGPACalculatorContent_steps__zK6E9 p {
+  margin-bottom: 10px;
+  line-height: 150%;
+}
+.SGPACalculatorContent_calculation__OZ6Uc {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+}
+.SGPACalculatorContent_calculation__OZ6Uc h3 {
+  font-size: 20px;
+  color: #014487;
+  margin-bottom: 10px;
+}
+.SGPACalculatorContent_calculation__OZ6Uc h4 {
+  font-size: 18px;
+  color: #014487;
+  margin: 30px 0 10px;
+  font-weight: 600;
+}
+.SGPACalculatorContent_calculation__OZ6Uc p {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+.SGPACalculatorContent_calculation__OZ6Uc p strong {
+  color: #014487;
+}
+.SGPACalculatorContent_calculation__OZ6Uc
+  .SGPACalculatorContent_highlight__sPEGd {
+  font-size: 18px;
+  color: #f39c12;
+}
+.SGPACalculatorContent_SGPACalculator__table__gJiFY {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #0c2d4f;
+  margin-bottom: 50px;
+  border-radius: 8px;
+}
+.SGPACalculatorContent_SGPACalculator__table__gJiFY td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+.SGPACalculatorContent_SGPACalculator__table__gJiFY th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  background-color: #0c2d4f;
+  color: #fff;
+}
+.SGPACalculatorContent_SGPACalculator__table__gJiFY tr:nth-child(2n) td {
+  background-color: #f0f8ff;
+}
+.SGPACalculatorContent_faq__questions__8M1Mn {
+  padding-bottom: 5px;
+}
+.SGPACalculatorContent_faq__ul__jYWfm {
+  line-height: 150%;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  margin-top: -15px;
+}
+.SGPACalculatorContent_note__8Sb8G {
+  margin: 30px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 130%;
+}
+.SGPACalculatorContent_infocardscontainer__evJeI {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin: 20px 0 40px;
+}
+.SGPACalculatorContent_gradingInfoCard___IjqP {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 4px solid #d9a248;
+  background-color: #fef9ed;
+}
+.SGPACalculatorContent_gradingInfoCard___IjqP:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.SGPACalculatorContent_gradingInfoCard___IjqP:first-child,
+.SGPACalculatorContent_gradingInfoCard___IjqP:nth-child(4) {
+  border-left: 4px solid #014487;
+  background-color: #e0f0fc;
+}
+.SGPACalculatorContent_iconWrapper__IR6q3 {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  background-color: #014487;
+  border-radius: 50%;
+}
+.SGPACalculatorContent_icon__xJSZS {
+  font-size: 24px;
+  color: #fff;
+}
+.SGPACalculatorContent_cardContent__M7SbP {
+  flex-grow: 1;
+}
+.SGPACalculatorContent_cardHeading__l9CQY {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+.SGPACalculatorContent_cardText__U6vyi {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+.SGPACalculatorContent_cardText__U6vyi:hover {
+  color: #222;
+  transition: color 0.3s ease;
+}
+@media screen and (max-width: 1024px) {
+  .SGPACalculatorContent_SGPACalculator__content_container__heading__rW5fI,
+  .SGPACalculatorContent_title__eZxDO {
+    font-size: 24px;
+  }
+  .SGPACalculatorContent_gradingInfoCard___IjqP {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .SGPACalculatorContent_iconWrapper__IR6q3 {
+    margin-bottom: 10px;
+  }
+  .SGPACalculatorContent_cardHeading__l9CQY {
+    font-size: 20px;
+  }
+  .SGPACalculatorContent_cardText__U6vyi {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .SGPACalculatorContent_SGPACalculator__content_container__heading__rW5fI {
+    margin-top: 40px;
+  }
+  .SGPACalculatorContent_sgpaconverter__V4njR {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .SGPACalculatorContent_gradingInfoCard___IjqP {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .SGPACalculatorContent_iconWrapper__IR6q3 {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .SGPACalculatorContent_SGPACalculator__content_container__heading__rW5fI,
+  .SGPACalculatorContent_title__eZxDO {
+    font-size: 22px;
+  }
+  .SGPACalculatorContent_note__8Sb8G {
+    font-size: 14px;
+  }
+  .SGPACalculatorContent_infocardscontainer__evJeI {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+.FAQAccordion_container__tbwPS {
+  width: 100%;
+  max-width: 1440px;
+  margin: 40px auto;
+}
+.FAQAccordion_title__3l2xG {
+  font-size: 28px;
+  line-height: 150%;
+  margin: 15px 0;
+  font-weight: 500;
+}
+.FAQAccordion_accordionItem___vMuS {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s;
+  margin-bottom: 1.5rem;
+}
+.FAQAccordion_accordionItem___vMuS:last-child {
+  margin-bottom: 0;
+}
+.FAQAccordion_accordionItemOpen__Fc_sS {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: scale(1.01);
+}
+.FAQAccordion_accordionItemClosed__Qd5fC {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.FAQAccordion_accordionItemClosed__Qd5fC:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.FAQAccordion_button__LK2KY {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+}
+.FAQAccordion_buttonOpen__nPqPQ {
+  background-color: #014487;
+  color: #fff;
+}
+.FAQAccordion_buttonClosed__T8Vhq {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 10px 36px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+.FAQAccordion_buttonClosed__T8Vhq:hover {
+  background-color: #d9a248;
+  color: #fff;
+}
+.FAQAccordion_question__YCouU {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.75rem;
+}
+.FAQAccordion_icon__GIFGA {
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+.FAQAccordion_iconOpen__jDQUV {
+  transform: rotate(180deg);
+}
+.FAQAccordion_content__aejZ7 {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.FAQAccordion_contentClosed__jgvGZ {
+  max-height: 0;
+}
+.FAQAccordion_answerWrapper__Uzblb {
+  padding: 1.25rem;
+  background-color: #fff;
+  border-top-width: 1px;
+  transition: border-color 0.3s;
+}
+.FAQAccordion_answerWrapperOpen__52htL {
+  border-color: #d9a248;
+}
+.FAQAccordion_answerWrapperClosed__uSyYf {
+  border-color: #f3f4f6;
+}
+.FAQAccordion_answer__EBSc1 {
+  white-space: pre-line;
+  line-height: 1.625;
+}
+.SGPACalculatorHeroSection_SGPACalculator_Hero__container__t3R8v {
+  width: 100%;
+  height: 550px;
+  padding: 231px 0 300px;
+  background-image: linear-gradient(
+      270deg,
+      #000 0.48%,
+      rgba(0, 0, 0, 0.21) 10.91%,
+      #014487
+    ),
+    url(../media/usefultoolsbanner1.99d148a0.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.SGPACalculatorHeroSection_SGPACalculator_Hero__headingContainer__qpChz {
+  width: 85%;
+  color: var(--white);
+  margin: auto;
+}
+.SGPACalculatorHeroSection_SGPACalculator_Hero__heading__kP_Ys {
+  text-shadow: 5px 5px 5px var(--black);
+  font-size: 3vh;
+  margin-bottom: 24px;
+}
+.SGPACalculatorHeroSection_SGPACalculator_Hero__subheading__RFKBj {
+  width: 45%;
+  text-shadow: 2px 3px 5px var(--black);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 150%;
+}
+@keyframes SGPACalculatorHeroSection_bounce__k21xW {
+  0%,
+  to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.SGPACalculatorHeroSection_link__lgFL4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1.5px solid #d9a248;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  margin: 30px 0 10px;
+}
+.SGPACalculatorHeroSection_link__lgFL4:hover {
+  background-color: #d9a248;
+  color: #000;
+  animation: SGPACalculatorHeroSection_bounce__k21xW 0.8s ease infinite;
+}
+.SGPACalculatorHeroSection_icon__W_iyu {
+  width: 16px;
+  height: 16px;
+}
+@media screen and (max-width: 1024px) {
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__heading__kP_Ys {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__container__t3R8v {
+    padding: 180px 0 250px;
+  }
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__headingContainer__qpChz {
+    margin-left: 4%;
+  }
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__heading__kP_Ys {
+    font-size: 24px;
+  }
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__subheading__RFKBj {
+    width: 60%;
+    font-size: 16px;
+  }
+  .SGPACalculatorHeroSection_link__lgFL4 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__container__t3R8v {
+    padding: 160px 0 220px;
+    height: 274px;
+  }
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__headingContainer__qpChz {
+    margin-left: 4%;
+  }
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__heading__kP_Ys {
+    font-size: 22px;
+  }
+  .SGPACalculatorHeroSection_SGPACalculator_Hero__subheading__RFKBj {
+    width: 80%;
+  }
+}

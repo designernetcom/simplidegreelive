@@ -1,0 +1,80 @@
+.fixedCompareSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.comparePreviewList {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 5px;
+  width: 100%; /* Ensure it spans the full width of the container */
+  justify-content: center; /* Center items horizontally */
+}
+
+.comparePreviewItem {
+  display: flex;
+  align-items: flex-start;
+  background-color: #1e4066; /* Slightly lighter blue for contrast */
+  border: 1px solid #355673; /* Border to distinguish items */
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  min-width: 200px;
+  color: #fff; /* White text for readability */
+}
+
+.comparePreviewImage {
+  border-radius: 5px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.comparePreviewDetails {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #fff; /* White text */
+}
+
+.comparePreviewName {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  color: #fff; /* White text */
+}
+
+.comparePreviewRank {
+  margin-top: 2px;
+}
+
+.comparePreviewDetails span {
+  margin: 2px 0;
+}
+
+.removeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #ff4d4f; /* Keep red for visibility */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeButton:hover {
+  background-color: #e63946;
+}

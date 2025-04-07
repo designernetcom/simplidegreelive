@@ -1,0 +1,312 @@
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.MainNavbar_mainNavBar__buttons__fxxQT.dropdown {
+  position: relative;
+}
+
+.MainNavbar_link__Je6tm {
+  color: #fff !important;
+  padding: 10px 15px;
+  display: block;
+}
+
+.MainNavbar_link__Je6tm:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+/* Menu.module.css */
+.fixedHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.mobileToggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10000;
+  background: #0c2d50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Mobile Navbar */
+.mobileNavbar {
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobileNavbarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobileNavbarLogo {
+  height: 70px;
+}
+
+.mobileNavbarToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.mobileNavbarMenu {
+  display: none;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.mobileNavbarMenu a {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #eee;
+}
+
+.mobileNavbarMenu a:last-child {
+  border-bottom: none;
+}
+
+.mobileNavbarMenu.active {
+  display: flex;
+}
+
+/* Animation for Mega Menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 767px) {
+  .mobileNavbar {
+    display: flex;
+  }
+  .mobileNavbarLogo {
+    height: 75px;
+  }
+  .mobileNavbarToggle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .mobileNavbar {
+    display: flex;
+  }
+  .mobileNavbarLogo {
+    height: 75px;
+  }
+  .mobileNavbarMenu a {
+    padding: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobileNavbar {
+    display: none;
+  }
+}
+
+/* Add other styles as needed */
+
+
+/* Existing styles (assumed from your project) */
+.mobileNavbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileNavbar {
+    display: block;
+  }
+  .mobileNavbarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  .mobileNavbarLogo {
+    object-fit: contain;
+  }
+  .mobileNavbarToggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #0c2d50;
+  }
+  .mobileNavbarMenu {
+    display: none;
+    flex-direction: column;
+    background-color: #0c2d50;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding: 20px;
+    z-index: 9999;
+  }
+  .mobileNavbarMenu.active {
+    display: flex;
+  }
+  .mobileNavbarMenu a {
+    color: #fff;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  .mobileNavbarMenu a:hover {
+    color: #1a4a7a;
+  }
+}
+
+/* New styles for University Modal */
+.universityModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(2px);
+}
+
+.universityModal {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 1200px;
+  max-width: 95%;
+  max-height: 80vh;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease-out;
+  background: hsla(0, 0%, 8%, .5);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.universityModalClose {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.universityModalClose:hover {
+  color: #1a4a7a;
+  transform: scale(1.2);
+}
+
+.universityModalTitle {
+  color: #fff;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  /* text-align: center; */
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+.universityModalGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.universityModalItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background-color:#fff;;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #0c2d50;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.universityModalItem:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+}
+
+.universityModalIcon {
+  border-radius: 15%;
+  object-fit: cover;
+  background-color: rgba(12, 45, 80, 0.2);
+  padding: 5px;
+}
+
+.universityModalText {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .universityModal {
+    padding: 20px;
+    width: 100%;
+    max-height: 90vh;
+  }
+  .universityModalGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .universityModalTitle {
+    font-size: 1.5rem;
+  }
+  .universityModalItem {
+    padding: 10px;
+  }
+  .universityModalText {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,482 @@
+.CollegeFinderPage_navbarContainer__hlp6V {
+  padding-top: 170px;
+  background: #0c2d50;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+.CollegeFinderPage_form__nwiuo {
+  width: 80%;
+  margin: auto;
+}
+.CollegeFinderPage_formm__u_q07 input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #858383;
+  margin-right: 0.5em;
+  font-weight: 600;
+}
+.CollegeFinderPage_formm__u_q07 input[type="date"]:focus:before,
+.CollegeFinderPage_formm__u_q07 input[type="date"]:valid:before {
+  content: "";
+}
+.CollegeFinderPage_progress_bar__yFJPa {
+  height: 10px;
+  background-color: #d8fbff;
+  border-radius: 5px;
+}
+.CollegeFinderPage_header__4nCK_ {
+  text-align: center;
+  margin: 40px 0;
+}
+.CollegeFinderPage_footer__hEULK {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.CollegeFinderPage_nextBtn__LNYEc,
+.CollegeFinderPage_prevBtn__r_R0X {
+  padding: 10px 20px;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  font-size: 14px;
+  border-radius: 5px;
+  border: 5px solid var(--dark-blue);
+  cursor: pointer;
+}
+.CollegeFinderPage_degreeContainer__PxeoP {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+.CollegeFinderPage_degree_name__p4Dk7 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.CollegeFinderPage_degree_single_box__PnXtV {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+.CollegeFinderPage_degree_single_box__PnXtV:hover {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+.CollegeFinderPage_course_interested_container__fAJgb {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+}
+.CollegeFinderPage_course_employed_container__DXVAG {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.CollegeFinderPage_employed_single_box__7wQS3 {
+  padding: 20px 45px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+.CollegeFinderPage_employed_single_box__7wQS3:hover {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+.CollegeFinderPage_achive_container__Kcf5O {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.CollegeFinderPage_achive_single_box__UgNcv {
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+.CollegeFinderPage_achive_single_box__UgNcv:hover {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+.CollegeFinderPage_courseImage__V8HmB {
+  -o-object-fit: contain;
+  object-fit: contain;
+  filter: drop-shadow(0 0 0.2rem #a6a0a0);
+}
+.CollegeFinderPage_tick_icon__C0hoR {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  background-color: var(--dark-blue);
+  padding: 4px;
+  background-color: var(--white);
+}
+.CollegeFinderPage_bgColor__xJWc9 {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+.CollegeFinderPage_formm__u_q07 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.CollegeFinderPage_formm__u_q07 > input,
+.CollegeFinderPage_formm__u_q07 > select {
+  width: 48%;
+  margin-top: 10px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: var(--white);
+  color: grey;
+  height: 40px;
+}
+.CollegeFinderPage_formm__u_q07 > input::-webkit-input-placeholder {
+  font-weight: 700;
+}
+.CollegeFinderPage_formm__u_q07 > select {
+  font-weight: 700;
+}
+.CollegeFinderPage_formm__u_q07 > input:focus {
+  outline: none;
+}
+.CollegeFinderPage_toast__VRvnX {
+  color: red;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
+}
+.CollegeFinderPage_submit_btn__uhekB {
+  position: relative;
+  width: 48%;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--dark-blue);
+  color: var(--white);
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.CollegeFinderPage_button__text__jI0E3 {
+  color: #fff;
+  transition: all 0.2s;
+}
+.CollegeFinderPage_submit_btn__uhekB.CollegeFinderPage_loading__5h2_G
+  .CollegeFinderPage_button__text__jI0E3 {
+  visibility: hidden;
+  opacity: 0;
+}
+.CollegeFinderPage_submit_btn__uhekB.CollegeFinderPage_loading__5h2_G:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: CollegeFinderPage_button-loading-spinner__5A8TD 1s ease infinite;
+}
+.CollegeFinderPage_loadingOverlay__Gje3f {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.CollegeFinderPage_spinner__pKBEB {
+  border: 16px solid #f3f3f3;
+  border-top-color: #0c2d50;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: CollegeFinderPage_spin__a02wm 2s linear infinite;
+}
+@keyframes CollegeFinderPage_spin__a02wm {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .CollegeFinderPage_course_interested_container__fAJgb,
+  .CollegeFinderPage_degreeContainer__PxeoP {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .CollegeFinderPage_navbarContainer__hlp6V {
+    padding-top: 80px;
+    margin-bottom: 30px;
+    padding-bottom: 0;
+  }
+}
+@media screen and (max-width: 949px) {
+  .CollegeFinderPage_formContainer__nIDJp {
+    width: 80%;
+    margin: auto;
+  }
+  .CollegeFinderPage_formm__u_q07 {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: var(--dark-blue);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .CollegeFinderPage_formm__u_q07 > input,
+  .CollegeFinderPage_formm__u_q07 > select {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CollegeFinderPage_course_interested_container__fAJgb,
+  .CollegeFinderPage_degreeContainer__PxeoP {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .CollegeFinderPage_title__oUx_5 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  .CollegeFinderPage_achive_container__Kcf5O {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .CollegeFinderPage_yes_no__l6WHp {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 426px) {
+  .CollegeFinderPage_navbarContainer__hlp6V {
+    padding-top: 60px;
+  }
+  .CollegeFinderPage_title__oUx_5 {
+    font-size: 22px;
+    margin: 10px 0;
+  }
+  .CollegeFinderPage_formContainer__nIDJp {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .CollegeFinderPage_course_interested_container__fAJgb,
+  .CollegeFinderPage_degreeContainer__PxeoP {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .CollegeFinderPage_achive_container__Kcf5O {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}
+.exam_examContainer__WuPkK {
+  width: 85%;
+  margin: auto;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  padding: 25px 20px;
+  border-radius: 5px;
+}
+.exam_inputBox__wanZU {
+  border: 0.5px solid #0d2d50;
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+.exam_searchInput__1Kamw {
+  border: none;
+  width: 100%;
+}
+.exam_searchInput__1Kamw:focus {
+  outline: none;
+}
+.exam_title__NDYWX {
+  font-size: 22px;
+  background-color: #d6e7f8;
+  padding: 10px;
+  border: 0 solid transparent;
+  border-radius: 5px;
+}
+.exam_browseContainer__f6CGN {
+  width: 85%;
+  margin: 50px auto;
+  padding: 25px 20px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  border-radius: 5px;
+}
+.exam_allExams__j6FOh {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  font-size: 18px;
+  width: 85%;
+  margin: 20px auto 60px;
+}
+.exam_individualExam__Tuxkp {
+  position: relative;
+  min-height: 350px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  border-radius: 5px;
+  border-bottom: 2px solid #0d2d50;
+}
+.exam_examName__JVulU {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
+  background-color: #d6e7f8;
+}
+.exam_allrelatedExam__BrLy3 {
+  border-top: 1px solid #d8d8d8;
+  padding: 10px;
+}
+.exam_viewAll__FhC8_ {
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 0;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid #d8d8d8;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  color: var(--dark-blue);
+  background-color: #d6e7f8;
+}
+.exam_examsCategory__I70Nd {
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+.exam_viewMoreBtn__YPhMK {
+  margin: 20px auto 10px;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.exam_mainTable__PB3hL {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #0c2d4f;
+}
+.exam_tableHeading__Jjssc > th {
+  border: 2px solid #0c2d4f;
+  padding: 8px;
+  text-align: center;
+  background-color: #0c2d4f;
+  color: #fff;
+}
+.exam_tableBody__PL_eP > td {
+  border: 1px solid var(--dark-blue);
+  padding: 10px;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+}
+.exam_mainTable__PB3hL tr:nth-child(2n) {
+  background-color: #d6e7f8;
+}
+.exam_headingTopEntrance__P_BpW {
+  margin-top: 10px;
+  background-color: #d6e7f8;
+  padding: 10px;
+}
+.exam_browserDescription__T4pUE {
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 10px;
+  line-height: 150%;
+}
+.exam_courseIcon__4qZt_ {
+  font-size: 34px;
+  stroke-width: 0px;
+}
+.exam_search_result_item__GNwX0 {
+  padding: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+.exam_search_result_item__GNwX0:hover {
+  background-color: #f0f0f0;
+}
+@media screen and (max-width: 1024px) {
+  .exam_allExams__j6FOh {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .exam_browserDescription__T4pUE,
+  .exam_mainTable__PB3hL,
+  .exam_tableBody__PL_eP > td {
+    font-size: 14px;
+  }
+  .exam_examName__JVulU {
+    font-size: 16px;
+  }
+  .exam_examsCategory__I70Nd {
+    font-size: 14px;
+  }
+  .exam_individualExam__Tuxkp {
+    max-height: -moz-max-content;
+    max-height: max-content;
+  }
+  .exam_courseIcon__4qZt_ {
+    font-size: 1.5rem;
+  }
+  .exam_viewAll__FhC8_,
+  .exam_viewMoreBtn__YPhMK {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .exam_title__NDYWX {
+    font-size: 18px;
+  }
+  .exam_allExams__j6FOh {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
