@@ -2,7 +2,10 @@ import React from "react";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import CourseSlider from "../../../../components/CourseSlider";
-
+import "../../styles/85aaac7cee097ab2.css";
+import "../../styles/cc66cf431efece60.css";
+import "../../styles/3a6b4218bb14b3ef.css";
+import "../../styles/5107c2122129e0bb.css";
 export default function page() {
   return (
     <>

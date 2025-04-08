@@ -48,13 +48,13 @@ export default function ComparisonModal({
         >
           Close
         </button>
-        <h2>Compare Universities</h2>
+        <h4>Compare Universities</h4>
         <div className="comparison-table">
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr>
                 <th style={{ border: "1px solid #ddd", padding: "8px" }}>
-                  Criteria
+                  Colleges
                 </th>
                 {compareList.map((uni) => (
                   <th
@@ -82,7 +82,7 @@ export default function ComparisonModal({
               </tr>
               <tr>
                 <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                  Accreditations
+                  Approvals
                 </td>
                 {compareList.map((uni) => (
                   <td

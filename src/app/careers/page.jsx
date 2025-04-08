@@ -8,17 +8,17 @@ import "../styles/3a6b4218bb14b3ef.css";
 import Menu from "../../../components/Header/Menu/Menu";
 import Footer from "../../../components/Footer/Footer";
 import CareerTabs from "../../../components/CareerTabs";
-export const dynamic = "force-dynamic";
 
-async function fetchData() {
-  const res = await fetch("https://nextjs.e-gp.in/api/careerpage", {
-    next: { revalidate: 0 }, // Fetch fresh data on every request
-  });
-  if (!res.ok) throw new Error("Failed to fetch careers data");
-  return res.json();
-}
-export default async function page() {
-   const data = await fetchData();
+
+// async function fetchData() {
+//   const res = await fetch("http://localhost:8000/api/careerpage", {
+//     next: { revalidate: 0 }, // Fetch fresh data on every request
+//   });
+//   if (!res.ok) throw new Error("Failed to fetch careers data");
+//   return res.json();
+// }
+export default  function page() {
+   
   return (
     <>
       <Menu />
@@ -59,11 +59,11 @@ export default async function page() {
             >
               <div className="CareerHeroSection_Career_page_Hero__headingContainer__Zuaf6">
                 <h1 className="CareerHeroSection_Career_page_Hero__heading__mxV_U">
-                  {data.title}
+                  
                 </h1>
                 <p className="CareerHeroSection_Career_page_Hero__subheading__T6okQ">
                   {" "}
-                  {data.heading}
+                  
                 </p>
               </div>
             </div>

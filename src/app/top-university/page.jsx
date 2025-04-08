@@ -107,18 +107,18 @@ export default function Page() {
       degree: "MBA",
       state: "Maharashtra",
     },
-    {
-      id: 7,
-      name: "Jain University Online",
-      fee: 90000,
-      image: "/assets/img/colleges/jain-online.webp",
-      logo: "/assets/img/colleges/icon-jain.webp",
-      accreditations: ["NAAC A++", "NBA", "UGC", "AICTE", "AIU"],
-      rank: "Not specified",
-      studyMode: "Online Programmes",
-      degree: "MBA",
-      state: "Karnataka",
-    },
+    // {
+    //   id: 7,
+    //   name: "Jain University Online",
+    //   fee: 90000,
+    //   image: "/assets/img/colleges/jain-online.webp",
+    //   logo: "/assets/img/colleges/icon-jain.webp",
+    //   accreditations: ["NAAC A++", "NBA", "UGC", "AICTE", "AIU"],
+    //   rank: "Not specified",
+    //   studyMode: "Online Programmes",
+    //   degree: "MBA",
+    //   state: "Karnataka",
+    // },
 
     {
       id: 8,
@@ -1756,21 +1756,8 @@ export default function Page() {
                     </div>
                   ))}
                 </div>
-                <button
-                  onClick={openModal}
-                  style={{
-                    padding: "10px 20px",
-                    backgroundColor: "#fff",
-                    color: "#0c2d50",
-                    border: "none",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    fontSize: "16px",
-                    marginTop: "10px",
-                    width: "100%",
-                  }}
-                >
-                  Compare Selected Universities ({compareList.length})
+                <button onClick={openModal} className={styles.compareButton}>
+                  Compare
                 </button>
               </div>
             )}

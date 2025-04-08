@@ -215,7 +215,7 @@ export default function page() {
                 </div>
               </div>
               <div className="BrowseCourse_browse_course_card__6O_U1">
-                <Link href="/courses/certification-in-ai-and-ml" passHref>
+                <Link href="/free-courses" passHref>
                   <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
                     <div>
                       <img

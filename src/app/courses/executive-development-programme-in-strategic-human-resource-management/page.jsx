@@ -4,6 +4,7 @@ import React from "react";
 import "../../styles/85aaac7cee097ab2.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/3a6b4218bb14b3ef.css";
+import "../../styles/5107c2122129e0bb.css";
 import CourseSlider from "../../../../components/CourseSlider";
 
 export default function page() {
@@ -77,7 +78,7 @@ export default function page() {
               </p>
             </div>
           </div>
-         <CourseSlider />
+          <CourseSlider />
           <div className="CourseAbout_course_about_container__xEAH5">
             <div className="CourseAbout_course_about_left_col__KRo_I">
               <h2 className="CourseAbout_course_about_heading__n0jzu">
@@ -111,7 +112,7 @@ export default function page() {
                   data-nimg={1}
                   className="CourseAbout_course_about_img__6V0u_"
                   style={{ color: "transparent" }}
-                  src="assets/simpli-images/ExecutiveDevelopmentProgrammeinStrategicManagementAbout.webp"
+                  src="/assets/simpli-images/ExecutiveDevelopmentProgrammeinStrategicManagementAbout.webp"
                 />
               </a>
             </div>
@@ -485,7 +486,7 @@ export default function page() {
                         data-nimg={1}
                         className="CourseContent_course_process_img___B893"
                         style={{ color: "transparent" }}
-                        src="assets/simpli-images/processImg (1).webp"
+                        src="/assets/simpli-images/processImg (1).webp"
                       />
                       <img
                         alt="img"
@@ -693,7 +694,7 @@ export default function page() {
                             data-nimg={1}
                             className="CourseContent_course_doc_icon_img__uvpb4"
                             style={{ color: "transparent" }}
-                            src="assets/simpli-images/courseIcon (1).webp"
+                            src="/assets/simpli-images/courseIcon (1).webp"
                           />
                         </div>
                         <div>
@@ -710,7 +711,7 @@ export default function page() {
                           data-nimg={1}
                           className="CourseContent_course_doc_icon_line_img__hZqYx"
                           style={{ color: "transparent" }}
-                          src="assets/simpli-images/pinkLineIcon (1).webp"
+                          src="/assets/simpli-images/pinkLineIcon (1).webp"
                         />
                       </div>
                       <div className="CourseContent_course_doc_icon_text_box__rME0o">
@@ -724,7 +725,7 @@ export default function page() {
                             data-nimg={1}
                             className="CourseContent_course_doc_icon_img__uvpb4"
                             style={{ color: "transparent" }}
-                            src="assets/simpli-images/govIdIcon (1).webp"
+                            src="/assets/simpli-images/govIdIcon (1).webp"
                           />
                         </div>
                         <div>
@@ -741,7 +742,7 @@ export default function page() {
                           data-nimg={1}
                           className="CourseContent_course_doc_icon_line_img__hZqYx"
                           style={{ color: "transparent" }}
-                          src="assets/simpli-images/orangeLineIcon (1).webp"
+                          src="/assets/simpli-images/orangeLineIcon (1).webp"
                         />
                       </div>
                       <div className="CourseContent_course_doc_icon_text_box__rME0o">
@@ -755,7 +756,7 @@ export default function page() {
                             data-nimg={1}
                             className="CourseContent_course_doc_icon_img__uvpb4"
                             style={{ color: "transparent" }}
-                            src="assets/simpli-images/workIcon (1).webp"
+                            src="/assets/simpli-images/workIcon (1).webp"
                           />
                         </div>
                         <div>
@@ -772,7 +773,7 @@ export default function page() {
                           data-nimg={1}
                           className="CourseContent_course_doc_icon_line_img__hZqYx"
                           style={{ color: "transparent" }}
-                          src="assets/simpli-images/greenLineIcon (1).webp"
+                          src="/assets/simpli-images/greenLineIcon (1).webp"
                         />
                       </div>
                       <div className="CourseContent_course_doc_icon_text_box__rME0o">
@@ -786,7 +787,7 @@ export default function page() {
                             data-nimg={1}
                             className="CourseContent_course_doc_icon_img__uvpb4"
                             style={{ color: "transparent" }}
-                            src="assets/simpli-images/profileIcon (1).webp"
+                            src="/assets/simpli-images/profileIcon (1).webp"
                           />
                         </div>
                         <div>
@@ -903,7 +904,7 @@ export default function page() {
                       Job Security:
                     </h3>
                     <p className="CourseContent_course_imp_desc__qQAPA">
-                      HR professionals are crucial assets of a company, so,
+                      HR professionals are crucial /assets of a company, so,
                       keeping in mind future growth, this industry offers
                       long-term job security and opportunities on a global
                       level.
@@ -1360,7 +1361,7 @@ export default function page() {
                   data-nimg={1}
                   className="CourseContent_course_faq_img__8nJIQ"
                   style={{ color: "transparent" }}
-                  src="assets/simpli-images/faq.BF9BsViE.svg"
+                  src="/assets/simpli-images/faq.BF9BsViE.svg"
                 />
               </div>
             </div>

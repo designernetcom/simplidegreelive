@@ -1049,10 +1049,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1068,10 +1065,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1087,10 +1081,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                  
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1100,21 +1091,7 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            <img
-                              alt="certificate_url"
-                              loading="lazy"
-                              width={300}
-                              height={200}
-                              decoding="async"
-                              data-nimg={1}
-                              className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fcertificate%2Fmanipal-university-sample-certificate.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fcertificate%2Fmanipal-university-sample-certificate.webp&w=640&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fcertificate%2Fmanipal-university-sample-certificate.webp&w=640&q=75"
-                            />
+                 
                           </div>
                         </div>
                       </div>
@@ -1387,201 +1364,7 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                      <h3 className="placement_heading__iEHZj">
-                        Our Students Work At
-                      </h3>
-                      <div className="partners_container___c9cx">
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FAccenture.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FAccenture.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FAccenture.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fdeloitte.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fdeloitte.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fdeloitte.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FCapgemini.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FCapgemini.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FCapgemini.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FKPMG.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FKPMG.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FKPMG.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fgenpact.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fgenpact.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fgenpact.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fibm.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fibm.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fibm.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FInfosys.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FInfosys.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FInfosys.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fwipro.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fwipro.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fwipro.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fsiemens.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fsiemens.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2Fsiemens.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FNielsen.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FNielsen.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fonline-manipal-jaipur%2Fplacement-partners%2FNielsen.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                  
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">

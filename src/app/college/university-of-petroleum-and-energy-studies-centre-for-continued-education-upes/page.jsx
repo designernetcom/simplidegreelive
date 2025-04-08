@@ -417,19 +417,19 @@ export default function page() {
                         </div>
                         <div>
                           <div className="Certificates_pointBox__xwwq4">
-                            <img alt="check-image" loading="lazy" width={20} height={20} decoding="async" data-nimg={1} style={{color: 'transparent'}} srcSet="
+                            {/* <img alt="check-image" loading="lazy" width={20} height={20} decoding="async" data-nimg={1} style={{color: 'transparent'}} srcSet="
                             image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
                             image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          " src="image?url=%2Fimages%2Fcheck.png&w=48&q=75" />
+                          " src="image?url=%2Fimages%2Fcheck.png&w=48&q=75" /> */}
                             <div className="Certificates_point__XYWLq">
                               NAAC A Recognised
                             </div>
                           </div>
                           <div className="Certificates_pointBox__xwwq4">
-                            <img alt="check-image" loading="lazy" width={20} height={20} decoding="async" data-nimg={1} style={{color: 'transparent'}} srcSet="
+                            {/* <img alt="check-image" loading="lazy" width={20} height={20} decoding="async" data-nimg={1} style={{color: 'transparent'}} srcSet="
                             image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
                             image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          " src="image?url=%2Fimages%2Fcheck.png&w=48&q=75" />
+                          " src="image?url=%2Fimages%2Fcheck.png&w=48&q=75" /> */}
                             <div className="Certificates_point__XYWLq">
                               UGC-DEB Entitled
                             </div>
@@ -446,10 +446,10 @@ export default function page() {
                         </div>
                       </div>
                       <div>
-                        <img alt="certificate_url" loading="lazy" width={300} height={200} decoding="async" data-nimg={1} className="Certificates_img__GOe9v" style={{color: 'transparent'}} srcSet="
+                        {/* <img alt="certificate_url" loading="lazy" width={300} height={200} decoding="async" data-nimg={1} className="Certificates_img__GOe9v" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fcertification%2Fupes-certificate.webp&w=384&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fcertification%2Fupes-certificate.webp&w=640&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fcertification%2Fupes-certificate.webp&w=640&q=75" />
+                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fcertification%2Fupes-certificate.webp&w=640&q=75" /> */}
                       </div>
                     </div>
                   </div>
@@ -582,7 +582,7 @@ export default function page() {
                       </p>
                     </div>
                   </div>
-                  <h3 className="placement_heading__iEHZj">
+                  {/* <h3 className="placement_heading__iEHZj">
                     Our Students Work At
                   </h3>
                   <div className="partners_container___c9cx">
@@ -666,7 +666,7 @@ export default function page() {
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75" />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">

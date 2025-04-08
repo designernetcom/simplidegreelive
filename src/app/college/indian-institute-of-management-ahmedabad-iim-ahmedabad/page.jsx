@@ -840,10 +840,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -892,7 +889,7 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -906,7 +903,7 @@ export default function page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-ahmedabad%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
                               src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-ahmedabad%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>

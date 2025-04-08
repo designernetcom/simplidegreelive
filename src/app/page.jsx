@@ -1616,11 +1616,11 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <a
+            <Link
               className="WhyUs_exploreButton__CFVYV"
-              href="freecounseling.html"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/freecounseling" // Adjusted for Next.js routing
+              target="_blank" // Opens in a new tab
+              rel="noopener noreferrer" // Security best practice
             >
               <svg
                 width={24}
@@ -1629,11 +1629,13 @@ export default function Page() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}
+                aria-hidden="true" // Hides SVG from screen readers since it’s decorative
               >
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
-              Connect with Experts
-            </a>
+              <span>Connect with Experts</span>{" "}
+              {/* Wrapped in span for clarity */}
+            </Link>
           </div>
         </div>
         <div className="TestimonialSlider_container__Je36b">
@@ -1675,7 +1677,7 @@ export default function Page() {
                 <div>
                   <div className="TestimonialSlider_imageContainer__qw6pl">
                     <img
-                      src="/HomePage/Kartikeya.webp"
+                      src="/assets/img/avatar_1.png"
                       alt="Kartikeya Misra"
                       className="TestimonialSlider_avatar__tkuAI"
                     />
@@ -1701,7 +1703,7 @@ export default function Page() {
                 <div>
                   <div className="TestimonialSlider_imageContainer__qw6pl">
                     <img
-                      src="/HomePage/Manav-Dhodare.webp"
+                      src="/assets/img/avatar_3.png"
                       alt="Manav Dhodare"
                       className="TestimonialSlider_avatar__tkuAI"
                     />
@@ -1776,122 +1778,416 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <section>
+        <div className="container">
+          <div className="row  td_gap_y_40">
+            <div
+              className="col-lg-6 wow fadeInLeft"
+              data-wow-duration="1s"
+              data-wow-delay="0.3s"
+            >
+              <div className="td_image_box td_style_6">
+                <div className="td_image_box_img_1">
+                  <img
+                    src="/assets/simpli-images/DeWatermark.ai_1740819150754.png"
+                    alt
+                  />
+                </div>
+                <div className="td_image_box_img_2">
+                  <div className="td_image_box_img_2_in">
+                    <img src="/assets/simpli-images/220-SM911676.jpg" alt />
+                  </div>
+                </div>
+                <div className="td_image_box_shape_1 position-absolute" />
+                <div className="td_image_box_shape_2 position-absolute">
+                  <img src="/assets/img/home_5/about_shape_2.svg" alt />
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-lg-6 wow fadeInUp"
+              data-wow-duration="1s"
+              data-wow-delay="0.2s"
+            >
+              <div className="td_section_heading td_style_1 td_mb_30">
+                <p className="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
+                  About US
+                </p>
+                <h2 className="td_section_title td_fs_48 td_mb_20">
+                  Shaping Futures, One Learner at a Time
+                </h2>
+                <p className="td_section_subtitle td_fs_18 mb-0">
+                  Far far away, behind the word mountains, far from the At
+                  Simpli Degree, we believe education is the key to unlocking
+                  endless possibilities. Our mission is to inspire, educate, and
+                  empower learners worldwide through accessible, high-quality
+                  courses. Together, let’s create a future where knowledge knows
+                  no bounds.
+                </p>
+              </div>
+              <div className="td_tabs td_style_1">
+                <ul className="td_tab_links td_style_3 td_mp_0 td_medium td_fs_24 td_heading_color">
+                  <li className="active">
+                    <a href="#td_tab_1">Proven Success</a>
+                  </li>
+                  <li>
+                    <a href="#td_tab_2">Real Impact </a>
+                  </li>
+                  <li>
+                    <a href="#td_tab_3"> Community </a>
+                  </li>
+                </ul>
+                <div className="td_height_30 td_height_lg_30" />
+                <div className="td_tab_body">
+                  <div className="td_tab active" id="td_tab_1">
+                    <ul className="td_list td_style_5 td_mp_0">
+                      <li>
+                        <h3 className="td_fs_24 td_mb_8">
+                          90% of our learners secure a job
+                        </h3>
+                        <p className="td_fs_18 mb-0">
+                          Learners secure a job or promotion within 6 months.
+                        </p>
+                      </li>
+                      <li>
+                        <h3 className="td_fs_24 td_mb_8">
+                          Over 50,000 professionals{" "}
+                        </h3>
+                        <p className="td_fs_18 mb-0">
+                          Professionals have transformed their careers with
+                          Simpli Degree.
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="td_tab" id="td_tab_2">
+                    <ul className="td_list td_style_5 td_mp_0">
+                      <li>
+                        <h3 className="td_fs_24 td_mb_8">
+                          10,000+ industry-relevant projects
+                        </h3>
+                        <p className="td_fs_18 mb-0">
+                          Our students have successfully completed it solving
+                          real-world problems.
+                        </p>
+                      </li>
+                      <li>
+                        <h3 className="td_fs_24 td_mb_8">Alumni projects </h3>
+                        <p className="td_fs_18 mb-0">
+                          Alumni projects have been featured in renowned
+                          industry forums and publications.
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="td_tab" id="td_tab_3">
+                    <ul className="td_list td_style_5 td_mp_0">
+                      <li>
+                        <h3 className="td_fs_24 td_mb_8">Over 30 countries</h3>
+                        <p className="td_fs_18 mb-0">
+                          Join a thriving network of learners from over 30
+                          countries, collaborating and sharing insights.
+                        </p>
+                      </li>
+                      <li>
+                        <h3 className="td_fs_24 td_mb_8">
+                          Alumni work with top companies{" "}
+                        </h3>
+                        <p className="td_fs_18 mb-0">
+                          Top companies like Google, Amazon, and Deloitte,
+                          showcasing the value of our programs.
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="td_height_40 td_height_lg_40" />
+              <a
+                href="https://onlinemba.simplidegree.com/"
+                className="td_btn td_style_1 td_radius_10 td_medium"
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div className="td_height_120 td_height_lg_80" />
+      </section>
 
-<section>
-  <div className="td_height_50 td_height_lg_40" />
-  <div className="container">
-    <div className="td_section_heading td_style_1 td_type_1 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-      <div className="td_section_heading_left">
-        <p className="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
-          News &amp; Articles</p>
-        <h2 className="td_section_title td_fs_48 mb-0">Browse Latest Articles</h2>
-      </div>
-      <div className="td_section_heading_right">
-        <a href="blog.html" className="td_btn td_style_2 td_heading_color td_medium td_mb_10">
-          See All Articles
-          <i>
-            <svg width={19} height={20} viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <svg width={19} height={20} viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15.1575 4.34302L3.84375 15.6567" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </i>
-        </a>
-      </div>
-    </div>
-    <div className="td_height_30 td_height_lg_30" />
-    <div className="row td_gap_y_30">
-      <div className="col-lg-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-        <div className="td_post td_style_1 td_type_3">
-          <a href="https://onlinemba.simplidegree.com/" className="td_post_thumb d-block">
-            <img src="assets/img/home_5/post_1.jpg" alt />
-            <i className="fa-solid fa-link" />
-          </a>
-          <div className="td_post_info">
-            <div className="td_post_meta td_fs_14 td_medium td_mb_20">
-              <span><img src="assets/img/icons/calendar.svg" alt />Jan 1 , 2025</span>
-              <span><img src="assets/img/icons/user.svg" alt />Jhon Doe</span>
+      <section>
+        <div className="td_height_50 td_height_lg_40" />
+        <div className="container">
+          <div
+            className="td_section_heading td_style_1 td_type_1 wow fadeInUp"
+            data-wow-duration="1s"
+            data-wow-delay="0.2s"
+          >
+            <div className="td_section_heading_left">
+              <p className="td_section_subtitle_up_2 td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_heading_color td_opacity_6">
+                News &amp; Articles
+              </p>
+              <h2 className="td_section_title td_fs_48 mb-0">
+                Browse Latest Articles
+              </h2>
             </div>
-            <h2 className="td_post_title td_fs_30 td_medium td_mb_16">
-              <a href="https://onlinemba.simplidegree.com/">Top Skills for 2025 Success</a>
-            </h2>
-            <p className="td_post_subtitle td_fs_18 td_mb_20 td_heading_color">Discover the most in-demand skills for
-              thriving in the digital economy.</p>
-            <a href="https://onlinemba.simplidegree.com/" className="td_btn td_style_3 td_heading_color td_fs_18">
-              <span>Read More</span>
-              <i>
-                <svg width={18} height={12} viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 6L1 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M12 11C12 11 17 7.31756 17 5.99996C17 4.68237 12 1 12 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </i>
-            </a>
+            <div className="td_section_heading_right">
+              <a
+                href="blog.html"
+                className="td_btn td_style_2 td_heading_color td_medium td_mb_10"
+              >
+                See All Articles
+                <i>
+                  <svg
+                    width={19}
+                    height={20}
+                    viewBox="0 0 19 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.1575 4.34302L3.84375 15.6567"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <svg
+                    width={19}
+                    height={20}
+                    viewBox="0 0 19 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.1575 4.34302L3.84375 15.6567"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M15.157 11.4142C15.157 11.4142 16.0887 5.2748 15.157 4.34311C14.2253 3.41142 8.08594 4.34314 8.08594 4.34314"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </i>
+              </a>
+            </div>
+          </div>
+          <div className="td_height_30 td_height_lg_30" />
+          <div className="row td_gap_y_30">
+            <div
+              className="col-lg-4 wow fadeInUp"
+              data-wow-duration="1s"
+              data-wow-delay="0.25s"
+            >
+              <div className="td_post td_style_1 td_type_3">
+                <a
+                  href="https://onlinemba.simplidegree.com/"
+                  className="td_post_thumb d-block"
+                >
+                  <img src="assets/img/home_5/post_1.jpg" alt />
+                  <i className="fa-solid fa-link" />
+                </a>
+                <div className="td_post_info">
+                  <div className="td_post_meta td_fs_14 td_medium td_mb_20">
+                    <span>
+                      <img src="assets/img/icons/calendar.svg" alt />
+                      Jan 1 , 2025
+                    </span>
+                    <span>
+                      <img src="assets/img/icons/user.svg" alt />
+                      Jhon Doe
+                    </span>
+                  </div>
+                  <h2 className="td_post_title td_fs_30 td_medium td_mb_16">
+                    <a href="https://onlinemba.simplidegree.com/">
+                      Top Skills for 2025 Success
+                    </a>
+                  </h2>
+                  <p className="td_post_subtitle td_fs_18 td_mb_20 td_heading_color">
+                    Discover the most in-demand skills for thriving in the
+                    digital economy.
+                  </p>
+                  <a
+                    href="https://onlinemba.simplidegree.com/"
+                    className="td_btn td_style_3 td_heading_color td_fs_18"
+                  >
+                    <span>Read More</span>
+                    <i>
+                      <svg
+                        width={18}
+                        height={12}
+                        viewBox="0 0 18 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17 6L1 6"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M12 11C12 11 17 7.31756 17 5.99996C17 4.68237 12 1 12 1"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-lg-4 wow fadeInUp"
+              data-wow-duration="1s"
+              data-wow-delay="0.35s"
+            >
+              <div className="td_post td_style_1 td_type_3">
+                <a
+                  href="https://onlinemba.simplidegree.com/"
+                  className="td_post_thumb d-block"
+                >
+                  <img src="assets/img/home_5/post_2.jpg" alt />
+                  <i className="fa-solid fa-link" />
+                </a>
+                <div className="td_post_info">
+                  <div className="td_post_meta td_fs_14 td_medium td_mb_20">
+                    <span>
+                      <img src="assets/img/icons/calendar.svg" alt />
+                      Jan 1 , 2025
+                    </span>
+                    <span>
+                      <img src="assets/img/icons/user.svg" alt />
+                      Jhon Doe
+                    </span>
+                  </div>
+                  <h2 className="td_post_title td_fs_30 td_medium td_mb_16">
+                    <a href="https://onlinemba.simplidegree.com/">
+                      Choosing the Right Degree Made Easy
+                    </a>
+                  </h2>
+                  <p className="td_post_subtitle td_fs_18 td_mb_20 td_heading_color">
+                    A quick guide to finding the perfect program for your career
+                    goals.
+                  </p>
+                  <a
+                    href="https://onlinemba.simplidegree.com/"
+                    className="td_btn td_style_3 td_heading_color td_fs_18"
+                  >
+                    <span>Read More</span>
+                    <i>
+                      <svg
+                        width={18}
+                        height={12}
+                        viewBox="0 0 18 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17 6L1 6"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M12 11C12 11 17 7.31756 17 5.99996C17 4.68237 12 1 12 1"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-lg-4 wow fadeInUp"
+              data-wow-duration="1s"
+              data-wow-delay="0.4s"
+            >
+              <div className="td_post td_style_1 td_type_3">
+                <a
+                  href="https://onlinemba.simplidegree.com/"
+                  className="td_post_thumb d-block"
+                >
+                  <img src="assets/img/home_5/post_3.jpg" alt />
+                  <i className="fa-solid fa-link" />
+                </a>
+                <div className="td_post_info">
+                  <div className="td_post_meta td_fs_14 td_medium td_mb_20">
+                    <span>
+                      <img src="assets/img/icons/calendar.svg" alt />
+                      Jan 1 , 2025
+                    </span>
+                    <span>
+                      <img src="assets/img/icons/user.svg" alt />
+                      Jhon Doe
+                    </span>
+                  </div>
+                  <h2 className="td_post_title td_fs_30 td_medium td_mb_16">
+                    <a href="https://onlinemba.simplidegree.com/">
+                      Learn Anytime, Anywhere: Here’s How
+                    </a>
+                  </h2>
+                  <p className="td_post_subtitle td_fs_18 td_mb_20 td_heading_color">
+                    The flexibility of online education lets you learn on your
+                    terms.
+                  </p>
+                  <a
+                    href="https://onlinemba.simplidegree.com/"
+                    className="td_btn td_style_3 td_heading_color td_fs_18"
+                  >
+                    <span>Read More</span>
+                    <i>
+                      <svg
+                        width={18}
+                        height={12}
+                        viewBox="0 0 18 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17 6L1 6"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M12 11C12 11 17 7.31756 17 5.99996C17 4.68237 12 1 12 1"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="col-lg-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.35s">
-        <div className="td_post td_style_1 td_type_3">
-          <a href="https://onlinemba.simplidegree.com/" className="td_post_thumb d-block">
-            <img src="assets/img/home_5/post_2.jpg" alt />
-            <i className="fa-solid fa-link" />
-          </a>
-          <div className="td_post_info">
-            <div className="td_post_meta td_fs_14 td_medium td_mb_20">
-              <span><img src="assets/img/icons/calendar.svg" alt />Jan 1 , 2025</span>
-              <span><img src="assets/img/icons/user.svg" alt />Jhon Doe</span>
-            </div>
-            <h2 className="td_post_title td_fs_30 td_medium td_mb_16">
-              <a href="https://onlinemba.simplidegree.com/">Choosing the Right Degree Made Easy</a>
-            </h2>
-            <p className="td_post_subtitle td_fs_18 td_mb_20 td_heading_color">A quick guide to finding the perfect
-              program for your career goals.</p>
-            <a href="https://onlinemba.simplidegree.com/" className="td_btn td_style_3 td_heading_color td_fs_18">
-              <span>Read More</span>
-              <i>
-                <svg width={18} height={12} viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 6L1 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M12 11C12 11 17 7.31756 17 5.99996C17 4.68237 12 1 12 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="col-lg-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-        <div className="td_post td_style_1 td_type_3">
-          <a href="https://onlinemba.simplidegree.com/" className="td_post_thumb d-block">
-            <img src="assets/img/home_5/post_3.jpg" alt />
-            <i className="fa-solid fa-link" />
-          </a>
-          <div className="td_post_info">
-            <div className="td_post_meta td_fs_14 td_medium td_mb_20">
-              <span><img src="assets/img/icons/calendar.svg" alt />Jan 1 , 2025</span>
-              <span><img src="assets/img/icons/user.svg" alt />Jhon Doe</span>
-            </div>
-            <h2 className="td_post_title td_fs_30 td_medium td_mb_16">
-              <a href="https://onlinemba.simplidegree.com/">Learn Anytime, Anywhere: Here’s How</a>
-            </h2>
-            <p className="td_post_subtitle td_fs_18 td_mb_20 td_heading_color">The flexibility of online education lets
-              you learn on your terms.</p>
-            <a href="https://onlinemba.simplidegree.com/" className="td_btn td_style_3 td_heading_color td_fs_18">
-              <span>Read More</span>
-              <i>
-                <svg width={18} height={12} viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 6L1 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M12 11C12 11 17 7.31756 17 5.99996C17 4.68237 12 1 12 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="td_height_120 td_height_lg_80" />
-</section>
+        <div className="td_height_120 td_height_lg_80" />
+      </section>
 
       <Footer />
     </>

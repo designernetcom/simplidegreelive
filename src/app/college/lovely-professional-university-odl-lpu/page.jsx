@@ -985,10 +985,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1004,10 +1001,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                  
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1023,10 +1017,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1036,7 +1027,7 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -1045,12 +1036,9 @@ export default function page() {
                               data-nimg={1}
                               className="Certificates_img__GOe9v"
                               style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fcertification%2Fcertification.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fcertification%2Fcertification.webp&w=640&q=75 2x
-                      "
+                             
                               src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fcertification%2Fcertification.webp&w=640&q=75"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -1355,201 +1343,7 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                      <h3 className="placement_heading__iEHZj">
-                        Our Students Work At
-                      </h3>
-                      <div className="partners_container___c9cx">
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fwipro.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fwipro.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fwipro.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Famazon.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Famazon.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Famazon.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Freliance.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Freliance.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Freliance.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2FSony.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2FSony.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2FSony.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Ftech%20mahindra.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Ftech%20mahindra.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Ftech%20mahindra.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fhdfc.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fhdfc.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fhdfc.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fbosch.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fbosch.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fbosch.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Ficic%20bank.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Ficic%20bank.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Ficic%20bank.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fmicrosoft.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fcognizant.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fcognizant.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fplacement-partners%2Fcognizant.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                   
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
@@ -1724,10 +1518,7 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                    
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1741,10 +1532,7 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                   
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1758,10 +1546,7 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                   
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1808,14 +1593,14 @@ export default function page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
+                                
                               />
                               <textarea
                                 placeholder="Write your reviews"
                                 className="CollegeReview_college_page_details_review_form_input__niDf2"
                                 name="comment"
                                 required
-                                defaultValue={""}
+                                ={""}
                               />
                               <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
                                 Send message

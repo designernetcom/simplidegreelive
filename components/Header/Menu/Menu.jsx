@@ -324,7 +324,7 @@ const Menu = () => {
           <Link href="/">
             <Image
               alt="logo"
-              src="/assets/img/Simplidegree logo 3.png"
+              src="/assets/img/Simplidegree logo white.png"
               width={150}
               height={50}
               className={styles.mobileNavbarLogo}
@@ -333,18 +333,17 @@ const Menu = () => {
           <button
             className={styles.mobileNavbarToggle}
             onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
           >
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 512 512"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              className={
+                openMenuMobile ? styles.hamburgerOpen : styles.hamburger
+              }
             >
-              <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" />
-            </svg>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </button>
         </div>
         <div
@@ -352,20 +351,35 @@ const Menu = () => {
             openMenuMobile ? styles.active : ""
           }`}
         >
-          <Link href="/distance/univercity/universities/index.html">
-            Top Universities & Colleges
-          </Link>
-          <Link href="/online-pg-programmes.html">Trending Courses</Link>
-          <Link href="/study-abroad.html">Study Abroad</Link>
-          <Link href="/exams.html">Entrance Exams</Link>
-          <Link href="/distance/univercity/distance-mba-in-business-management-2/index.html">
-            Career Guidance
-          </Link>
-          <Link href="/freecourses.html">Free Counselling</Link>
-          <Link href="/Pick-Your-Level-Of-Education.html">College Finder</Link>
-          <Link href="/webstories.html">Web Stories</Link>
-          <Link href="/freecourses.html">Free Courses</Link>
-          <Link href="/contact-us.html">Contact Us</Link>
+          <div className={styles.menuOverlay}>
+            <Link href="/top-university" onClick={toggleMobileMenu}>
+              Top Universities & Colleges
+            </Link>
+            <Link href="/online-pg-programmes" onClick={toggleMobileMenu}>
+              Trending Courses
+            </Link>
+            <Link href="/study-abroad" onClick={toggleMobileMenu}>
+              Study Abroad
+            </Link>
+            <Link href="/exam" onClick={toggleMobileMenu}>
+              Entrance Exams
+            </Link>
+            <Link href="/freecounseling" onClick={toggleMobileMenu}>
+              Free Counselling
+            </Link>
+            <Link href="/college-finder" onClick={toggleMobileMenu}>
+              College Finder
+            </Link>
+            <Link href="/webstories" onClick={toggleMobileMenu}>
+              Web Stories
+            </Link>
+            <Link href="/freecourses" onClick={toggleMobileMenu}>
+              Free Courses
+            </Link>
+            <Link href="/contact" onClick={toggleMobileMenu}>
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
 

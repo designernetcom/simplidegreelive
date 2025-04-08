@@ -8,6 +8,10 @@ import "../styles/3671c5163dee128f.css";
 import "../styles/bootstrap.min.css";
 import "../styles/bcdb44b6ad772c90.css";
 import "../styles/cc66cf431efece60.css";
+import "../styles/8b2861424f796947.css"
+import "../styles/04bdd9c7a469b901.css"
+import "../styles/2e85c571399b9690.css"
+import "../styles/cc9687947ca46cf2.css"
 
 export default function page() {
   return (
@@ -97,12 +101,12 @@ export default function page() {
                           Top 10 Best Online MBA Degree Colleges in India
                         </h2>
                         <p className="BlogSliderCard_blog_slide_card_date__slpPu">
-                          February 22, 2024
+                          February 22, 2025
                         </p>
                         <p>
                           The choice of online MBA College can make or break
                           your entire career. Explore the top Online MBA
-                          Colleges you can go for in 2024.
+                          Colleges you can go for in 2025.
                         </p>
                         <p className="BlogSliderCard_blog_slide_read__aqzO6">
                           Read More...
@@ -114,26 +118,23 @@ export default function page() {
                 <div className="swiper-slide">
                   <a
                     style={{ textDecoration: "none" }}
-                    href="/blog/online-mba-courses"
+                   
                   >
                     <div className="BlogSliderCard_blogSliderContainer__Utcfo">
                       <div className="BlogSliderCard_slider_image__3NT_m">
-                        {/* <img alt="blog" loading="lazy" width={400} height={220} decoding="async" data-nimg={1} style={{color: 'transparent'}} srcSet="
-                  image?url=%2Fimages%2Fblog-online-mba-courses.webp&w=640&q=75 1x,
-                  image?url=%2Fimages%2Fblog-online-mba-courses.webp&w=828&q=75 2x
-                " src="image?url=%2Fimages%2Fblog-online-mba-courses.webp&w=828&q=75" />     */}
+                       
                       </div>
                       <div>
                         <h2 className="BlogSliderCard_slide_card_heading__bR6RR">
                           A Comprehensive Guide to Online MBA Courses
                         </h2>
                         <p className="BlogSliderCard_blog_slide_card_date__slpPu">
-                          March 6, 2024
+                          March 6, 2025
                         </p>
                         <p>
                           Considering an online MBA? Learn about eligibility,
                           admission requirements, and top colleges offering
-                          these online courses in 2024.
+                          these online courses in 2025.
                         </p>
                         <p className="BlogSliderCard_blog_slide_read__aqzO6">
                           Read More...
@@ -145,24 +146,21 @@ export default function page() {
                 <div className="swiper-slide">
                   <a
                     style={{ textDecoration: "none" }}
-                    href="/blog/distance-mba-degree"
+                    
                   >
                     <div className="BlogSliderCard_blogSliderContainer__Utcfo">
                       <div className="BlogSliderCard_slider_image__3NT_m">
-                        {/* <img alt="blog" loading="lazy" width={400} height={220} decoding="async" data-nimg={1} style={{color: 'transparent'}} srcSet="
-                  image?url=%2Fimages%2Fblog-distance-mba-degree.webp&w=640&q=75 1x,
-                  image?url=%2Fimages%2Fblog-distance-mba-degree.webp&w=828&q=75 2x
-                " src="image?url=%2Fimages%2Fblog-distance-mba-degree.webp&w=828&q=75" /> */}
+                       
                       </div>
                       <div>
                         <h2 className="BlogSliderCard_slide_card_heading__bR6RR">
                           A Complete Guide to Pursuing Distance MBA Degree
                         </h2>
                         <p className="BlogSliderCard_blog_slide_card_date__slpPu">
-                          March 16, 2024
+                          March 16, 2025
                         </p>
                         <p>
-                          Considering a Distance MBA in 2024? Learn about the
+                          Considering a Distance MBA in 2025? Learn about the
                           program, admission requirements, validity, fees, scope
                           , salaries, FAQs and more.
                         </p>
@@ -178,45 +176,13 @@ export default function page() {
             </div>
           </div>
         </div>
-        <div className="AllBlogs_all_blog_container__KRnbm">
+        <div className="AllBlogs_all_blog_container__KRnbm" style={{ paddingTop:"40px" }}>
           <div className="AllBlogs_blog_heading_search__wZ4ED">
             <div>
-              <h2 className="AllBlogs_AllBlogHeading__7ZSmU">
-                OUR LATEST BLOGS
-              </h2>
+              
             </div>
             <div className="AllBlogs_blogsSearch__ZfaX0">
-              <form>
-                <div className="SearchBlogInput_searchInputContainer__sEbqE">
-                  <div className="SearchBlogInput_blogSearchInputContainer___WrDh">
-                    <input
-                      className="SearchBlogInput_blogSearchInput__EXHFp"
-                      type="text"
-                      placeholder="Search blog here..."
-                      required
-                      defaultValue
-                    />
-                  </div>
-                  <div>
-                    <button
-                      type="submit"
-                      className="SearchBlogInput_blogSearchSubmit__MsIoa"
-                    >
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 512 512"
-                        height={20}
-                        width={20}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M456.69 421.39L362.6 327.3a173.81 173.81 0 0034.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 00327.3 362.6l94.09 94.09a25 25 0 0035.3-35.3zM97.92 222.72a124.8 124.8 0 11124.8 124.8 124.95 124.95 0 01-124.8-124.8z" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </form>
+             
             </div>
           </div>
           <div className="AllBlogs_blog_cat_card_container__DZaBT">

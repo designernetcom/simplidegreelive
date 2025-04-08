@@ -4,6 +4,7 @@ import React from "react";
 import "../../styles/85aaac7cee097ab2.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/3a6b4218bb14b3ef.css";
+import "../../styles/5107c2122129e0bb.css";
 import CourseSlider from "../../../../components/CourseSlider";
 
 export default function page() {
@@ -63,7 +64,7 @@ export default function page() {
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
-                src="//assets/course/liverpoolbusinessschoolbanner.webp"
+                src="/assets/course/liverpoolbusinessschoolbanner.webp"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />

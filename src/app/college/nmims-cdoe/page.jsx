@@ -448,19 +448,19 @@ export default function page() {
                             type="text"
                             placeholder="Name*"
                             name="name"
-                            defaultValue
+                            
                           />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
+                            
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
+                            
                           />
                           <select name="program">
                             <option value selected>
@@ -561,7 +561,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  src="assets/img/home_6/check.png"
+                                  src="/assets/img/home_6/check.png"
                                 />
                                 <div className="Certificates_point__XYWLq">
                                   Excellent teaching faculty from IIM and IIT
@@ -576,7 +576,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  src="assets/img/home_6/check.png"
+                                  src="/assets/img/home_6/check.png"
                                 />
                                 <div className="Certificates_point__XYWLq">
                                   24/7 student support services are facilitated
@@ -592,7 +592,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  src="assets/img/home_6/check.png"
+                                  src="/assets/img/home_6/check.png"
                                 />
                                 <div className="Certificates_point__XYWLq">
                                   Offers interview opportunities with the top
@@ -608,7 +608,7 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  src="assets/img/home_6/check.png"
+                                  src="/assets/img/home_6/check.png"
                                 />
                                 <div className="Certificates_point__XYWLq">
                                   Flexible and self-paced learning throughout
@@ -702,7 +702,7 @@ export default function page() {
                             decoding="async"
                             data-nimg={1}
                             style={{ color: "transparent" }}
-                            src="assets/img/home_6/check.png"
+                            src="/assets/img/home_6/check.png"
                           />
                           <p>
                             Learn employability skills through assessments and
@@ -718,7 +718,7 @@ export default function page() {
                             decoding="async"
                             data-nimg={1}
                             style={{ color: "transparent" }}
-                            src="assets/img/home_6/check.png"
+                            src="/assets/img/home_6/check.png"
                           />
                           <p>Top recruiters from leading Companies</p>
                         </div>
@@ -731,7 +731,7 @@ export default function page() {
                             decoding="async"
                             data-nimg={1}
                             style={{ color: "transparent" }}
-                            src="assets/img/home_6/check.png"
+                            src="/assets/img/home_6/check.png"
                           />
                           <p>Job that suitably fits the student profile</p>
                         </div>
@@ -791,7 +791,7 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    src="assets/img/home_6/StarTwo.png"
+                                    src="/assets/img/home_6/StarTwo.png"
                                   />{" "}
                                 </span>
                                 <span className="star">
@@ -804,7 +804,7 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    src="assets/img/home_6/StarTwo.png"
+                                    src="/assets/img/home_6/StarTwo.png"
                                   />{" "}
                                 </span>
                                 <span className="star">
@@ -817,7 +817,7 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    src="assets/img/home_6/StarTwo.png"
+                                    src="/assets/img/home_6/StarTwo.png"
                                   />{" "}
                                 </span>
                                 <span className="star">
@@ -830,7 +830,7 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    src="assets/img/home_6/StarTwo.png"
+                                    src="/assets/img/home_6/StarTwo.png"
                                   />{" "}
                                 </span>
                                 <span className="star">
@@ -843,7 +843,7 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    src="assets/img/home_6/StarTwo.png"
+                                    src="/assets/img/home_6/StarTwo.png"
                                   />
                                 </span>
                               </div>

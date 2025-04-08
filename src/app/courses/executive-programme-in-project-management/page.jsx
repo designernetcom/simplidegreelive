@@ -4,6 +4,7 @@ import React from "react";
 import "../../styles/85aaac7cee097ab2.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/3a6b4218bb14b3ef.css";
+import "../../styles/5107c2122129e0bb.css";
 import CourseSlider from "../../../../components/CourseSlider";
 
 export default function page() {
@@ -464,7 +465,7 @@ export default function page() {
                         data-nimg={1}
                         className="CourseContent_course_process_img___B893"
                         style={{ color: "transparent" }}
-                        src="/assets/simpli-images/processImg (1).webp"
+                        src="//assets/simpli-images/processImg (1).webp"
                       />
                       <img
                         alt="img"
@@ -672,7 +673,7 @@ export default function page() {
                             data-nimg={1}
                             className="CourseContent_course_doc_icon_img__uvpb4"
                             style={{ color: "transparent" }}
-                            src="/assets/simpli-images/courseIcon (1).webp"
+                            src="//assets/simpli-images/courseIcon (1).webp"
                           />
                         </div>
                         <div>
@@ -689,7 +690,7 @@ export default function page() {
                           data-nimg={1}
                           className="CourseContent_course_doc_icon_line_img__hZqYx"
                           style={{ color: "transparent" }}
-                          src="/assets/simpli-images/pinkLineIcon (1).webp"
+                          src="//assets/simpli-images/pinkLineIcon (1).webp"
                         />
                       </div>
                       <div className="CourseContent_course_doc_icon_text_box__rME0o">
@@ -703,7 +704,7 @@ export default function page() {
                             data-nimg={1}
                             className="CourseContent_course_doc_icon_img__uvpb4"
                             style={{ color: "transparent" }}
-                            src="/assets/simpli-images/govIdIcon (1).webp"
+                            src="//assets/simpli-images/govIdIcon (1).webp"
                           />
                         </div>
                         <div>
@@ -720,7 +721,7 @@ export default function page() {
                           data-nimg={1}
                           className="CourseContent_course_doc_icon_line_img__hZqYx"
                           style={{ color: "transparent" }}
-                          src="/assets/simpli-images/orangeLineIcon (1).webp"
+                          src="//assets/simpli-images/orangeLineIcon (1).webp"
                         />
                       </div>
                       <div className="CourseContent_course_doc_icon_text_box__rME0o">
@@ -734,7 +735,7 @@ export default function page() {
                             data-nimg={1}
                             className="CourseContent_course_doc_icon_img__uvpb4"
                             style={{ color: "transparent" }}
-                            src="/assets/simpli-images/workIcon (1).webp"
+                            src="//assets/simpli-images/workIcon (1).webp"
                           />
                         </div>
                         <div>
@@ -751,7 +752,7 @@ export default function page() {
                           data-nimg={1}
                           className="CourseContent_course_doc_icon_line_img__hZqYx"
                           style={{ color: "transparent" }}
-                          src="/assets/simpli-images/greenLineIcon (1).webp"
+                          src="//assets/simpli-images/greenLineIcon (1).webp"
                         />
                       </div>
                       <div className="CourseContent_course_doc_icon_text_box__rME0o">
@@ -765,7 +766,7 @@ export default function page() {
                             data-nimg={1}
                             className="CourseContent_course_doc_icon_img__uvpb4"
                             style={{ color: "transparent" }}
-                            src="/assets/simpli-images/profileIcon (1).webp"
+                            src="//assets/simpli-images/profileIcon (1).webp"
                           />
                         </div>
                         <div>
@@ -1370,7 +1371,7 @@ export default function page() {
                   data-nimg={1}
                   className="CourseContent_course_faq_img__8nJIQ"
                   style={{ color: "transparent" }}
-                  src="/assets/simpli-images/faq.BF9BsViE.svg"
+                  src="//assets/simpli-images/faq.BF9BsViE.svg"
                 />
               </div>
             </div>
