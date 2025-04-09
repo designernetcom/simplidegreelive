@@ -30,7 +30,7 @@ export default function page() {
             color: "transparent",
           }}
           sizes="100vw"
-          src="/assets/course/220-SM821375.jpg"
+          src="/assets/course/3.png"
         />
 
         <div />

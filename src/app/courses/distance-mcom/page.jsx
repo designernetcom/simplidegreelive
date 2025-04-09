@@ -68,7 +68,7 @@ export default function page() {
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
                 // src="/assets/course/220-SM612007.jpg"
-                src="/assets/course/MasterofLibraryandInformationScienceBanner.webp"
+                src="/assets/course/14.png"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />

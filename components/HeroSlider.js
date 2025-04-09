@@ -14,17 +14,17 @@ const HeroSlider = () => {
       text1: "Grab It Now: Early Bird Offer!",
       text2: "₹ 7000/- Off On Admissions*",
       hashtagImg: "/assets/img/batch.webp",
-      mainImg: "/assets/img/s4.webp",
+      mainImg: "/assets/img/simpli_d_banner_7.png",
       hashtagWidth: 663,
       hashtagHeight: 238,
       mainWidth: 553,
       mainHeight: 698,
     },
     {
-      text1: "India Ki Top Universities Se",
-      text2: "Apni Skills Ko Enhance Karo!",
+      text1: "10 Years of Excellence",
+      text2: "Vishwas Ka Dus Saal Ka Safar!",
       hashtagImg: "/assets/img/poster1.webp",
-      mainImg: "/assets/img/s1.webp",
+      mainImg: "/assets/img/b1.png",
       hashtagWidth: 653,
       hashtagHeight: 215,
       mainWidth: 986,
@@ -32,10 +32,10 @@ const HeroSlider = () => {
       link: "/colleges",
     },
     {
-      text1: "Konse College Me Admission Lena Sahi?",
-      text2: "Ab Karo Har College Compare",
+      text1: "Study Hard, Shine Bright",
+      text2: "Kal Ko Banaye Behtar Aaj Se!",
       hashtagImg: "/assets/img/poster.webp",
-      mainImg: "/assets/img/s2.webp",
+      mainImg: "/assets/img/b4.png",
       hashtagWidth: 559,
       hashtagHeight: 215,
       mainWidth: 687,
@@ -46,7 +46,7 @@ const HeroSlider = () => {
   return (
     <div
       className="Hero_relative__x641X {`remove-padding-mobile slider-container ${styles.sliderContainer}`}"
-      style={{ paddingTop: "50px" }}
+      style={{ paddingTop: "7px" }}
     >
       <div className="Hero_newheroContainer__lAPRu">
         <Swiper
@@ -69,14 +69,27 @@ const HeroSlider = () => {
                       <div>
                         <div className="counter_countercontainer__CiYqi">
                           <div className="counter_counter__W_2Wz">
-                            <div className="counter_digit__L6cff">1</div>
                             <div className="counter_digit__L6cff">6</div>
-                            <div className="counter_digit__L6cff">5</div>
-                            <div className="counter_digit__L6cff">8</div>
-                            <div className="counter_digit__L6cff">5</div>
-                            <div className="counter_digit__L6cff">7</div>
-                            <div className="counter_digit__L6cff">4</div>
-                            <div className="counter_livetextbanner__Vykhp">
+                            <div className="counter_digit__L6cff">0</div>
+                            <div className="counter_digit__L6cff">0</div>
+                            <div className="counter_digit__L6cff">0</div>
+                            <div className="counter_digit__L6cff">0</div>
+
+                            <div
+                              className="counter_livetextbanner__Vykhp"
+                              style={{
+                                position: "absolute",
+                                top: "-30px",
+                                right: "-10px",
+                                backgroundColor: "red",
+                                color: "#fff",
+                                
+                                fontWeight: 700,
+                                padding: "1px 3px",
+                                borderRadius: "5px",
+                                zIndex: 10,
+                              }}
+                            >
                               · LIVE
                             </div>
                           </div>

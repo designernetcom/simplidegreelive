@@ -67,7 +67,7 @@ export default function page() {
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
-                src="/assets/course/220-SM1046017.jpg"
+                src="/assets/img/1.png"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />

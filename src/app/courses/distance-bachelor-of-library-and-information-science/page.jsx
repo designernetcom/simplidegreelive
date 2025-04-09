@@ -53,7 +53,10 @@ export default function page() {
         </div>
         {/*/$*/}
         <div>
-          <div>
+          <div
+            className="CourseHero_courseCarousalOne__Sb3_f"
+            style={{ paddingTop: "30px" }}
+          >
             <a>
               <img
                 alt="img"
@@ -64,7 +67,7 @@ export default function page() {
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
-                src="/assets/course/220-SM765734.jpg"
+                src="/assets/course/17.png"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />

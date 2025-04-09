@@ -330,7 +330,7 @@ const toggleUniversityDropdown = () => {
               alt="logo"
               src="/assets/img/Simplidegree logo white.png"
               width={150}
-              height={30}
+              height={10}
               className={styles.mobileNavbarLogo}
             />
           </Link>
@@ -355,7 +355,7 @@ const toggleUniversityDropdown = () => {
             openMenuMobile ? styles.active : ""
           }`}
           style={{
-            background: "hsla(0, 0%, 8%, 0.5)",
+            background: "hsla(0, 0%, 8%, 0.7)",
             backdropFilter: "blur(5px)",
           }}
         >

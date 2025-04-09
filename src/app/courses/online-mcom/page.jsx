@@ -52,9 +52,8 @@ export default function page() {
 
         <div>
           <div
-             className="CourseHero_courseCarousalOne__Sb3_f"
+            className="CourseHero_courseCarousalOne__Sb3_f"
             style={{ paddingTop: "30px" }}
-            
           >
             <a>
               <img
@@ -67,7 +66,7 @@ export default function page() {
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
                 // src="/assets/course/120-SM782819.jpg"
-                src="/assets/course/MasterofLibraryandInformationScienceBanner.webp"
+                src="/assets/course/8.png"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
@@ -1201,8 +1200,7 @@ export default function page() {
                             Identifies, analyzes, and mitigates risks that
                             threaten the organization's financial health,
                             develops and implements risk management strategies
-                            to minimize impact and protect  and
-                            reputation.
+                            to minimize impact and protect and reputation.
                           </td>
                         </tr>
                         <tr className="CourseContent_course_career_row_container_blue__nIuxp">

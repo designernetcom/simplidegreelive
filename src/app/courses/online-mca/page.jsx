@@ -53,7 +53,7 @@ export default function page() {
           <div
             className="CourseHero_courseCarousalOne__Sb3_f"
             style={{ paddingTop: "30px" }}
-            style={{ paddingTop: "50px" }}
+            
           >
             <a>
               <img

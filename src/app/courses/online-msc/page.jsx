@@ -69,7 +69,7 @@ export default function page() {
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
                 // src="/assets/img/mba-distance/OnlineMBABanner.png"
-                src="/assets/course/MasterofLibraryandInformationScienceBanner.webp"
+                src="/assets/course/7.png"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />

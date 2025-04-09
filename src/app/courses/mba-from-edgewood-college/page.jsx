@@ -62,12 +62,12 @@ export default function page() {
                 alt="img"
                 fetchPriority="high"
                 width={1500}
-                height={900}
+                height={600}
                 decoding="async"
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
-                src="/assets/course/mba-from-edgewood-college.webp"
+                src="/assets/course/20.png"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />

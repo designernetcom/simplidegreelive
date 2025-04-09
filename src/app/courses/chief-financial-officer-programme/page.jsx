@@ -67,7 +67,7 @@ export default function page() {
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
-                src="/assets/course/ChiefFinancialOfficerProgrammeBanner.webp"
+                src="/assets/course/6.png"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
