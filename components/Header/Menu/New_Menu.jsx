@@ -6,12 +6,13 @@ import React, { useState } from "react";
 import styles from "./Menu.module.css";
 
 const Menu = () => {
-const pathname = usePathname();
-const [fixedHeader, setFixedHeader] = useState(false);
-const [openMenuMobile, setOpenMenuMobile] = useState(false);
-const [isUniversityModalOpen, setIsUniversityModalOpen] = useState(false);
-const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-const [isUniversityDropdownOpen, setIsUniversityDropdownOpen] = useState(false);
+  const pathname = usePathname();
+  const [fixedHeader, setFixedHeader] = useState(false);
+  const [openMenuMobile, setOpenMenuMobile] = useState(false);
+  const [isUniversityModalOpen, setIsUniversityModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isUniversityDropdownOpen, setIsUniversityDropdownOpen] =
+    useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -21,57 +22,26 @@ const [isUniversityDropdownOpen, setIsUniversityDropdownOpen] = useState(false);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Updated universities array with image paths
   const universities = [
     {
       name: "Maharashtra",
-      href: "/top-university",
+      href: "/top-university/maharashtra",
       icon: "/assets/img/icon/maharastra.webp",
     },
     {
       name: "New Delhi",
-      href: "/top-university",
+      href: "/top-university/delhi",
       icon: "/assets/img/icon/Delhi.webp",
     },
     {
       name: "Karnataka",
-      href: "/top-university",
+      href: "/top-university/karnataka",
       icon: "/assets/img/icon/Bengaluru.webp",
     },
     {
       name: "Telangana",
-      href: "/top-university",
+      href: "/top-university/telangana",
       icon: "/assets/img/icon/Hyderabad.webp",
-    },
-    {
-      name: "Gujarat",
-      href: "/top-university",
-      icon: "/assets/img/icon/Ahmedabad.webp",
-    },
-    {
-      name: "Punjab",
-      href: "/top-university",
-      icon: "/assets/img/icon/punjab.webp",
-    },
-    {
-      name: "Uttar Pradesh",
-      href: "/top-university",
-      icon: "/assets/img/icon/up.webp",
-    },
-    {
-      name: "Rajasthan",
-      href: "/top-university",
-      icon: "/assets/img/icon/rajasthan.webp",
-    },
-    {
-      name: "Haryana",
-      href: "/top-university",
-      icon: "/assets/img/icon/Chandigarh.webp",
-    },
-    {
-      name: "Tamil Nadu",
-      href: "/top-university",
-      icon: "/assets/img/icon/tamilnadu.webp",
     },
   ];
 
@@ -79,13 +49,13 @@ const [isUniversityDropdownOpen, setIsUniversityDropdownOpen] = useState(false);
     setOpenMenuMobile(!openMenuMobile);
   };
 
+  const toggleUniversityDropdown = () => {
+    setIsUniversityDropdownOpen(!isUniversityDropdownOpen);
+  };
+
   const openUniversityModal = () => {
     setIsUniversityModalOpen(true);
   };
-const toggleUniversityDropdown = () => {
-  setIsUniversityDropdownOpen(!isUniversityDropdownOpen);
-};
-
 
   const closeUniversityModal = () => {
     setIsUniversityModalOpen(false);
@@ -101,27 +71,7 @@ const toggleUniversityDropdown = () => {
 
   return (
     <div className={fixedHeader ? "fixed-header" : ""}>
-      {/* Mobile Menu Toggle Button */}
-      <button
-        onClick={toggleMobileMenu}
-        style={{
-          display: "none",
-          position: "fixed",
-          top: "10px",
-          right: "10px",
-          zIndex: 10000,
-          background: "#0c2d50",
-          color: "#fff",
-          border: "none",
-          padding: "10px",
-          borderRadius: "4px",
-          cursor: "pointer",
-        }}
-        className="mobile-toggle"
-      >
-        {openMenuMobile ? "✕" : "☰"}
-      </button>
-
+      {/* Desktop Navigation */}
       {/* Top Navigation Bar */}
       <div className="TopNavbar_topNavBar__Container__63eNB">
         <div className="TopNavbar_topNavBar__flexContainer__jpTqI">
@@ -131,10 +81,6 @@ const toggleUniversityDropdown = () => {
               { href: "/trending-course", text: "Trending Courses" },
               { href: "/study-abroad", text: "Study Abroad" },
               { href: "/exam", text: "Entrance Exams" },
-              // {
-              //   href: "/distance/univercity/distance-mba-in-business-management-2",
-              //   text: "Career Guidance",
-              // },
               { href: "/webstories", text: "Web Stories" },
             ].map((item) => (
               <div key={item.href} className="TopNavbar_topNavBar__link__Y5UGY">
@@ -220,7 +166,9 @@ const toggleUniversityDropdown = () => {
               left: openMenuMobile ? "0" : "auto",
               width: openMenuMobile ? "100%" : "auto",
               height: openMenuMobile ? "100vh" : "auto",
-              backgroundColor: openMenuMobile ? "#0c2d50" : "transparent",
+              backgroundColor: openMenuMobile
+                ? "hsla(0, 0%, 8%, 0.5)"
+                : "transparent",
               zIndex: openMenuMobile ? 9998 : "auto",
               padding: openMenuMobile ? "20px" : "0",
             }}
@@ -242,7 +190,6 @@ const toggleUniversityDropdown = () => {
                 position: "relative",
               }}
             >
-              {/* Top University with Modal Trigger */}
               <div className="MainNavbar_mainNavBar__buttons__fxxQT">
                 <div onClick={openUniversityModal}>
                   <Link href="#" className="MainNavbar_link__Je6tm">
@@ -250,8 +197,6 @@ const toggleUniversityDropdown = () => {
                   </Link>
                 </div>
               </div>
-
-              {/* Other Navigation Items */}
               {[
                 {
                   href: "/college-finder",
@@ -297,7 +242,6 @@ const toggleUniversityDropdown = () => {
                   </Link>
                 </div>
               ))}
-
               <div className="MainNavbar_mainNavBar__referral__wb9C6">
                 <Link
                   href="/refer-and-earn"
@@ -322,6 +266,7 @@ const toggleUniversityDropdown = () => {
           </div>
         </div>
       </div>
+
       {/* Mobile Navigation */}
       <div className={styles.mobileNavbar}>
         <div className={styles.mobileNavbarHeader}>
@@ -418,32 +363,8 @@ const toggleUniversityDropdown = () => {
             <Link href="/online-pg-programmes" onClick={toggleMobileMenu}>
               Explore Courses
             </Link>
-    
             <Link href="/college-finder" onClick={toggleMobileMenu}>
-              College Finder
-              <span
-                className="MainNavbar_glowEffect__ORd8S"
-                style={{
-                  width: "100px",
-                  height: "30px",
-                  border: "none",
-                  outline: "none",
-                  color: "#fff",
-                  backgroundColor: "var(--mustard-yellow)",
-                  position: "relative",
-                  zIndex: 0,
-                  borderRadius: "5px",
-                  fontSize: "12px",
-                  padding: "5px",
-                  cursor: "pointer",
-                  display: "flex", // Added to align text and span properly
-                  alignItems: "center", // Vertically center content
-                  justifyContent: "center", // Horizontally center content
-                  textDecoration: "none", // Remove underline from Link
-                }}
-              >
-                AI Based
-              </span>
+              College Finder <span className={styles.aiBased}>AI Based</span>
             </Link>
             <Link href="/freecounseling" onClick={toggleMobileMenu}>
               <svg
@@ -547,7 +468,6 @@ const toggleUniversityDropdown = () => {
               overflow: "hidden",
             }}
           >
-            {/* Left Side: Image */}
             <div
               style={{
                 flex: 1,
@@ -587,8 +507,6 @@ const toggleUniversityDropdown = () => {
                 </h2>
               </div>
             </div>
-
-            {/* Right Side: Form */}
             <div
               style={{
                 flex: 1,

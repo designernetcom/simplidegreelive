@@ -50,7 +50,11 @@ export default function page() {
           </button>
         </div>
         <div>
-          <div>
+          <div
+            className="CourseHero_courseCarousalOne__Sb3_f"
+            style={{ paddingTop: "30px" }}
+            style={{ paddingTop: "50px" }}
+          >
             <a>
               <img
                 alt="img"
@@ -60,7 +64,8 @@ export default function page() {
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
-                src="/assets/simpli-images/SM1072519.jpg"
+                // src="/assets/simpli-images/SM1072519.jpg"
+                src="/assets/course/MasterofLibraryandInformationScienceBanner.webp"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />

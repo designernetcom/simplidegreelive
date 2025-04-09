@@ -1,11 +1,11 @@
-import React from 'react';
-import Menu from '../../../../components/Header/Menu/Menu';
-import Footer from '../../../../components/Footer/Footer';
+import React from "react";
+import Menu from "../../../../components/Header/Menu/Menu";
+import Footer from "../../../../components/Footer/Footer";
 import "../../styles/85aaac7cee097ab2.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/3a6b4218bb14b3ef.css";
 import "../../styles/5107c2122129e0bb.css";
-import CourseSlider from '../../../../components/CourseSlider';
+import CourseSlider from "../../../../components/CourseSlider";
 
 export default function page() {
   return (
@@ -53,7 +53,10 @@ export default function page() {
         </div>
         {/*/$*/}
         <div>
-          <div className="CourseHero_courseCarousalOne__Sb3_f">
+          <div
+            className="CourseHero_courseCarousalOne__Sb3_f"
+            style={{ paddingTop: "30px" }}
+          >
             <a preload="true" href>
               <img
                 alt="img"

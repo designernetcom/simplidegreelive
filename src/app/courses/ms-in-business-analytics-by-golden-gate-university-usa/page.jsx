@@ -50,7 +50,10 @@ export default function page() {
           </button>
         </div>
         <div>
-          <div className="CourseHero_courseCarousalOne__Sb3_f">
+          <div
+            className="CourseHero_courseCarousalOne__Sb3_f"
+            style={{ paddingTop: "30px" }}
+          >
             <a preload="true">
               <img
                 alt="img"

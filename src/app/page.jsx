@@ -12,8 +12,12 @@ import "./styles/bcdb44b6ad772c90.css";
 import "./styles/3a6b4218bb14b3ef.css";
 import "./styles/7620326e339f446b.css";
 import "./styles/e881ba373a433cf6.css";
+import "./styles/afc7461932b964d5.css";
+import "./styles/cc9687947ca46cf2.css";
 import Menu from "../../components/Header/Menu/Menu";
 import Slider from "../../components/Slider";
+
+import HeroSlider from "../../components/HeroSlider";
 import Footer from "../../components/Footer/Footer";
 import TrustpilotRating from "../../components/TrustpilotRating";
 import ExploreUniversities from "../../components/ExploreUniversities";
@@ -119,7 +123,7 @@ export default function Page() {
     <>
       <Menu />
 
-      <Slider />
+      <HeroSlider />
       <TrustpilotRating />
       <ExploreUniversities />
       <div>

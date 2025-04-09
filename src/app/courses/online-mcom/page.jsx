@@ -51,7 +51,11 @@ export default function page() {
         </div>
 
         <div>
-          <div>
+          <div
+             className="CourseHero_courseCarousalOne__Sb3_f"
+            style={{ paddingTop: "30px" }}
+            
+          >
             <a>
               <img
                 alt="img"
@@ -62,7 +66,8 @@ export default function page() {
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
-                src="/assets/course/120-SM782819.jpg"
+                // src="/assets/course/120-SM782819.jpg"
+                src="/assets/course/MasterofLibraryandInformationScienceBanner.webp"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
@@ -73,7 +78,7 @@ export default function page() {
               </p>
             </div>
           </div>
-        <CourseSlider />
+          <CourseSlider />
           <div className="CourseAbout_course_about_container__xEAH5">
             <div className="CourseAbout_course_about_left_col__KRo_I">
               <h2 className="CourseAbout_course_about_heading__n0jzu">
@@ -1196,7 +1201,7 @@ export default function page() {
                             Identifies, analyzes, and mitigates risks that
                             threaten the organization's financial health,
                             develops and implements risk management strategies
-                            to minimize impact and protect /assets and
+                            to minimize impact and protect  and
                             reputation.
                           </td>
                         </tr>

@@ -51,7 +51,10 @@ export default function page() {
           </button>
         </div>
         <div>
-          <div>
+          <div
+            className="CourseHero_courseCarousalOne__Sb3_f"
+            style={{ paddingTop: "30px" }}
+          >
             <a>
               <img
                 alt="img"
@@ -62,7 +65,8 @@ export default function page() {
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent" }}
-                src="/assets/course/220-SM821377.jpg"
+                // src="/assets/course/220-SM821377.jpg"
+                src="/assets/course/MasterofLibraryandInformationScienceBanner.webp"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
@@ -74,7 +78,7 @@ export default function page() {
               </p>
             </div>
           </div>
-        <CourseSlider />
+          <CourseSlider />
           <div className="CourseAbout_course_about_container__xEAH5">
             <div className="CourseAbout_course_about_left_col__KRo_I">
               <h2 className="CourseAbout_course_about_heading__n0jzu">
