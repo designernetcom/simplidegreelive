@@ -329,7 +329,7 @@ const toggleUniversityDropdown = () => {
           <Link href="/">
             <Image
               alt="logo"
-              src="/assets/img/Simplidegree logo white.png"
+              src="/assets/img/Simplidegree_logo_white.png"
               width={150}
               height={10}
               className={styles.mobileNavbarLogo}
