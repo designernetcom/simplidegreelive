@@ -440,6 +440,9 @@ export default function page() {
                             <tr className="courses_course_head__M4Cun">
                               <th>Courses</th>
                               <th style={{ textAlign: "center" }}>Fee Range</th>
+                              <th style={{ textAlign: "center" }}>
+                                Fee Structure
+                              </th>
                               <th />
                             </tr>
                           </thead>
@@ -448,6 +451,14 @@ export default function page() {
                               <td>Online MCA</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 140000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                140,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -476,6 +487,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 100000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                100,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -491,7 +510,7 @@ export default function page() {
                                     <path
                                       fillRule="evenodd"
                                       clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
+                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 1.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
                                       fill="currentColor"
                                     />
                                   </svg>
@@ -502,6 +521,14 @@ export default function page() {
                               <td>Online MA</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 80000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                80,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -530,6 +557,19 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 180000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>LPU-UNIVERSITY Fee Structure:</strong>
+                                <br />
+                                <strong>Per Semester:</strong> ₹ 45,000 (4
+                                semesters, Total: ₹ 1,80,000)
+                                <br />
+                                <strong>Per Year:</strong> ₹ 90,000 (2 years,
+                                Total: ₹ 1,80,000)
+                                <br />
+                                <strong>Full Fee:</strong> ₹ 1,80,000
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -556,6 +596,14 @@ export default function page() {
                               <td>Online MSc</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 80000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                80,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -584,6 +632,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 180000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                180,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -610,6 +666,14 @@ export default function page() {
                               <td>Online BA</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 120000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                120,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -985,7 +1049,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1001,7 +1064,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1017,7 +1079,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1343,7 +1404,6 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                   
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
@@ -1518,7 +1578,6 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1532,7 +1591,6 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                   
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1546,7 +1604,6 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                   
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1593,14 +1650,12 @@ export default function page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                
                               />
                               <textarea
                                 placeholder="Write your reviews"
                                 className="CollegeReview_college_page_details_review_form_input__niDf2"
                                 name="comment"
-                                required
-                                ={""}
+                                required={""}
                               />
                               <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
                                 Send message

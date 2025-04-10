@@ -387,6 +387,9 @@ export default function page() {
                             <tr className="courses_course_head__M4Cun">
                               <th>Courses</th>
                               <th style={{ textAlign: "center" }}>Fee Range</th>
+                              <th style={{ textAlign: "center" }}>
+                                Fee Structure
+                              </th>
                               <th />
                             </tr>
                           </thead>
@@ -395,6 +398,21 @@ export default function page() {
                               <td>Online MBA</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 210668
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>
+                                  Chandigarh University Fee Structure:
+                                </strong>
+                                <br />
+                                <strong>Per Semester:</strong> ₹ 52,667 (4
+                                semesters, Total: ₹ 2,10,668)
+                                <br />
+                                <strong>Per Year:</strong> ₹ 1,05,334 (2 years,
+                                Total: ₹ 2,10,668)
+                                <br />
+                                <strong>Full Fee:</strong> ₹ 2,10,668
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -423,6 +441,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 240000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                240,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -449,6 +475,14 @@ export default function page() {
                               <td>Online MBA - Business Analytics</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 200000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                200,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -477,6 +511,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 146668
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                146,668.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -503,6 +545,14 @@ export default function page() {
                               <td>Online MSc - Mathematics</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 100000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                100,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -531,6 +581,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 140000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                140,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -557,6 +615,14 @@ export default function page() {
                               <td>Online MA - English</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 100000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                100,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -585,6 +651,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 100000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                100,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -611,6 +685,14 @@ export default function page() {
                               <td>Online MA - JMC</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 120000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                120,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -639,6 +721,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 168000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                168,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -665,6 +755,14 @@ export default function page() {
                               <td>Online BBA - Business Analytics</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 190000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                190,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -693,6 +791,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 400000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                400,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -720,6 +826,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 170664
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                170,664.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -746,6 +860,14 @@ export default function page() {
                               <td>Online BA - JMC</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 166668
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                166,668.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -1042,7 +1164,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">

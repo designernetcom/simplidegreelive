@@ -302,6 +302,9 @@ export default function page() {
                             <tr className="courses_course_head__M4Cun">
                               <th>Courses</th>
                               <th style={{ textAlign: "center" }}>Fee Range</th>
+                              <th style={{ textAlign: "center" }}>
+                                Fee Structure
+                              </th>
                               <th />
                             </tr>
                           </thead>
@@ -310,6 +313,14 @@ export default function page() {
                               <td>Certificate Programme (Online)</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 28000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                28,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -336,7 +347,22 @@ export default function page() {
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MBA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 140200
+                                {/* */}₹ 1,89,400
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>DY Patil New Fees Structure:</strong>
+                                <br />
+                                <strong>Semester-wise Payment:</strong> Total ₹
+                                1,89,400
+                                <br />
+                                - Semester 1: ₹ 50,000
+                                <br />
+                                - Semester 2: ₹ 50,000
+                                <br />
+                                - Semester 3: ₹ 45,000
+                                <br />- Semester 4: ₹ 44,400
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -364,6 +390,14 @@ export default function page() {
                               <td>Online BBA</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 102200
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                102,200.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -636,21 +670,17 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            {/* <img
-                      alt="certificate_url"
-                      loading="lazy"
-                      width="300"
-                      height="200"
-                      decoding="async"
-                      data-nimg="1"
-                      class="Certificates_img__GOe9v"
-                      style="color: transparent"
-                      srcset="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FDr-DY-patil-vidyapeeth%2Fcertification%2FDr-DY-Patil-Vidyapeeth-sample-certificate.webp&amp;w=384&amp;q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FDr-DY-patil-vidyapeeth%2Fcertification%2FDr-DY-Patil-Vidyapeeth-sample-certificate.webp&amp;w=640&amp;q=75 2x
-                      "
-                      src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FDr-DY-patil-vidyapeeth%2Fcertification%2FDr-DY-Patil-Vidyapeeth-sample-certificate.webp&amp;w=640&amp;q=75"
-                    /> */}
+                            <img
+                              alt="certificate_url"
+                              loading="lazy"
+                              width={300}
+                              height={200}
+                              decoding="async"
+                              data-nimg={1}
+                              className="Certificates_img__GOe9v"
+                              style={{ color: "transparent" }}
+                              src="/assets/course/DEGREE.jpeg"
+                            />
                           </div>
                         </div>
                       </div>

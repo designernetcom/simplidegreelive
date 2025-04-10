@@ -164,7 +164,7 @@ const toggleUniversityDropdown = () => {
                 8806099993
               </a>
             </div>
-            <div className="TopNavbar_topNavBar__login__NTr1D">
+            <div className="TopNavbar_phoneBtn__TCkgd">
               <svg
                 stroke="currentColor"
                 fill="currentColor"
@@ -178,14 +178,15 @@ const toggleUniversityDropdown = () => {
               >
                 <path d="M313.60 304c-28.70 0-42.50 16-89.60 16-47.10 0-60.80-16-89.60-16C60.20 304 0 364.20 0 438.40V464c0 26.50 21.50 48 48 48h352c26.50 0 48-21.50 48-48v-25.60c0-74.20-60.20-134.40-134.40-134.40zM400 464H48v-25.60c0-47.60 38.80-86.40 86.40-86.40 14.60 0 38.30 16 89.60 16 51.70 0 74.90-16 89.60-16 47.60 0 86.40 38.80 86.40 86.40V464zM224 288c79.50 0 144-64.50 144-144S303.50 0 224 0 80 64.50 80 144s64.50 144 144 144zm0-240c52.90 0 96 43.10 96 96s-43.10 96-96 96-96-43.10-96-96 43.10-96 96-96z" />
               </svg>
-              <p
+              <a
+                
                 onClick={openLoginModal}
-                className="TopNavbar_topNavBar__login_text__Y0ErT"
-                style={{ color: "#0c2d50", cursor: "pointer" }}
+                style={{ color: "#0c2d50",cursor:"pointer" }}
               >
-                Login
-              </p>
+                login
+              </a>
             </div>
+         
             <Link
               href="/free-courses"
               className="TopNavbar_topNavBar__freeCoursesBtn__48l_Q"

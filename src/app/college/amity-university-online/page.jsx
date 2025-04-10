@@ -8,6 +8,7 @@ import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
+import Image from "next/image";
 
 export default function page() {
   return (
@@ -381,6 +382,9 @@ export default function page() {
                             <tr className="courses_course_head__M4Cun">
                               <th>Courses</th>
                               <th style={{ textAlign: "center" }}>Fee Range</th>
+                              <th style={{ textAlign: "center" }}>
+                                Fee Structure
+                              </th>
                               <th />
                             </tr>
                           </thead>
@@ -389,6 +393,14 @@ export default function page() {
                               <td>Online BCom</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 150000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                150,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -417,6 +429,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 130000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                130,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -432,7 +452,7 @@ export default function page() {
                                     <path
                                       fillRule="evenodd"
                                       clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
+                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.853anei6C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
                                       fill="currentColor"
                                     />
                                   </svg>
@@ -443,6 +463,14 @@ export default function page() {
                               <td>Online BBA</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 165000-₹ 225000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Fee range: ₹
+                                165,000 - ₹ 225,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -471,6 +499,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 170000-₹ 250000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Fee range: ₹
+                                170,000 - ₹ 250,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -497,6 +533,37 @@ export default function page() {
                               <td>Online MBA</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 199000-₹ 299000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>
+                                  AMITY UNIVERSITY ONLINE - FEE STRUCTURE FOR
+                                  MBA IN JAN-25 BATCH
+                                </strong>
+                                <br />
+                                <strong>One-time Payment:</strong> ₹ 1,89,050
+                                <br />
+                                <strong>Yearly Payment:</strong> Total ₹
+                                1,93,030
+                                <br />
+                                - 1st Year: ₹ 96,515
+                                <br />
+                                - 2nd Year: ₹ 96,515
+                                <br />
+                                <strong>Semester-wise Payment:</strong> Total ₹
+                                1,99,000
+                                <br />
+                                - Semester 1: ₹ 49,750
+                                <br />
+                                - Semester 2: ₹ 49,750
+                                <br />
+                                - Semester 3: ₹ 49,750
+                                <br />
+                                - Semester 4: ₹ 49,750
+                                <br />
+                                <strong>Note:</strong> Loan options available
+                                with no-cost EMI.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -525,6 +592,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 99000-₹ 170000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Fee range: ₹
+                                99,000 - ₹ 170,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -551,6 +626,14 @@ export default function page() {
                               <td>Online MAJMC</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 170000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                170,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -579,6 +662,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 120000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                120,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -606,6 +697,14 @@ export default function page() {
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 225000
                               </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                225,000.
+                              </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -632,6 +731,14 @@ export default function page() {
                               <td>Online Certificate Programme</td>
                               <td style={{ textAlign: "center" }}>
                                 {/* */}₹ 118000
+                              </td>
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                118,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -912,21 +1019,17 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            {/* <img
-                      alt="certificate_url"
-                      loading="lazy"
-                      width="300"
-                      height="200"
-                      decoding="async"
-                      data-nimg="1"
-                      class="Certificates_img__GOe9v"
-                      style="color: transparent"
-                      srcset="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Famity-university-online%2Fcertification%2Famity-online-sample-degree-certificate.webp&amp;w=384&amp;q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Famity-university-online%2Fcertification%2Famity-online-sample-degree-certificate.webp&amp;w=640&amp;q=75 2x
-                      "
-                      src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Famity-university-online%2Fcertification%2Famity-online-sample-degree-certificate.webp&amp;w=640&amp;q=75"
-                    /> */}
+                            <img
+                              alt="certificate_url"
+                              loading="lazy"
+                              width={300}
+                              height={200}
+                              decoding="async"
+                              data-nimg={1}
+                              className="Certificates_img__GOe9v"
+                              style={{ color: "transparent" }}
+                              src="/assets/course/amity-degree.png"
+                            />
                           </div>
                         </div>
                       </div>

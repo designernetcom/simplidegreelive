@@ -1049,7 +1049,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1065,7 +1064,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1081,7 +1079,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1091,7 +1088,17 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                 
+                            <img
+                              alt="certificate_url"
+                              loading="lazy"
+                              width={300}
+                              height={200}
+                              decoding="async"
+                              data-nimg={1}
+                              className="Certificates_img__GOe9v"
+                              style={{ color: "transparent" }}
+                              src="/assets/course/Manipal- degree.jpeg"
+                            />
                           </div>
                         </div>
                       </div>
@@ -1364,7 +1371,6 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                  
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">

@@ -19,7 +19,9 @@ import Footer from "../../../components/Footer/Footer";
 const ComparisonModal = dynamic(() => import("../ComparisonModal"), {
   ssr: false,
 });
-
+const truncateName = (name) => {
+  return name.length > 30 ? `${name.substring(0, 20)}...` : name;
+};
 export default function Page() {
   const [compareList, setCompareList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -1624,7 +1626,7 @@ export default function Page() {
                                       </div>
                                       <div className="abroad_tooltip__Q2tD1">
                                         <span className="abroad_institute_name__K52yL">
-                                          {uni.name}
+                                          {truncateName(uni.name)}
                                         </span>
                                         <span className="abroad_tooltip_text__FsRAP">
                                           {uni.name}

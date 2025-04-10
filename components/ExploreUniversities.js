@@ -19,11 +19,15 @@ const universities = [
     img: "manipal.jpg",
     link: "/college/online-manipal-jaipur",
   },
-  { name: "LPU ONLINE", img: "lpu.jpg", link: "lpu-online.html" },
+  {
+    name: "LPU ONLINE",
+    img: "lpu.jpg",
+    link: "/college/lovely-professional-university-odl-lpu",
+  },
   {
     name: "JAIN UNIVERSITY",
     img: "jgi-jain.jpg",
-    link: "/college/lovely-professional-university-odl-lpu",
+    link: "/college/jain-university-online",
   },
   {
     name: "CHANDIGARH UNI.",
@@ -44,7 +48,7 @@ const universities = [
   {
     name: "O.P JINDAL UNI.",
     img: "op-jindal.jpg",
-    link: "/college/jain-university-online",
+    link: "/college/op-jindal-global-university",
   },
   {
     name: "CHITKARA UNI.",
@@ -115,7 +119,7 @@ const ExploreUniversities = () => {
             className="td_btn td_style_1 td_radius_10 td_medium"
           >
             <span className="td_btn_in td_white_color td_accent_bg">
-              <span>View All</span>
+              View All
             </span>
           </Link>
         </div>

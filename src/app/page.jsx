@@ -699,7 +699,7 @@ export default function Page() {
                             </li>
                           </ul>
                           <h2 className="td_card_title td_fs_24 td_semibold td_mb_12">
-                            <Link href="/college/dy-patil-university-pune-online">
+                            <Link href="/college/dr-dy-patil-vidyapeeth">
                               2 years Online MBA – DPU
                             </Link>
                           </h2>

@@ -277,17 +277,52 @@ export default function page() {
                           <thead style={{ background: "var(--dark-blue)" }}>
                             <tr className="courses_course_head__M4Cun">
                               <th>Courses</th>
-                              <th style={{ textAlign: "center" }}>Fee Range</th>
+
+                              <th style={{ textAlign: "center" }}>
+                                Fee Structure
+                              </th>
                               <th />
                             </tr>
                           </thead>
                           <tbody>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Distance BCom</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 99000
+
+                              <td >
+                                <strong>BCOM JULY 2024 FEES</strong>
+                                <br />
+                                <strong>Semester-wise Payment:</strong> ₹ 18,000
+                                per semester (6 semesters, Total: ₹ 108,000)
+                                <br />
+                                - 1st Sem: ₹ 18,000
+                                <br />
+                                - 2nd Sem: ₹ 18,000
+                                <br />
+                                - 3rd Sem: ₹ 18,000
+                                <br />
+                                - 4th Sem: ₹ 18,000
+                                <br />
+                                - 5th Sem: ₹ 18,000
+                                <br />
+                                - 6th Sem: ₹ 18,000
+                                <br />
+                                <strong>Yearly Payment:</strong> ₹ 33,000 per
+                                year (3 years, Total: ₹ 99,000)
+                                <br />
+                                - 1st Year: ₹ 33,000
+                                <br />
+                                - 2nd Year: ₹ 33,000
+                                <br />
+                                - 3rd Year: ₹ 33,000
+                                <br />
+                                <strong>One-Time Payment (OTP):</strong> ₹
+                                94,000 (Save ₹ 14,000)
+                                <br />
+                                <strong>Note:</strong> Exam and Project fees
+                                excluded. Placement opportunities every 2-3
+                                months (Lifetime).
                               </td>
-                              <td className="courses_specilaization_modal__MFNNY">
+                              <td>
                                 <div className="courses_viewSpsl__lrjH5">
                                   View Specialization
                                   <svg
@@ -311,8 +346,42 @@ export default function page() {
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Distance BBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 141000-₹ 169200
+
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>BBA JULY 2024 FEES</strong>
+                                <br />
+                                <strong>Semester-wise Payment:</strong> ₹ 25,000
+                                per semester (6 semesters, Total: ₹ 150,000)
+                                <br />
+                                - 1st Sem: ₹ 25,000
+                                <br />
+                                - 2nd Sem: ₹ 25,000
+                                <br />
+                                - 3rd Sem: ₹ 25,000
+                                <br />
+                                - 4th Sem: ₹ 25,000
+                                <br />
+                                - 5th Sem: ₹ 25,000
+                                <br />
+                                - 6th Sem: ₹ 25,000
+                                <br />
+                                <strong>Yearly Payment:</strong> ₹ 47,000 per
+                                year (3 years, Total: ₹ 141,000)
+                                <br />
+                                - 1st Year: ₹ 47,000
+                                <br />
+                                - 2nd Year: ₹ 47,000
+                                <br />
+                                - 3rd Year: ₹ 47,000
+                                <br />
+                                <strong>One-Time Payment (OTP):</strong> ₹
+                                131,000 (Save ₹ 19,000)
+                                <br />
+                                <strong>Note:</strong> Exam and Project fees
+                                excluded. Placement opportunities every 2-3
+                                months (Lifetime).
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -338,8 +407,41 @@ export default function page() {
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Distance MBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 315000
+
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure of NMIMS MBA:</strong>
+                                <br />
+                                <strong>Flexible Payment Options:</strong>
+                                <br />
+                                1. <strong>Semester-wise Payment:</strong> Total
+                                ₹ 220,000
+                                <br />
+                                - 1st Semester: ₹ 55,000
+                                <br />
+                                - 2nd Semester: ₹ 55,000
+                                <br />
+                                - 3rd Semester: ₹ 55,000
+                                <br />
+                                - 4th Semester: ₹ 55,000
+                                <br />
+                                2. <strong>Annual-wise Payment:</strong> Total ₹
+                                210,000 (Save ₹ 10,000)
+                                <br />
+                                - 1st Year: ₹ 105,000
+                                <br />
+                                - 2nd Year: ₹ 105,000
+                                <br />
+                                3. <strong>Full Course Fees at Once:</strong> ₹
+                                196,000 (Save ₹ 24,000)
+                                <br />
+                                <strong>Additional Fees:</strong>
+                                <br />
+                                - Registration Fees: ₹ 1,200
+                                <br />
+                                - Exam Fees: ₹ 800 per subject
+                                <br />- Project Fees: ₹ 1,500
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
@@ -365,8 +467,14 @@ export default function page() {
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Distance EMBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 400000
+                         
+                              <td
+                                style={{ textAlign: "left", padding: "10px" }}
+                              >
+                                <strong>Fee Structure:</strong>
+                                <br />
+                                No detailed breakdown available. Total fee: ₹
+                                400,000.
                               </td>
                               <td className="courses_specilaization_modal__MFNNY">
                                 <div className="courses_viewSpsl__lrjH5">
