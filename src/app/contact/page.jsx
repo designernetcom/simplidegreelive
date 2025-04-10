@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import "./contact.module.css"
+import "./contact.module.css";
 
 import "../styles/3a6b4218bb14b3ef.css";
 import "../styles/83d9da8bb5d66f96.css";
-import Menu from '../../../components/Header/Menu/Menu';
-import Footer from '../../../components/Footer/Footer';
+import Menu from "../../../components/Header/Menu/Menu";
+import Footer from "../../../components/Footer/Footer";
 
 export default function page() {
   return (
@@ -15,7 +15,7 @@ export default function page() {
         <a
           className="float"
           target="_blank"
-          href="https://api.whatsapp.com/send?phone=919667063002&text=I'm%20looking%20for"
+          href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
         >
           <svg
             stroke="currentColor"
@@ -51,7 +51,18 @@ export default function page() {
           </button>
         </div>
         <div>
-          <div className="ContactUsHero_Contact_page_Hero__container__CMEMs">
+          <div
+            className="ContactUsHero_Contact_page_Hero__container__CMEMs"
+            style={{
+              backgroundImage: "url('/assets/course/cntact.jpeg')", // Replace with your image path
+              backgroundSize: "cover", // Ensures the image covers the entire div
+              backgroundPosition: "center", // Centers the image
+              backgroundRepeat: "no-repeat", // Prevents the image from repeating
+              height: "80vh", // Optional: Set a height to make the background visible
+              width: "100%",
+              paddingTop: "190px", // Optional: Ensure it spans the full width
+            }}
+          >
             <div className="ContactUsHero_Contact_page_Hero__headingContainer__7B8uo">
               <h1 className="ContactUsHero_Contact_page_Hero__heading__SvB8r">
                 Contact Us

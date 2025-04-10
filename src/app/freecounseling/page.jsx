@@ -216,7 +216,7 @@ export default function page() {
                           height={373}
                           decoding="async"
                           className="Expert_Expert__image__8wv_Z"
-                          src="/assets/img/new-craft.png"
+                          src="/assets/img/tutor-new-3.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
@@ -239,14 +239,15 @@ export default function page() {
                               </svg>
                             </div>
                           </div>
-                          <p className="Expert_ExpertRatingValue__2LPF2">4.5</p>
+                          <p className="Expert_ExpertRatingValue__2LPF2">4.7</p>
                         </div>
                       </div>
                       <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Krishna
+                        {" "}
+                        Rekha{" "}
                       </p>
                       <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor for MBA
+                        Sr. Mentor
                       </p>
                       <p className="Expert_Expert__card_text_3__7CvA2">
                         3 Years Experience
@@ -274,7 +275,7 @@ export default function page() {
                           data-nimg={1}
                           className="Expert_Expert__image__8wv_Z"
                           style={{ color: "transparent" }}
-                          src="/assets/img/home_2/girl-2-tutor-removebg-preview.png"
+                          src="/assets/img/tutor-new-1.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
@@ -294,14 +295,14 @@ export default function page() {
                               </svg>
                             </div>
                           </div>
-                          <p className="Expert_ExpertRatingValue__2LPF2">4.7</p>
+                          <p className="Expert_ExpertRatingValue__2LPF2">4.6</p>
                         </div>
                       </div>
                       <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Rekha Sharma
+                        Vaishali
                       </p>
                       <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor for MCA
+                        Sr. Mentor
                       </p>
                       <p className="Expert_Expert__card_text_3__7CvA2">
                         8 Years Experience
@@ -329,7 +330,7 @@ export default function page() {
                           data-nimg={1}
                           className="Expert_Expert__image__8wv_Z"
                           style={{ color: "transparent" }}
-                          src="/assets/img/home_2/girl-tutor-removebg-preview.png"
+                          src="/assets/img/tutor-new-2.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
@@ -353,10 +354,10 @@ export default function page() {
                         </div>
                       </div>
                       <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Vaishali
+                        Hemant
                       </p>
                       <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor for MBA
+                        Sr. Mentor
                       </p>
                       <p className="Expert_Expert__card_text_3__7CvA2">
                         6 Years Experience
@@ -384,7 +385,7 @@ export default function page() {
                           data-nimg={1}
                           className="Expert_Expert__image__8wv_Z"
                           style={{ color: "transparent" }}
-                          src="/assets/img/home_2/tutorss.png"
+                          src="/assets/img/tutot-new-4.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
@@ -408,10 +409,10 @@ export default function page() {
                         </div>
                       </div>
                       <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Hemant
+                        Krishna
                       </p>
                       <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor for Master of Arts
+                        Sr. Mentor
                       </p>
                       <p className="Expert_Expert__card_text_3__7CvA2">
                         4 Years Experience

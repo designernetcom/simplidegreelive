@@ -28,11 +28,7 @@ const [isUniversityDropdownOpen, setIsUniversityDropdownOpen] = useState(false);
       href: "/top-university",
       icon: "/assets/img/icon/maharastra.webp",
     },
-    {
-      name: "New Delhi",
-      href: "/top-university",
-      icon: "/assets/img/icon/Delhi.webp",
-    },
+
     {
       name: "Karnataka",
       href: "/top-university",
@@ -72,6 +68,11 @@ const [isUniversityDropdownOpen, setIsUniversityDropdownOpen] = useState(false);
       name: "Tamil Nadu",
       href: "/top-university",
       icon: "/assets/img/icon/tamilnadu.webp",
+    },
+    {
+      name: "New Delhi",
+      href: "/top-university",
+      icon: "/assets/img/icon/Delhi.webp",
     },
   ];
 
@@ -159,8 +160,8 @@ const toggleUniversityDropdown = () => {
               >
                 <path d="M152.27,37.93a8,8,0,0,1,9.80-5.66,86.22,86.22,0,0,1,61.66,61.66,8,8,0,0,1-5.66,9.80A8.23,8.23,0,0,1,216,104a8,8,0,0,1-7.73-5.93,70.35,70.35,0,0,0-50.33-50.34A8,8,0,0,1,152.27,37.93Zm-2.33,41.80c13.79,3.68,22.65,12.55,26.33,26.34A8,8,0,0,0,184,112a8.23,8.23,0,0,0,2.07-.27,8,8,0,0,0,5.66-9.80c-5.12-19.16-18.50-32.54-37.66-37.66a8,8,0,1,0-4.13,15.46Zm72.43,78.73-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.40,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.20-.25.39-.50.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.40,64.60,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z" />
               </svg>
-              <a href="tel:+919898989898" style={{ color: "#0c2d50" }}>
-                9898989898
+              <a href="tel:+918806099993" style={{ color: "#0c2d50" }}>
+                8806099993
               </a>
             </div>
             <div className="TopNavbar_topNavBar__login__NTr1D">
@@ -418,7 +419,7 @@ const toggleUniversityDropdown = () => {
             <Link href="/online-pg-programmes" onClick={toggleMobileMenu}>
               Explore Courses
             </Link>
-    
+
             <Link href="/college-finder" onClick={toggleMobileMenu}>
               College Finder
               <span
@@ -518,7 +519,6 @@ const toggleUniversityDropdown = () => {
           </div>
         </div>
       )}
-
       {/* Login Modal */}
       {isLoginModalOpen && (
         <div
@@ -540,9 +540,10 @@ const toggleUniversityDropdown = () => {
             style={{
               backgroundColor: "#fff",
               borderRadius: "12px",
-              width: "900px",
+              width: window.innerWidth <= 768 ? "90%" : "900px", // Responsive width
               maxWidth: "95%",
               display: "flex",
+              flexDirection: window.innerWidth <= 768 ? "column" : "row", // Stack vertically on mobile
               boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
               overflow: "hidden",
             }}
@@ -550,62 +551,35 @@ const toggleUniversityDropdown = () => {
             {/* Left Side: Image */}
             <div
               style={{
-                flex: 1,
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')",
+                flex: window.innerWidth <= 768 ? "none" : 1, // Remove flex on mobile
+                height: window.innerWidth <= 768 ? "200px" : "500px", // Reduce height on mobile
+                backgroundImage: "url('/assets/course/login.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                minHeight: "600px",
                 position: "relative",
+                display: window.innerWidth <= 768 ? "block" : "block", // Ensure it’s visible
               }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  background:
-                    "linear-gradient(135deg, rgba(12, 45, 80, 0.7), rgba(26, 74, 122, 0.5))",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <h2
-                  style={{
-                    color: "#fff",
-                    fontSize: "2rem",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "20px",
-                    textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
-                  }}
-                >
-                  Welcome Back!
-                </h2>
-              </div>
-            </div>
+            ></div>
 
             {/* Right Side: Form */}
             <div
               style={{
-                flex: 1,
-                padding: "30px",
+                flex: window.innerWidth <= 768 ? "none" : 1, // Remove flex on mobile
+                padding: window.innerWidth <= 768 ? "20px" : "30px", // Reduce padding on mobile
                 backgroundColor: "#f9fafb",
                 position: "relative",
+                width: window.innerWidth <= 768 ? "100%" : "auto", // Full width on mobile
               }}
             >
               <button
                 onClick={closeLoginModal}
                 style={{
                   position: "absolute",
-                  top: "15px",
-                  right: "15px",
+                  top: "10px",
+                  right: "10px",
                   background: "none",
                   border: "none",
-                  fontSize: "1.5rem",
+                  fontSize: window.innerWidth <= 768 ? "1.2rem" : "1.5rem", // Smaller close button on mobile
                   cursor: "pointer",
                   color: "#0c2d50",
                   transition: "color 0.3s ease",
@@ -615,11 +589,38 @@ const toggleUniversityDropdown = () => {
               >
                 ✕
               </button>
+              {/* Login Banner */}
+
+              <div>
+                {/* Logo */}
+                <img
+                  src="/assets/img/Simplidegree logo 3.png"
+                  alt="Logo"
+                  style={{
+                    width: window.innerWidth <= 768 ? "150px" : "200px", // Smaller logo on mobile
+                    margin: window.innerWidth <= 768 ? "20px auto" : "20px 0",
+                    display: "block",
+                  }}
+                />
+              </div>
+              {/* <div
+                style={{
+                  backgroundColor: "#0c2d50",
+                  color: "#fff",
+                  textAlign: "center",
+                  padding: window.innerWidth <= 768 ? "8px" : "10px", // Smaller padding on mobile
+                  borderRadius: "6px",
+                  marginBottom: "20px",
+                  fontSize: window.innerWidth <= 768 ? "0.9rem" : "1rem", // Smaller text on mobile
+                }}
+              >
+                Sign in to get started
+              </div> */}
               <h2
                 style={{
                   color: "#0c2d50",
-                  marginBottom: "25px",
-                  fontSize: "1.8rem",
+                  marginBottom: "20px",
+                  fontSize: window.innerWidth <= 768 ? "1.5rem" : "1.8rem", // Smaller heading on mobile
                   fontWeight: "600",
                   textAlign: "center",
                 }}
@@ -627,6 +628,7 @@ const toggleUniversityDropdown = () => {
                 Login
               </h2>
               <form>
+                {/* Login With Email */}
                 <div style={{ marginBottom: "20px" }}>
                   <label
                     htmlFor="email"
@@ -635,19 +637,21 @@ const toggleUniversityDropdown = () => {
                       marginBottom: "8px",
                       color: "#0c2d50",
                       fontWeight: "500",
+                      fontSize: window.innerWidth <= 768 ? "0.9rem" : "1rem", // Smaller label on mobile
                     }}
                   >
-                    Email
+                    Login With Email
                   </label>
                   <input
                     type="email"
                     id="email"
+                    placeholder="Email"
                     style={{
                       width: "100%",
-                      padding: "12px",
+                      padding: window.innerWidth <= 768 ? "10px" : "12px", // Smaller padding on mobile
                       borderRadius: "6px",
                       border: "1px solid #d1d5db",
-                      fontSize: "1rem",
+                      fontSize: window.innerWidth <= 768 ? "0.9rem" : "1rem", // Smaller text on mobile
                       backgroundColor: "#fff",
                       transition:
                         "border-color 0.3s ease, box-shadow 0.3s ease",
@@ -664,6 +668,7 @@ const toggleUniversityDropdown = () => {
                     required
                   />
                 </div>
+
                 <div style={{ marginBottom: "20px" }}>
                   <label
                     htmlFor="password"
@@ -672,6 +677,7 @@ const toggleUniversityDropdown = () => {
                       marginBottom: "8px",
                       color: "#0c2d50",
                       fontWeight: "500",
+                      fontSize: window.innerWidth <= 768 ? "0.9rem" : "1rem", // Smaller label on mobile
                     }}
                   >
                     Password
@@ -679,12 +685,13 @@ const toggleUniversityDropdown = () => {
                   <input
                     type="password"
                     id="password"
+                    placeholder="Password"
                     style={{
                       width: "100%",
-                      padding: "12px",
+                      padding: window.innerWidth <= 768 ? "10px" : "12px", // Smaller padding on mobile
                       borderRadius: "6px",
                       border: "1px solid #d1d5db",
-                      fontSize: "1rem",
+                      fontSize: window.innerWidth <= 768 ? "0.9rem" : "1rem", // Smaller text on mobile
                       backgroundColor: "#fff",
                       transition:
                         "border-color 0.3s ease, box-shadow 0.3s ease",
@@ -705,12 +712,12 @@ const toggleUniversityDropdown = () => {
                   type="submit"
                   style={{
                     width: "100%",
-                    padding: "12px",
+                    padding: window.innerWidth <= 768 ? "10px" : "12px", // Smaller padding on mobile
                     background: "linear-gradient(90deg, #0c2d50, #1a4a7a)",
                     color: "#fff",
                     border: "none",
                     borderRadius: "6px",
-                    fontSize: "1.1rem",
+                    fontSize: window.innerWidth <= 768 ? "1rem" : "1.1rem", // Smaller text on mobile
                     fontWeight: "500",
                     cursor: "pointer",
                     transition: "transform 0.2s ease, box-shadow 0.2s ease",
@@ -733,10 +740,10 @@ const toggleUniversityDropdown = () => {
                   marginTop: "15px",
                   textAlign: "center",
                   color: "#6b7280",
-                  fontSize: "0.9rem",
+                  fontSize: window.innerWidth <= 768 ? "0.85rem" : "0.9rem", // Smaller text on mobile
                 }}
               >
-                Don’t have an account?{" "}
+                New User?{" "}
                 <Link
                   href="/signup"
                   style={{
@@ -750,6 +757,16 @@ const toggleUniversityDropdown = () => {
                 >
                   Sign Up
                 </Link>
+              </p>
+              <p
+                style={{
+                  marginTop: "10px",
+                  textAlign: "center",
+                  color: "#6b7280",
+                  fontSize: window.innerWidth <= 768 ? "0.8rem" : "0.85rem", // Smaller text on mobile
+                }}
+              >
+                Your personal information is secure with us
               </p>
             </div>
           </div>

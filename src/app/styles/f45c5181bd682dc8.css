@@ -12,12 +12,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     #000 1.48%,
     rgba(0, 0, 0, 0.31) 99.91%,
     transparent 0
-  );
+  ); */
 }
 .AllWebStory_webStoryHeadingContainer__nTvta {
   position: absolute;

@@ -16,7 +16,7 @@ export default function page() {
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <img
-            src="https://store.learningroutes.in/images/colleges/NMIMS-Centre-for-Distance-and-Online-Education/hero-image/banner.webp"
+            src="/assets/img/mba-distance/nmns-code.jpg"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="hero-image"
@@ -444,23 +444,16 @@ export default function page() {
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
                         <form className="collegenquiry_form__uF7mS">
-                          <input
-                            type="text"
-                            placeholder="Name*"
-                            name="name"
-                            
-                          />
+                          <input type="text" placeholder="Name*" name="name" />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            
                           />
                           <select name="program">
                             <option value selected>

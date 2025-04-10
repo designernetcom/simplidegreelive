@@ -16,7 +16,7 @@ export default function page() {
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <img
-            src="https://store.learningroutes.in/images/colleges/amity-university-online/hero-image/amitybanner.webp"
+            src="/assets/img/mba-distance/amity.jpg"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="hero-image"

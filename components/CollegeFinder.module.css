@@ -20,7 +20,8 @@
   text-align: center;
   margin-bottom: 20px;
   font-size: 14px;
-  color: #666;
+  color: #000;
+  font-weight: 700;
 }
 
 /* Existing styles remain the same */
@@ -83,8 +84,8 @@
 }
 
 .title {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .nextButton {

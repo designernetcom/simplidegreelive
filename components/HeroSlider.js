@@ -14,11 +14,11 @@ const HeroSlider = () => {
       text1: "Grab It Now: Early Bird Offer!",
       text2: "₹ 7000/- Off On Admissions*",
       hashtagImg: "/assets/img/batch.webp",
-      mainImg: "/assets/img/simpli_d_banner_7.png",
+      mainImg: "/assets/img/simpli_d_banner.png",
       hashtagWidth: 663,
       hashtagHeight: 238,
-      mainWidth: 553,
-      mainHeight: 698,
+      mainWidth: 953,
+      mainHeight: 998,
     },
     {
       text1: "10 Years of Excellence",
@@ -46,7 +46,7 @@ const HeroSlider = () => {
   return (
     <div
       className="Hero_relative__x641X {`remove-padding-mobile slider-container ${styles.sliderContainer}`}"
-      style={{ paddingTop: "7px" }}
+      style={{ paddingTop: "0px" }}
     >
       <div className="Hero_newheroContainer__lAPRu">
         <Swiper

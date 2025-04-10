@@ -8,10 +8,10 @@ import "../styles/3671c5163dee128f.css";
 import "../styles/bootstrap.min.css";
 import "../styles/bcdb44b6ad772c90.css";
 import "../styles/cc66cf431efece60.css";
-import "../styles/8b2861424f796947.css"
-import "../styles/04bdd9c7a469b901.css"
-import "../styles/2e85c571399b9690.css"
-import "../styles/cc9687947ca46cf2.css"
+import "../styles/8b2861424f796947.css";
+import "../styles/04bdd9c7a469b901.css";
+import "../styles/2e85c571399b9690.css";
+import "../styles/cc9687947ca46cf2.css";
 
 export default function page() {
   return (
@@ -21,7 +21,7 @@ export default function page() {
         <a
           className="float"
           target="_blank"
-          href="https://api.whatsapp.com/send?phone=919667063002&text=I'm%20looking%20for"
+          href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
         >
           <svg
             stroke="currentColor"
@@ -116,14 +116,9 @@ export default function page() {
                   </a>
                 </div>
                 <div className="swiper-slide">
-                  <a
-                    style={{ textDecoration: "none" }}
-                   
-                  >
+                  <a style={{ textDecoration: "none" }}>
                     <div className="BlogSliderCard_blogSliderContainer__Utcfo">
-                      <div className="BlogSliderCard_slider_image__3NT_m">
-                       
-                      </div>
+                      <div className="BlogSliderCard_slider_image__3NT_m"></div>
                       <div>
                         <h2 className="BlogSliderCard_slide_card_heading__bR6RR">
                           A Comprehensive Guide to Online MBA Courses
@@ -144,14 +139,9 @@ export default function page() {
                   </a>
                 </div>
                 <div className="swiper-slide">
-                  <a
-                    style={{ textDecoration: "none" }}
-                    
-                  >
+                  <a style={{ textDecoration: "none" }}>
                     <div className="BlogSliderCard_blogSliderContainer__Utcfo">
-                      <div className="BlogSliderCard_slider_image__3NT_m">
-                       
-                      </div>
+                      <div className="BlogSliderCard_slider_image__3NT_m"></div>
                       <div>
                         <h2 className="BlogSliderCard_slide_card_heading__bR6RR">
                           A Complete Guide to Pursuing Distance MBA Degree
@@ -176,14 +166,13 @@ export default function page() {
             </div>
           </div>
         </div>
-        <div className="AllBlogs_all_blog_container__KRnbm" style={{ paddingTop:"40px" }}>
+        <div
+          className="AllBlogs_all_blog_container__KRnbm"
+          style={{ paddingTop: "40px" }}
+        >
           <div className="AllBlogs_blog_heading_search__wZ4ED">
-            <div>
-              
-            </div>
-            <div className="AllBlogs_blogsSearch__ZfaX0">
-             
-            </div>
+            <div></div>
+            <div className="AllBlogs_blogsSearch__ZfaX0"></div>
           </div>
           <div className="AllBlogs_blog_cat_card_container__DZaBT">
             <div className="BlogCategories_latest_blog_container__S9l_v">

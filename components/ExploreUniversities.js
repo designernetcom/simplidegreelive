@@ -51,6 +51,11 @@ const universities = [
     img: "chitkara.jpg",
     link: "/college/chitkara-university-centre-for-continuing-education",
   },
+  {
+    name: "IIM RAIPUR ",
+    img: "iim-raipur.jpg",
+    link: "/college/indian-institute-of-management-raipur-iim-raipur",
+  },
 ];
 
 const ExploreUniversities = () => {

@@ -591,11 +591,12 @@ export default function Page() {
                           </a>
                           <h2 className="td_card_title td_fs_24 td_semibold td_mb_12">
                             <Link href="/college/nmims-cdoe">
-                              2 years Online MBA – NMIMS
+                              2 years Online MBA – NMIMS Online
                             </Link>
                           </h2>
+                          <br />
                           <p>
-                            1,68,000/- For 2 Years <br />
+                            2,20,000/- For 2 Years <br />
                             Approved / Recognized By: UGC / DEB
                           </p>
                           <div className="td_card_btns_wrap">
@@ -644,12 +645,12 @@ export default function Page() {
                             </li>
                           </ul>
                           <h2 className="td_card_title td_fs_24 td_semibold td_mb_12">
-                            <Link href="/amity-university-online">
+                            <Link href="/college/amity-university-online">
                               2 years Online MBA – Amity University Online
                             </Link>
                           </h2>
                           <p>
-                            2,55,000/- For 2 Years <br />
+                            Rs.1,99,000/- For 2 Years <br />
                             Approved / Recognized By: UGC
                           </p>
                           <div className="td_card_btns_wrap">
@@ -698,12 +699,13 @@ export default function Page() {
                             </li>
                           </ul>
                           <h2 className="td_card_title td_fs_24 td_semibold td_mb_12">
-                            <Link href="/dy-patil-university-pune-online">
+                            <Link href="/college/dy-patil-university-pune-online">
                               2 years Online MBA – DPU
                             </Link>
                           </h2>
+                          <br />
                           <p>
-                            1,67,200/- For 2 Years <br />
+                            1,89,400/- For 2 Years <br />
                             Approved / Recognized By: UGC / DEB
                           </p>
                           <div className="td_card_btns_wrap">
@@ -757,7 +759,7 @@ export default function Page() {
                             </Link>
                           </h2>
                           <p>
-                            1,50,000/- For 2 Years <br />
+                            1,75,000/- For 2 Years <br />
                             Approved / Recognized By: UGC
                           </p>
                           <div className="td_card_btns_wrap">
@@ -811,7 +813,7 @@ export default function Page() {
                             </Link>
                           </h2>
                           <p>
-                            2,60,000/- For 2 Years <br />
+                            1,80,000/- For 2 Years <br />
                             Approved / Recognized By: UGC
                           </p>
                           <div className="td_card_btns_wrap">
@@ -1178,7 +1180,7 @@ export default function Page() {
                 </div>
               </div>
             </a>
-            <a href className="UsefulTools_toolLink__ztevN">
+            {/* <a href className="UsefulTools_toolLink__ztevN">
               <div className="UsefulTools_toolCard__fe_ci">
                 <div className="UsefulTools_iconWrapper__hAyFp">
                   <svg
@@ -1203,7 +1205,7 @@ export default function Page() {
                   </span>
                 </div>
               </div>
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="Expert_Expert__Container__f2HSI">
@@ -1228,7 +1230,7 @@ export default function Page() {
                           height={373}
                           decoding="async"
                           className="Expert_Expert__image__8wv_Z"
-                          src="/assets/img/new-craft.png"
+                          src="/assets/img/tutor-new-3.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
@@ -1251,14 +1253,15 @@ export default function Page() {
                               </svg>
                             </div>
                           </div>
-                          <p className="Expert_ExpertRatingValue__2LPF2">4.5</p>
+                          <p className="Expert_ExpertRatingValue__2LPF2">4.7</p>
                         </div>
                       </div>
                       <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Krishna
+                        {" "}
+                        Rekha{" "}
                       </p>
                       <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor for MBA
+                        Sr. Mentor
                       </p>
                       <p className="Expert_Expert__card_text_3__7CvA2">
                         3 Years Experience
@@ -1286,7 +1289,7 @@ export default function Page() {
                           data-nimg={1}
                           className="Expert_Expert__image__8wv_Z"
                           style={{ color: "transparent" }}
-                          src="/assets/img/home_2/girl-2-tutor-removebg-preview.png"
+                          src="/assets/img/tutor-new-1.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
@@ -1306,14 +1309,14 @@ export default function Page() {
                               </svg>
                             </div>
                           </div>
-                          <p className="Expert_ExpertRatingValue__2LPF2">4.7</p>
+                          <p className="Expert_ExpertRatingValue__2LPF2">4.6</p>
                         </div>
                       </div>
                       <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Rekha Sharma
+                        Vaishali
                       </p>
                       <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor for MCA
+                        Sr. Mentor
                       </p>
                       <p className="Expert_Expert__card_text_3__7CvA2">
                         8 Years Experience
@@ -1341,7 +1344,7 @@ export default function Page() {
                           data-nimg={1}
                           className="Expert_Expert__image__8wv_Z"
                           style={{ color: "transparent" }}
-                          src="/assets/img/home_2/girl-tutor-removebg-preview.png"
+                          src="/assets/img/tutor-new-2.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
@@ -1365,10 +1368,10 @@ export default function Page() {
                         </div>
                       </div>
                       <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Vaishali
+                        Hemant
                       </p>
                       <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor for MBA
+                        Sr. Mentor
                       </p>
                       <p className="Expert_Expert__card_text_3__7CvA2">
                         6 Years Experience
@@ -1396,7 +1399,7 @@ export default function Page() {
                           data-nimg={1}
                           className="Expert_Expert__image__8wv_Z"
                           style={{ color: "transparent" }}
-                          src="/assets/img/home_2/tutorss.png"
+                          src="/assets/img/tutot-new-4.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
@@ -1420,10 +1423,10 @@ export default function Page() {
                         </div>
                       </div>
                       <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Hemant
+                        Krishna
                       </p>
                       <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor for Master of Arts
+                        Sr. Mentor
                       </p>
                       <p className="Expert_Expert__card_text_3__7CvA2">
                         4 Years Experience
@@ -1681,17 +1684,17 @@ export default function Page() {
                 <div>
                   <div className="TestimonialSlider_imageContainer__qw6pl">
                     <img
-                      src="/assets/img/avatar_1.png"
-                      alt="Kartikeya Misra"
+                      src="/assets/img/png-clipart-student-student-thumbnail.png"
+                      alt="Anaya Misra"
                       className="TestimonialSlider_avatar__tkuAI"
                     />
                   </div>
                   <div>
                     <h3 className="TestimonialSlider_name__gQxRY">
-                      Kartikeya Misra
+                      Anaya Misra
                     </h3>
                     <p className="TestimonialSlider_role__D4hYz">
-                      (Altruist Technologies Pvt Ltd.)
+                      (WNS Technologies Pvt Ltd.)
                     </p>
                     <div className="TestimonialSlider_quote__D_DKH" />
                     <p className="TestimonialSlider_content__dEIEb">
@@ -1707,14 +1710,14 @@ export default function Page() {
                 <div>
                   <div className="TestimonialSlider_imageContainer__qw6pl">
                     <img
-                      src="/assets/img/avatar_3.png"
-                      alt="Manav Dhodare"
+                      src="/assets/img/feedback.png"
+                      alt="Pratik Sharma"
                       className="TestimonialSlider_avatar__tkuAI"
                     />
                   </div>
                   <div>
                     <h3 className="TestimonialSlider_name__gQxRY">
-                      Manav Dhodare
+                      Pratik Sharma
                     </h3>
                     <p className="TestimonialSlider_role__D4hYz">(HDFC Bank)</p>
                     <div className="TestimonialSlider_quote__D_DKH" />

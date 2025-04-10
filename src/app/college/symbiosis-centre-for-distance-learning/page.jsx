@@ -17,7 +17,7 @@ export default function page() {
         <a
           className="float"
           target="_blank"
-          href="https://api.whatsapp.com/send?phone=919667063002&text=I'm%20looking%20for"
+          href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
         >
           <svg
             stroke="currentColor"
@@ -837,7 +837,6 @@ export default function page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                   
                                     src="/assets/simpli-images/check.webp"
                                   />
                                   <div className="Certificates_point__XYWLq">
@@ -853,7 +852,6 @@ export default function page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                   
                                     src="/assets/simpli-images/check.webp"
                                   />
                                   <div className="Certificates_point__XYWLq">
@@ -869,7 +867,6 @@ export default function page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                   
                                     src="/assets/simpli-images/check.webp"
                                   />
                                   <div className="Certificates_point__XYWLq">

@@ -14,7 +14,7 @@ export default function page() {
         <a
           className="float"
           target="_blank"
-          href="https://api.whatsapp.com/send?phone=919667063002&text=I'm%20looking%20for"
+          href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
         >
           <svg
             stroke="currentColor"
@@ -53,7 +53,6 @@ export default function page() {
           <div
             className="CourseHero_courseCarousalOne__Sb3_f"
             style={{ paddingTop: "30px" }}
-            
           >
             <a>
               <img
