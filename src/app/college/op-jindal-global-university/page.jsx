@@ -57,7 +57,7 @@ export default function page() {
           <div className="headCarousal_collegeCarousal__4a5Bq">
             <img
               src="https://store.learningroutes.in/images/colleges/OP-jindal-global-university/hero-image/op-jindal-Banner.webp"
-              fetchpriority="high"
+              fetchPriority="high"
               className="headCarousal_clg_banner__CXazi"
               alt="hero-image"
               width={240}
@@ -431,19 +431,16 @@ export default function page() {
                               type="text"
                               placeholder="Name*"
                               name="name"
-                              defaultValue
                             />
                             <input
                               type="email"
                               placeholder="Email*"
                               name="email"
-                              defaultValue
                             />
                             <input
                               type="number"
                               placeholder="Phone*"
                               name="phone"
-                              defaultValue
                             />
                             <select name="program">
                               <option value selected>
@@ -541,7 +538,7 @@ export default function page() {
                               </div>
                               <div>
                                 <div className="Certificates_pointBox__xwwq4">
-                                  <img
+                                  {/* <img
                                     alt="check-image"
                                     loading="lazy"
                                     width={20}
@@ -549,18 +546,15 @@ export default function page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          "
+                                   
                                     src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                                  />
+                                  /> */}
                                   <div className="Certificates_point__XYWLq">
                                     NAAC A Recognised
                                   </div>
                                 </div>
                                 <div className="Certificates_pointBox__xwwq4">
-                                  <img
+                                  {/* <img
                                     alt="check-image"
                                     loading="lazy"
                                     width={20}
@@ -568,18 +562,15 @@ export default function page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          "
+                                   
                                     src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                                  />
+                                  /> */}
                                   <div className="Certificates_point__XYWLq">
                                     UGC Entitled
                                   </div>
                                 </div>
                                 <div className="Certificates_pointBox__xwwq4">
-                                  <img
+                                  {/* <img
                                     alt="check-image"
                                     loading="lazy"
                                     width={20}
@@ -592,7 +583,7 @@ export default function page() {
                             image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
                           "
                                     src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                                  />
+                                  /> */}
                                   <div className="Certificates_point__XYWLq">
                                     No. 1 Private University in India- QS World
                                     University Rankings 2023
@@ -601,7 +592,7 @@ export default function page() {
                               </div>
                             </div>
                             <div>
-                              <img
+                              {/* <img
                                 alt="certificate_url"
                                 loading="lazy"
                                 width={300}
@@ -615,7 +606,7 @@ export default function page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75 2x
                       "
                                 src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75"
-                              />
+                              /> */}
                             </div>
                           </div>
                         </div>
@@ -634,16 +625,12 @@ export default function page() {
                           Fresh admission starts from the month of January of
                           every year. There are direct admissions, no entrance
                           exam is conducted for the admission process.The
-                          addmission procedure
-                          {/* */}2025{/* */}
-                          for the online course at
-                          {/* */}O.P. Jindal Global University{/* */}
-                          is as follow:
+                          addmission procedure 2025 for the online course at
+                          O.P. Jindal Global University is as follow:
                         </p>
                         <div className="Admissions_step__4mDzm">
                           <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}1
+                            STEP 1
                           </div>
                           <div className="Admissions_stepText___L_GT">
                             Register on the official website
@@ -651,8 +638,7 @@ export default function page() {
                         </div>
                         <div className="Admissions_step__4mDzm">
                           <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}2
+                            STEP 2
                           </div>
                           <div className="Admissions_stepText___L_GT">
                             Fill and submit the online application form
@@ -660,8 +646,7 @@ export default function page() {
                         </div>
                         <div className="Admissions_step__4mDzm">
                           <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}3
+                            STEP 3
                           </div>
                           <div className="Admissions_stepText___L_GT">
                             Appear for the JMAT exam (Exempted for those who
@@ -679,8 +664,7 @@ export default function page() {
                         </div>
                         <div className="Admissions_step__4mDzm">
                           <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}5
+                            STEP 5
                           </div>
                           <div className="Admissions_stepText___L_GT">
                             Submit the fee
@@ -702,7 +686,7 @@ export default function page() {
                             Our students have an opportunity of
                           </h3>
                           <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            <img
+                            {/* <img
                               alt="img"
                               loading="lazy"
                               width={20}
@@ -715,14 +699,14 @@ export default function page() {
                       image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
                     "
                               src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                            />
+                            /> */}
                             <p>
                               Learn employability skills through assessments and
                               tests
                             </p>
                           </div>
                           <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            <img
+                            {/* <img
                               alt="img"
                               loading="lazy"
                               width={20}
@@ -735,7 +719,7 @@ export default function page() {
                       image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
                     "
                               src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                            />
+                            /> */}
                             <p>Job that suitably fits the student profile</p>
                           </div>
                         </div>
@@ -771,7 +755,7 @@ export default function page() {
                             <div className="partners_imgBox__yD_6o">
                               <img
                                 alt="placement-logo"
-                                fetchpriority="high"
+                                fetchPriority="high"
                                 width={122}
                                 height={95}
                                 decoding="async"
@@ -790,7 +774,7 @@ export default function page() {
                             <div className="partners_imgBox__yD_6o">
                               <img
                                 alt="placement-logo"
-                                fetchpriority="high"
+                                fetchPriority="high"
                                 width={122}
                                 height={95}
                                 decoding="async"
@@ -809,7 +793,7 @@ export default function page() {
                             <div className="partners_imgBox__yD_6o">
                               <img
                                 alt="placement-logo"
-                                fetchpriority="high"
+                                fetchPriority="high"
                                 width={122}
                                 height={95}
                                 decoding="async"
@@ -828,7 +812,7 @@ export default function page() {
                             <div className="partners_imgBox__yD_6o">
                               <img
                                 alt="placement-logo"
-                                fetchpriority="high"
+                                fetchPriority="high"
                                 width={122}
                                 height={95}
                                 decoding="async"
@@ -847,7 +831,7 @@ export default function page() {
                             <div className="partners_imgBox__yD_6o">
                               <img
                                 alt="placement-logo"
-                                fetchpriority="high"
+                                fetchPriority="high"
                                 width={122}
                                 height={95}
                                 decoding="async"
@@ -866,7 +850,7 @@ export default function page() {
                             <div className="partners_imgBox__yD_6o">
                               <img
                                 alt="placement-logo"
-                                fetchpriority="high"
+                                fetchPriority="high"
                                 width={122}
                                 height={95}
                                 decoding="async"
@@ -884,13 +868,13 @@ export default function page() {
                         </div> */}
                       </div>
                     </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                    {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                       <div
                         className="CollegeReview_college_page_details_review_container__KbbIU"
                         id="contact"
                       >
                         <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                          O.P. Jindal Global University{/* */}
+                          O.P. Jindal Global University
                           Review
                         </h2>
                         <div>
@@ -898,7 +882,7 @@ export default function page() {
                             <div className="CollegeReview_college_page_details_review_form_container__rP5km">
                               <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
                                 <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
-                                  0{/* */}
+                                  0
                                   out of 5
                                 </p>
                                 <div>
@@ -1014,7 +998,7 @@ export default function page() {
                         </div>
                         <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

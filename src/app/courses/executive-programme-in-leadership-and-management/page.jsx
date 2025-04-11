@@ -57,7 +57,7 @@ export default function page() {
             <a preload="true" href>
               <img
                 alt="img"
-                fetchpriority="high"
+                fetchPriority="high"
                 width={1500}
                 height={600}
                 decoding="async"

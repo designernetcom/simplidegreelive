@@ -606,7 +606,7 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -620,7 +620,7 @@ export default function page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FIndian-Institute-of-Finance%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
                               src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FIndian-Institute-of-Finance%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -640,15 +640,15 @@ export default function page() {
                         year. There are direct admissions, no entrance exam is
                         conducted for the admission process.The addmission
                         procedure
-                        {/* */}2025{/* */}
+                        2025
                         for the online course at
-                        {/* */}Indian Institute of Finance{/* */}
+                       Indian Institute of Finance
                         is as follow:
                       </p>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
                           STEP
-                          {/* */}1
+                          1
                         </div>
                         <div className="Admissions_stepText___L_GT">
                           Open the official portal of the university by clicking
@@ -658,7 +658,7 @@ export default function page() {
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
                           STEP
-                          {/* */}2
+                          2
                         </div>
                         <div className="Admissions_stepText___L_GT">
                           Open the form, understand the requirements, and fill
@@ -668,7 +668,7 @@ export default function page() {
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
                           STEP
-                          {/* */}3
+                          3
                         </div>
                         <div className="Admissions_stepText___L_GT">
                           Pay the charges for the course through online payment
@@ -678,7 +678,7 @@ export default function page() {
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
                           STEP
-                          {/* */}4
+                          4
                         </div>
                         <div className="Admissions_stepText___L_GT">
                           Once the fee has been paid, submit the form. After
@@ -940,13 +940,13 @@ export default function page() {
                       </div> */}
                     </div>
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                  {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                     <div
                       className="CollegeReview_college_page_details_review_container__KbbIU"
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        Indian Institute of Finance{/* */}
+                        Indian Institute of Finance
                         Review
                       </h2>
                       <div>
@@ -1069,7 +1069,7 @@ export default function page() {
                       </div>
                       <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

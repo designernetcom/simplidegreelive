@@ -722,23 +722,16 @@ export default function page() {
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
                         <form className="collegenquiry_form__uF7mS">
-                          <input
-                            type="text"
-                            placeholder="Name*"
-                            name="name"
-                            defaultValue
-                          />
+                          <input type="text" placeholder="Name*" name="name" />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
                           />
                           <select name="program">
                             <option value selected>
@@ -840,7 +833,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                 
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1188,7 +1180,6 @@ export default function page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
                               />
                               <textarea
                                 placeholder="Write your reviews"

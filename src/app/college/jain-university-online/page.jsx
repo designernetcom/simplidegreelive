@@ -1,6 +1,6 @@
-import React from 'react';
-import Menu from '../../../../components/Header/Menu/Menu';
-import Footer from '../../../../components/Footer/Footer';
+import React from "react";
+import Menu from "../../../../components/Header/Menu/Menu";
+import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
 import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
@@ -17,7 +17,7 @@ export default function page() {
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <img
             alt="hero-image"
-            fetchpriority="high"
+            fetchPriority="high"
             width={240}
             height={240}
             decoding="async"
@@ -943,7 +943,6 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                   
                     </div>
                   </div>
                   {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">

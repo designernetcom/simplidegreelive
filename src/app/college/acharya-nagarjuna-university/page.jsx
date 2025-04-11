@@ -578,19 +578,19 @@ export default function page() {
                             type="text"
                             placeholder="Name*"
                             name="name"
-                            defaultValue
+                            
                           />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
+                            
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
+                            
                           />
                           <select name="program">
                             <option value selected>
@@ -1040,14 +1040,14 @@ export default function page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
+                                
                               />
                               <textarea
                                 placeholder="Write your reviews"
                                 className="CollegeReview_college_page_details_review_form_input__niDf2"
                                 name="comment"
                                 required
-                                defaultValue={""}
+                                ={""}
                               />
                               <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
                                 Send message

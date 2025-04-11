@@ -58,7 +58,7 @@ export default function page() {
           <div className="headCarousal_collegeCarousal__4a5Bq">
             <img
               src="https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/hero-image/upes-banner.webp"
-              fetchpriority="high"
+              fetchPriority="high"
               className="headCarousal_clg_banner__CXazi"
               alt="hero-image"
               width={240}
@@ -270,17 +270,6 @@ export default function page() {
                           Consistent 100% placement rates can be seen over the
                           past five years.
                         </p>
-                        <div className="about_video_container__SYZ_V">
-                          <iframe
-                            loading="lazy"
-                            src="https://www.youtube.com/embed/mW1wdWubToE?si=HTQ5DbR-as6IuEqu"
-                            title="YouTube video player"
-                            frameBorder={0}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                          />
-                        </div>
                       </div>
                     </div>
                     <div className="collegeDetails_maxWidth__6vBVL" id="High">
@@ -592,19 +581,16 @@ export default function page() {
                               type="text"
                               placeholder="Name*"
                               name="name"
-                              defaultValue
                             />
                             <input
                               type="email"
                               placeholder="Email*"
                               name="email"
-                              defaultValue
                             />
                             <input
                               type="number"
                               placeholder="Phone*"
                               name="phone"
-                              defaultValue
                             />
                             <select name="program">
                               <option value selected>
@@ -756,7 +742,7 @@ export default function page() {
                                   </div>
                                 </div>
                                 <div className="Certificates_pointBox__xwwq4">
-                                  <img
+                                  {/* <img
                                     alt="check-image"
                                     loading="lazy"
                                     width={20}
@@ -764,12 +750,9 @@ export default function page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          "
+                                    
                                     src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                                  />
+                                  /> */}
                                   <div className="Certificates_point__XYWLq">
                                     NIRF- 79 (Overall Category)
                                   </div>
@@ -891,7 +874,7 @@ export default function page() {
                             Our students have an opportunity of
                           </h3>
                           <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            <img
+                            {/* <img
                               alt="img"
                               loading="lazy"
                               width={20}
@@ -899,19 +882,16 @@ export default function page() {
                               decoding="async"
                               data-nimg={1}
                               style={{ color: "transparent" }}
-                              srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                    "
+                              
                               src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                            />
+                            /> */}
                             <p>
                               Learn employability skills through assessments and
                               tests
                             </p>
                           </div>
                           <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            <img
+                            {/* <img
                               alt="img"
                               loading="lazy"
                               width={20}
@@ -919,12 +899,9 @@ export default function page() {
                               decoding="async"
                               data-nimg={1}
                               style={{ color: "transparent" }}
-                              srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                    "
+                             
                               src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                            />
+                            /> */}
                             <p>Job that suitably fits the student profile</p>
                           </div>
                         </div>
@@ -958,7 +935,7 @@ export default function page() {
                   <div className="partners_container___c9cx">
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FAccenture.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FAccenture.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FAccenture.webp&w=256&q=75" />
@@ -966,7 +943,7 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fdeloitte.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fdeloitte.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fdeloitte.webp&w=256&q=75" />
@@ -974,7 +951,7 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Famazon.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Famazon.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Famazon.webp&w=256&q=75" />
@@ -982,7 +959,7 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FHCL_Technologies.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FHCL_Technologies.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FHCL_Technologies.webp&w=256&q=75" />
@@ -990,7 +967,7 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FInfosys.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FInfosys.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FInfosys.webp&w=256&q=75" />
@@ -998,7 +975,7 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FCapgemini.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FCapgemini.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FCapgemini.webp&w=256&q=75" />
@@ -1006,7 +983,7 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fgenpact.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fgenpact.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fgenpact.webp&w=256&q=75" />
@@ -1014,7 +991,7 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fsiemens.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fsiemens.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fsiemens.webp&w=256&q=75" />
@@ -1022,7 +999,7 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FKPMG.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FKPMG.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FKPMG.webp&w=256&q=75" />
@@ -1030,401 +1007,13 @@ export default function page() {
                     </div>
                     <div>
                       <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchpriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
+                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fmicrosoft.webp&w=128&q=75 1x,
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75 2x
                       " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75" />
                       </div>
                     </div>
                   </div> */}
-                      </div>
-                    </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
-                      <div className="faq_container__v2O04">
-                        <h2 className="faq_heading__ypOPH">FAQ's</h2>
-                        <div className="faq_faqMainContainer__T9i6Q">
-                          <div className="faq_faqMain__ACefH">
-                            <div className="faq_questionContainer__zAsad">
-                              <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}1{/* */}
-                                {/* */}Does UGC recognise UPES University Online
-                              </div>
-                              <div className="faq_accordionIcon__8lbAd">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 24 24"
-                                  className="faq_icon__lyHtn"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                  <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="faq_faqMain__ACefH">
-                            <div className="faq_questionContainer__zAsad">
-                              <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}2{/* */}
-                                {/* */}What programmes will be offered through
-                                UPES University Online in 2024?
-                              </div>
-                              <div className="faq_accordionIcon__8lbAd">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 24 24"
-                                  className="faq_icon__lyHtn"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                  <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="faq_faqMain__ACefH">
-                            <div className="faq_questionContainer__zAsad">
-                              <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}3{/* */}
-                                {/* */}Are online courses from UPES University
-                                equivalent to on-campus programmes?
-                              </div>
-                              <div className="faq_accordionIcon__8lbAd">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 24 24"
-                                  className="faq_icon__lyHtn"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                  <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="faq_faqMain__ACefH">
-                            <div className="faq_questionContainer__zAsad">
-                              <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}4{/* */}
-                                {/* */}What are the average tuition fees for
-                                UPES University Online programmes in 2024?
-                              </div>
-                              <div className="faq_accordionIcon__8lbAd">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 24 24"
-                                  className="faq_icon__lyHtn"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                  <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="faq_faqMain__ACefH">
-                            <div className="faq_questionContainer__zAsad">
-                              <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}5{/* */}
-                                {/* */}How can I apply for UPES University
-                                Online programmes in 2024?
-                              </div>
-                              <div className="faq_accordionIcon__8lbAd">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 24 24"
-                                  className="faq_icon__lyHtn"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                  <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="faq_faqMain__ACefH">
-                            <div className="faq_questionContainer__zAsad">
-                              <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}6{/* */}
-                                {/* */}Does UPES University Online provide
-                                placement assistance?
-                              </div>
-                              <div className="faq_accordionIcon__8lbAd">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 24 24"
-                                  className="faq_icon__lyHtn"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                  <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="Review">
-                      <div
-                        className="CollegeReview_college_page_details_review_container__KbbIU"
-                        id="contact"
-                      >
-                        <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                          University of Petroleum and Energy Studies Centre for
-                          Continued Education (UPES){/* */}
-                          Review
-                        </h2>
-                        <div>
-                          <form>
-                            <div className="CollegeReview_college_page_details_review_form_container__rP5km">
-                              <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
-                                <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
-                                  0{/* */}
-                                  out of 5
-                                </p>
-                                <div>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              image?url=%2Fimages%2FStarTwo.png&w=828&q=75 2x
-                            "
-                                      src="image?url=%2Fimages%2FStarTwo.png&w=828&q=75"
-                                    />
-                                  </span>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              image?url=%2Fimages%2FStarTwo.png&w=828&q=75 2x
-                            "
-                                      src="image?url=%2Fimages%2FStarTwo.png&w=828&q=75"
-                                    />
-                                  </span>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              image?url=%2Fimages%2FStarTwo.png&w=828&q=75 2x
-                            "
-                                      src="image?url=%2Fimages%2FStarTwo.png&w=828&q=75"
-                                    />
-                                  </span>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              image?url=%2Fimages%2FStarTwo.png&w=828&q=75 2x
-                            "
-                                      src="image?url=%2Fimages%2FStarTwo.png&w=828&q=75"
-                                    />
-                                  </span>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              image?url=%2Fimages%2FStarTwo.png&w=828&q=75 2x
-                            "
-                                      src="image?url=%2Fimages%2FStarTwo.png&w=828&q=75"
-                                    />
-                                  </span>
-                                </div>
-                              </div>
-                              <div className="CollegeReview_rating_form_container__q_Xvp">
-                                <input
-                                  className="CollegeReview_reviewer_name__Fdlnr"
-                                  type="text"
-                                  placeholder="Enter your name"
-                                  required
-                                  name="reviewerName"
-                                  defaultValue
-                                />
-                                <textarea
-                                  placeholder="Write your reviews"
-                                  className="CollegeReview_college_page_details_review_form_input__niDf2"
-                                  name="comment"
-                                  required
-                                  defaultValue={""}
-                                />
-                                <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
-                                  Send message
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div className="CollegeReview_college_page_details_verified_review_container__m7rGG">
-                          <div>
-                            <div className="CollegeReview_college_page_details_review_container_box__t9yW9">
-                              <div className="CollegeReview_college_page_details_verified_review_name_rating_container__xI4ll">
-                                <div className="CollegeReview_college_page_details_verified_reviewer_sort_name__o8ghJ">
-                                  P
-                                </div>
-                                <div>
-                                  <div className="CollegeReview_college_page_details_verified_reviewer_name__EtV8N">
-                                    Priya Verma
-                                  </div>
-                                  <div className="CollegeReview_college_page_details_verified_review_img_container__YJFHn">
-                                    <div>
-                                      <img
-                                        alt="Colored Star"
-                                        loading="lazy"
-                                        width={100}
-                                        height={100}
-                                        decoding="async"
-                                        data-nimg={1}
-                                        className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                        style={{ color: "transparent" }}
-                                        srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                        src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                      />
-                                      <img
-                                        alt="Colored Star"
-                                        loading="lazy"
-                                        width={100}
-                                        height={100}
-                                        decoding="async"
-                                        data-nimg={1}
-                                        className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                        style={{ color: "transparent" }}
-                                        srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                        src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                      />
-                                      <img
-                                        alt="Colored Star"
-                                        loading="lazy"
-                                        width={100}
-                                        height={100}
-                                        decoding="async"
-                                        data-nimg={1}
-                                        className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                        style={{ color: "transparent" }}
-                                        srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                        src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                      />
-                                      <img
-                                        alt="Colored Star"
-                                        loading="lazy"
-                                        width={100}
-                                        height={100}
-                                        decoding="async"
-                                        data-nimg={1}
-                                        className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                        style={{ color: "transparent" }}
-                                        srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                        src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                      />
-                                      <img
-                                        alt="Colored Star"
-                                        loading="lazy"
-                                        width={100}
-                                        height={100}
-                                        decoding="async"
-                                        data-nimg={1}
-                                        className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                        style={{ color: "transparent" }}
-                                        srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                        src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="CollegeReview_college_page_details_reviewer_location_date__LoHUc">
-                                Reviewed on
-                                {/* */}2024-07-17
-                              </div>
-                              <div className="CollegeReview_college_page_details_verified_review_comment__ec5gu">
-                                I completed my online MBA from UPES University
-                                through Learning Routes.Enrolling in online MBA
-                                programme through LR has been a transformative
-                                experience for me. I needed flexibility and high
-                                quality learning that is exactly what LR offered
-                                in UPES.
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>

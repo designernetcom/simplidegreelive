@@ -27,9 +27,7 @@ export default function page() {
             height="1em"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
-          >
- 
-          </svg>
+          ></svg>
         </a>
         <div>
           <button
@@ -51,10 +49,7 @@ export default function page() {
           </button>
         </div>
         <div>
-          <div
-            className="CourseHero_courseCarousalOne__Sb3_f"
-           
-          >
+          <div className="CourseHero_courseCarousalOne__Sb3_f">
             <a>
               <img
                 alt="img"
@@ -65,7 +60,6 @@ export default function page() {
                 className="CourseHero_course_banner__lk16C"
                 style={{ color: "transparent", height: "600px !important" }}
                 src="/assets/course/10.png"
-                
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />

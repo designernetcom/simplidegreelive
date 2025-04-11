@@ -962,7 +962,7 @@ export default function page() {
                               </div>
                             </div>
                             <div>
-                              <img
+                              {/* <img
                                 alt="certificate_url"
                                 loading="lazy"
                                 width={300}
@@ -976,7 +976,7 @@ export default function page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FSchool-of-Distance-Education-Andhra-University%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
                                 src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FSchool-of-Distance-Education-Andhra-University%2Fcertification%2Fno-img.webp&w=640&q=75"
-                              />
+                              /> */}
                             </div>
                           </div>
                         </div>
@@ -1124,13 +1124,13 @@ export default function page() {
                         <div className="partners_container___c9cx" />
                       </div>
                     </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                    {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                       <div
                         className="CollegeReview_college_page_details_review_container__KbbIU"
                         id="contact"
                       >
                         <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                          School of Distance Education, Andhra University{/* */}
+                          School of Distance Education, Andhra University
                           Review
                         </h2>
                         <div>
@@ -1138,7 +1138,7 @@ export default function page() {
                             <div className="CollegeReview_college_page_details_review_form_container__rP5km">
                               <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
                                 <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
-                                  0{/* */}
+                                  0
                                   out of 5
                                 </p>
                                 <div>
@@ -1254,7 +1254,7 @@ export default function page() {
                         </div>
                         <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

@@ -1179,10 +1179,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1198,10 +1194,6 @@ export default function page() {
                                   decoding="async"
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -1212,7 +1204,7 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -1221,12 +1213,9 @@ export default function page() {
                               data-nimg={1}
                               className="Certificates_img__GOe9v"
                               style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fcertification%2Fchandigarh-university-sample-certificate.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fcertification%2Fchandigarh-university-sample-certificate.webp&w=640&q=75 2x
-                      "
+                             
                               src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fcertification%2Fchandigarh-university-sample-certificate.webp&w=640&q=75"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -1397,7 +1386,7 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                      <h3 className="placement_heading__iEHZj">
+                      {/* <h3 className="placement_heading__iEHZj">
                         Our Students Work At
                       </h3>
                       <div className="partners_container___c9cx">
@@ -1515,7 +1504,7 @@ export default function page() {
                             />
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="Review">
@@ -1545,10 +1534,6 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1562,10 +1547,6 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1579,10 +1560,6 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1596,10 +1573,6 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1613,10 +1586,6 @@ export default function page() {
                                     data-nimg={1}
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1629,7 +1598,6 @@ export default function page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
                               />
                               <textarea
                                 placeholder="Write your reviews"
@@ -1644,227 +1612,6 @@ export default function page() {
                             </div>
                           </div>
                         </form>
-                      </div>
-                      <div className="CollegeReview_college_page_details_verified_review_container__m7rGG">
-                        <div>
-                          <div className="CollegeReview_college_page_details_review_container_box__t9yW9">
-                            <div className="CollegeReview_college_page_details_verified_review_name_rating_container__xI4ll">
-                              <div className="CollegeReview_college_page_details_verified_reviewer_sort_name__o8ghJ">
-                                E
-                              </div>
-                              <div>
-                                <div className="CollegeReview_college_page_details_verified_reviewer_name__EtV8N">
-                                  Elina
-                                </div>
-                                <div className="CollegeReview_college_page_details_verified_review_img_container__YJFHn">
-                                  <div>
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="CollegeReview_college_page_details_reviewer_location_date__LoHUc">
-                              Reviewed on
-                              {/* */}2024-07-16
-                            </div>
-                            <div className="CollegeReview_college_page_details_verified_review_comment__ec5gu">
-                              I did my online MBA at Chandigarh University and
-                              my experience with Learning Routes for this was
-                              quite pleasant. Once I got enrolled The CRE helped
-                              throughout my educational journey and made sure
-                              every step was seamless. Right from paying fees to
-                              writing exams, Learning Routes guided me with
-                              patience and expertise. Apart from being thankful
-                              to Chandigarh University for the program, I am
-                              thankful to Learning Routes as well who helped me
-                              reach my professional goal.
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <div className="CollegeReview_college_page_details_review_container_box__t9yW9">
-                            <div className="CollegeReview_college_page_details_verified_review_name_rating_container__xI4ll">
-                              <div className="CollegeReview_college_page_details_verified_reviewer_sort_name__o8ghJ">
-                                A
-                              </div>
-                              <div>
-                                <div className="CollegeReview_college_page_details_verified_reviewer_name__EtV8N">
-                                  Aarshi
-                                </div>
-                                <div className="CollegeReview_college_page_details_verified_review_img_container__YJFHn">
-                                  <div>
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                    <img
-                                      alt="Colored Star"
-                                      loading="lazy"
-                                      width={100}
-                                      height={100}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_rating_img__IUdrQ"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=128&q=75 1x,
-                                image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75 2x
-                              "
-                                      src="image?url=%2F_next%2Fstatic%2Fmedia%2FStarOne.ab23013b.png&w=256&q=75"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="CollegeReview_college_page_details_reviewer_location_date__LoHUc">
-                              Reviewed on
-                              {/* */}2024-07-17
-                            </div>
-                            <div className="CollegeReview_college_page_details_verified_review_comment__ec5gu">
-                              I recently completed my online MBA course at
-                              Chandigarh University, and I am thrilled to share
-                              my exceptional experience. The support from the
-                              Learning Routes team and Chandigarh University was
-                              commendable. Whether it was technical assistance
-                              or academic queries, the prompt and helpful
-                              responses made the entire journey smooth. I highly
-                              recommend the online MBA course through Learning
-                              Routes with Chandigarh University to anyone
-                              seeking a quality education with the flexibility
-                              to balance personal and professional commitments.
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>

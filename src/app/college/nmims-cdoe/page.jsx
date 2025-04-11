@@ -288,7 +288,7 @@ export default function page() {
                             <tr className="courses_tbody__ZPCxV">
                               <td>Distance BCom</td>
 
-                              <td >
+                              <td>
                                 <strong>BCOM JULY 2024 FEES</strong>
                                 <br />
                                 <strong>Semester-wise Payment:</strong> ₹ 18,000
@@ -467,7 +467,7 @@ export default function page() {
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Distance EMBA</td>
-                         
+
                               <td
                                 style={{ textAlign: "left", padding: "10px" }}
                               >

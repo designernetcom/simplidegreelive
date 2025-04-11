@@ -702,19 +702,16 @@ export default function page() {
                               type="text"
                               placeholder="Name*"
                               name="name"
-                              defaultValue
                             />
                             <input
                               type="email"
                               placeholder="Email*"
                               name="email"
-                              defaultValue
                             />
                             <input
                               type="number"
                               placeholder="Phone*"
                               name="phone"
-                              defaultValue
                             />
                             <select name="program">
                               <option value selected>
@@ -1162,117 +1159,17 @@ export default function page() {
                             </p>
                           </div>
                         </div>
-                        <h3 className="placement_heading__iEHZj">
-                          Our Students Work At
-                        </h3>
-                        <div className="partners_container___c9cx">
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Freliance-retail.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Freliance-retail.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Freliance-retail.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fwipro.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fwipro.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fwipro.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fhdfc.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fhdfc.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fhdfc.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Ftcs.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Ftcs.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Ftcs.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fcapgemini.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fcapgemini.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fsymbiosis-centre-for-distance-learning%2Fplacement-partners%2Fcapgemini.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
+                    {/* <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
                       <div className="faq_container__v2O04">
                         <h2 className="faq_heading__ypOPH">FAQ's</h2>
                         <div className="faq_faqMainContainer__T9i6Q">
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}1{/* */}
-                                {/* */}Is an SCDL degree valid?
+                                Q.1
+                                Is an SCDL degree valid?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
                                 <svg
@@ -1294,8 +1191,8 @@ export default function page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}2{/* */}
-                                {/* */}Is the Symbiosis Centre for Distance
+                                Q.2
+                                Is the Symbiosis Centre for Distance
                                 Learning approved by UGC?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
@@ -1318,8 +1215,8 @@ export default function page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}3{/* */}
-                                {/* */}Is Symbiosis distance learning worth it?
+                                Q.3
+                                Is Symbiosis distance learning worth it?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
                                 <svg
@@ -1341,8 +1238,8 @@ export default function page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}4{/* */}
-                                {/* */}Does SCDL provide placement?
+                                Q.4
+                                Does SCDL provide placement?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
                                 <svg
@@ -1364,8 +1261,8 @@ export default function page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}5{/* */}
-                                {/* */}What is the ranking of SCDL in India?
+                                Q.5
+                                What is the ranking of SCDL in India?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
                                 <svg
@@ -1387,8 +1284,8 @@ export default function page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}6{/* */}
-                                {/* */}What are the fees for a distance learning
+                                Q.6
+                                What are the fees for a distance learning
                                 MBA from Symbiosis?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
@@ -1410,7 +1307,7 @@ export default function page() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                       <div
                         className="CollegeReview_college_page_details_review_container__KbbIU"
@@ -1425,8 +1322,7 @@ export default function page() {
                             <div className="CollegeReview_college_page_details_review_form_container__rP5km">
                               <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
                                 <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
-                                  0{/* */}
-                                  out of 5
+                                  0 out of 5
                                 </p>
                                 <div>
                                   <span className="star">
@@ -1439,10 +1335,6 @@ export default function page() {
                                       data-nimg={1}
                                       className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                       style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
                                       src="/assets/simpli-images/Star-Two.webp"
                                     />
                                   </span>
@@ -1456,10 +1348,6 @@ export default function page() {
                                       data-nimg={1}
                                       className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                       style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
                                       src="/assets/simpli-images/Star-Two.webp"
                                     />
                                   </span>
@@ -1523,7 +1411,6 @@ export default function page() {
                                   placeholder="Enter your name"
                                   required
                                   name="reviewerName"
-                                  defaultValue
                                 />
                                 <textarea
                                   placeholder="Write your reviews"

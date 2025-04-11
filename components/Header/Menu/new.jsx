@@ -12,49 +12,49 @@
     rel="preload"
     as="image"
     imagesrcset="/_next/image?url=%2Fimages%2Flogo-blue.webp&w=640&q=75 1x, /_next/image?url=%2Fimages%2Flogo-blue.webp&w=1920&q=75 2x"
-    fetchpriority="high"
+    fetchPriority="high"
   />
   <link
     rel="preload"
     as="image"
     imagesrcset="/_next/image?url=%2FcollegeIconImg%2Famity.png&w=256&q=75 1x, /_next/image?url=%2FcollegeIconImg%2Famity.png&w=384&q=75 2x"
-    fetchpriority="high"
+    fetchPriority="high"
   />
   <link
     rel="preload"
     as="image"
     imagesrcset="/_next/image?url=%2FcollegeIconImg%2Fcu.png&w=256&q=75 1x, /_next/image?url=%2FcollegeIconImg%2Fcu.png&w=384&q=75 2x"
-    fetchpriority="high"
+    fetchPriority="high"
   />
   <link
     rel="preload"
     as="image"
     imagesrcset="/_next/image?url=%2FcollegeIconImg%2Fdypatil.png&w=256&q=75 1x, /_next/image?url=%2FcollegeIconImg%2Fdypatil.png&w=384&q=75 2x"
-    fetchpriority="high"
+    fetchPriority="high"
   />
   <link
     rel="preload"
     as="image"
     imagesrcset="/_next/image?url=%2Fimages%2Fslidercards%2F1.png&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fslidercards%2F1.png&w=1920&q=75 2x"
-    fetchpriority="high"
+    fetchPriority="high"
   />
   <link
     rel="preload"
     as="image"
     imagesrcset="/_next/image?url=%2Fimages%2Fslidercards%2F2.webp&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fslidercards%2F2.webp&w=1920&q=75 2x"
-    fetchpriority="high"
+    fetchPriority="high"
   />
   <link
     rel="preload"
     as="image"
     imagesrcset="/_next/image?url=%2Fimages%2Fslidercards%2F3.webp&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fslidercards%2F3.webp&w=1920&q=75 2x"
-    fetchpriority="high"
+    fetchPriority="high"
   />
   <link
     rel="preload"
     as="image"
     imagesrcset="/_next/image?url=%2Fimages%2Fwhyus1.webp&w=640&q=75 1x, /_next/image?url=%2Fimages%2Fwhyus1.webp&w=1080&q=75 2x"
-    fetchpriority="high"
+    fetchPriority="high"
   />
   <link rel="preload" as="image" href="/HomePage/Kartikeya.webp" />
   <link rel="preload" as="image" href="/HomePage/Manav-Dhodare.webp" />
@@ -106,7 +106,7 @@
   <link
     rel="preload"
     as="script"
-    fetchpriority="low"
+    fetchPriority="low"
     href="/_next/static/chunks/webpack-7d76c02a16c1faae.js"
   />
   <link
@@ -262,7 +262,7 @@
           <a href="/">
             <img
               alt="logo"
-              fetchpriority="high"
+              fetchPriority="high"
               width={635}
               height={213}
               decoding="async"
@@ -787,7 +787,7 @@
             >
               <img
                 alt="AMITY UNIVERSITY"
-                fetchpriority="high"
+                fetchPriority="high"
                 loading="eager"
                 width={145}
                 height={45}
@@ -808,7 +808,7 @@
             >
               <img
                 alt="CHANDIGARH UNI."
-                fetchpriority="high"
+                fetchPriority="high"
                 loading="eager"
                 width={145}
                 height={45}
@@ -829,7 +829,7 @@
             >
               <img
                 alt="DY PATIL UNIVERSITY"
-                fetchpriority="high"
+                fetchPriority="high"
                 loading="eager"
                 width={145}
                 height={45}
@@ -1481,7 +1481,7 @@
                 <div className="ImageSlider_imageWrapper__w1Nxx">
                   <img
                     alt="Slide 1"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     width={640}
                     height={305}
                     decoding="async"
@@ -1497,7 +1497,7 @@
                 <div className="ImageSlider_imageWrapper__w1Nxx">
                   <img
                     alt="Slide 2"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     width={640}
                     height={305}
                     decoding="async"
@@ -1513,7 +1513,7 @@
                 <div className="ImageSlider_imageWrapper__w1Nxx">
                   <img
                     alt="Slide 3"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     width={640}
                     height={305}
                     decoding="async"
@@ -2038,7 +2038,7 @@
               <div className="WhyUs_imageWrapper__UfsSb">
                 <img
                   alt="Student studying"
-                  fetchpriority="high"
+                  fetchPriority="high"
                   width={450}
                   height={320}
                   decoding="async"
