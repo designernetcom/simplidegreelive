@@ -319,19 +319,19 @@ export default function page() {
                             type="text"
                             placeholder="Name*"
                             name="name"
-                            defaultValue
+                            
                           />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
+                            
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
+                            
                           />
                           <select name="program">
                             <option value selected>
@@ -503,7 +503,7 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -517,7 +517,7 @@ export default function page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FNIBM-Global-Chennai%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
                               src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FNIBM-Global-Chennai%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -658,7 +658,7 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                      <h3 className="placement_heading__iEHZj">
+                      {/* <h3 className="placement_heading__iEHZj">
                         Our Students Work At
                       </h3>
                       <div className="partners_container___c9cx">
@@ -738,7 +738,7 @@ export default function page() {
                             />
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="Review">
@@ -747,7 +747,7 @@ export default function page() {
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        NIBM Global{/* */}
+                        NIBM Global
                         Review
                       </h2>
                       <div>
@@ -852,14 +852,14 @@ export default function page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
+                                
                               />
                               <textarea
                                 placeholder="Write your reviews"
                                 className="CollegeReview_college_page_details_review_form_input__niDf2"
                                 name="comment"
                                 required
-                                defaultValue={""}
+                                ={""}
                               />
                               <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
                                 Send message

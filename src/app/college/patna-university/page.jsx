@@ -510,19 +510,19 @@ export default function page() {
                             type="text"
                             placeholder="Name*"
                             name="name"
-                            defaultValue
+                            
                           />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
+                            
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
+                            
                           />
                           <select name="program">
                             <option value selected>
@@ -697,7 +697,7 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -711,7 +711,7 @@ export default function page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FPatna-University%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
                               src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FPatna-University%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -982,7 +982,7 @@ export default function page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
+                                
                               />
                               <textarea
                                 placeholder="Write your reviews"

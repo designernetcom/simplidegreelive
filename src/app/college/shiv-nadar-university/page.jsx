@@ -461,19 +461,19 @@ export default function page() {
                               type="text"
                               placeholder="Name*"
                               name="name"
-                              defaultValue
+                              
                             />
                             <input
                               type="email"
                               placeholder="Email*"
                               name="email"
-                              defaultValue
+                              
                             />
                             <input
                               type="number"
                               placeholder="Phone*"
                               name="phone"
-                              defaultValue
+                              
                             />
                             <select name="program">
                               <option value selected>
@@ -631,7 +631,7 @@ export default function page() {
                               </div>
                             </div>
                             <div>
-                              <img
+                              {/* <img
                                 alt="certificate_url"
                                 loading="lazy"
                                 width={300}
@@ -645,7 +645,7 @@ export default function page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
                                 src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fcertification%2Fno-img.webp&w=640&q=75"
-                              />
+                              /> */}
                             </div>
                           </div>
                         </div>
@@ -799,144 +799,7 @@ export default function page() {
                             </p>
                           </div>
                         </div>
-                        <h3 className="placement_heading__iEHZj">
-                          Our Students Work At
-                        </h3>
-                        <div className="partners_container___c9cx">
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FMU%20Sigma.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FMU%20Sigma.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FMU%20Sigma.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FAccenture.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FAccenture.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FAccenture.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fwipro.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fwipro.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fwipro.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fibm.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fibm.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fibm.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fgenpact.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fgenpact.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fgenpact.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fjp%20morgan%20chase%20%26%20co.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fjp%20morgan%20chase%20%26%20co.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2Fjp%20morgan%20chase%20%26%20co.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FFracta.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FFracta.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FAcademy-of-Continuing-Education-Shiv-Nadar-University%2Fplacement-partners%2FFracta.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                        </div>
+               
                       </div>
                     </div>
                     <div className="collegeDetails_maxWidth__6vBVL" id="Review">
@@ -1052,7 +915,7 @@ export default function page() {
                                   placeholder="Enter your name"
                                   required
                                   name="reviewerName"
-                                  defaultValue
+                                  
                                 />
                                 <textarea
                                   placeholder="Write your reviews"

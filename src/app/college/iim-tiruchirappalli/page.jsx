@@ -628,7 +628,7 @@ export default function page() {
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -642,7 +642,7 @@ export default function page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
                               src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -765,163 +765,7 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                      <h3 className="placement_heading__iEHZj">
-                        Our Students Work At
-                      </h3>
-                      <div className="partners_container___c9cx">
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2Fbosch.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2Fbosch.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2Fbosch.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FCognizant.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FCognizant.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FCognizant.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2Fmicrosoft.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FAPOLLO%20tyres.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FAPOLLO%20tyres.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FAPOLLO%20tyres.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FTVS.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FTVS.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FTVS.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FINFOSYS.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FINFOSYS.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FINFOSYS.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FDeloitte.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FDeloitte.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FDeloitte.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FHDFC%20Bank.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FHDFC%20Bank.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-tiruchirappalli%2Fplacement-partners%2FHDFC%20Bank.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                 
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="Review">
