@@ -1,0 +1,153 @@
+.container {
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.label {
+  font-size: 1.2rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navButton {
+  background: #007bff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.navButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.navButton svg {
+  fill: #fff;
+}
+
+.progressBar {
+  width: 200px;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #007bff;
+  transition: width 0.3s ease;
+}
+
+.testimonialGrid {
+  display: flex;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.testimonialCard {
+  flex: 0 0 50%; /* Two cards visible on desktop */
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.5s ease;
+}
+
+.cardContent {
+  display: flex;
+  gap: 20px;
+}
+
+.imageContainer {
+  flex-shrink: 0;
+}
+
+.avatar {
+  border-radius: 10%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0 0 5px;
+}
+
+.role {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 10px;
+}
+
+.quote {
+  width: 30px;
+  height: 30px;
+  background: url('/quote-icon.png') no-repeat center;
+  background-size: contain;
+  margin-bottom: 10px;
+}
+
+.content {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    display: none; /* Hide buttons and progress bar on mobile */
+  }
+
+  .testimonialGrid {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    flex-wrap: nowrap;
+    padding-bottom: 10px; /* Prevent scrollbar overlap */
+  }
+
+  .testimonialCard {
+    flex: 0 0 90%; /* Single card takes most of the viewport width */
+    scroll-snap-align: center;
+    margin-right: 10px; /* Space between cards */
+  }
+
+  .testimonialCard:last-child {
+    margin-right: 20px; /* Extra space at the end */
+  }
+
+  .testimonialCard.visible {
+    transform: none; /* Disable transform for mobile scrolling */
+  }
+}

@@ -3,9 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 const universities = [
-  { name: "NMIMS UNIVERSITY", img: "nmis.jpg", link: "/college/nmims-cdoe" },
+  { name: "NMIMS University", img: "nmis.jpg", link: "/college/nmims-cdoe" },
   {
-    name: "AMITY UNIVERSITY",
+    name: "AMITY University",
     img: "amity.jpg",
     link: "/college/amity-university-online",
   },
@@ -15,12 +15,12 @@ const universities = [
     link: "/college/dr-dy-patil-vidyapeeth",
   },
   {
-    name: "MANIPAL UNIVERSITY",
+    name: "ONLINE MANIPAL",
     img: "manipal.jpg",
     link: "/college/online-manipal-jaipur",
   },
   {
-    name: "LPU UNIVERSITY",
+    name: "LPU ONLINE",
     img: "lpu.jpg",
     link: "/college/lovely-professional-university-odl-lpu",
   },
@@ -39,6 +39,7 @@ const universities = [
     img: "iima.jpg",
     link: "/college/indian-institute-of-management-ahmedabad-iim-ahmedabad",
   },
+  // { name: "ICFAI CDOE", img: "icfai.jpg", link: "icfai-university.html" },
   {
     name: "UPES UNIVERSITY",
     img: "upes.jpg",
@@ -50,24 +51,16 @@ const universities = [
     link: "/college/op-jindal-global-university",
   },
   {
-    name: "CHITKARA UNIVERSITY",
+    name: "CHITKARA UNI.",
     img: "chitkara.jpg",
     link: "/college/chitkara-university-centre-for-continuing-education",
   },
   {
-    name: "IIM RAIPUR UNI.",
+    name: "IIM RAIPUR ",
     img: "iim-raipur.jpg",
     link: "/college/indian-institute-of-management-raipur-iim-raipur",
   },
 ];
-
-// Function to standardize university name length
-const formatUniversityName = (name, maxLength = 16) => {
-  if (name.length > maxLength) {
-    return name.substring(0, maxLength - 3) + "..."; // Truncate with ellipsis
-  }
-  return name.padEnd(maxLength, " "); // Pad with spaces
-};
 
 const ExploreUniversities = () => {
   return (
@@ -112,7 +105,7 @@ const ExploreUniversities = () => {
                       width={150}
                       height={100}
                     />
-                    <h6>{formatUniversityName(university.name)}</h6>
+                    <h6>{university.name}</h6>
                   </div>
                 </div>
                 <a href={university.link} className="td_iconbox_link"></a>
@@ -133,34 +126,12 @@ const ExploreUniversities = () => {
       </div>
       <div className="td_height_25"></div>
       <style jsx>{`
-        // .grid-box {
-        //   display: grid;
-        //   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        //   gap: 24px;
-        // }
         @media (max-width: 768px) {
           .grid-box {
+            display: grid;
             grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
           }
-        }
-        @media (max-width: 480px) {
-          .grid-box {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (max-width: 320px) {
-          .grid-box {
-            grid-template-columns: 1fr;
-          }
-        }
-        .td_iconbox h6 {
-          font-family: monospace; /* Ensures equal character width */
-          white-space: pre; /* Preserves spaces for padding */
-          font-size: 14px; /* Consistent font size for smaller screens */
-        }
-        .td_iconbox_icon img {
-          max-width: 100%;
-          height: auto;
         }
       `}</style>
     </section>

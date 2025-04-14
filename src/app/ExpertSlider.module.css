@@ -1,0 +1,158 @@
+/* components/ExpertSlider.module.css */
+.container {
+  padding: 20px;
+}
+
+.cardsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.text2 {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.allCardsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cardContainer {
+  flex: 1;
+  max-width: 25%;
+  box-sizing: border-box;
+}
+
+.cardData {
+  text-align: center;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.ratingContainer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.iconContainer {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.iconContainer svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ratingValue {
+  color: white;
+  font-size: 1rem;
+}
+
+.cardText1 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+}
+
+.cardText2 {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.cardText3 {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.cardButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cardButton:hover {
+  background-color: #0056b3;
+}
+
+/* Slider styles for mobile view */
+@media (max-width: 768px) {
+  .sliderWrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .allCardsContainer {
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+
+  .cardContainer {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .sliderArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .prevArrow {
+    left: 10px;
+  }
+
+  .nextArrow {
+    right: 10px;
+  }
+
+  .sliderArrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}

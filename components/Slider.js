@@ -80,7 +80,7 @@ const Slider = () => {
   return (
     <div
       className={`remove-padding-mobile slider-container ${styles.sliderContainer}`}
-      style={{ paddingTop: "120px" }}
+      // style={{ paddingTop: "120px" }}
       {...swipeHandlers}
     >
       <Carousel

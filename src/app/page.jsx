@@ -16,7 +16,7 @@ import "./styles/afc7461932b964d5.css";
 import "./styles/cc9687947ca46cf2.css";
 import Menu from "../../components/Header/Menu/Menu";
 import Slider from "../../components/Slider";
-
+import TestimonialSlider from "../../components/TestimonialSlider";
 import HeroSlider from "../../components/HeroSlider";
 import Footer from "../../components/Footer/Footer";
 import TrustpilotRating from "../../components/TrustpilotRating";
@@ -1645,7 +1645,7 @@ export default function Page() {
             </Link>
           </div>
         </div>
-        <div className="TestimonialSlider_container__Je36b">
+        {/* <div className="TestimonialSlider_container__Je36b">
           <div className="TestimonialSlider_wrapper__IvjzI">
             <div className="TestimonialSlider_header__znYD7">
               <h3 className="TestimonialSlider_label__z2WhH">
@@ -1783,7 +1783,8 @@ export default function Page() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+        <TestimonialSlider/>
       </div>
       <section>
         <div className="container">
