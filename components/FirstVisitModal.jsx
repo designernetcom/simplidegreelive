@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import "../src/app/styles/style.css";
 
 const FirstVisitModal = () => {
   const [showModal, setShowModal] = useState(true); // Show on first page load
@@ -46,12 +47,21 @@ const FirstVisitModal = () => {
             <div className="td_form_card_in position-relative">
               <button
                 type="button"
-                className="btn-close position-absolute top-0 end-0 m-3"
+                className="btn-close "
                 onClick={handleClose}
+                style={{
+                  right: "-10px",
+                  height: "5em",
+                  width: "3em",
+                  top: "-20px",
+                  
+                 
+                  
+                }}
               ></button>
 
-              <h3>Struggling with Career Growth?</h3>
-              <h2 className="td_mb_20">Get Free Career Consultation</h2>
+              <h6>Struggling with Career Growth?</h6>
+              <h6>Get Free Career Consultation</h6>
 
               <form onSubmit={handleSubmit}>
                 <input

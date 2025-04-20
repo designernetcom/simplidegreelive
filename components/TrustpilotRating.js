@@ -79,7 +79,12 @@ const TrustpilotRating = () => {
                 <ul className="td_rate_feature_list td_mp_0">
                   {features.map((feature, index) => (
                     <li key={index}>
-                      <div className="td_rate_feature_icon td_center td_white_bg">
+                      <div
+                        className="td_rate_feature_icon td_center td_white_bg"
+                        style={{
+                          color: "#fff",
+                        }}
+                      >
                         <Image
                           src={feature.icon}
                           alt={feature.title}
@@ -88,10 +93,20 @@ const TrustpilotRating = () => {
                         />
                       </div>
                       <div className="td_rate_feature_right">
-                        <h3 className="td_fs_24 td_semibold td_white_color td_mb_4">
+                        <h3
+                          className="td_fs_24 td_semibold td_white_color td_mb_4"
+                          style={{
+                            color: "#fff",
+                          }}
+                        >
                           {feature.title}
                         </h3>
-                        <p className="mb-0 td_white_color">
+                        <p
+                          className="mb-0 td_white_color"
+                          style={{
+                            color: "#fff",
+                          }}
+                        >
                           {feature.description}
                         </p>
                       </div>

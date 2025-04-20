@@ -1,4 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import { debounce } from "lodash";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
@@ -9,15 +14,166 @@ import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 
-export default function page() {
+export default function Page() {
+  const [activeSection, setActiveSection] = useState("About");
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    state: "",
+  });
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
+  const [selectedCourseName, setSelectedCourseName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const courseSpecializations = {
+    "Online MBA": [
+      { name: "Oil & Gas Management", fees: 85000 },
+      { name: "Power Management", fees: 90000 },
+      { name: "Aviation Management", fees: 95000 },
+      { name: "Logistics & Supply Chain Management", fees: 220000 },
+    ],
+    "Online BBA": [{ name: "General Management", fees: 150000 }],
+    "Online Post Graduate Programme (PGP)": [
+      { name: "Business Analytics", fees: 69000 },
+      { name: "Digital Business", fees: 95000 },
+    ],
+    "Online BCA": [{ name: "General BCA", fees: 150000 }],
+  };
+
+  // Calculate fee range dynamically
+  const getFeeRange = (courseName) => {
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    if (fees.length === 0) return "N/A";
+    const min = Math.min(...fees);
+    const max = Math.max(...fees);
+    return min === max
+      ? `₹ ${min.toLocaleString()}`
+      : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
+  };
+
+  useEffect(() => {
+    const sections = [
+      "About",
+      "High",
+      "Courses",
+      "Course Eligibility",
+      "Enquire Now",
+      "Scholarships",
+      "Certification",
+      "EMI Details",
+      "Admission",
+      "Exam",
+      "Placement",
+      "FAQ's",
+      "Review",
+    ];
+
+    const handleScroll = debounce(() => {
+      let currentSection = "About";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      handleScroll.cancel();
+    };
+  }, []);
+
+  const handleClose = () => {
+    setIsCourseModalOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: "",
+      state: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e, isCourseModal = false) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      program: form.program.value,
+      state: form.state.value,
+    };
+
+    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+      alert("Invalid email format");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      console.log("Form submitted:", data);
+      // Example: await fetch("/api/enquire", { method: "POST", body: JSON.stringify(data) });
+      form.reset();
+      setFormData({ name: "", email: "", phone: "", program: "", state: "" });
+      if (isCourseModal) setIsCourseModalOpen(false);
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleViewSpecialization = (courseName) => {
+    setSelectedCourseName(courseName);
+    setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
+    setIsSpecializationModalOpen(true);
+  };
+
+  const handleCloseSpecializationModal = () => {
+    setIsSpecializationModalOpen(false);
+    setSelectedCourseSpecializations([]);
+    setSelectedCourseName("");
+  };
+
   return (
     <>
+      <Head>
+        <title>UPES Online - Courses & Admissions</title>
+        <meta
+          name="description"
+          content="Explore online learning programs at UPES Centre for Continued Education, including MBA, BBA, BCA, and PGP with industry-focused curriculum, top faculty, and 100% placement support."
+        />
+      </Head>
       <Menu />
       <div>
         <a
           className="float"
           target="_blank"
-          href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
+          href="https://api.whatsapp.com/send?phone=918806099993&text=I'm%20looking%20for"
+          rel="noopener noreferrer"
+          aria-label="Contact via WhatsApp"
         >
           <svg
             stroke="currentColor"
@@ -33,11 +189,12 @@ export default function page() {
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
           </svg>
         </a>
-        {/*$*/}
         <div>
           <button
             className="enquirynow_enquirynow_btn__mRuEZ"
             style={{ transformOrigin: "bottom right" }}
+            onClick={() => setIsCourseModalOpen(true)}
+            aria-label="Enquire Now"
           >
             <svg
               stroke="currentColor"
@@ -53,14 +210,13 @@ export default function page() {
             Enquire Now
           </button>
         </div>
-        {/*/$*/}
         <div>
           <div className="headCarousal_collegeCarousal__4a5Bq">
-            <img
+            <Image
               src="https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/hero-image/upes-banner.webp"
               fetchPriority="high"
               className="headCarousal_clg_banner__CXazi"
-              alt="hero-image"
+              alt="UPES campus banner"
               width={240}
               height={240}
             />
@@ -71,22 +227,22 @@ export default function page() {
                 Education (UPES)
               </h1>
               <p className="headCarousal_location__7rFlL">
-                Dehradun{/* */},{/* */}Uttarakhand
+                Dehradun, Uttarakhand
               </p>
               <p className="headCarousal_ranking__1yTOY">
-                NIRF Rank: 59(Overall)
+                NIRF Rank: 59 (Overall)
               </p>
               <div className="headCarousal_accreditation__HUqxZ">
-                <img
+                <Image
                   src="https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/accreditations/UGC-DEB.webp"
-                  alt="accreditation"
+                  alt="UGC-DEB accreditation"
                   className="headCarousal_accImg__NoM8M"
                   width={20}
                   height={20}
                 />
-                <img
+                <Image
                   src="https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/accreditations/NAAC A.webp"
-                  alt="accreditation"
+                  alt="NAAC A accreditation"
                   className="headCarousal_accImg__NoM8M"
                   width={20}
                   height={20}
@@ -106,132 +262,51 @@ export default function page() {
               <div className="college_dataSection__0M4eV">
                 <div className="collegeDetails_detailsPage__0qlWI">
                   <div className="collegeDetails_scroller__kwBjm">
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-About"
-                      href="#About"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV">
-                        About
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-High"
-                      href="#High"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Highlights
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Courses"
-                      href="#Courses"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Courses
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Course Eligibility"
-                      href="#Course Eligibility"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Course Eligibility
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Enquire Now"
-                      href="#Enquire Now"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
+                    {[
+                      { id: "About", text: "About" },
+                      { id: "High", text: "Highlights" },
+                      { id: "Courses", text: "Courses" },
+                      { id: "Course Eligibility", text: "Course Eligibility" },
+                      { id: "Enquire Now", text: "Enquire Now" },
+                      { id: "Scholarships", text: "Scholarships" },
+                      { id: "Certification", text: "Certifications" },
+                      { id: "EMI Details", text: "EMI Details" },
+                      { id: "Admission", text: "Admission Procedure" },
+                      { id: "Exam", text: "Examination Pattern" },
+                      { id: "Placement", text: "Placement" },
+                      { id: "FAQ's", text: "FAQ's" },
+                      { id: "Review", text: "Review" },
+                    ].map((item) => (
+                      <a
+                        key={item.id}
+                        className="collegeDetails_scrollerElement__iuUFa"
+                        id={`link-${item.id}`}
+                        href={`#${item.id}`}
+                      >
                         <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 5,
-                          }}
+                          className={`collegeDetails_sectionBox__ZGGBm ${
+                            activeSection === item.id
+                              ? "collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV"
+                              : "collegeDetails_textBlack__LRxI5"
+                          }`}
                         >
-                          <div>Enquire Now</div>
-                          <div className="college_blink__yxq74" />
+                          {item.id === "Enquire Now" ? (
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 5,
+                              }}
+                            >
+                              <div>{item.text}</div>
+                              <div className="college_blink__yxq74" />
+                            </div>
+                          ) : (
+                            item.text
+                          )}
                         </div>
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Scholarships"
-                      href="#Scholarships"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Scholarships
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Certification"
-                      href="#Certification"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Certifications
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-EMI Details"
-                      href="#EMI Details"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        EMI Details
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Admission"
-                      href="#Admission"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Admission Procedure
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Exam"
-                      href="#Exam"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Examination Pattern
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Placement"
-                      href="#Placement"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Placement
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-FAQ's"
-                      href="#FAQ's"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        FAQ's
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Review"
-                      href="#Review"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Review
-                      </div>
-                    </a>
+                      </a>
+                    ))}
                   </div>
                   <div className="collegeDetails_detailsContainer__6A8oL">
                     <div className="collegeDetails_maxWidth__6vBVL" id="About">
@@ -278,97 +353,32 @@ export default function page() {
                           Highlights
                         </h2>
                         <div className="Highlights_grid__zFaon">
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
+                          {[
+                            "Ranked #1 Private University in Academic Reputation in India – QS World University Rankings, 2024",
+                            "Ranked 46th in India in the University category by NIRF 2024.",
+                            "Ranked 42nd in Engineering and 41st in Management by NIRF 2024.",
+                            "It rated five stars for Employability (placements) by QS Rating.",
+                            "Top 3% of universities globally as per QS World University Rankings.",
+                          ].map((highlight, index) => (
+                            <div
+                              className="Highlights_pointContainer__5_snP"
+                              key={index}
                             >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>
-                              Ranked #1 Private University in Academic
-                              Reputation in India – QS World University
-                              Rankings, 2024
+                              <svg
+                                stroke="currentColor"
+                                fill="currentColor"
+                                strokeWidth={0}
+                                viewBox="0 0 16 16"
+                                className="Highlights_pointIcon__m_iYg"
+                                height="1em"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M8 3l5 5-5 5-5-5 5-5z" />
+                              </svg>
+                              <div>{highlight}</div>
                             </div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>
-                              Ranked 46th in India in the University category by
-                              NIRF 2024.
-                            </div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>
-                              Ranked 42nd in Engineering and 41st in Management
-                              by NIRF 2024.
-                            </div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>
-                              It rated five stars for Employability (placements)
-                              by QS Rating.
-                            </div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>
-                              Top 3% of universities globally as per QS World
-                              University Rankings.
-                            </div>
-                          </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -380,9 +390,9 @@ export default function page() {
                         <div className="courses_container__c_BRe">
                           <h2 className="courses_heading__nCyjm">Courses</h2>
                           <p className="courses_course_college_name__Reg2z">
-                            Explore online learning courses in
-                            {/* */}University of Petroleum and Energy Studies
-                            Centre for Continued Education (UPES)
+                            Explore online learning courses in University of
+                            Petroleum and Energy Studies Centre for Continued
+                            Education (UPES)
                           </p>
                           <table className="courses_course_table__llAtE">
                             <thead style={{ background: "var(--dark-blue)" }}>
@@ -395,114 +405,57 @@ export default function page() {
                               </tr>
                             </thead>
                             <tbody>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MBA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 85000-₹ 220000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
+                              {[
+                                {
+                                  name: "Online MBA",
+                                  feeRange: getFeeRange("Online MBA"),
+                                },
+                                {
+                                  name: "Online BBA",
+                                  feeRange: getFeeRange("Online BBA"),
+                                },
+                                {
+                                  name: "Online Post Graduate Programme (PGP)",
+                                  feeRange: getFeeRange(
+                                    "Online Post Graduate Programme (PGP)"
+                                  ),
+                                },
+                                {
+                                  name: "Online BCA",
+                                  feeRange: getFeeRange("Online BCA"),
+                                },
+                              ].map((course, index) => (
+                                <tr
+                                  className="courses_tbody__ZPCxV"
+                                  key={index}
+                                >
+                                  <td>{course.name}</td>
+                                  <td style={{ textAlign: "center" }}>
+                                    {course.feeRange}
+                                  </td>
+                                  <td
+                                    style={{ textAlign: "center" }}
+                                    className="group_btn"
+                                  >
+                                    <button
+                                      className="courses_enqnow__8Vb3P"
+                                      onClick={() => setIsCourseModalOpen(true)}
+                                      aria-label={`Enquire about ${course.name}`}
                                     >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BBA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 150000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
+                                      Enquire Now
+                                    </button>
+                                    <button
+                                      className="courses_viewSpsl__lrjH5"
+                                      onClick={() =>
+                                        handleViewSpecialization(course.name)
+                                      }
+                                      aria-label={`View specializations for ${course.name}`}
                                     >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online Post Graduate Programme (PGP)</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 69000-₹ 95000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BCA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 150000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
+                                      View Specialization
+                                    </button>
+                                  </td>
+                                </tr>
+                              ))}
                             </tbody>
                           </table>
                         </div>
@@ -524,45 +477,36 @@ export default function page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online MBA</td>
-                              <td>
-                                Bachelor's degree or equivalent in any
-                                discipline from a recognised
-                                university/institution with a minimum of 50 per
-                                cent aggregate marks.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online BBA</td>
-                              <td>
-                                Minimum 45 per cent marks or equivalent in XII
-                                from a recognised board. Minimum 45 per cent
-                                marks or equivalent in 3 years diploma
-                                recognised by AICTE after SSC (class X)
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online Post Graduate Programme (PGP)</td>
-                              <td>
-                                Bachelor's degree or equivalent in any
-                                discipline from a recognised
-                                university/institution with a minimum of 50 per
-                                cent aggregate marks. Candidates with a minimum
-                                of 2 years of work experience must have a
-                                Bachelor's degree or equivalent in any
-                                discipline from a recognised
-                                university/institution with a minimum of 45 per
-                                cent aggregate marks.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online BCA</td>
-                              <td>
-                                10+2 in any stream with a minimum of 50% marks
-                                in aggregate
-                              </td>
-                            </tr>
+                            {[
+                              {
+                                course: "Online MBA",
+                                eligibility:
+                                  "Bachelor's degree or equivalent in any discipline from a recognised university/institution with a minimum of 50 per cent aggregate marks.",
+                              },
+                              {
+                                course: "Online BBA",
+                                eligibility:
+                                  "Minimum 45 per cent marks or equivalent in XII from a recognised board. Minimum 45 per cent marks or equivalent in 3 years diploma recognised by AICTE after SSC (class X)",
+                              },
+                              {
+                                course: "Online Post Graduate Programme (PGP)",
+                                eligibility:
+                                  "Bachelor's degree or equivalent in any discipline from a recognised university/institution with a minimum of 50 per cent aggregate marks. Candidates with a minimum of 2 years of work experience must have a Bachelor's degree or equivalent in any discipline from a recognised university/institution with a minimum of 45 per cent aggregate marks.",
+                              },
+                              {
+                                course: "Online BCA",
+                                eligibility:
+                                  "10+2 in any stream with a minimum of 50% marks in aggregate",
+                              },
+                            ].map((item, index) => (
+                              <tr
+                                className="courseEligibility_eligible_tbody__q_tOM"
+                                key={index}
+                              >
+                                <td>{item.course}</td>
+                                <td>{item.eligibility}</td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -576,96 +520,104 @@ export default function page() {
                           Get Free Career Consultation
                         </h2>
                         <div className="collegenquiry_form_div__RSaaQ">
-                          <form className="collegenquiry_form__uF7mS">
+                          <form
+                            className="collegenquiry_form__uF7mS"
+                            onSubmit={handleFormSubmit}
+                          >
                             <input
                               type="text"
                               placeholder="Name*"
                               name="name"
+                              value={formData.name}
+                              onChange={handleChange}
+                              required
                             />
                             <input
                               type="email"
                               placeholder="Email*"
                               name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              required
                             />
                             <input
                               type="number"
                               placeholder="Phone*"
                               name="phone"
+                              value={formData.phone}
+                              onChange={handleChange}
+                              required
                             />
-                            <select name="program">
-                              <option value selected>
-                                Choose a Program*
-                              </option>
+                            <select
+                              name="program"
+                              value={formData.program}
+                              onChange={handleChange}
+                              required
+                            >
+                              <option value="">Choose a Program*</option>
                               <option value="Online MBA">Online MBA</option>
-                              <option value="Executive MBA">
-                                Executive MBA
-                              </option>
-                              <option value="Online MCA">Online MCA</option>
-                              <option value="Online MSC">Online MSC</option>
-                              <option value="Online MCOM">Online MCOM</option>
-                              <option value="Online MA">Online MA</option>
-                              <option value="Online PGDM">Online PGDM</option>
-                              <option value="Distance MEd">Distance MEd</option>
-                              <option value="PG Diploma">PG Diploma</option>
                               <option value="Online BBA">Online BBA</option>
-                              <option value="Online BCA">Online BCA</option>
-                              <option value="Online BSC">Online BSC</option>
-                              <option value="Online BCom">Online BCom</option>
-                              <option value="Online BA">Online BA</option>
-                              <option value="Distance BEd">Distance BEd</option>
-                              <option value="IT Certifications">
-                                IT Certifications
+                              <option value="Online Post Graduate Programme (PGP)">
+                                Online Post Graduate Programme (PGP)
                               </option>
+                              <option value="Online BCA">Online BCA</option>
                               <option value="Help Me Decide">
                                 Help Me Decide
                               </option>
                             </select>
-                            <select name="state">
-                              <option value selected>
-                                State/Province
-                              </option>
-                              <option value="Arunachal Pradesh">
-                                Arunachal Pradesh
-                              </option>
-                              <option value="Assam">Assam</option>
-                              <option value="Bihar">Bihar</option>
-                              <option value="Chhattisgarh">Chhattisgarh</option>
-                              <option value="Delhi">Delhi</option>
-                              <option value="Goa">Goa</option>
-                              <option value="Gujarat">Gujarat</option>
-                              <option value="Haryana">Haryana</option>
-                              <option value="Himachal Pradesh">
-                                Himachal Pradesh
-                              </option>
-                              <option value="Jharkhand">Jharkhand</option>
-                              <option value="Karnataka">Karnataka</option>
-                              <option value="Kerala">Kerala</option>
-                              <option value="Madhya Pradesh">
-                                Madhya Pradesh
-                              </option>
-                              <option value="Maharashtra">Maharashtra</option>
-                              <option value="Manipur">Manipur</option>
-                              <option value="Meghalaya">Meghalaya</option>
-                              <option value="Mizoram">Mizoram</option>
-                              <option value="Nagaland">Nagaland</option>
-                              <option value="Odisha">Odisha</option>
-                              <option value="Punjab">Punjab</option>
-                              <option value="Rajasthan">Rajasthan</option>
-                              <option value="Sikkim">Sikkim</option>
-                              <option value="Tamil Nadu">Tamil Nadu</option>
-                              <option value="Telangana">Telangana</option>
-                              <option value="Tripura">Tripura</option>
-                              <option value="Uttarakhand">Uttarakhand</option>
-                              <option value="Uttar Pradesh">
-                                Uttar Pradesh
-                              </option>
-                              <option value="West Bengal">West Bengal</option>
+                            <select
+                              name="state"
+                              value={formData.state}
+                              onChange={handleChange}
+                              required
+                            >
+                              <option value="">State/Province*</option>
+                              {[
+                                "Arunachal Pradesh",
+                                "Assam",
+                                "Bihar",
+                                "Chhattisgarh",
+                                "Delhi",
+                                "Goa",
+                                "Gujarat",
+                                "Haryana",
+                                "Himachal Pradesh",
+                                "Jharkhand",
+                                "Karnataka",
+                                "Kerala",
+                                "Madhya Pradesh",
+                                "Maharashtra",
+                                "Manipur",
+                                "Meghalaya",
+                                "Mizoram",
+                                "Nagaland",
+                                "Odisha",
+                                "Punjab",
+                                "Rajasthan",
+                                "Sikkim",
+                                "Tamil Nadu",
+                                "Telangana",
+                                "Tripura",
+                                "Uttarakhand",
+                                "Uttar Pradesh",
+                                "West Bengal",
+                                "Andaman and Nicobar Islands",
+                                "Chandigarh",
+                                "Dadra and Nagar Haveli and Daman and Diu",
+                                "Lakshadweep",
+                                "Puducherry",
+                              ].map((state) => (
+                                <option key={state} value={state}>
+                                  {state}
+                                </option>
+                              ))}
                             </select>
                             <button
                               type="submit"
                               className="collegenquiry_submit_btn__cjBuo"
+                              disabled={isLoading}
                             >
-                              Submit
+                              {isLoading ? "Submitting..." : "Submit"}
                             </button>
                           </form>
                         </div>
@@ -723,47 +675,40 @@ export default function page() {
                                 around the globe
                               </div>
                               <div>
-                                <div className="Certificates_pointBox__xwwq4">
-                                  {/* <img alt="check-image" loading="lazy" width={20} height={20} decoding="async" data-nimg={1} style={{color: 'transparent'}} srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          " src="image?url=%2Fimages%2Fcheck.png&w=48&q=75" /> */}
-                                  <div className="Certificates_point__XYWLq">
-                                    NAAC A Recognised
+                                {[
+                                  "NAAC A Recognised",
+                                  "UGC-DEB Entitled",
+                                  "NIRF- 79 (Overall Category)",
+                                ].map((point, index) => (
+                                  <div
+                                    className="Certificates_pointBox__xwwq4"
+                                    key={index}
+                                  >
+                                    <Image
+                                      alt="Check icon"
+                                      loading="lazy"
+                                      width={20}
+                                      height={20}
+                                      decoding="async"
+                                      src="/assets/simpli-images/check.webp"
+                                    />
+                                    <div className="Certificates_point__XYWLq">
+                                      {point}
+                                    </div>
                                   </div>
-                                </div>
-                                <div className="Certificates_pointBox__xwwq4">
-                                  {/* <img alt="check-image" loading="lazy" width={20} height={20} decoding="async" data-nimg={1} style={{color: 'transparent'}} srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          " src="image?url=%2Fimages%2Fcheck.png&w=48&q=75" /> */}
-                                  <div className="Certificates_point__XYWLq">
-                                    UGC-DEB Entitled
-                                  </div>
-                                </div>
-                                <div className="Certificates_pointBox__xwwq4">
-                                  {/* <img
-                                    alt="check-image"
-                                    loading="lazy"
-                                    width={20}
-                                    height={20}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    style={{ color: "transparent" }}
-                                    
-                                    src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                                  /> */}
-                                  <div className="Certificates_point__XYWLq">
-                                    NIRF- 79 (Overall Category)
-                                  </div>
-                                </div>
+                                ))}
                               </div>
                             </div>
                             <div>
-                              {/* <img alt="certificate_url" loading="lazy" width={300} height={200} decoding="async" data-nimg={1} className="Certificates_img__GOe9v" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fcertification%2Fupes-certificate.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fcertification%2Fupes-certificate.webp&w=640&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fcertification%2Fupes-certificate.webp&w=640&q=75" /> */}
+                              <Image
+                                alt="UPES sample certificate"
+                                loading="lazy"
+                                width={300}
+                                height={200}
+                                decoding="async"
+                                className="Certificates_img__GOe9v"
+                                src="https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/certification/upes-certificate.webp"
+                              />
                             </div>
                           </div>
                         </div>
@@ -796,50 +741,26 @@ export default function page() {
                           The admissions process takes place in online mode.
                           Fresh admission starts from the month of January of
                           every year. There are direct admissions, no entrance
-                          exam is conducted for the admission process.The
-                          addmission procedure
-                          {/* */}2025{/* */}
-                          for the online course at
-                          {/* */}University of Petroleum and Energy Studies
-                          Centre for Continued Education (UPES){/* */}
-                          is as follow:
+                          exam is conducted for the admission process. The
+                          admission procedure 2025 for the online course at
+                          University of Petroleum and Energy Studies Centre for
+                          Continued Education (UPES) is as follow:
                         </p>
-                        <div className="Admissions_step__4mDzm">
-                          <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}1
+                        {[
+                          "Fill the online application form",
+                          "Receive Offer Letter from the University",
+                          "Pay the program fee",
+                          "Receive Login Credentials",
+                        ].map((step, index) => (
+                          <div className="Admissions_step__4mDzm" key={index}>
+                            <div className="Admissions_stepCount__f9yhl">
+                              STEP {index + 1}
+                            </div>
+                            <div className="Admissions_stepText___L_GT">
+                              {step}
+                            </div>
                           </div>
-                          <div className="Admissions_stepText___L_GT">
-                            Fill the online application form
-                          </div>
-                        </div>
-                        <div className="Admissions_step__4mDzm">
-                          <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}2
-                          </div>
-                          <div className="Admissions_stepText___L_GT">
-                            Receive Offer Letter from the University
-                          </div>
-                        </div>
-                        <div className="Admissions_step__4mDzm">
-                          <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}3
-                          </div>
-                          <div className="Admissions_stepText___L_GT">
-                            Pay the program fee
-                          </div>
-                        </div>
-                        <div className="Admissions_step__4mDzm">
-                          <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}4
-                          </div>
-                          <div className="Admissions_stepText___L_GT">
-                            Receive Login Credentials
-                          </div>
-                        </div>
+                        ))}
                         <div className="Admissions_stepHide__nIt_6" />
                       </div>
                     </div>
@@ -873,37 +794,25 @@ export default function page() {
                           <h3 className="placement_subHeading__1vY2G">
                             Our students have an opportunity of
                           </h3>
-                          <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            {/* <img
-                              alt="img"
-                              loading="lazy"
-                              width={20}
-                              height={20}
-                              decoding="async"
-                              data-nimg={1}
-                              style={{ color: "transparent" }}
-                              
-                              src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                            /> */}
-                            <p>
-                              Learn employability skills through assessments and
-                              tests
-                            </p>
-                          </div>
-                          <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            {/* <img
-                              alt="img"
-                              loading="lazy"
-                              width={20}
-                              height={20}
-                              decoding="async"
-                              data-nimg={1}
-                              style={{ color: "transparent" }}
-                             
-                              src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                            /> */}
-                            <p>Job that suitably fits the student profile</p>
-                          </div>
+                          {[
+                            "Learn employability skills through assessments and tests",
+                            "Job that suitably fits the student profile",
+                          ].map((point, index) => (
+                            <div
+                              className="placementSubpoint_subHeadingPoints__uE7MR"
+                              key={index}
+                            >
+                              <Image
+                                alt="Check icon"
+                                loading="lazy"
+                                width={20}
+                                height={20}
+                                decoding="async"
+                                src="/assets/simpli-images/check.webp"
+                              />
+                              <p>{point}</p>
+                            </div>
+                          ))}
                         </div>
                         <div className="placement_placementBanner__ACCRS">
                           <div className="placementBanner_container__upl7e">
@@ -929,91 +838,133 @@ export default function page() {
                             </p>
                           </div>
                         </div>
-                        {/* <h3 className="placement_heading__iEHZj">
-                    Our Students Work At
-                  </h3>
-                  <div className="partners_container___c9cx">
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FAccenture.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FAccenture.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FAccenture.webp&w=256&q=75" />
+                        <h3 className="placement_heading__iEHZj">
+                          Our Students Work At
+                        </h3>
+                        <div className="partners_container___c9cx">
+                          {[
+                            {
+                              name: "Accenture",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/Accenture.webp",
+                            },
+                            {
+                              name: "Deloitte",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/deloitte.webp",
+                            },
+                            {
+                              name: "Amazon",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/amazon.webp",
+                            },
+                            {
+                              name: "HCL Technologies",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/HCL_Technologies.webp",
+                            },
+                            {
+                              name: "Infosys",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/Infosys.webp",
+                            },
+                            {
+                              name: "Capgemini",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/Capgemini.webp",
+                            },
+                            {
+                              name: "Genpact",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/genpact.webp",
+                            },
+                            {
+                              name: "Siemens",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/siemens.webp",
+                            },
+                            {
+                              name: "KPMG",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/KPMG.webp",
+                            },
+                            {
+                              name: "Microsoft",
+                              src: "https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/placement-partners/microsoft.webp",
+                            },
+                          ].map((partner, index) => (
+                            <div key={index}>
+                              <div className="partners_imgBox__yD_6o">
+                                <Image
+                                  alt={`${partner.name} placement logo`}
+                                  fetchPriority="high"
+                                  width={122}
+                                  height={95}
+                                  decoding="async"
+                                  className="partners_plac_img__htNsk"
+                                  src={partner.src}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fdeloitte.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fdeloitte.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fdeloitte.webp&w=256&q=75" />
+                    <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
+                      <div className="faq_container__qXyX9">
+                        <h2 className="faq_heading__i5z0v">FAQ's</h2>
+                        {/* Add FAQ content here if available */}
+                        <div className="faq_faqDesc__c2z0r">
+                          <p className="faq_text__uXj2k">
+                            No FAQ content provided in the original code.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Famazon.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Famazon.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Famazon.webp&w=256&q=75" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FHCL_Technologies.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FHCL_Technologies.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FHCL_Technologies.webp&w=256&q=75" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FInfosys.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FInfosys.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FInfosys.webp&w=256&q=75" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FCapgemini.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FCapgemini.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FCapgemini.webp&w=256&q=75" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fgenpact.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fgenpact.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fgenpact.webp&w=256&q=75" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fsiemens.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fsiemens.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fsiemens.webp&w=256&q=75" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FKPMG.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FKPMG.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2FKPMG.webp&w=256&q=75" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="partners_imgBox__yD_6o">
-                        <img alt="placement-logo" fetchPriority="high" width={122} height={95} decoding="async" data-nimg={1} className="partners_plac_img__htNsk" style={{color: 'transparent'}} srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fmicrosoft.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75 2x
-                      " src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Funiversity-of-petroleum-and-energy-studies-centre-for-continued-education%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75" />
-                      </div>
-                    </div>
-                  </div> */}
+                    <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                      <div className="CollegeReview_college_page_details_review_container__KbbIU">
+                        <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
+                          University of Petroleum and Energy Studies Centre for
+                          Continued Education (UPES) Review
+                        </h2>
+                        <div>
+                          <form>
+                            <div className="CollegeReview_college_page_details_review_form_container__rP5km">
+                              <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
+                                <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
+                                  0 out of 5
+                                </p>
+                                <div>
+                                  {Array(5)
+                                    .fill()
+                                    .map((_, index) => (
+                                      <span className="star" key={index}>
+                                        <Image
+                                          alt="Rating star"
+                                          loading="lazy"
+                                          width={400}
+                                          height={400}
+                                          decoding="async"
+                                          className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
+                                          src="/assets/simpli-images/Star-Two.webp"
+                                        />
+                                      </span>
+                                    ))}
+                                </div>
+                              </div>
+                              <div className="CollegeReview_rating_form_container__q_Xvp">
+                                <input
+                                  className="CollegeReview_reviewer_name__Fdlnr"
+                                  type="text"
+                                  placeholder="Enter your name"
+                                  required
+                                  name="reviewerName"
+                                />
+                                <textarea
+                                  placeholder="Write your reviews"
+                                  className="CollegeReview_college_page_details_review_form_input__niDf2"
+                                  name="comment"
+                                  required
+                                />
+                                <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
+                                  Send message
+                                </button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                       </div>
                     </div>
                   </div>
@@ -1023,7 +974,204 @@ export default function page() {
           </div>
         </div>
       </div>
-
+      {isCourseModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="exampleModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close "
+                    onClick={handleClose}
+                    aria-label="Close course enquiry modal"
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
+                  ></button>
+                  <h6>Struggling with Career Growth?</h6>
+                  <h6 className="td_mb_20">Get Free Career Consultation</h6>
+                  <form onSubmit={(e) => handleFormSubmit(e, true)}>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name *"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email *"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone *"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Choose a program*</option>
+                      <option value="Online MBA">Online MBA</option>
+                      <option value="Online BBA">Online BBA</option>
+                      <option value="Online Post Graduate Programme (PGP)">
+                        Online Post Graduate Programme (PGP)
+                      </option>
+                      <option value="Online BCA">Online BCA</option>
+                      <option value="Help Me Decide">Help Me Decide</option>
+                    </select>
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">States/Province*</option>
+                      {[
+                        "Arunachal Pradesh",
+                        "Assam",
+                        "Bihar",
+                        "Chhattisgarh",
+                        "Delhi",
+                        "Goa",
+                        "Gujarat",
+                        "Haryana",
+                        "Himachal Pradesh",
+                        "Jharkhand",
+                        "Karnataka",
+                        "Kerala",
+                        "Madhya Pradesh",
+                        "Maharashtra",
+                        "Manipur",
+                        "Meghalaya",
+                        "Mizoram",
+                        "Nagaland",
+                        "Odisha",
+                        "Punjab",
+                        "Rajasthan",
+                        "Sikkim",
+                        "Tamil Nadu",
+                        "Telangana",
+                        "Tripura",
+                        "Uttarakhand",
+                        "Uttar Pradesh",
+                        "West Bengal",
+                        "Andaman and Nicobar Islands",
+                        "Chandigarh",
+                        "Dadra and Nagar Haveli and Daman and Diu",
+                        "Lakshadweep",
+                        "Puducherry",
+                      ].map((state) => (
+                        <option key={state} value={state}>
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="td_form_card_bottom td_mb_15 mt-3">
+                      <button
+                        type="submit"
+                        className="td_btn td_style_1 td_radius_10 td_medium w-100"
+                        disabled={isLoading}
+                      >
+                        <span className="td_btn_in td_white_color td_accent_bg">
+                          <span>{isLoading ? "Submitting..." : "Submit"}</span>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                  <p className="td_form_card_text td_fs_20 td_medium td_heading_color mb-0 mt-3">
+                    Your personal information is secure with us.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* {isSpecializationModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="specializationModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="specializationModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close position-absolute top-0 end-0 m-3"
+                    onClick={handleCloseSpecializationModal}
+                    aria-label="Close specialization modal"
+                  ></button>
+                  <h2 className="td_mb_20">
+                    {selectedCourseName} Specializations
+                  </h2>
+                  <table className="table table-bordered">
+                    <thead
+                      style={{ background: "var(--dark-blue)", color: "white" }}
+                    >
+                      <tr>
+                        <th>Specialization Name</th>
+                        <th style={{ textAlign: "center" }}>Fees</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedCourseSpecializations.length > 0 ? (
+                        selectedCourseSpecializations.map((spec, index) => (
+                          <tr key={index}>
+                            <td>{spec.name}</td>
+                            <td style={{ textAlign: "center" }}>
+                              ₹ {spec.fees.toLocaleString()}
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" style={{ textAlign: "center" }}>
+                            No specializations available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )} */}
       <Footer />
     </>
   );

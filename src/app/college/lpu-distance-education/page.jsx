@@ -1,6 +1,6 @@
-import React from 'react';
-import Menu from '../../../../components/Header/Menu/Menu';
-import Footer from '../../../../components/Footer/Footer';
+import React from "react";
+import Menu from "../../../../components/Header/Menu/Menu";
+import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
 import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
@@ -11,9 +11,9 @@ import "../../styles/bcdb44b6ad772c90.css";
 
 export default function page() {
   return (
-  <>
-  <Menu/>
-  <Footer/>
-  </>
+    <>
+      <Menu />
+      <Footer />
+    </>
   );
 }

@@ -46,7 +46,7 @@ const HeroSlider = () => {
   return (
     <div
       className="Hero_relative__x641X {`remove-padding-mobile slider-container ${styles.sliderContainer}`}"
-      style={{ paddingTop: "0px" }}
+     
     >
       <div className="Hero_newheroContainer__lAPRu">
         <Swiper
@@ -74,18 +74,18 @@ const HeroSlider = () => {
                             <div className="counter_digit__L6cff">0</div>
                             <div className="counter_digit__L6cff">0</div>
                             <div className="counter_digit__L6cff">0</div>
-
+                      
                             <div
                               className="counter_livetextbanner__Vykhp"
                               style={{
                                 position: "absolute",
-                                top: "-30px",
-                                right: "-10px",
+                                top: "-12px",
+                                right: "-30px",
                                 backgroundColor: "red",
                                 color: "#fff",
-                                
+                                fontSize:"10px",
                                 fontWeight: 700,
-                                padding: "1px 3px",
+                                padding: "2px 9px",
                                 borderRadius: "5px",
                                 zIndex: 10,
                               }}

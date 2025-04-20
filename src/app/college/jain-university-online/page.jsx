@@ -393,100 +393,132 @@ export default function page() {
                       </div>
                     </div>
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
-                    <div className="courses_wrapper__5pXR3">
-                      <div className="courses_container__c_BRe">
-                        <h2 className="courses_heading__nCyjm">Courses</h2>
-                        <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}Jain University Online
-                        </p>
-                        <table className="courses_course_table__llAtE">
-                          <thead style={{ background: "var(--dark-blue)" }}>
-                            <tr className="courses_course_head__M4Cun">
-                              <th>Courses</th>
-                              <th style={{ textAlign: "center" }}>Fee Range</th>
-                              <th />
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BCom</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 127500-₹ 360000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                View Specialization
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCom</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 122000-₹ 220000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                View Specialization
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 160000-₹ 261000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                View Specialization
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 165000-₹ 280002
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                View Specialization
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 150000-₹ 240000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                View Specialization
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 90000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                View Specialization
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
+  <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
+  <div className="courses_wrapper__5pXR3">
+    <div className="courses_container__c_BRe">
+      <h2 className="courses_heading__nCyjm">Courses</h2>
+      <p className="courses_course_college_name__Reg2z">
+        Explore online learning courses in
+        {/* */}Jain University Online
+      </p>
+      <table className="courses_course_table__llAtE">
+        <thead style={{background: 'var(--dark-blue)'}}>
+          <tr className="courses_course_head__M4Cun">
+            <th>Courses</th>
+            <th style={{textAlign: 'center'}}>Fee Range</th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="courses_tbody__ZPCxV">
+            <td>
+              <a className="courses_courseLink__FAoj3" href="https://www.learningroutes.in/courses/online-bca">Online BCA</a>
+            </td>
+            <td style={{textAlign: 'center'}}>
+              ₹ 135000-₹ 165000
+            </td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>
+              <a className="courses_courseLink__FAoj3" href="https://www.learningroutes.in/courses/online-bcom">Online BCom</a>
+            </td>
+            <td style={{textAlign: 'center'}}>₹ 90000-₹ 228000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>
+              <a className="courses_courseLink__FAoj3" href="https://www.learningroutes.in/courses/online-mcom">Online MCom</a>
+            </td>
+            <td style={{textAlign: 'center'}}>₹ 45500-₹ 181000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>
+              <a className="courses_courseLink__FAoj3" href="https://www.learningroutes.in/courses/online-mba">Online MBA</a>
+            </td>
+            <td style={{textAlign: 'center'}}>
+              ₹ 196000-₹ 220000
+            </td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>
+              <a className="courses_courseLink__FAoj3" href="https://www.learningroutes.in/courses/online-bba">Online BBA</a>
+            </td>
+            <td style={{textAlign: 'center'}}>
+              ₹ 165000-₹ 280002
+            </td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>
+              <a className="courses_courseLink__FAoj3" href="https://www.learningroutes.in/courses/online-mca">Online MCA</a>
+            </td>
+            <td style={{textAlign: 'center'}}>
+              ₹ 160000-₹ 200000
+            </td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>
+              <a className="courses_courseLink__FAoj3" href="https://www.learningroutes.in/courses/online-ma">Online MA</a>
+            </td>
+            <td style={{textAlign: 'center'}}>₹ 15000-₹ 90000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Online Certification</td>
+            <td style={{textAlign: 'center'}}>₹ 30000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
                   <div
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"

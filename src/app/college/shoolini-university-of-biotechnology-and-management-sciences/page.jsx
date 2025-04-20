@@ -376,304 +376,130 @@ export default function page() {
                         </div>
                       </div>
                     </div>
-                    <div
-                      className="collegeDetails_maxWidth__6vBVL"
-                      id="Courses"
-                    >
-                      <div className="courses_wrapper__5pXR3">
-                        <div className="courses_container__c_BRe">
-                          <h2 className="courses_heading__nCyjm">Courses</h2>
-                          <p className="courses_course_college_name__Reg2z">
-                            Explore online learning courses in
-                            {/* */}Shoolini University of Biotechnology and
-                            Management Sciences
-                          </p>
-                          <table className="courses_course_table__llAtE">
-                            <thead style={{ background: "var(--dark-blue)" }}>
-                              <tr className="courses_course_head__M4Cun">
-                                <th>Courses</th>
-                                <th style={{ textAlign: "center" }}>
-                                  Fee Range
-                                </th>
-                                <th />
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MBA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 150000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 64000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BBA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 117000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 117000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BCA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 150000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Distance BBA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 75000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Distance BCom (Hons)</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 75000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Distance BA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 75000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Distance MA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 50000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Distance MBA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 60000
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
+                     <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
+  <div className="courses_wrapper__5pXR3">
+    <div className="courses_container__c_BRe">
+      <h2 className="courses_heading__nCyjm">Courses</h2>
+      <p className="courses_course_college_name__Reg2z">
+        Explore online learning courses in
+        {/* */}Shoolini University of Biotechnology and
+        Management Sciences
+      </p>
+      <table className="courses_course_table__llAtE">
+        <thead style={{background: 'var(--dark-blue)'}}>
+          <tr className="courses_course_head__M4Cun">
+            <th>Courses</th>
+            <th style={{textAlign: 'center'}}>Fee Range</th>
+            <th />
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Online MBA</td>
+            <td style={{textAlign: 'center'}}>₹ 150000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Online MA</td>
+            <td style={{textAlign: 'center'}}>₹ 64000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Online BBA</td>
+            <td style={{textAlign: 'center'}}>₹ 117000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Online BA</td>
+            <td style={{textAlign: 'center'}}>₹ 117000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Online BCA</td>
+            <td style={{textAlign: 'center'}}>₹ 150000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Distance BBA</td>
+            <td style={{textAlign: 'center'}}>₹ 75000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Distance BCom (Hons)</td>
+            <td style={{textAlign: 'center'}}>₹ 75000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Distance BA</td>
+            <td style={{textAlign: 'center'}}>₹ 75000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Distance MA</td>
+            <td style={{textAlign: 'center'}}>₹ 50000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+          <tr className="courses_tbody__ZPCxV">
+            <td>Distance MBA</td>
+            <td style={{textAlign: 'center'}}>₹ 60000</td>
+            <td style={{textAlign: 'center'}} className="group_btn">
+              <button className="courses_enqnow__8Vb3P">
+                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
+                View Specialization
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
                     <div
                       className="collegeDetails_maxWidth__6vBVL"
                       id="Course Eligibility"
@@ -806,19 +632,16 @@ export default function page() {
                               type="text"
                               placeholder="Name*"
                               name="name"
-                              
                             />
                             <input
                               type="email"
                               placeholder="Email*"
                               name="email"
-                              
                             />
                             <input
                               type="number"
                               placeholder="Phone*"
                               name="phone"
-                              
                             />
                             <select name="program">
                               <option value selected>
@@ -1002,7 +825,6 @@ export default function page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                   
                                     src="/assets/simpli-images/check.webp"
                                   />
                                   <div className="Certificates_point__XYWLq">
@@ -1018,7 +840,6 @@ export default function page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                   
                                     src="/assets/simpli-images/check.webp"
                                   />
                                   <div className="Certificates_point__XYWLq">
@@ -1657,14 +1478,12 @@ export default function page() {
                                   placeholder="Enter your name"
                                   required
                                   name="reviewerName"
-                                  
                                 />
                                 <textarea
                                   placeholder="Write your reviews"
                                   className="CollegeReview_college_page_details_review_form_input__niDf2"
                                   name="comment"
-                                  required
-                                  ={""}
+                                  required={""}
                                 />
                                 <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
                                   Send message

@@ -12,7 +12,6 @@ export default function page() {
     <>
       <Menu />
       <div>
-     
         <div>
           <div
             className="CourseHero_courseCarousalOne__Sb3_f"

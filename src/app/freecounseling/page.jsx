@@ -1,13 +1,11 @@
 import React from "react";
 
-
 import Link from "next/link";
 import "../styles/8d1dc0c8629d92eb.css";
 import "../styles/3a6b4218bb14b3ef.css";
 import "../styles/8b2861424f796947.css";
 import Menu from "../../../components/Header/Menu/Menu";
 import Footer from "../../../components/Footer/Footer";
-
 
 export default function page() {
   return (

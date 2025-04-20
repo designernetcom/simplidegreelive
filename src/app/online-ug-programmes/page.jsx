@@ -29,8 +29,7 @@ export default function page() {
         <div>
           <div className="BrowseCourse_home_browse_course_container__PlZ71">
             <div className="BrowseCourse_home_browse_course_list_main_box__2D0BM">
-              <div
-                className="BrowseCourse_home_course_list_single_box__d92j6">
+              <div className="BrowseCourse_home_course_list_single_box__d92j6">
                 <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
                   <span>
                     {" "}

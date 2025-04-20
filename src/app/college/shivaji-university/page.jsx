@@ -612,23 +612,16 @@ export default function page() {
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
                         <form className="collegenquiry_form__uF7mS">
-                          <input
-                            type="text"
-                            placeholder="Name*"
-                            name="name"
-                            
-                          />
+                          <input type="text" placeholder="Name*" name="name" />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            
                           />
                           <select name="program">
                             <option value selected>
@@ -1071,7 +1064,6 @@ export default function page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                
                               />
                               <textarea
                                 placeholder="Write your reviews"

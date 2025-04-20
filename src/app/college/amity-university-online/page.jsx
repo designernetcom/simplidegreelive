@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
+import FirstVisitModal from "../../../../components/FirstVisitModal";
 import "../../styles/5107c2122129e0bb.css";
 import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
@@ -10,7 +12,161 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import Image from "next/image";
 
-export default function page() {
+export default function Page() {
+  const [activeSection, setActiveSection] = useState("About");
+  const [isModalOpen, setIsModalOpen] = useState(false); // For FirstVisitModal modal
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false); // For Courses Enquire Now modal
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false); // For Specialization modal
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    state: "",
+  });
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
+  const [selectedCourseName, setSelectedCourseName] = useState(""); // To store the course name for modal title
+
+  const courseSpecializations = {
+    "Online BCom": [
+      { name: "Accounting and Finance", fees: 100000 },
+      { name: "Taxation", fees: 120000 },
+      { name: "Banking", fees: 150000 },
+    ],
+    "Online MA": [
+      { name: "English Literature", fees: 130000 },
+      { name: "Clinical Psychology", fees: 180000 },
+      { name: "Sociology", fees: 160000 },
+    ],
+    "Online BBA": [
+      { name: "Marketing Management", fees: 170000 },
+      { name: "Human Resource Management", fees: 165000 },
+      { name: "Entrepreneurship", fees: 200000 },
+    ],
+    "Online MCA": [
+      { name: "Data Science", fees: 180000 },
+      { name: "Cloud Computing", fees: 200000 },
+      { name: "Artificial Intelligence", fees: 220000 },
+    ],
+    "Online MBA": [
+      { name: "Finance", fees: 199000 },
+      { name: "Marketing", fees: 210000 },
+      { name: "Operations Management", fees: 250000 },
+    ],
+    "Online MBA with Dual Specialisation": [
+      { name: "Finance + Marketing", fees: 299000 },
+      { name: "HR + Operations", fees: 299000 },
+      { name: "Marketing + International Business", fees: 299000 },
+    ],
+    "Online BA": [
+      { name: "Economics", fees: 100000 },
+      { name: "Political Science", fees: 110000 },
+      { name: "History", fees: 99000 },
+    ],
+    "Online MAJMC": [
+      { name: "Digital Journalism", fees: 170000 },
+      { name: "Advertising and PR", fees: 170000 },
+    ],
+    "Online MCom": [
+      { name: "Financial Management", fees: 120000 },
+      { name: "International Business", fees: 130000 },
+    ],
+    "Online BCA": [
+      { name: "Software Development", fees: 160000 },
+      { name: "Cybersecurity", fees: 180000 },
+      { name: "Web Development", fees: 200000 },
+    ],
+    "Online MSc": [
+      { name: "Applied Mathematics", fees: 250000 },
+      { name: "Environmental Science", fees: 240000 },
+    ],
+    "Online Certificate Programme": [
+      { name: "Digital Marketing", fees: 25000 },
+      { name: "Business Analytics", fees: 40000 },
+      { name: "Project Management", fees: 60000 },
+    ],
+  };
+
+  useEffect(() => {
+    const sections = [
+      "About",
+      "High",
+      "Courses",
+      "Course Eligibility",
+      "Enquire Now",
+      "Certification",
+      "Admission",
+      "Placement",
+      "Review",
+    ];
+
+    const handleScroll = () => {
+      let currentSection = "About";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Set initial active section on mount
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleClose = () => {
+    setIsCourseModalOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: "",
+      state: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    handleClose(); // Close modal after submission
+  };
+
+  const handleViewSpecialization = (courseName) => {
+    setSelectedCourseName(courseName);
+    setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
+    setIsSpecializationModalOpen(true);
+  };
+
+  const handleCloseSpecializationModal = () => {
+    setIsSpecializationModalOpen(false);
+    setSelectedCourseSpecializations([]);
+    setSelectedCourseName("");
+  };
+
   return (
     <>
       <Menu />
@@ -29,9 +185,7 @@ export default function page() {
             <h1 className="headCarousal_collegeHeading__KBbuL">
               Amity University Online
             </h1>
-            <p className="headCarousal_location__7rFlL">
-              Noida{/* */},{/* */}Uttar Pradesh
-            </p>
+            <p className="headCarousal_location__7rFlL">Noida, Uttar Pradesh</p>
             <p className="headCarousal_ranking__1yTOY">
               NIRF Ranking: 49 (Overall Category)
             </p>
@@ -73,7 +227,7 @@ export default function page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href>
+              <a href="#">
                 <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
@@ -86,104 +240,76 @@ export default function page() {
             <div className="college_dataSection__0M4eV">
               <div className="collegeDetails_detailsPage__0qlWI">
                 <div className="collegeDetails_scroller__kwBjm">
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-About"
-                    href="#About"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV">
-                      About
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-High"
-                    href="#High"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Highlights
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Courses"
-                    href="#Courses"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Courses
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Course Eligibility"
-                    href="#Course Eligibility"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Course Eligibility
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Enquire Now"
-                    href="#Enquire Now"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
+                  {[
+                    { id: "About", text: "About" },
+                    { id: "High", text: "Highlights" },
+                    { id: "Courses", text: "Courses" },
+                    { id: "Course Eligibility", text: "Course Eligibility" },
+                    { id: "Enquire Now", text: "Enquire Now" },
+                    { id: "Certification", text: "Certifications" },
+                    { id: "Admission", text: "Admission Procedure" },
+                    { id: "Placement", text: "Placement" },
+                    { id: "Review", text: "Review" },
+                  ].map((item) => (
+                    <a
+                      key={item.id}
+                      className="collegeDetails_scrollerElement__iuUFa"
+                      id={`link-${item.id}`}
+                      href={
+                        item.id !== "Enquire Now" ? `#${item.id}` : undefined
+                      }
+                      onClick={
+                        item.id === "Enquire Now" ? openModal : undefined
+                      }
+                    >
                       <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 5,
-                        }}
+                        className={`collegeDetails_sectionBox__ZGGBm ${
+                          activeSection === item.id
+                            ? "collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV"
+                            : "collegeDetails_textBlack__LRxI5"
+                        }`}
                       >
-                        <div>Enquire Now</div>
-                        <div className="college_blink__yxq74" />
+                        {item.id === "Enquire Now" ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 5,
+                            }}
+                          >
+                            <div>{item.text}</div>
+                            <div className="college_blink__yxq74" />
+                          </div>
+                        ) : (
+                          item.text
+                        )}
                       </div>
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Certification"
-                    href="#Certification"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Certifications
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Admission"
-                    href="#Admission"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Admission Procedure
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Placement"
-                    href="#Placement"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Placement
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Review"
-                    href="#Review"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Review
-                    </div>
-                  </a>
+                    </a>
+                  ))}
                 </div>
                 <div className="collegeDetails_detailsContainer__6A8oL">
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
                     <div className="about_collegeDetails__67FzM">
-                      <h2 className="about_collegeDetailsHeading__AA_dr">
+                      <h4
+                        style={{
+                          fontSize: "24px",
+                          margin: "20px 0",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                          fontWeight: "700",
+                        }}
+                      >
                         Amity University Online
-                      </h2>
-                      <p className="about_collegeDetailsDescription__7Swyd">
+                      </h4>
+                      <p
+                        style={{
+                          fontSize: "16px",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                        }}
+                      >
                         The Amity Education Group is a not-for-profit
                         organization that was started in 1986 by the Chauhan
                         family. Today, the University has a presence in more
@@ -205,7 +331,18 @@ export default function page() {
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="High">
                     <div className="Highlights_container__yqw8t">
-                      <h2 className="Highlights_heading__QnGK2">Highlights</h2>
+                      <h4
+                        style={{
+                          fontSize: "24px",
+                          margin: "20px 0",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                          fontWeight: "700",
+                        }}
+                      >
+                        Highlights
+                      </h4>
                       <div className="Highlights_grid__zFaon">
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -220,7 +357,14 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
                             Learn from the Faculty of International Repute
                           </div>
                         </div>
@@ -237,7 +381,14 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
                             Advanced Learning Material including physical books,
                             audiobooks, etc
                           </div>
@@ -255,7 +406,14 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
                             Real Time Industry Projects for Portfolio Building
                           </div>
                         </div>
@@ -272,7 +430,16 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Support Team: Student Relationship Manager</div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
+                            Support Team: Student Relationship Manager
+                          </div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -287,7 +454,14 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
                             Career Assistance and Exclusive Virtual Job Fairs
                           </div>
                         </div>
@@ -304,7 +478,16 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Guest Lectures and Webinars</div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
+                            Guest Lectures and Webinars
+                          </div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -319,7 +502,16 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Interview Preparations</div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
+                            Interview Preparations
+                          </div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -334,7 +526,16 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Open Education Policy</div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
+                            Open Education Policy
+                          </div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -349,7 +550,16 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Two Degrees Simultaneously - Free of Cost</div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
+                            Two Degrees Simultaneously - Free of Cost
+                          </div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -364,7 +574,16 @@ export default function page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Professional Add-on Courses</div>
+                          <div
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
+                            Professional Add-on Courses
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -372,394 +591,353 @@ export default function page() {
                   <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
                     <div className="courses_wrapper__5pXR3">
                       <div className="courses_container__c_BRe">
-                        <h2 className="courses_heading__nCyjm">Courses</h2>
+                        <h4
+                          style={{
+                            fontSize: "24px",
+                            margin: "20px 0",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                            fontWeight: "700",
+                          }}
+                        >
+                          Courses
+                        </h4>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}Amity University Online
+                          Explore online learning courses in Amity University
+                          Online
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
                             <tr className="courses_course_head__M4Cun">
-                              <th>Courses</th>
-                              <th style={{ textAlign: "center" }}>Fee Range</th>
-                              <th style={{ textAlign: "center" }}>
-                                Fee Structure
+                              <th
+                                style={{
+                                  fontSize: "16px",
+                                  fontFamily:
+                                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                  fontStyle: "normal",
+                                }}
+                              >
+                                Courses
+                              </th>
+                              <th
+                                style={{
+                                  fontSize: "16px",
+                                  textAlign: "center",
+                                  fontFamily:
+                                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                  fontStyle: "normal",
+                                }}
+                              >
+                                Fee Range
                               </th>
                               <th />
                             </tr>
                           </thead>
                           <tbody>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online BCom</td>
+                              <td
+                                style={{
+                                  fontSize: "16px",
+                                  fontFamily:
+                                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                  fontStyle: "normal",
+                                }}
+                              >
+                                Online BCom
+                              </td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 150000
+                                ₹ 99000-₹ 250000
                               </td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                150,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online BCom")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 130000
+                                ₹ 130000-₹ 250000
                               </td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                130,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online MA")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.853anei6C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online BBA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 165000-₹ 225000
+                                ₹ 165000-₹ 225000
                               </td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Fee range: ₹
-                                165,000 - ₹ 225,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online BBA")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MCA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 170000-₹ 250000
+                                ₹ 170000-₹ 250000
                               </td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Fee range: ₹
-                                170,000 - ₹ 250,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online MCA")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MBA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 199000-₹ 299000
+                                ₹ 199000-₹ 299000
                               </td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>
-                                  AMITY UNIVERSITY ONLINE - FEE STRUCTURE FOR
-                                  MBA IN JAN-25 BATCH
-                                </strong>
-                                <br />
-                                <strong>One-time Payment:</strong> ₹ 1,89,050
-                                <br />
-                                <strong>Yearly Payment:</strong> Total ₹
-                                1,93,030
-                                <br />
-                                - 1st Year: ₹ 96,515
-                                <br />
-                                - 2nd Year: ₹ 96,515
-                                <br />
-                                <strong>Semester-wise Payment:</strong> Total ₹
-                                1,99,000
-                                <br />
-                                - Semester 1: ₹ 49,750
-                                <br />
-                                - Semester 2: ₹ 49,750
-                                <br />
-                                - Semester 3: ₹ 49,750
-                                <br />
-                                - Semester 4: ₹ 49,750
-                                <br />
-                                <strong>Note:</strong> Loan options available
-                                with no-cost EMI.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online MBA")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr className="courses_tbody__ZPCxV">
+                              <td>Online MBA with Dual Specialisation</td>
+                              <td style={{ textAlign: "center" }}>₹ 299000</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization(
+                                      "Online MBA with Dual Specialisation"
+                                    )
+                                  }
+                                >
+                                  View Specialization
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online BA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 99000-₹ 170000
+                                ₹ 99000-₹ 170000
                               </td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Fee range: ₹
-                                99,000 - ₹ 170,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online BA")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MAJMC</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 170000
-                              </td>
+                              <td style={{ textAlign: "center" }}>₹ 170000</td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                170,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online MAJMC")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MCom</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 120000
-                              </td>
+                              <td style={{ textAlign: "center" }}>₹ 120000</td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                120,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online MCom")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online BCA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 225000
+                                ₹ 150000-₹ 225000
                               </td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                225,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online BCA")
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr className="courses_tbody__ZPCxV">
+                              <td>Online MSc</td>
+                              <td style={{ textAlign: "center" }}>₹ 250000</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization("Online MSc")
+                                  }
+                                >
+                                  View Specialization
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online Certificate Programme</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 118000
+                                ₹ 17000-₹ 75000
                               </td>
                               <td
-                                style={{ textAlign: "left", padding: "10px" }}
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
                               >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                118,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={() => setIsCourseModalOpen(true)}
+                                >
+                                  Enquire Now
+                                </button>
+                                <button
+                                  className="courses_viewSpsl__lrjH5"
+                                  onClick={() =>
+                                    handleViewSpecialization(
+                                      "Online Certificate Programme"
+                                    )
+                                  }
+                                >
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                           </tbody>
@@ -772,9 +950,18 @@ export default function page() {
                     id="Course Eligibility"
                   >
                     <div className="courseEligibility_wrapper__WDP1x">
-                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                      <h4
+                        style={{
+                          fontSize: "24px",
+                          margin: "20px 0",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                          fontWeight: "700",
+                        }}
+                      >
                         Courses Eligibility
-                      </h2>
+                      </h4>
                       <table className="courseEligibility_eligible_table__ZvMdh">
                         <thead>
                           <tr className="courseEligibility_eligible_head__GsY_a">
@@ -847,7 +1034,16 @@ export default function page() {
                     id="Enquire Now"
                   >
                     <div className="collegenquiry_collegeform__wTRAT">
-                      <h2 className="collegenquiry_form_heading__GszFG">
+                      <h2
+                        style={{
+                          fontSize: "24px",
+                          margin: "20px 0",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                          fontWeight: "700",
+                        }}
+                      >
                         Get Free Career Consultation
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
@@ -856,22 +1052,22 @@ export default function page() {
                             type="text"
                             placeholder="Name*"
                             name="name"
-                            defaultValue
+                            defaultValue=""
                           />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
+                            defaultValue=""
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
+                            defaultValue=""
                           />
                           <select name="program">
-                            <option value selected>
+                            <option value="" selected>
                               Choose a Program*
                             </option>
                             <option value="Online MBA">Online MBA</option>
@@ -897,7 +1093,7 @@ export default function page() {
                             </option>
                           </select>
                           <select name="state">
-                            <option value selected>
+                            <option value="" selected>
                               State/Province
                             </option>
                             <option value="Arunachal Pradesh">
@@ -953,65 +1149,67 @@ export default function page() {
                       <div className="Certificates_container__X9Jsj">
                         <div className="Certificates_detail_img_container__jHvTy">
                           <div>
-                            <h2 className="Certificates_heading__Jr9Js">
+                            <h2
+                              style={{
+                                fontSize: "24px",
+                                margin: "20px 0",
+                                fontFamily:
+                                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                fontStyle: "normal",
+                                fontWeight: "700",
+                              }}
+                            >
                               Sample Certificate
                             </h2>
-                            <div className="Certificates_subHeading__CKwq6">
+                            <div
+                              className="Certificates_subHeading__CKwq6"
+                              style={{
+                                fontSize: "16px",
+                                fontFamily:
+                                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                fontStyle: "normal",
+                              }}
+                            >
                               Earn an UGC entitled degree, recognized around the
                               globe
                             </div>
                             <div>
                               <div className="Certificates_pointBox__xwwq4">
-                                {/* <img
-                          alt="check-image"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style="color: transparent"
-                         
-                          src="assets/img/colleges/card.png"
-                        /> */}
-                                <div className="Certificates_point__XYWLq">
+                                <div
+                                  className="Certificates_point__XYWLq"
+                                  style={{
+                                    fontSize: "16px",
+                                    fontFamily:
+                                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                    fontStyle: "normal",
+                                  }}
+                                >
                                   Recognized and accredited degree
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
-                                {/* <img
-                          alt="check-image"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style="color: transparent"
-                          srcset="
-                            image?url=%2Fimages%2Fcheck.png&amp;w=32&amp;q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&amp;w=48&amp;q=75 2x
-                          "
-                          src="image?url=%2Fimages%2Fcheck.png&amp;w=48&amp;q=75"
-                        /> */}
-                                <div className="Certificates_point__XYWLq">
+                                <div
+                                  className="Certificates_point__XYWLq"
+                                  style={{
+                                    fontSize: "16px",
+                                    fontFamily:
+                                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                    fontStyle: "normal",
+                                  }}
+                                >
                                   NAAC and AICTE-approved degree
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
-                                {/* <img
-                          alt="check-image"
-                          loading="lazy"
-                          width="20"
-                          height="20"
-                          decoding="async"
-                          data-nimg="1"
-                          style="color: transparent"
-                          srcset="
-                            image?url=%2Fimages%2Fcheck.png&amp;w=32&amp;q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&amp;w=48&amp;q=75 2x
-                          "
-                          src="image?url=%2Fimages%2Fcheck.png&amp;w=48&amp;q=75"
-                        /> */}
-                                <div className="Certificates_point__XYWLq">
+                                <div
+                                  className="Certificates_point__XYWLq"
+                                  style={{
+                                    fontSize: "16px",
+                                    fontFamily:
+                                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                    fontStyle: "normal",
+                                  }}
+                                >
                                   Degree recognized in both private and public
                                   sector
                                 </div>
@@ -1040,66 +1238,115 @@ export default function page() {
                     id="Admission"
                   >
                     <div className="Admissions_container__lpKQv">
-                      <h2 className="Admissions_heading__paqsP">
+                      <h2
+                        style={{
+                          fontSize: "24px",
+                          margin: "20px 0",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                          fontWeight: "700",
+                        }}
+                      >
                         Admission Process
                       </h2>
-                      <p className="Admissions_description__sKdUj">
+                      <p
+                        className="Admissions_description__sKdUj"
+                        style={{
+                          fontSize: "16px",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                        }}
+                      >
                         The admissions process takes place in online mode. Fresh
                         admission starts from the month of January of every
                         year. There are direct admissions, no entrance exam is
-                        conducted for the admission process.The addmission
-                        procedure
-                        {/* */}2025{/* */}
-                        for the online course at
-                        {/* */}Amity University Online{/* */}
-                        is as follow:
+                        conducted for the admission process. The admission
+                        procedure 2025 for the online course at Amity University
+                        Online is as follows:
                       </p>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}1
+                          STEP 1
                         </div>
-                        <div className="Admissions_stepText___L_GT">
+                        <div
+                          className="Admissions_stepText___L_GT"
+                          style={{
+                            fontSize: "16px",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                          }}
+                        >
                           Visit the official website to initiate the application
                           process
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}2
+                          STEP 2
                         </div>
-                        <div className="Admissions_stepText___L_GT">
+                        <div
+                          className="Admissions_stepText___L_GT"
+                          style={{
+                            fontSize: "16px",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                          }}
+                        >
                           Register using essential details such as Name, Email
                           ID, and Contact Details
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}3
+                          STEP 3
                         </div>
-                        <div className="Admissions_stepText___L_GT">
+                        <div
+                          className="Admissions_stepText___L_GT"
+                          style={{
+                            fontSize: "16px",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                          }}
+                        >
                           Receive an email containing the registration number
                           and password
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}4
+                          STEP 4
                         </div>
-                        <div className="Admissions_stepText___L_GT">
+                        <div
+                          className="Admissions_stepText___L_GT"
+                          style={{
+                            fontSize: "16px",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                          }}
+                        >
                           Provide information about education and work
                           experience, followed by an undertaking
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}5
+                          STEP 5
                         </div>
-                        <div className="Admissions_stepText___L_GT">
+                        <div
+                          className="Admissions_stepText___L_GT"
+                          style={{
+                            fontSize: "16px",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                          }}
+                        >
                           Make the payment with the registration amount of INR
                           5,500; additional time is provided for pending
                           payments
@@ -1107,10 +1354,17 @@ export default function page() {
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}6
+                          STEP 6
                         </div>
-                        <div className="Admissions_stepText___L_GT">
+                        <div
+                          className="Admissions_stepText___L_GT"
+                          style={{
+                            fontSize: "16px",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                          }}
+                        >
                           Attach the necessary documents, including 10th and
                           12th mark sheets, degree certificates, UG mark sheet
                           and degree, Aadhar Card or any government ID, and a
@@ -1126,48 +1380,45 @@ export default function page() {
                   >
                     <div className="placement_container__iALXL">
                       <div>
-                        <h2 className="placement_heading__iEHZj">
+                        <h2
+                          style={{
+                            fontSize: "24px",
+                            margin: "20px 0",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                            fontWeight: "700",
+                          }}
+                        >
                           Online Placement Partners
                         </h2>
                         <h3 className="placement_subHeading__1vY2G">
                           Our students have an opportunity of
                         </h3>
                         <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          {/* <img
-                    alt="img"
-                    loading="lazy"
-                    width="20"
-                    height="20"
-                    decoding="async"
-                    data-nimg="1"
-                    style="color: transparent"
-                    srcset="
-                      image?url=%2Fimages%2Fcheck.png&amp;w=32&amp;q=75 1x,
-                      image?url=%2Fimages%2Fcheck.png&amp;w=48&amp;q=75 2x
-                    "
-                    src="image?url=%2Fimages%2Fcheck.png&amp;w=48&amp;q=75"
-                  /> */}
-                          <p>
+                          <p
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
                             Learn employability skills through assessments and
                             tests
                           </p>
                         </div>
                         <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          {/* <img
-                    alt="img"
-                    loading="lazy"
-                    width="20"
-                    height="20"
-                    decoding="async"
-                    data-nimg="1"
-                    style="color: transparent"
-                    srcset="
-                      image?url=%2Fimages%2Fcheck.png&amp;w=32&amp;q=75 1x,
-                      image?url=%2Fimages%2Fcheck.png&amp;w=48&amp;q=75 2x
-                    "
-                    src="image?url=%2Fimages%2Fcheck.png&amp;w=48&amp;q=75"
-                  /> */}
-                          <p>Job that suitably fits the student profile</p>
+                          <p
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
+                            Job that suitably fits the student profile
+                          </p>
                         </div>
                       </div>
                       <div className="placement_placementBanner__ACCRS">
@@ -1175,7 +1426,15 @@ export default function page() {
                           <p className="placementBanner_heading__yGlah">
                             ₹ 18 LPA
                           </p>
-                          <p className="placementBanner_description__O3FqH">
+                          <p
+                            className="placementBanner_description__O3FqH"
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
                             Average Salary
                           </p>
                         </div>
@@ -1203,7 +1462,257 @@ export default function page() {
           </div>
         </div>
       </div>
-
+      {isModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              padding: "20px",
+              borderRadius: "8px",
+              maxWidth: "600px",
+              width: "100%",
+              position: "relative",
+            }}
+          >
+            <button
+              onClick={closeModal}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                background: "none",
+                border: "none",
+                fontSize: "16px",
+                cursor: "pointer",
+              }}
+            >
+              ✕
+            </button>
+            <FirstVisitModal closeModal={closeModal} />
+          </div>
+        </div>
+      )}
+      {isCourseModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="exampleModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close "
+                    onClick={handleClose}
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
+                  ></button>
+                  <h6>Struggling with Career Growth?</h6>
+                  <h6>Get Free Career Consultation</h6>
+                  <form onSubmit={handleSubmit}>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name *"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="text"
+                      name="email"
+                      placeholder="Email *"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Phone *"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Choose a program*</option>
+                      <option value="online_mba">Online MBA</option>
+                      <option value="executive_mba">Executive MBA</option>
+                      <option value="online_mca">Online MCA</option>
+                      <option value="online_msc">Online MSC</option>
+                      <option value="online_mcom">Online MCOM</option>
+                      <option value="online_ma">Online MA</option>
+                      <option value="online_pgdm">Online PGDM</option>
+                      <option value="distance_med">Distance MEd</option>
+                      <option value="pg_diploma">PG Diploma</option>
+                      <option value="online_bba">Online BBA</option>
+                      <option value="online_bca">Online BCA</option>
+                      <option value="online_bsc">Online BSC</option>
+                      <option value="online_bcom">Online BCom</option>
+                      <option value="online_ba">Online BA</option>
+                      <option value="distance_bed">Distance BEd</option>
+                      <option value="it_certifications">
+                        IT Certifications
+                      </option>
+                      <option value="help_me_decide">Help Me Decide</option>
+                    </select>
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">States/Province*</option>
+                      <option value="andhra_pradesh">Andhra Pradesh</option>
+                      <option value="arunachal_pradesh">
+                        Arunachal Pradesh
+                      </option>
+                      <option value="assam">Assam</option>
+                      <option value="bihar">Bihar</option>
+                      <option value="chhattisgarh">Chhattisgarh</option>
+                      <option value="goa">Goa</option>
+                      <option value="gujarat">Gujarat</option>
+                      <option value="haryana">Haryana</option>
+                      <option value="himachal_pradesh">Himachal Pradesh</option>
+                      <option value="jharkhand">Jharkhand</option>
+                      <option value="karnataka">Karnataka</option>
+                      <option value="kerala">Kerala</option>
+                      <option value="madhya_pradesh">Madhya Pradesh</option>
+                      <option value="maharashtra">Maharashtra</option>
+                      <option value="manipur">Manipur</option>
+                      <option value="meghalaya">Meghalaya</option>
+                      <option value="mizoram">Mizoram</option>
+                      <option value="nagaland">Nagaland</option>
+                      <option value="odisha">Odisha</option>
+                      <option value="punjab">Punjab</option>
+                      <option value="rajasthan">Rajasthan</option>
+                      <option value="sikkim">Sikkim</option>
+                      <option value="tamil_nadu">Tamil Nadu</option>
+                      <option value="telangana">Telangana</option>
+                      <option value="tripura">Tripura</option>
+                      <option value="uttar_pradesh">Uttar Pradesh</option>
+                      <option value="uttarakhand">Uttarakhand</option>
+                      <option value="west_bengal">West Bengal</option>
+                      <option value="andaman_and_nicobar_islands">
+                        Andaman and Nicobar Islands
+                      </option>
+                      <option value="chandigarh">Chandigarh</option>
+                      <option value="dadra_and_nagar_haveli_and_daman_and_diu">
+                        Dadra and Nagar Haveli and Daman and Diu
+                      </option>
+                      <option value="lakshadweep">Lakshadweep</option>
+                      <option value="delhi">Delhi</option>
+                      <option value="puducherry">Puducherry</option>
+                    </select>
+                    <div className="td_form_card_bottom td_mb_15 mt-3">
+                      <button
+                        type="submit"
+                        className="td_btn td_style_1 td_radius_10 td_medium w-100"
+                      >
+                        <span className="td_btn_in td_white_color td_accent_bg">
+                          <span>Submit</span>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                  <p className="td_form_card_text td_fs_20 td_medium td_heading_color mb-0 mt-3">
+                    Your personal information is secure with us.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* {isSpecializationModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="specializationModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="specializationModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close position-absolute top-0 end-0 m-3"
+                    onClick={handleCloseSpecializationModal}
+                  ></button>
+                  <h2 className="td_mb_20">
+                    {selectedCourseName} Specializations
+                  </h2>
+                  <table className="table table-bordered">
+                    <thead
+                      style={{ background: "var(--dark-blue)", color: "white" }}
+                    >
+                      <tr>
+                        <th>Specialization Name</th>
+                        <th style={{ textAlign: "center" }}>Fees</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedCourseSpecializations.length > 0 ? (
+                        selectedCourseSpecializations.map((spec, index) => (
+                          <tr key={index}>
+                            <td>{spec.name}</td>
+                            <td style={{ textAlign: "center" }}>
+                              ₹ {spec.fees.toLocaleString()}
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" style={{ textAlign: "center" }}>
+                            No specializations available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )} */}
       <Footer />
     </>
   );

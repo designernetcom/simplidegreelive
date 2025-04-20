@@ -2537,18 +2537,23 @@
   margin-top: 60px;
 }
 .Admissions_heading__paqsP {
-  font-size: 34px;
-  margin-top: 60px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
+   font-size: 30px;
+  margin: 20px 0;                      
+  font-Family:"-__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8";
+ font-style: normal;
+  font-weight:700;
 }
 .Admissions_description__sKdUj {
   margin-top: 10px;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  
   line-height: 150%;
+  
+             
+  font-Family:"-__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8";
+  font-style: normal;
+  font-weight: 500;
 }
 .Admissions_step__4mDzm {
   display: grid;
@@ -2683,8 +2688,11 @@
   padding: 1.5rem;
 }
 .Certificates_heading__Jr9Js {
-  font-size: 34px;
-  margin: 20px 0 10px;
+   font-size: 30px;
+  margin: 20px 0;                      
+  font-Family:"-__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8";
+ font-style: normal;
+  font-weight:700;
 }
 .Certificates_subHeading__CKwq6 {
   font-size: 18px;
@@ -2885,8 +2893,11 @@
   margin: 40px 0;
 }
 .Highlights_heading__QnGK2 {
-  font-size: 34px;
-  margin: 0 0 30px;
+   font-size: 30px;
+  margin: 20px 0;                      
+  font-Family:"-__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8";
+  font-style: normal;
+  font-weight: 700;
 }
 .Highlights_grid__zFaon {
   display: grid;
@@ -2950,13 +2961,20 @@
   margin-bottom: 40px;
 }
 .courseEligibility_eligible_heading__5Qd_3 {
-  font-size: 34px;
+   font-size: 30px;
+  margin: 20px 0;                      
+  font-Family:"-__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8";
+  font-style: normal;
+  font-weight: 700;
 }
 .courseEligibility_eligible_tbody__q_tOM > td {
   border: 1px solid var(--dark-blue);
   padding: 10px;
   font-size: 16px;
   line-height: 150%;
+   font-Family:"-__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8";
+
+  font-weight:500;
 }
 .courseEligibility_eligible_table__ZvMdh {
   border-collapse: collapse;
@@ -3019,6 +3037,9 @@
 }
 .scholarshop_scholarshipDetail__m_Jhr {
   line-height: 150%;
+   font-Family:"-__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8";
+ 
+  font-weight:500;
 }
 @media screen and (max-width: 1024px) {
   .scholarshop_heading__wLasH {

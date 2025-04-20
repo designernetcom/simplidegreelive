@@ -1,4 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import { debounce } from "lodash";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
@@ -9,17 +14,168 @@ import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 
-export default function page() {
+export default function Page() {
+  const [activeSection, setActiveSection] = useState("About");
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    state: "",
+  });
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
+  const [selectedCourseName, setSelectedCourseName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const courseSpecializations = {
+    "Online MBA": [
+      { name: "Finance", fees: 210668 },
+      { name: "Business Analytics", fees: 210668 },
+    ],
+    "Online MSc - Data Science": [{ name: "Data Science", fees: 146668 }],
+    "Online MSc - Mathematics": [{ name: "Mathematics", fees: 100000 }],
+    "Online MCA": [{ name: "Computer Applications", fees: 140000 }],
+    "Online MA - English": [{ name: "English", fees: 100000 }],
+    "Online MA - Economics": [{ name: "Economics", fees: 100000 }],
+    "Online MA - JMC": [
+      { name: "Journalism and Mass Communication", fees: 120000 },
+    ],
+    "Online BBA": [{ name: "Business Administration", fees: 168000 }],
+    "Online BBA (ACCA)": [{ name: "ACCA", fees: 400000 }],
+    "Online BCA": [{ name: "Computer Applications", fees: 170664 }],
+    "Online BA - JMC": [
+      { name: "Journalism and Mass Communication", fees: 166668 },
+    ],
+  };
+
+  // Calculate fee range dynamically
+  const getFeeRange = (courseName) => {
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    if (fees.length === 0) return "N/A";
+    const min = Math.min(...fees);
+    const max = Math.max(...fees);
+    return min === max
+      ? `₹ ${min.toLocaleString()}`
+      : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
+  };
+
+  useEffect(() => {
+    const sections = [
+      "About",
+      "High",
+      "Courses",
+      "Course Eligibility",
+      "Enquire Now",
+      "Certification",
+      "Admission",
+      "Placement",
+      "Review",
+    ];
+
+    const handleScroll = debounce(() => {
+      let currentSection = "About";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      handleScroll.cancel();
+    };
+  }, []);
+
+  const handleClose = () => {
+    setIsCourseModalOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: "",
+      state: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e, isCourseModal = false) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      program: form.program.value,
+      state: form.state.value,
+    };
+
+    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+      alert("Invalid email format");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      console.log("Form submitted:", data);
+      // Example: await fetch("/api/enquire", { method: "POST", body: JSON.stringify(data) });
+      form.reset();
+      setFormData({ name: "", email: "", phone: "", program: "", state: "" });
+      if (isCourseModal) setIsCourseModalOpen(false);
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleViewSpecialization = (courseName) => {
+    setSelectedCourseName(courseName);
+    setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
+    setIsSpecializationModalOpen(true);
+  };
+
+  const handleCloseSpecializationModal = () => {
+    setIsSpecializationModalOpen(false);
+    setSelectedCourseSpecializations([]);
+    setSelectedCourseName("");
+  };
+
   return (
     <>
+      <Head>
+        <title>Chandigarh University Online - Courses & Admissions</title>
+        <meta
+          name="description"
+          content="Explore online learning programs at Chandigarh University Online, including MBA, MSc, MCA, MA, BBA, BCA, and BA with flexible learning and placement support."
+        />
+      </Head>
       <Menu />
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
-          <img
+          <Image
             src="https://store.learningroutes.in/images/colleges/chandigarh-university/hero-image/chandigarhuniversitybanner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
-            alt="hero-image"
+            alt="Chandigarh University Online campus banner"
             width={240}
             height={240}
           />
@@ -28,58 +184,31 @@ export default function page() {
             <h1 className="headCarousal_collegeHeading__KBbuL">
               Chandigarh University Online
             </h1>
-            <p className="headCarousal_location__7rFlL">
-              Mohali{/* */},{/* */}Punjab
-            </p>
+            <p className="headCarousal_location__7rFlL">Mohali, Punjab</p>
             <p className="headCarousal_ranking__1yTOY">
               NIRF Rank: 32 (Overall)
             </p>
             <div className="headCarousal_accreditation__HUqxZ">
-              <img
-                src="https://store.learningroutes.in/images/colleges/chandigarh-university/accreditations/ugc.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/chandigarh-university/accreditations/naac-a+.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/chandigarh-university/accreditations/aiu.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/chandigarh-university/accreditations/acu.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/chandigarh-university/accreditations/iau.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/chandigarh-university/accreditations/nchmct.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
+              {[
+                { src: "ugc.webp", alt: "UGC accreditation" },
+                { src: "naac-a+.webp", alt: "NAAC A+ accreditation" },
+                { src: "aiu.webp", alt: "AIU accreditation" },
+                { src: "acu.webp", alt: "ACU accreditation" },
+                { src: "iau.webp", alt: "IAU accreditation" },
+                { src: "nchmct.webp", alt: "NCHMCT accreditation" },
+              ].map((acc, index) => (
+                <Image
+                  key={index}
+                  src={`https://store.learningroutes.in/images/colleges/chandigarh-university/accreditations/${acc.src}`}
+                  alt={acc.alt}
+                  className="headCarousal_accImg__NoM8M"
+                  width={20}
+                  height={20}
+                />
+              ))}
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href>
+              <a href="/colleges">
                 <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
@@ -92,96 +221,47 @@ export default function page() {
             <div className="college_dataSection__0M4eV">
               <div className="collegeDetails_detailsPage__0qlWI">
                 <div className="collegeDetails_scroller__kwBjm">
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-About"
-                    href="#About"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV">
-                      About
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-High"
-                    href="#High"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Highlights
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Courses"
-                    href="#Courses"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Courses
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Course Eligibility"
-                    href="#Course Eligibility"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Course Eligibility
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Enquire Now"
-                    href="#Enquire Now"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
+                  {[
+                    { id: "About", text: "About" },
+                    { id: "High", text: "Highlights" },
+                    { id: "Courses", text: "Courses" },
+                    { id: "Course Eligibility", text: "Course Eligibility" },
+                    { id: "Enquire Now", text: "Enquire Now" },
+                    { id: "Certification", text: "Certifications" },
+                    { id: "Admission", text: "Admission Procedure" },
+                    { id: "Placement", text: "Placement" },
+                    { id: "Review", text: "Review" },
+                  ].map((item) => (
+                    <a
+                      key={item.id}
+                      className="collegeDetails_scrollerElement__iuUFa"
+                      id={`link-${item.id}`}
+                      href={`#${item.id}`}
+                    >
                       <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 5,
-                        }}
+                        className={`collegeDetails_sectionBox__ZGGBm ${
+                          activeSection === item.id
+                            ? "collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV"
+                            : "collegeDetails_textBlack__LRxI5"
+                        }`}
                       >
-                        <div>Enquire Now</div>
-                        <div className="college_blink__yxq74" />
+                        {item.id === "Enquire Now" ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 5,
+                            }}
+                          >
+                            <div>{item.text}</div>
+                            <div className="college_blink__yxq74" />
+                          </div>
+                        ) : (
+                          item.text
+                        )}
                       </div>
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Certification"
-                    href="#Certification"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Certifications
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Admission"
-                    href="#Admission"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Admission Procedure
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Placement"
-                    href="#Placement"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Placement
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Review"
-                    href="#Review"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Review
-                    </div>
-                  </a>
+                    </a>
+                  ))}
                 </div>
                 <div className="collegeDetails_detailsContainer__6A8oL">
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
@@ -197,8 +277,8 @@ export default function page() {
                         A+ grade by the National Assessment and Accreditation
                         Council (NAAC). To provide quality higher education to a
                         larger chunk of people, the university has established
-                        an Open &amp; Distance Learning and an Online Learning
-                        Arm. Both these institutions offer a diverse range of
+                        an Open & Distance Learning and an Online Learning Arm.
+                        Both these institutions offer a diverse range of
                         programmes paired with flexibility, experiential
                         learning and interdisciplinary orientation. It allows
                         students to explore their interests and pursue their
@@ -214,163 +294,37 @@ export default function page() {
                     <div className="Highlights_container__yqw8t">
                       <h2 className="Highlights_heading__QnGK2">Highlights</h2>
                       <div className="Highlights_grid__zFaon">
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
+                        {[
+                          "UGC-recognized Online Degree Programmes",
+                          "AICTE-approved MBA degree",
+                          "Connect with University E-Knowledge Resource System",
+                          "Regular Live interactive Sessions with Industry Experts",
+                          "Internationally Recognized Programmes",
+                          "Affordable Fee with EMI Option",
+                          "Weekly Case Study Discussions for Each Programme",
+                          "Advanced Learning Management System (LMS)",
+                          "Placement Assistance",
+                          "Flexible Exam Slot Booking System",
+                        ].map((highlight, index) => (
+                          <div
+                            className="Highlights_pointContainer__5_snP"
+                            key={index}
                           >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>UGC-recognized Online Degree Programmes</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>AICTE-approved MBA degree</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            Connect with University E-Knowledge Resource System
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              strokeWidth={0}
+                              viewBox="0 0 16 16"
+                              className="Highlights_pointIcon__m_iYg"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
+                            </svg>
+                            <div>{highlight}</div>
                           </div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            Regular Live interactive Sessions with Industry
-                            Experts
-                          </div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Internationally Recognized Programmes</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Affordable Fee with EMI Option</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            Weekly Case Study Discussions for Each Programme
-                          </div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Advanced Learning Management System (LMS)</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Placement Assistance</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Flexible Exam Slot Booking System</div>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -379,518 +333,114 @@ export default function page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}Chandigarh University Online
+                          Explore online learning courses in Chandigarh
+                          University Online
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
                             <tr className="courses_course_head__M4Cun">
                               <th>Courses</th>
                               <th style={{ textAlign: "center" }}>Fee Range</th>
-                              <th style={{ textAlign: "center" }}>
-                                Fee Structure
-                              </th>
                               <th />
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 210668
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>
-                                  Chandigarh University Fee Structure:
-                                </strong>
-                                <br />
-                                <strong>Per Semester:</strong> ₹ 52,667 (4
-                                semesters, Total: ₹ 2,10,668)
-                                <br />
-                                <strong>Per Year:</strong> ₹ 1,05,334 (2 years,
-                                Total: ₹ 2,10,668)
-                                <br />
-                                <strong>Full Fee:</strong> ₹ 2,10,668
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
+                            {[
+                              {
+                                name: "Online MBA",
+                                link: "https://www.learningroutes.in/courses/online-mba",
+                                feeRange: getFeeRange("Online MBA"),
+                              },
+                              {
+                                name: "Online MSc - Data Science",
+                                link: "https://www.learningroutes.in/courses/online-msc",
+                                feeRange: getFeeRange(
+                                  "Online MSc - Data Science"
+                                ),
+                              },
+                              {
+                                name: "Online MSc - Mathematics",
+                                link: "https://www.learningroutes.in/courses/online-msc",
+                                feeRange: getFeeRange(
+                                  "Online MSc - Mathematics"
+                                ),
+                              },
+                              {
+                                name: "Online MCA",
+                                link: "https://www.learningroutes.in/courses/online-mca",
+                                feeRange: getFeeRange("Online MCA"),
+                              },
+                              {
+                                name: "Online MA - English",
+                                link: "https://www.learningroutes.in/courses/online-ma",
+                                feeRange: getFeeRange("Online MA - English"),
+                              },
+                              {
+                                name: "Online MA - Economics",
+                                link: "https://www.learningroutes.in/courses/online-ma",
+                                feeRange: getFeeRange("Online MA - Economics"),
+                              },
+                              {
+                                name: "Online MA - JMC",
+                                link: "https://www.learningroutes.in/courses/online-ma",
+                                feeRange: getFeeRange("Online MA - JMC"),
+                              },
+                              {
+                                name: "Online BBA",
+                                link: "https://www.learningroutes.in/courses/online-bba",
+                                feeRange: getFeeRange("Online BBA"),
+                              },
+                              {
+                                name: "Online BBA (ACCA)",
+                                link: "https://www.learningroutes.in/courses/online-bba",
+                                feeRange: getFeeRange("Online BBA (ACCA)"),
+                              },
+                              {
+                                name: "Online BCA",
+                                link: "https://www.learningroutes.in/courses/online-bca",
+                                feeRange: getFeeRange("Online BCA"),
+                              },
+                              {
+                                name: "Online BA - JMC",
+                                link: "https://www.learningroutes.in/courses/online-ba",
+                                feeRange: getFeeRange("Online BA - JMC"),
+                              },
+                            ].map((course, index) => (
+                              <tr className="courses_tbody__ZPCxV" key={index}>
+                                <td>
+                                  <a
+                                    className="courses_courseLink__FAoj3"
+                                    href={course.link}
                                   >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>MBA X</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 240000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                240,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                    {course.name}
+                                  </a>
+                                </td>
+                                <td style={{ textAlign: "center" }}>
+                                  {course.feeRange}
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={() => setIsCourseModalOpen(true)}
+                                    aria-label={`Enquire about ${course.name}`}
                                   >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA - Business Analytics</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 200000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                200,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                    Enquire Now
+                                  </button>
+                                  <button
+                                    className="courses_viewSpsl__lrjH5"
+                                    onClick={() =>
+                                      handleViewSpecialization(course.name)
+                                    }
+                                    aria-label={`View specializations for ${course.name}`}
                                   >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MSc - Data Science</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 146668
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                146,668.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MSc - Mathematics</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 100000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                100,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 140000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                140,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA - English</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 100000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                100,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA - Economics</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 100000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                100,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA - JMC</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 120000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                120,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 168000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                168,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA - Business Analytics</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 190000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                190,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA (ACCA)</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 400000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                400,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BCA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 170664
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                170,664.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BA - JMC</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 166668
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                166,668.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -912,126 +462,86 @@ export default function page() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MBA</td>
-                            <td>
-                              Bachelor degree in any discipline from recognized
-                              University/ Institution. Graduates of recognized
-                              professional programs like CA/ ICWA etc. are also
-                              eligible to apply.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>MBA X</td>
-                            <td>
-                              Applicants must have a minimum of 2 years of work
-                              experience in an organization or a CGPA of 6.0 or
-                              above in their undergraduate studies, regardless
-                              of the field of study.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MBA - Business Analytics</td>
-                            <td>
-                              Bachelor degree in any discipline from recognized
-                              University/ Institution. Graduates of recognized
-                              professional programs like CA/ ICWA etc. are also
-                              eligible to apply.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MSc - Data Science</td>
-                            <td>
-                              A candidate must have earned a Bachelor's degree
-                              in B.A./BCA/B.Sc. (Statistics or Mathematics or
-                              Computer Science) /B.E/B.Tech or an equivalent
-                              undergraduate degree in any of the following
-                              subjects from a recognized Board/ University:
-                              Computer Science/ Mathematics/ Statistics
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MSc - Mathematics</td>
-                            <td>
-                              Bachelor's Degree with Mathematics as compulsory
-                              subject from a recognized Board / University.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MCA</td>
-                            <td>
-                              A candidate shall have passed the qualifying
-                              examination of BCA/ B.Sc. (Computer Science)/
-                              B.Sc. (IT) / B.E. (CSE)/ B.Tech.(CSE) / B.E. (IT)
-                              / B.Tech. (IT) or passed any graduation degree
-                              (e.g.: B.E/ B.Tech / B.Sc. / B.Com. / B.A/ B.Voc)
-                              with Mathematics, Business Mathematics,
-                              Programming or Statistics at 10+2 level or at
-                              Graduation level.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MA - English</td>
-                            <td>
-                              Graduation in any discipline or equivalemnt,
-                              preferably with English as a subject OR Bachelor's
-                              of Arts (Hons.) in English.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MA - Economics</td>
-                            <td>
-                              Bachelor's Degree with Economics as one of the
-                              compulsory subject at Graduation level.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MA - JMC</td>
-                            <td>
-                              Bachelor's Degree or its equivalent from a
-                              recognized Board / University.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BBA</td>
-                            <td>
-                              10+2 or its equivalent examination in any stream
-                              conducted by a recognized Board / University /
-                              Council.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BBA - Business Analytics</td>
-                            <td>
-                              10+2 or its equivalent examination in any stream
-                              conducted by a recognized Board / University /
-                              Council.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BBA (ACCA)</td>
-                            <td>
-                              10+2 or an equivalent examination in any stream
-                              conducted by a recognised board, university, or
-                              council.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BCA</td>
-                            <td>
-                              10+2 or its equivalent examination in any stream
-                              conducted by a recognized Board / University /
-                              Council.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BA - JMC</td>
-                            <td>
-                              10+2 or its equivalent examination in any stream
-                              conducted by a recognized Board / University /
-                              Council.
-                            </td>
-                          </tr>
+                          {[
+                            {
+                              course: "Online MBA",
+                              eligibility:
+                                "Bachelor degree in any discipline from recognized University/ Institution. Graduates of recognized professional programs like CA/ ICWA etc. are also eligible to apply.",
+                            },
+                            {
+                              course: "MBA X",
+                              eligibility:
+                                "Applicants must have a minimum of 2 years of work experience in an organization or a CGPA of 6.0 or above in their undergraduate studies, regardless of the field of study.",
+                            },
+                            {
+                              course: "Online MBA - Business Analytics",
+                              eligibility:
+                                "Bachelor degree in any discipline from recognized University/ Institution. Graduates of recognized professional programs like CA/ ICWA etc. are also eligible to apply.",
+                            },
+                            {
+                              course: "Online MSc - Data Science",
+                              eligibility:
+                                "A candidate must have earned a Bachelor's degree in B.A./BCA/B.Sc. (Statistics or Mathematics or Computer Science) /B.E/B.Tech or an equivalent undergraduate degree in any of the following subjects from a recognized Board/ University: Computer Science/ Mathematics/ Statistics",
+                            },
+                            {
+                              course: "Online MSc - Mathematics",
+                              eligibility:
+                                "Bachelor's Degree with Mathematics as compulsory subject from a recognized Board / University.",
+                            },
+                            {
+                              course: "Online MCA",
+                              eligibility:
+                                "A candidate shall have passed the qualifying examination of BCA/ B.Sc. (Computer Science)/ B.Sc. (IT) / B.E. (CSE)/ B.Tech.(CSE) / B.E. (IT) / B.Tech. (IT) or passed any graduation degree (e.g.: B.E/ B.Tech / B.Sc. / B.Com. / B.A/ B.Voc) with Mathematics, Business Mathematics, Programming or Statistics at 10+2 level or at Graduation level.",
+                            },
+                            {
+                              course: "Online MA - English",
+                              eligibility:
+                                "Graduation in any discipline or equivalemnt, preferably with English as a subject OR Bachelor's of Arts (Hons.) in English.",
+                            },
+                            {
+                              course: "Online MA - Economics",
+                              eligibility:
+                                "Bachelor's Degree with Economics as one of the compulsory subject at Graduation level.",
+                            },
+                            {
+                              course: "Online MA - JMC",
+                              eligibility:
+                                "Bachelor's Degree or its equivalent from a recognized Board / University.",
+                            },
+                            {
+                              course: "Online BBA",
+                              eligibility:
+                                "10+2 or its equivalent examination in any stream conducted by a recognized Board / University / Council.",
+                            },
+                            {
+                              course: "Online BBA - Business Analytics",
+                              eligibility:
+                                "10+2 or its equivalent examination in any stream conducted by a recognized Board / University / Council.",
+                            },
+                            {
+                              course: "Online BBA (ACCA)",
+                              eligibility:
+                                "10+2 or an equivalent examination in any stream conducted by a recognised board, university, or council.",
+                            },
+                            {
+                              course: "Online BCA",
+                              eligibility:
+                                "10+2 or its equivalent examination in any stream conducted by a recognized Board / University / Council.",
+                            },
+                            {
+                              course: "Online BA - JMC",
+                              eligibility:
+                                "10+2 or its equivalent examination in any stream conducted by a recognized Board / University / Council.",
+                            },
+                          ].map((item, index) => (
+                            <tr
+                              className="courseEligibility_eligible_tbody__q_tOM"
+                              key={index}
+                            >
+                              <td>{item.course}</td>
+                              <td>{item.eligibility}</td>
+                            </tr>
+                          ))}
                         </tbody>
                       </table>
                     </div>
@@ -1045,95 +555,123 @@ export default function page() {
                         Get Free Career Consultation
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
-                        <form className="collegenquiry_form__uF7mS">
+                        <form
+                          className="collegenquiry_form__uF7mS"
+                          onSubmit={handleFormSubmit}
+                        >
                           <input
                             type="text"
                             placeholder="Name*"
                             name="name"
-                            defaultValue
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
                           />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
                           />
-                          <select name="program">
-                            <option value selected>
-                              Choose a Program*
-                            </option>
+                          <select
+                            name="program"
+                            value={formData.program}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Choose a Program*</option>
                             <option value="Online MBA">Online MBA</option>
-                            <option value="Executive MBA">Executive MBA</option>
+                            <option value="Online MSc - Data Science">
+                              Online MSc - Data Science
+                            </option>
+                            <option value="Online MSc - Mathematics">
+                              Online MSc - Mathematics
+                            </option>
                             <option value="Online MCA">Online MCA</option>
-                            <option value="Online MSC">Online MSC</option>
-                            <option value="Online MCOM">Online MCOM</option>
-                            <option value="Online MA">Online MA</option>
-                            <option value="Online PGDM">Online PGDM</option>
-                            <option value="Distance MEd">Distance MEd</option>
-                            <option value="PG Diploma">PG Diploma</option>
+                            <option value="Online MA - English">
+                              Online MA - English
+                            </option>
+                            <option value="Online MA - Economics">
+                              Online MA - Economics
+                            </option>
+                            <option value="Online MA - JMC">
+                              Online MA - JMC
+                            </option>
                             <option value="Online BBA">Online BBA</option>
+                            <option value="Online BBA (ACCA)">
+                              Online BBA (ACCA)
+                            </option>
                             <option value="Online BCA">Online BCA</option>
-                            <option value="Online BSC">Online BSC</option>
-                            <option value="Online BCom">Online BCom</option>
-                            <option value="Online BA">Online BA</option>
-                            <option value="Distance BEd">Distance BEd</option>
-                            <option value="IT Certifications">
-                              IT Certifications
+                            <option value="Online BA - JMC">
+                              Online BA - JMC
                             </option>
                             <option value="Help Me Decide">
                               Help Me Decide
                             </option>
                           </select>
-                          <select name="state">
-                            <option value selected>
-                              State/Province
-                            </option>
-                            <option value="Arunachal Pradesh">
-                              Arunachal Pradesh
-                            </option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">
-                              Himachal Pradesh
-                            </option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">
-                              Madhya Pradesh
-                            </option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="West Bengal">West Bengal</option>
+                          <select
+                            name="state"
+                            value={formData.state}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">State/Province*</option>
+                            {[
+                              "Arunachal Pradesh",
+                              "Assam",
+                              "Bihar",
+                              "Chhattisgarh",
+                              "Delhi",
+                              "Goa",
+                              "Gujarat",
+                              "Haryana",
+                              "Himachal Pradesh",
+                              "Jharkhand",
+                              "Karnataka",
+                              "Kerala",
+                              "Madhya Pradesh",
+                              "Maharashtra",
+                              "Manipur",
+                              "Meghalaya",
+                              "Mizoram",
+                              "Nagaland",
+                              "Odisha",
+                              "Punjab",
+                              "Rajasthan",
+                              "Sikkim",
+                              "Tamil Nadu",
+                              "Telangana",
+                              "Tripura",
+                              "Uttarakhand",
+                              "Uttar Pradesh",
+                              "West Bengal",
+                              "Andaman and Nicobar Islands",
+                              "Chandigarh",
+                              "Dadra and Nagar Haveli and Daman and Diu",
+                              "Lakshadweep",
+                              "Puducherry",
+                            ].map((state) => (
+                              <option key={state} value={state}>
+                                {state}
+                              </option>
+                            ))}
                           </select>
                           <button
                             type="submit"
                             className="collegenquiry_submit_btn__cjBuo"
+                            disabled={isLoading}
                           >
-                            Submit
+                            {isLoading ? "Submitting..." : "Submit"}
                           </button>
                         </form>
                       </div>
@@ -1155,66 +693,40 @@ export default function page() {
                               globe
                             </div>
                             <div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  Recognized and accredited degree
+                              {[
+                                "Recognized and accredited degree",
+                                "NAAC and NCHMCT-approved degree",
+                                "Degree recognized in both private and public sector",
+                              ].map((point, index) => (
+                                <div
+                                  className="Certificates_pointBox__xwwq4"
+                                  key={index}
+                                >
+                                  <Image
+                                    alt="Check icon"
+                                    loading="lazy"
+                                    width={20}
+                                    height={20}
+                                    decoding="async"
+                                    src="/assets/simpli-images/check.webp"
+                                  />
+                                  <div className="Certificates_point__XYWLq">
+                                    {point}
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  NAAC and NCHMCT-approved degree
-                                </div>
-                              </div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  Degree recognized in both private and public
-                                  sector
-                                </div>
-                              </div>
+                              ))}
                             </div>
                           </div>
                           <div>
-                            {/* <img
-                              alt="certificate_url"
+                            {/* Uncomment and update with correct image path */}
+                            {/* <Image
+                              alt="Chandigarh University Online sample degree certificate"
                               loading="lazy"
                               width={300}
                               height={200}
                               decoding="async"
-                              data-nimg={1}
                               className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
-                             
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fcertification%2Fchandigarh-university-sample-certificate.webp&w=640&q=75"
+                              src="https://store.learningroutes.in/images/colleges/chandigarh-university/certification/chandigarh-university-sample-certificate.webp"
                             /> */}
                           </div>
                         </div>
@@ -1233,82 +745,37 @@ export default function page() {
                         The admissions process takes place in online mode. Fresh
                         admission starts from the month of January of every
                         year. There are direct admissions, no entrance exam is
-                        conducted for the admission process.The addmission
-                        procedure
-                        {/* */}2025{/* */}
-                        for the online course at
-                        {/* */}Chandigarh University Online{/* */}
-                        is as follow:
+                        conducted for the admission process. The admission
+                        procedure 2025 for the online course at Chandigarh
+                        University Online is as follow:
                       </p>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}1
+                      {[
+                        "Visit www.onlinecu.in and click on 'Apply Now/Enquire Now'",
+                        "At the homepage under 'Register Today', fill up the required details and click on 'Register Now' (Full Name, Email ID, Mobile No, Programme, Date of Birth)",
+                        "Login to fill up the application using the User ID and Password sent through SMS and Email",
+                        "Click on the 'Application Form', fill it with your details, and pay the Program Fee",
+                        "Click on 'Document Upload' and upload all necessary documents and a recent passport-size photograph, then click on 'Submit'",
+                        "For any query, email admissions@onlinecu.in or call at 1800121388800",
+                      ].map((step, index) => (
+                        <div className="Admissions_step__4mDzm" key={index}>
+                          <div className="Admissions_stepCount__f9yhl">
+                            STEP {index + 1}
+                          </div>
+                          <div className="Admissions_stepText___L_GT">
+                            {index === 5 ? (
+                              <>
+                                For any query, email{" "}
+                                <a href="mailto:admissions@onlinecu.in">
+                                  admissions@onlinecu.in
+                                </a>{" "}
+                                or call at 1800121388800
+                              </>
+                            ) : (
+                              step
+                            )}
+                          </div>
                         </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Visit www.onlinecu.in and click on 'Apply Now/Enquire
-                          Now'
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}2
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          At the homepage under 'Register Today', fill up the
-                          required details and click on 'Register Now' (Full
-                          Name, Email ID, Mobile No, Programme, Date of Birth)
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}3
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Login to fill up the application using the User ID and
-                          Password sent through SMS and Email
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}4
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Click on the 'Application Form', fill it with your
-                          details, and pay the Program Fee
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}5
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Click on 'Document Upload' and upload all necessary
-                          documents and a recent passport-size photograph, then
-                          click on 'Submit'
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}6
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          For any query, email
-                          <a
-                            href="/cdn-cgi/l/email-protection"
-                            className="__cf_email__"
-                            data-cfemail="7213161f1b01011b1d1c013211071b161d1e5c1b1c"
-                          >
-                            [email&nbsp;protected]
-                          </a>
-                          or call at 1800121388800
-                        </div>
-                      </div>
+                      ))}
                       <div className="Admissions_stepHide__nIt_6" />
                     </div>
                   </div>
@@ -1324,43 +791,25 @@ export default function page() {
                         <h3 className="placement_subHeading__1vY2G">
                           Our students have an opportunity of
                         </h3>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>
-                            Learn employability skills through assessments and
-                            tests
-                          </p>
-                        </div>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>Job that suitably fits the student profile</p>
-                        </div>
+                        {[
+                          "Learn employability skills through assessments and tests",
+                          "Job that suitably fits the student profile",
+                        ].map((point, index) => (
+                          <div
+                            className="placementSubpoint_subHeadingPoints__uE7MR"
+                            key={index}
+                          >
+                            <Image
+                              alt="Check icon"
+                              loading="lazy"
+                              width={20}
+                              height={20}
+                              decoding="async"
+                              src="/assets/simpli-images/check.webp"
+                            />
+                            <p>{point}</p>
+                          </div>
+                        ))}
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
@@ -1386,124 +835,31 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                      {/* <h3 className="placement_heading__iEHZj">
-                        Our Students Work At
-                      </h3>
+                      {/* Uncomment to include placement partners */}
+                      {/* <h3 className="placement_heading__iEHZj">Our Students Work At</h3>
                       <div className="partners_container___c9cx">
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fgoogle.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fgoogle.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fgoogle.webp&w=256&q=75"
-                            />
+                        {[
+                          { src: "google.webp", alt: "Google placement partner" },
+                          { src: "microsoft.webp", alt: "Microsoft placement partner" },
+                          { src: "amazon.webp", alt: "Amazon placement partner" },
+                          { src: "dell.webp", alt: "Dell placement partner" },
+                          { src: "cognizant.webp", alt: "Cognizant placement partner" },
+                          { src: "deloitte.webp", alt: "Deloitte placement partner" },
+                        ].map((partner, index) => (
+                          <div key={index}>
+                            <div className="partners_imgBox__yD_6o">
+                              <Image
+                                alt={partner.alt}
+                                fetchPriority="high"
+                                width={122}
+                                height={95}
+                                decoding="async"
+                                className="partners_plac_img__htNsk"
+                                src={`https://store.learningroutes.in/images/colleges/chandigarh-university/placement-partners/${partner.src}`}
+                              />
+                            </div>
                           </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fmicrosoft.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fmicrosoft.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Famazon.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Famazon.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Famazon.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fdell.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fdell.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fdell.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fcognizant.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fcognizant.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fcognizant.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="partners_imgBox__yD_6o">
-                            <img
-                              alt="placement-logo"
-                              fetchPriority="high"
-                              width={122}
-                              height={95}
-                              decoding="async"
-                              data-nimg={1}
-                              className="partners_plac_img__htNsk"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fdeloitte.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fdeloitte.webp&w=256&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchandigarh-university%2Fplacement-partners%2Fdeloitte.webp&w=256&q=75"
-                            />
-                          </div>
-                        </div>
+                        ))}
                       </div> */}
                     </div>
                   </div>
@@ -1513,8 +869,7 @@ export default function page() {
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        Chandigarh University Online{/* */}
-                        Review
+                        Chandigarh University Online Review
                       </h2>
                       <div>
                         <form>
@@ -1524,71 +879,21 @@ export default function page() {
                                 0 out of 5
                               </p>
                               <div>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
+                                {Array(5)
+                                  .fill()
+                                  .map((_, index) => (
+                                    <span className="star" key={index}>
+                                      <Image
+                                        alt="Rating star"
+                                        loading="lazy"
+                                        width={400}
+                                        height={400}
+                                        decoding="async"
+                                        className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
+                                        src="/assets/simpli-images/Star-Two.webp"
+                                      />
+                                    </span>
+                                  ))}
                               </div>
                             </div>
                             <div className="CollegeReview_rating_form_container__q_Xvp">
@@ -1604,7 +909,6 @@ export default function page() {
                                 className="CollegeReview_college_page_details_review_form_input__niDf2"
                                 name="comment"
                                 required
-                                defaultValue={""}
                               />
                               <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
                                 Send message
@@ -1621,7 +925,219 @@ export default function page() {
           </div>
         </div>
       </div>
-
+      {isCourseModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="exampleModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close "
+                    onClick={handleClose}
+                    aria-label="Close course enquiry modal"
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
+                  ></button>
+                  <h6>Struggling with Career Growth?</h6>
+                  <h6 className="td_mb_20">Get Free Career Consultation</h6>
+                  <form onSubmit={(e) => handleFormSubmit(e, true)}>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name *"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email *"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone *"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Choose a program*</option>
+                      <option value="Online MBA">Online MBA</option>
+                      <option value="Online MSc - Data Science">
+                        Online MSc - Data Science
+                      </option>
+                      <option value="Online MSc - Mathematics">
+                        Online MSc - Mathematics
+                      </option>
+                      <option value="Online MCA">Online MCA</option>
+                      <option value="Online MA - English">
+                        Online MA - English
+                      </option>
+                      <option value="Online MA - Economics">
+                        Online MA - Economics
+                      </option>
+                      <option value="Online MA - JMC">Online MA - JMC</option>
+                      <option value="Online BBA">Online BBA</option>
+                      <option value="Online BBA (ACCA)">
+                        Online BBA (ACCA)
+                      </option>
+                      <option value="Online BCA">Online BCA</option>
+                      <option value="Online BA - JMC">Online BA - JMC</option>
+                      <option value="Help Me Decide">Help Me Decide</option>
+                    </select>
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">States/Province*</option>
+                      {[
+                        "Arunachal Pradesh",
+                        "Assam",
+                        "Bihar",
+                        "Chhattisgarh",
+                        "Delhi",
+                        "Goa",
+                        "Gujarat",
+                        "Haryana",
+                        "Himachal Pradesh",
+                        "Jharkhand",
+                        "Karnataka",
+                        "Kerala",
+                        "Madhya Pradesh",
+                        "Maharashtra",
+                        "Manipur",
+                        "Meghalaya",
+                        "Mizoram",
+                        "Nagaland",
+                        "Odisha",
+                        "Punjab",
+                        "Rajasthan",
+                        "Sikkim",
+                        "Tamil Nadu",
+                        "Telangana",
+                        "Tripura",
+                        "Uttarakhand",
+                        "Uttar Pradesh",
+                        "West Bengal",
+                        "Andaman and Nicobar Islands",
+                        "Chandigarh",
+                        "Dadra and Nagar Haveli and Daman and Diu",
+                        "Lakshadweep",
+                        "Puducherry",
+                      ].map((state) => (
+                        <option key={state} value={state}>
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="td_form_card_bottom td_mb_15 mt-3">
+                      <button
+                        type="submit"
+                        className="td_btn td_style_1 td_radius_10 td_medium w-100"
+                        disabled={isLoading}
+                      >
+                        <span className="td_btn_in td_white_color td_accent_bg">
+                          <span>{isLoading ? "Submitting..." : "Submit"}</span>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                  <p className="td_form_card_text td_fs_20 td_medium td_heading_color mb-0 mt-3">
+                    Your personal information is secure with us.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* {isSpecializationModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="specializationModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="specializationModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close position-absolute top-0 end-0 m-3"
+                    onClick={handleCloseSpecializationModal}
+                    aria-label="Close specialization modal"
+                  ></button>
+                  <h2 className="td_mb_20">
+                    {selectedCourseName} Specializations
+                  </h2>
+                  <table className="table table-bordered">
+                    <thead
+                      style={{ background: "var(--dark-blue)", color: "white" }}
+                    >
+                      <tr>
+                        <th>Specialization Name</th>
+                        <th style={{ textAlign: "center" }}>Fees</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedCourseSpecializations.length > 0 ? (
+                        selectedCourseSpecializations.map((spec, index) => (
+                          <tr key={index}>
+                            <td>{spec.name}</td>
+                            <td style={{ textAlign: "center" }}>
+                              ₹ {spec.fees.toLocaleString()}
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" style={{ textAlign: "center" }}>
+                            No specializations available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )} */}
       <Footer />
     </>
   );

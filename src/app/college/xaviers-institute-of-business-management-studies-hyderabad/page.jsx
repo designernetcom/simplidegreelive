@@ -1,4 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import { debounce } from "lodash";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
@@ -9,15 +14,214 @@ import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 
-export default function page() {
+export default function Page() {
+  const [activeSection, setActiveSection] = useState("About");
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    state: "",
+  });
+  const [reviewData, setReviewData] = useState({
+    reviewerName: "",
+    comment: "",
+  });
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
+  const [selectedCourseName, setSelectedCourseName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const courseSpecializations = {
+    "Online GMS": [{ name: "General Management Studies", fees: 40900 }],
+    "Online MBA": [
+      { name: "Finance", fees: 60900 },
+      { name: "Marketing", fees: 60900 },
+      { name: "Human Resource Management", fees: 60900 },
+    ],
+    "Online MMS": [{ name: "Management Studies", fees: 50900 }],
+    "Online MIB": [{ name: "International Business", fees: 45900 }],
+    "Online MHRM": [{ name: "Human Resource Management", fees: 45900 }],
+    "Online CFM": [{ name: "Financial Management", fees: 35900 }],
+    "Online PGDBM": [{ name: "Business Management", fees: 33900 }],
+    "Online CCA": [{ name: "Certified Corporate Accountant", fees: 25900 }],
+    "Online DMS": [{ name: "Doctorate in Management Studies", fees: 85900 }],
+    "Online PTC": [{ name: "Production Technology Certificate", fees: 30900 }],
+    "Online PPM": [{ name: "Production Planning Management", fees: 30900 }],
+    "Online PMM": [{ name: "Purchase Management", fees: 30900 }],
+    "Online PFM": [{ name: "Production Financial Management", fees: 30900 }],
+    "Online PHRM": [
+      { name: "Production Human Resource Management", fees: 30900 },
+    ],
+    "Online PBI": [{ name: "Production Business Intelligence", fees: 30900 }],
+    "Online Diploma (DBM)": [
+      { name: "Diploma in Business Management", fees: 9900 },
+    ],
+    "Online Advance Diploma Programme": [
+      { name: "Advanced Business Management", fees: 14900 },
+    ],
+    "Online Advance Certificate": [
+      { name: "Advanced Management Certificate", fees: 7900 },
+    ],
+    "Online BCom": [{ name: "Commerce", fees: 25000 }],
+    "Online BBA": [{ name: "Business Administration", fees: 30000 }],
+    "Online BCA": [{ name: "Computer Applications", fees: 30000 }],
+    "Online BA": [{ name: "Arts", fees: 20000 }],
+    "Online MCA": [{ name: "Computer Applications", fees: 40000 }],
+    "Online MA": [{ name: "Arts", fees: 25000 }],
+  };
+
+  const getFeeRange = (courseName) => {
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    if (fees.length === 0) return "N/A";
+    const min = Math.min(...fees);
+    const max = Math.max(...fees);
+    return min === max
+      ? `₹ ${min.toLocaleString()}`
+      : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
+  };
+
+  useEffect(() => {
+    const sections = [
+      "About",
+      "High",
+      "Courses",
+      "Course Eligibility",
+      "Enquire Now",
+      "Scholarships",
+      "Certification",
+      "EMI Details",
+      "Admission",
+      "Exam",
+      "Placement",
+      "FAQ's",
+      "Review",
+    ];
+
+    const handleScroll = debounce(() => {
+      let currentSection = "About";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      handleScroll.cancel();
+    };
+  }, []);
+
+  const handleClose = () => {
+    setIsCourseModalOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: "",
+      state: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleReviewChange = (e) => {
+    const { name, value } = e.target;
+    setReviewData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e, isCourseModal = false) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      program: form.program.value,
+      state: form.state.value,
+    };
+
+    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+      alert("Invalid email format");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      console.log("Form submitted:", data);
+      form.reset();
+      setFormData({ name: "", email: "", phone: "", program: "", state: "" });
+      if (isCourseModal) setIsCourseModalOpen(false);
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleReviewSubmit = async (e) => {
+    e.preventDefault();
+    if (!reviewData.reviewerName || reviewData.comment.length < 10) {
+      alert("Please provide a name and a review with at least 10 characters.");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      console.log("Review submitted:", reviewData);
+      setReviewData({ reviewerName: "", comment: "" });
+    } catch (error) {
+      alert("Error submitting review");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleViewSpecialization = (courseName) => {
+    setSelectedCourseName(courseName);
+    setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
+    setIsSpecializationModalOpen(true);
+  };
+
+  const handleCloseSpecializationModal = () => {
+    setIsSpecializationModalOpen(false);
+    setSelectedCourseSpecializations([]);
+    setSelectedCourseName("");
+  };
+
   return (
     <>
+      <Head>
+        <title>XIBMS Hyderabad - Online Business Management Courses</title>
+        <meta
+          name="description"
+          content="Explore ISTE, NHRD, DLCI, and ISO-approved online programs like MBA, BBA, and PGDBM at Xaviers Institute of Business Management Studies, Hyderabad. Flexible distance learning for working professionals."
+        />
+      </Head>
       <Menu />
       <div>
         <a
           className="float"
           target="_blank"
-          href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
+          href="https://api.whatsapp.com/send?phone=918806099993&text=I'm%20looking%20for"
+          rel="noopener noreferrer"
+          aria-label="Contact via WhatsApp"
         >
           <svg
             stroke="currentColor"
@@ -33,11 +237,12 @@ export default function page() {
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
           </svg>
         </a>
-        {/*$*/}
         <div>
           <button
             className="enquirynow_enquirynow_btn__mRuEZ"
             style={{ transformOrigin: "bottom right" }}
+            onClick={() => setIsCourseModalOpen(true)}
+            aria-label="Enquire Now"
           >
             <svg
               stroke="currentColor"
@@ -53,59 +258,62 @@ export default function page() {
             Enquire Now
           </button>
         </div>
-        {/*/$*/}
         <div>
           <div className="headCarousal_collegeCarousal__4a5Bq">
-            <img
+            <Image
               src="https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/hero-image/banner.webp"
               fetchPriority="high"
               className="headCarousal_clg_banner__CXazi"
-              alt="hero-image"
+              alt="XIBMS campus banner"
               width={240}
               height={240}
             />
             <div className="headCarousal_gradientOverlayStyle__DEkSg" />
             <div className="headCarousal_collegeHeadingContainer__E4uDz">
               <h1 className="headCarousal_collegeHeading__KBbuL">
-                Xaviers Institute of Business Management Studies, Hyderabad
+                Xaviers Institute of Business Management Studies
               </h1>
               <p className="headCarousal_location__7rFlL">
-                Hyderabad{/* */},{/* */}Telangana
+                Hyderabad, Telangana
               </p>
-              <p className="headCarousal_ranking__1yTOY">NIRF Rank: ---</p>
+              <p className="headCarousal_ranking__1yTOY">
+                NIRF Rank: Not Ranked
+              </p>
               <div className="headCarousal_accreditation__HUqxZ">
-                <img
-                  src="https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/accreditations/ISTE.webp"
-                  alt="accreditation"
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-                <img
-                  src="https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/accreditations/NHRD.webp"
-                  alt="accreditation"
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-                <img
-                  src="https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/accreditations/DLCI.webp"
-                  alt="accreditation"
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-                <img
-                  src="https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/accreditations/ISO.webp"
-                  alt="accreditation"
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
+                {[
+                  {
+                    src: "https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/accreditations/ISTE.webp",
+                    alt: "ISTE accreditation",
+                  },
+                  {
+                    src: "https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/accreditations/NHRD.webp",
+                    alt: "NHRD accreditation",
+                  },
+                  {
+                    src: "https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/accreditations/DLCI.webp",
+                    alt: "DLCI accreditation",
+                  },
+                  {
+                    src: "https://store.learningroutes.in/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/accreditations/ISO.webp",
+                    alt: "ISO accreditation",
+                  },
+                ].map((acc, index) => (
+                  <Image
+                    key={index}
+                    src={acc.src}
+                    alt={acc.alt}
+                    className="headCarousal_accImg__NoM8M"
+                    width={20}
+                    height={20}
+                  />
+                ))}
               </div>
               <div className="headCarousal_proceedCompareContainer__rekWb">
-                <a href="colleges.html">
-                  <button className="headCarousal_collegeCompare__znhHH">
+                <a href="/colleges">
+                  <button
+                    className="headCarousal_collegeCompare__znhHH"
+                    aria-label="Add to compare"
+                  >
                     Add To Compare
                   </button>
                 </a>
@@ -117,119 +325,69 @@ export default function page() {
               <div className="college_dataSection__0M4eV">
                 <div className="collegeDetails_detailsPage__0qlWI">
                   <div className="collegeDetails_scroller__kwBjm">
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-About"
-                      href="#About"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV">
-                        About
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-High"
-                      href="#High"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Highlights
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Courses"
-                      href="#Courses"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Courses
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Course Eligibility"
-                      href="#Course Eligibility"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Course Eligibility
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Enquire Now"
-                      href="#Enquire Now"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
+                    {[
+                      { id: "About", text: "About" },
+                      { id: "High", text: "Highlights" },
+                      { id: "Courses", text: "Courses" },
+                      { id: "Course Eligibility", text: "Course Eligibility" },
+                      { id: "Enquire Now", text: "Enquire Now" },
+                      { id: "Scholarships", text: "Scholarships" },
+                      { id: "Certification", text: "Certifications" },
+                      { id: "EMI Details", text: "EMI Details" },
+                      { id: "Admission", text: "Admission Procedure" },
+                      { id: "Exam", text: "Examination Pattern" },
+                      { id: "Placement", text: "Placement" },
+                      { id: "FAQ's", text: "FAQ's" },
+                      { id: "Review", text: "Review" },
+                    ].map((item) => (
+                      <a
+                        key={item.id}
+                        className="collegeDetails_scrollerElement__iuUFa"
+                        id={`link-${item.id}`}
+                        href={`#${item.id}`}
+                      >
                         <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 5,
-                          }}
+                          className={`collegeDetails_sectionBox__ZGGBm ${
+                            activeSection === item.id
+                              ? "collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV"
+                              : "collegeDetails_textBlack__LRxI5"
+                          }`}
                         >
-                          <div>Enquire Now</div>
-                          <div className="college_blink__yxq74" />
+                          {item.id === "Enquire Now" ? (
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 5,
+                              }}
+                            >
+                              <div>{item.text}</div>
+                              <div className="college_blink__yxq74" />
+                            </div>
+                          ) : (
+                            item.text
+                          )}
                         </div>
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Certification"
-                      href="#Certification"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Certifications
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Admission"
-                      href="#Admission"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Admission Procedure
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Placement"
-                      href="#Placement"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Placement
-                      </div>
-                    </a>
-                    <a
-                      className="collegeDetails_scrollerElement__iuUFa"
-                      id="link-Review"
-                      href="#Review"
-                    >
-                      <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                        Review
-                      </div>
-                    </a>
+                      </a>
+                    ))}
                   </div>
                   <div className="collegeDetails_detailsContainer__6A8oL">
                     <div className="collegeDetails_maxWidth__6vBVL" id="About">
                       <div className="about_collegeDetails__67FzM">
                         <h2 className="about_collegeDetailsHeading__AA_dr">
-                          Xaviers Institute of Business Management Studies,
-                          Hyderabad
+                          Xaviers Institute of Business Management Studies
                         </h2>
                         <p className="about_collegeDetailsDescription__7Swyd">
-                          Xaviers Institute of Business Management Studies in
-                          Hyderabad is one of the best institutes that provides
-                          Business and Management programs for working-class
-                          professionals. Through its unique approach to distance
-                          learning it has helped in weaving good managers, and
-                          business professionals in India. They help working
-                          professionals prepare for a competitive world ahead by
-                          engraving leadership and management qualities in them.
-                          They educate professionals who have missed out on
-                          graduate and post-graduate studies and hence have not
-                          been able to achieve the same success in their career
-                          path. Thus, aiming at becoming the best distance
-                          education institute, XIBMS works on the vision for
-                          management education for everyone.
+                          Xaviers Institute of Business Management Studies
+                          (XIBMS) in Hyderabad is a leading institute offering
+                          ISTE, NHRD, DLCI, and ISO-approved online programs for
+                          working professionals. Specializing in business and
+                          management, XIBMS provides flexible distance learning
+                          courses like MBA, BBA, and PGDBM, designed to develop
+                          leadership and management skills. With an
+                          industry-relevant curriculum and year-round
+                          enrollment, XIBMS empowers professionals to advance
+                          their careers through accessible education.
                         </p>
                       </div>
                     </div>
@@ -239,71 +397,33 @@ export default function page() {
                           Highlights
                         </h2>
                         <div className="Highlights_grid__zFaon">
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
+                          {[
+                            "ISTE, NHRD, DLCI, and ISO-approved programs",
+                            "Flexible online learning for working professionals",
+                            "Industry-relevant business and management curriculum",
+                            "Year-round enrollment for accessibility",
+                            "Courses tailored to develop leadership skills",
+                            "Support for career advancement",
+                          ].map((highlight, index) => (
+                            <div
+                              className="Highlights_pointContainer__5_snP"
+                              key={index}
                             >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>
-                              Flexibility redefined for learners through online
-                              learning platform
+                              <svg
+                                stroke="currentColor"
+                                fill="currentColor"
+                                strokeWidth={0}
+                                viewBox="0 0 16 16"
+                                className="Highlights_pointIcon__m_iYg"
+                                height="1em"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M8 3l5 5-5 5-5-5 5-5z" />
+                              </svg>
+                              <div>{highlight}</div>
                             </div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>
-                              Courses designed for Working Professionals
-                            </div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>Industry Relevant Curriculum</div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>Year-round enrollment</div>
-                          </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -315,9 +435,9 @@ export default function page() {
                         <div className="courses_container__c_BRe">
                           <h2 className="courses_heading__nCyjm">Courses</h2>
                           <p className="courses_course_college_name__Reg2z">
-                            Explore online learning courses in
-                            {/* */}Xaviers Institute of Business Management
-                            Studies, Hyderabad
+                            Explore ISTE-approved online learning courses at
+                            Xaviers Institute of Business Management Studies,
+                            Hyderabad
                           </p>
                           <table className="courses_course_table__llAtE">
                             <thead style={{ background: "var(--dark-blue)" }}>
@@ -330,654 +450,63 @@ export default function page() {
                               </tr>
                             </thead>
                             <tbody>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online GMS</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 40900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
+                              {[
+                                "Online GMS",
+                                "Online MBA",
+                                "Online MMS",
+                                "Online MIB",
+                                "Online MHRM",
+                                "Online CFM",
+                                "Online PGDBM",
+                                "Online CCA",
+                                "Online DMS",
+                                "Online PTC",
+                                "Online PPM",
+                                "Online PMM",
+                                "Online PFM",
+                                "Online PHRM",
+                                "Online PBI",
+                                "Online Diploma (DBM)",
+                                "Online Advance Diploma Programme",
+                                "Online Advance Certificate",
+                                "Online BCom",
+                                "Online BBA",
+                                "Online BCA",
+                                "Online BA",
+                                "Online MCA",
+                                "Online MA",
+                              ].map((course, index) => (
+                                <tr
+                                  className="courses_tbody__ZPCxV"
+                                  key={index}
+                                >
+                                  <td>{course}</td>
+                                  <td style={{ textAlign: "center" }}>
+                                    {getFeeRange(course)}
+                                  </td>
+                                  <td
+                                    style={{ textAlign: "center" }}
+                                    className="group_btn"
+                                  >
+                                    <button
+                                      className="courses_enqnow__8Vb3P"
+                                      onClick={() => setIsCourseModalOpen(true)}
+                                      aria-label={`Enquire about ${course}`}
                                     >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MBA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 60900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
+                                      Enquire Now
+                                    </button>
+                                    <button
+                                      className="courses_viewSpsl__lrjH5"
+                                      onClick={() =>
+                                        handleViewSpecialization(course)
+                                      }
+                                      aria-label={`View specializations for ${course}`}
                                     >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MMS</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 50900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MIB</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 45900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MHRM</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 45900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online CFM</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 35900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online PGDBM</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 33900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online CCA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 25900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online DMS</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 85900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online PTC</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 30900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online PPM</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 30900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online PMM</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 30900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online PFM</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 30900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online PHRM</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 30900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online PBI</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 30900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online Diploma (DBM)</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 9900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online Advance Diploma Programme</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 14900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online Advance Certificate</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ 7900
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BCom</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ null
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BBA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ null
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BCA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ null
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online BA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ null
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MCA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ null
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr className="courses_tbody__ZPCxV">
-                                <td>Online MA</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {/* */}₹ null
-                                </td>
-                                <td className="courses_specilaization_modal__MFNNY">
-                                  <div className="courses_viewSpsl__lrjH5">
-                                    View Specialization
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="none"
-                                      strokeWidth={0}
-                                      viewBox="0 0 15 15"
-                                      height="1em"
-                                      width="1em"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                        fill="currentColor"
-                                      />
-                                    </svg>
-                                  </div>
-                                </td>
-                              </tr>
+                                      View Specialization
+                                    </button>
+                                  </td>
+                                </tr>
+                              ))}
                             </tbody>
                           </table>
                         </div>
@@ -989,7 +518,7 @@ export default function page() {
                     >
                       <div className="courseEligibility_wrapper__WDP1x">
                         <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                          Courses Eligibility
+                          Course Eligibility
                         </h2>
                         <table className="courseEligibility_eligible_table__ZvMdh">
                           <thead>
@@ -999,190 +528,136 @@ export default function page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online GMS</td>
-                              <td>
-                                Candidates need to have a 10+2 qualification or
-                                an equivalent
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online MBA</td>
-                              <td>
-                                Candidates must hold a Bachelor's degree from
-                                any recognised Institute/University OR
-                                Candidates must hold a Diploma degree in
-                                Business Management from any recognised
-                                Institute.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online MMS</td>
-                              <td>
-                                Candidates must hold a Bachelor's degree from
-                                any recognised Institute/University or any
-                                graduate can apply
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online MIB</td>
-                              <td>
-                                Candidates must hold a Bachelor's degree from
-                                any recognised Institute/University or any
-                                graduate can apply
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online MHRM</td>
-                              <td>
-                                Candidates must hold a Bachelor's degree from
-                                any recognised Institute/University or any
-                                graduate can apply
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online CFM</td>
-                              <td>
-                                Candidates must hold a Bachelor's degree from
-                                any recognised Institute/University or any
-                                graduate can apply
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online PGDBM</td>
-                              <td>
-                                Candidates must hold a Bachelor's degree from
-                                any recognised Institute/University or any
-                                graduate can apply
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online CCA</td>
-                              <td>
-                                Candidates must hold a Bachelor's degree from
-                                any recognised Institute/University or any
-                                graduate can apply
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online DMS</td>
-                              <td>
-                                Candidates must hold a Post Graduate degree from
-                                any recognised Institute/University and must
-                                have work experience
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online PTC</td>
-                              <td>
-                                Candidates must be a graduate or a diploma
-                                holder Candidates also must have previous work
-                                experience.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online PPM</td>
-                              <td>
-                                Candidates must be a graduate or a diploma
-                                holder Candidates also must have previous work
-                                experience.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online PMM</td>
-                              <td>
-                                Candidates must be a graduate or a diploma
-                                holder Candidates also must have previous work
-                                experience.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online PFM</td>
-                              <td>
-                                Candidates must be a graduate or a diploma
-                                holder Candidates also must have previous work
-                                experience.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online PHRM</td>
-                              <td>
-                                Candidates must be a graduate or a diploma
-                                holder Candidates also must have previous work
-                                experience.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online PBI</td>
-                              <td>
-                                Candidates must be a graduate or a diploma
-                                holder Candidates also must have previous work
-                                experience.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online Diploma (DBM)</td>
-                              <td>
-                                Candidate must have 10th or equivalent
-                                qualification
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online Advance Diploma Programme</td>
-                              <td>
-                                Candidate must have 10th+2 or equivalent
-                                qualification
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online Advance Certificate</td>
-                              <td>
-                                Candidate must have 10th or equivalent
-                                qualification
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online BCom</td>
-                              <td>
-                                Candidate must have 10th+2 or equivalent
-                                qualification
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online BBA</td>
-                              <td>
-                                Candidate must have 10th+2 or equivalent
-                                qualification
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online BCA</td>
-                              <td>
-                                Candidate must have 10th+2 or equivalent
-                                qualification
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online BA</td>
-                              <td>
-                                Candidate must have 10th+2 or equivalent
-                                qualification
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online MCA</td>
-                              <td>
-                                Candidates must be a graduate from a recognized
-                                institution.
-                              </td>
-                            </tr>
-                            <tr className="courseEligibility_eligible_tbody__q_tOM">
-                              <td>Online MA</td>
-                              <td>
-                                Candidates must be a graduate from a recognized
-                                institution.
-                              </td>
-                            </tr>
+                            {[
+                              {
+                                course: "Online GMS",
+                                eligibility:
+                                  "10+2 qualification or equivalent.",
+                              },
+                              {
+                                course: "Online MBA",
+                                eligibility:
+                                  "Bachelor’s degree or Diploma in Business Management from a recognized institute/university.",
+                              },
+                              {
+                                course: "Online MMS",
+                                eligibility:
+                                  "Bachelor’s degree from a recognized institute/university.",
+                              },
+                              {
+                                course: "Online MIB",
+                                eligibility:
+                                  "Bachelor’s degree from a recognized institute/university.",
+                              },
+                              {
+                                course: "Online MHRM",
+                                eligibility:
+                                  "Bachelor’s degree from a recognized institute/university.",
+                              },
+                              {
+                                course: "Online CFM",
+                                eligibility:
+                                  "Bachelor’s degree from a recognized institute/university.",
+                              },
+                              {
+                                course: "Online PGDBM",
+                                eligibility:
+                                  "Bachelor’s degree from a recognized institute/university.",
+                              },
+                              {
+                                course: "Online CCA",
+                                eligibility:
+                                  "Bachelor’s degree from a recognized institute/university.",
+                              },
+                              {
+                                course: "Online DMS",
+                                eligibility:
+                                  "Post Graduate degree from a recognized institute/university with work experience.",
+                              },
+                              {
+                                course: "Online PTC",
+                                eligibility:
+                                  "Graduate or diploma holder with work experience.",
+                              },
+                              {
+                                course: "Online PPM",
+                                eligibility:
+                                  "Graduate or diploma holder with work experience.",
+                              },
+                              {
+                                course: "Online PMM",
+                                eligibility:
+                                  "Graduate or diploma holder with work experience.",
+                              },
+                              {
+                                course: "Online PFM",
+                                eligibility:
+                                  "Graduate or diploma holder with work experience.",
+                              },
+                              {
+                                course: "Online PHRM",
+                                eligibility:
+                                  "Graduate or diploma holder with work experience.",
+                              },
+                              {
+                                course: "Online PBI",
+                                eligibility:
+                                  "Graduate or diploma holder with work experience.",
+                              },
+                              {
+                                course: "Online Diploma (DBM)",
+                                eligibility:
+                                  "10th or equivalent qualification.",
+                              },
+                              {
+                                course: "Online Advance Diploma Programme",
+                                eligibility:
+                                  "10+2 or equivalent qualification.",
+                              },
+                              {
+                                course: "Online Advance Certificate",
+                                eligibility:
+                                  "10th or equivalent qualification.",
+                              },
+                              {
+                                course: "Online BCom",
+                                eligibility:
+                                  "10+2 or equivalent qualification.",
+                              },
+                              {
+                                course: "Online BBA",
+                                eligibility:
+                                  "10+2 or equivalent qualification.",
+                              },
+                              {
+                                course: "Online BCA",
+                                eligibility:
+                                  "10+2 or equivalent qualification.",
+                              },
+                              {
+                                course: "Online BA",
+                                eligibility:
+                                  "10+2 or equivalent qualification.",
+                              },
+                              {
+                                course: "Online MCA",
+                                eligibility:
+                                  "Graduate from a recognized institution.",
+                              },
+                              {
+                                course: "Online MA",
+                                eligibility:
+                                  "Graduate from a recognized institution.",
+                              },
+                            ].map((item, index) => (
+                              <tr
+                                className="courseEligibility_eligible_tbody__q_tOM"
+                                key={index}
+                              >
+                                <td>{item.course}</td>
+                                <td>{item.eligibility}</td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -1196,101 +671,154 @@ export default function page() {
                           Get Free Career Consultation
                         </h2>
                         <div className="collegenquiry_form_div__RSaaQ">
-                          <form className="collegenquiry_form__uF7mS">
+                          <form
+                            className="collegenquiry_form__uF7mS"
+                            onSubmit={handleFormSubmit}
+                          >
                             <input
                               type="text"
                               placeholder="Name*"
                               name="name"
-                              
+                              value={formData.name}
+                              onChange={handleChange}
+                              required
+                              aria-label="Name"
                             />
                             <input
                               type="email"
                               placeholder="Email*"
                               name="email"
-                              
+                              value={formData.email}
+                              onChange={handleChange}
+                              required
+                              aria-label="Email"
                             />
                             <input
                               type="number"
                               placeholder="Phone*"
                               name="phone"
-                              
+                              value={formData.phone}
+                              onChange={handleChange}
+                              required
+                              aria-label="Phone"
                             />
-                            <select name="program">
-                              <option value selected>
-                                Choose a Program*
-                              </option>
-                              <option value="Online MBA">Online MBA</option>
-                              <option value="Executive MBA">
-                                Executive MBA
-                              </option>
-                              <option value="Online MCA">Online MCA</option>
-                              <option value="Online MSC">Online MSC</option>
-                              <option value="Online MCOM">Online MCOM</option>
-                              <option value="Online MA">Online MA</option>
-                              <option value="Online PGDM">Online PGDM</option>
-                              <option value="Distance MEd">Distance MEd</option>
-                              <option value="PG Diploma">PG Diploma</option>
-                              <option value="Online BBA">Online BBA</option>
-                              <option value="Online BCA">Online BCA</option>
-                              <option value="Online BSC">Online BSC</option>
-                              <option value="Online BCom">Online BCom</option>
-                              <option value="Online BA">Online BA</option>
-                              <option value="Distance BEd">Distance BEd</option>
-                              <option value="IT Certifications">
-                                IT Certifications
-                              </option>
-                              <option value="Help Me Decide">
-                                Help Me Decide
-                              </option>
+                            <select
+                              name="program"
+                              value={formData.program}
+                              onChange={handleChange}
+                              required
+                              aria-label="Program"
+                            >
+                              <option value="">Choose a Program*</option>
+                              {[
+                                "Online GMS",
+                                "Online MBA",
+                                "Online MMS",
+                                "Online MIB",
+                                "Online MHRM",
+                                "Online CFM",
+                                "Online PGDBM",
+                                "Online CCA",
+                                "Online DMS",
+                                "Online PTC",
+                                "Online PPM",
+                                "Online PMM",
+                                "Online PFM",
+                                "Online PHRM",
+                                "Online PBI",
+                                "Online Diploma (DBM)",
+                                "Online Advance Diploma Programme",
+                                "Online Advance Certificate",
+                                "Online BCom",
+                                "Online BBA",
+                                "Online BCA",
+                                "Online BA",
+                                "Online MCA",
+                                "Online MA",
+                                "Help Me Decide",
+                              ].map((program) => (
+                                <option key={program} value={program}>
+                                  {program}
+                                </option>
+                              ))}
                             </select>
-                            <select name="state">
-                              <option value selected>
-                                State/Province
-                              </option>
-                              <option value="Arunachal Pradesh">
-                                Arunachal Pradesh
-                              </option>
-                              <option value="Assam">Assam</option>
-                              <option value="Bihar">Bihar</option>
-                              <option value="Chhattisgarh">Chhattisgarh</option>
-                              <option value="Delhi">Delhi</option>
-                              <option value="Goa">Goa</option>
-                              <option value="Gujarat">Gujarat</option>
-                              <option value="Haryana">Haryana</option>
-                              <option value="Himachal Pradesh">
-                                Himachal Pradesh
-                              </option>
-                              <option value="Jharkhand">Jharkhand</option>
-                              <option value="Karnataka">Karnataka</option>
-                              <option value="Kerala">Kerala</option>
-                              <option value="Madhya Pradesh">
-                                Madhya Pradesh
-                              </option>
-                              <option value="Maharashtra">Maharashtra</option>
-                              <option value="Manipur">Manipur</option>
-                              <option value="Meghalaya">Meghalaya</option>
-                              <option value="Mizoram">Mizoram</option>
-                              <option value="Nagaland">Nagaland</option>
-                              <option value="Odisha">Odisha</option>
-                              <option value="Punjab">Punjab</option>
-                              <option value="Rajasthan">Rajasthan</option>
-                              <option value="Sikkim">Sikkim</option>
-                              <option value="Tamil Nadu">Tamil Nadu</option>
-                              <option value="Telangana">Telangana</option>
-                              <option value="Tripura">Tripura</option>
-                              <option value="Uttarakhand">Uttarakhand</option>
-                              <option value="Uttar Pradesh">
-                                Uttar Pradesh
-                              </option>
-                              <option value="West Bengal">West Bengal</option>
+                            <select
+                              name="state"
+                              value={formData.state}
+                              onChange={handleChange}
+                              required
+                              aria-label="State"
+                            >
+                              <option value="">State/Province*</option>
+                              {[
+                                "Andhra Pradesh",
+                                "Arunachal Pradesh",
+                                "Assam",
+                                "Bihar",
+                                "Chhattisgarh",
+                                "Goa",
+                                "Gujarat",
+                                "Haryana",
+                                "Himachal Pradesh",
+                                "Jharkhand",
+                                "Karnataka",
+                                "Kerala",
+                                "Madhya Pradesh",
+                                "Maharashtra",
+                                "Manipur",
+                                "Meghalaya",
+                                "Mizoram",
+                                "Nagaland",
+                                "Odisha",
+                                "Punjab",
+                                "Rajasthan",
+                                "Sikkim",
+                                "Tamil Nadu",
+                                "Telangana",
+                                "Tripura",
+                                "Uttar Pradesh",
+                                "Uttarakhand",
+                                "West Bengal",
+                                "Andaman and Nicobar Islands",
+                                "Chandigarh",
+                                "Dadra and Nagar Haveli and Daman and Diu",
+                                "Lakshadweep",
+                                "Delhi",
+                                "Puducherry",
+                              ].map((state) => (
+                                <option key={state} value={state}>
+                                  {state}
+                                </option>
+                              ))}
                             </select>
                             <button
                               type="submit"
                               className="collegenquiry_submit_btn__cjBuo"
+                              disabled={isLoading}
+                              aria-label="Submit enquiry"
                             >
-                              Submit
+                              {isLoading ? "Submitting..." : "Submit"}
                             </button>
                           </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="collegeDetails_maxWidth__6vBVL"
+                      id="Scholarships"
+                    >
+                      <div className="scholarshop_container__KSXI8">
+                        <h2 className="scholarshop_heading__wLasH">
+                          Scholarships
+                        </h2>
+                        <div>
+                          <p className="scholarshop_scholarshipDetail__m_Jhr">
+                            XIBMS offers scholarships and financial assistance
+                            for eligible candidates, particularly working
+                            professionals and economically disadvantaged
+                            students. Contact the admission office for detailed
+                            criteria and application process.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -1306,105 +834,64 @@ export default function page() {
                                 Sample Certificate
                               </h2>
                               <div className="Certificates_subHeading__CKwq6">
-                                The University has established a credible
-                                educational status
+                                Earn ISTE-approved certifications recognized in
+                                the business sector
                               </div>
                               <div>
-                                <div className="Certificates_pointBox__xwwq4">
-                                  <img
-                                    alt="check-image"
-                                    loading="lazy"
-                                    width={20}
-                                    height={20}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                    src="/assets/simpli-images/check.webp"
-                                  />
-                                  <div className="Certificates_point__XYWLq">
-                                    Case Study-Based Exam Options
+                                {[
+                                  "ISTE, NHRD, DLCI, and ISO-approved certifications",
+                                  "Case study-based learning",
+                                  "Flexible online study options",
+                                  "Over 100 specializations available",
+                                  "Self-explanatory study materials",
+                                ].map((point, index) => (
+                                  <div
+                                    className="Certificates_pointBox__xwwq4"
+                                    key={index}
+                                  >
+                                    <Image
+                                      alt="Check icon"
+                                      loading="lazy"
+                                      width={20}
+                                      height={20}
+                                      decoding="async"
+                                      src="/assets/simpli-images/check.webp"
+                                    />
+                                    <div className="Certificates_point__XYWLq">
+                                      {point}
+                                    </div>
                                   </div>
-                                </div>
-                                <div className="Certificates_pointBox__xwwq4">
-                                  <img
-                                    alt="check-image"
-                                    loading="lazy"
-                                    width={20}
-                                    height={20}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                    src="/assets/simpli-images/check.webp"
-                                  />
-                                  <div className="Certificates_point__XYWLq">
-                                    Flexible Learning
-                                  </div>
-                                </div>
-                                <div className="Certificates_pointBox__xwwq4">
-                                  <img
-                                    alt="check-image"
-                                    loading="lazy"
-                                    width={20}
-                                    height={20}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                    src="/assets/simpli-images/check.webp"
-                                  />
-                                  <div className="Certificates_point__XYWLq">
-                                    100+ Specializations
-                                  </div>
-                                </div>
-                                <div className="Certificates_pointBox__xwwq4">
-                                  <img
-                                    alt="check-image"
-                                    loading="lazy"
-                                    width={20}
-                                    height={20}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                    src="/assets/simpli-images/check.webp"
-                                  />
-                                  <div className="Certificates_point__XYWLq">
-                                    Self-Explanatory Study Material
-                                  </div>
-                                </div>
+                                ))}
                               </div>
                             </div>
                             <div>
-                              {/* <img
-                                alt="certificate_url"
+                              <Image
+                                alt="XIBMS sample certificate"
                                 loading="lazy"
                                 width={300}
                                 height={200}
                                 decoding="async"
-                                data-nimg={1}
                                 className="Certificates_img__GOe9v"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fcertification%2Fno-img.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fcertification%2Fno-img.webp&w=640&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fcertification%2Fno-img.webp&w=640&q=75"
-                              /> */}
+                                src="/assets/course/xibms-certificate.png"
+                              />
                             </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="collegeDetails_maxWidth__6vBVL"
+                      id="EMI Details"
+                    >
+                      <div className="emi_container__k2QbZ">
+                        <h2 className="emi_heading__fOAZV">EMI Details</h2>
+                        <div>
+                          <div className="emi_emiDesc__GhNMM">
+                            <p className="emi_emiDetail__gOPHp">
+                              XIBMS offers flexible EMI options for its online
+                              programs to make education accessible. Contact the
+                              admission office for details on payment plans.
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -1418,61 +905,44 @@ export default function page() {
                           Admission Process
                         </h2>
                         <p className="Admissions_description__sKdUj">
-                          The admissions process takes place in online mode.
-                          Fresh admission starts from the month of January of
-                          every year. There are direct admissions, no entrance
-                          exam is conducted for the admission process.The
-                          addmission procedure
-                          {/* */}2025{/* */}
-                          for the online course at
-                          {/* */}Xaviers Institute of Business Management
-                          Studies, Hyderabad{/* */}
-                          is as follow:
+                          The admission process is conducted online, with fresh
+                          admissions starting in January each year. No entrance
+                          exam is required. The 2025 admission procedure for
+                          online courses at XIBMS is as follows:
                         </p>
-                        <div className="Admissions_step__4mDzm">
-                          <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}1
+                        {[
+                          "Visit the official website (URL to be confirmed).",
+                          "Click 'Apply Now' and fill in all required details.",
+                          "Submit documents: three passport-size photos, self-attested work experience certificate, appointment letter, and Aadhaar card copy.",
+                          "Pay the required fees and await admission confirmation after document verification.",
+                        ].map((step, index) => (
+                          <div className="Admissions_step__4mDzm" key={index}>
+                            <div className="Admissions_stepCount__f9yhl">
+                              STEP {index + 1}
+                            </div>
+                            <div className="Admissions_stepText___L_GT">
+                              {step}
+                            </div>
                           </div>
-                          <div className="Admissions_stepText___L_GT">
-                            Go to the official website of Xaviers Institute of
-                            Business Management Studies, Hyderabad.
-                          </div>
-                        </div>
-                        <div className="Admissions_step__4mDzm">
-                          <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}2
-                          </div>
-                          <div className="Admissions_stepText___L_GT">
-                            Click on Apply Now and fill in all the required
-                            details.
-                          </div>
-                        </div>
-                        <div className="Admissions_step__4mDzm">
-                          <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}3
-                          </div>
-                          <div className="Admissions_stepText___L_GT">
-                            Attach all the required documents, including three
-                            latest passport-size colour photographs,
-                            self-attested photocopies of 'Work Experience
-                            Certificate' and 'Appointment letter' as per course
-                            requirement, and a scan copy of Aadhaar Card.
-                          </div>
-                        </div>
-                        <div className="Admissions_step__4mDzm">
-                          <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}4
-                          </div>
-                          <div className="Admissions_stepText___L_GT">
-                            Pay the required fees and upon verification of all
-                            the documents, wait for the admission confirmation.
-                          </div>
-                        </div>
+                        ))}
                         <div className="Admissions_stepHide__nIt_6" />
+                      </div>
+                    </div>
+                    <div className="collegeDetails_maxWidth__6vBVL" id="Exam">
+                      <div className="Exam_container__muz_Z">
+                        <h2 className="Exam_heading__jCWCC">
+                          Examination Pattern
+                        </h2>
+                        <div>
+                          <div className="Exam_examDesc___HPjs">
+                            <p className="Exam_text__iZpVR">
+                              Examinations at XIBMS are conducted online, with
+                              assessments including case studies, assignments,
+                              and final exams. Detailed schedules and guidelines
+                              are provided via the student portal.
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div
@@ -1485,87 +955,34 @@ export default function page() {
                             Online Placement Partners
                           </h2>
                           <h3 className="placement_subHeading__1vY2G">
-                            The students have an opportunity of
+                            Our students have opportunities to:
                           </h3>
-                          <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            <img
-                              alt="img"
-                              loading="lazy"
-                              width={20}
-                              height={20}
-                              decoding="async"
-                              data-nimg={1}
-                              style={{ color: "transparent" }}
-                              srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                              src="/assets/simpli-images/check.webp"
-                            />
-                            <p>Tie-up with top-tier companies</p>
-                          </div>
-                          <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            <img
-                              alt="img"
-                              loading="lazy"
-                              width={20}
-                              height={20}
-                              decoding="async"
-                              data-nimg={1}
-                              style={{ color: "transparent" }}
-                              srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                              src="/assets/simpli-images/check.webp"
-                            />
-                            <p>
-                              100% placement assistance on the successful
-                              completion
-                            </p>
-                          </div>
-                          <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            <img
-                              alt="img"
-                              loading="lazy"
-                              width={20}
-                              height={20}
-                              decoding="async"
-                              data-nimg={1}
-                              style={{ color: "transparent" }}
-                              srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                              src="/assets/simpli-images/check.webp"
-                            />
-                            <p>
-                              Placements offered by International companies as
-                              well
-                            </p>
-                          </div>
-                          <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                            <img
-                              alt="img"
-                              loading="lazy"
-                              width={20}
-                              height={20}
-                              decoding="async"
-                              data-nimg={1}
-                              style={{ color: "transparent" }}
-                              srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                              src="/assets/simpli-images/check.webp"
-                            />
-                            <p>Career Assistance</p>
-                          </div>
+                          {[
+                            "Secure roles with top-tier companies",
+                            "Receive 100% placement assistance",
+                            "Work with international recruiters",
+                            "Access career development support",
+                          ].map((point, index) => (
+                            <div
+                              className="placementSubpoint_subHeadingPoints__uE7MR"
+                              key={index}
+                            >
+                              <Image
+                                alt="Check icon"
+                                loading="lazy"
+                                width={20}
+                                height={20}
+                                decoding="async"
+                                src="/assets/simpli-images/check.webp"
+                              />
+                              <p>{point}</p>
+                            </div>
+                          ))}
                         </div>
                         <div className="placement_placementBanner__ACCRS">
                           <div className="placementBanner_container__upl7e">
                             <p className="placementBanner_heading__yGlah">
-                              ₹ NaN LPA
+                              ₹ 6 LPA
                             </p>
                             <p className="placementBanner_description__O3FqH">
                               Average Salary
@@ -1573,7 +990,7 @@ export default function page() {
                           </div>
                           <div className="placementBanner_container__upl7e">
                             <p className="placementBanner_heading__yGlah">
-                              ₹ NaN LPA
+                              ₹ 12 LPA
                             </p>
                             <p className="placementBanner_description__O3FqH">
                               Highest Salary
@@ -1590,189 +1007,97 @@ export default function page() {
                           Our Students Work At
                         </h3>
                         <div className="partners_container___c9cx">
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FHDFC.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FHDFC.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FHDFC.webp&w=256&q=75"
-                              />
+                          {[
+                            {
+                              name: "HDFC",
+                              src: "/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/placement-partners/HDFC.webp",
+                            },
+                            {
+                              name: "Accenture",
+                              src: "/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/placement-partners/accenture.webp",
+                            },
+                            {
+                              name: "Air India",
+                              src: "/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/placement-partners/Air India.webp",
+                            },
+                            {
+                              name: "ITC",
+                              src: "/images/colleges/Xavier-Institute-of-Management-Studies-Hyderabad/placement-partners/ITC.webp",
+                            },
+                          ].map((partner, index) => (
+                            <div key={index}>
+                              <div className="partners_imgBox__yD_6o">
+                                <Image
+                                  alt={`${partner.name} placement logo`}
+                                  fetchPriority="high"
+                                  width={122}
+                                  height={95}
+                                  decoding="async"
+                                  className="partners_plac_img__htNsk"
+                                  src={partner.src}
+                                />
+                              </div>
                             </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2Faccenture.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2Faccenture.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2Faccenture.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FAir%20India.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FAir%20India.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FAir%20India.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FITC.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FITC.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FXavier-Institute-of-Management-Studies-Hyderabad%2Fplacement-partners%2FITC.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
+                      <div className="faq_container__qXyX9">
+                        <h2 className="faq_heading__i5z0v">FAQ's</h2>
+                        <div className="faq_faqDesc__c2z0r">
+                          <p className="faq_text__uXj2k">
+                            <strong>
+                              Q: Are XIBMS’s certifications recognized?
+                            </strong>
+                            <br />
+                            A: Yes, all certifications are ISTE, NHRD, DLCI, and
+                            ISO-approved and recognized in the business sector.
+                            <br />
+                            <br />
+                            <strong>Q: What is the examination mode?</strong>
+                            <br />
+                            A: Exams are conducted online, with case studies,
+                            assignments, and final exams.
+                            <br />
+                            <br />
+                            <strong>Q: Are scholarships available?</strong>
+                            <br />
+                            A: Yes, scholarships are offered for eligible
+                            candidates, particularly working professionals.
+                          </p>
                         </div>
                       </div>
                     </div>
                     <div className="collegeDetails_maxWidth__6vBVL" id="Review">
-                      <div
-                        className="CollegeReview_college_page_details_review_container__KbbIU"
-                        id="contact"
-                      >
+                      <div className="CollegeReview_college_page_details_review_container__KbbIU">
                         <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                          Xaviers Institute of Business Management Studies,
-                          Hyderabad{/* */}
+                          Xaviers Institute of Business Management Studies
                           Review
                         </h2>
                         <div>
-                          <form>
+                          <form onSubmit={handleReviewSubmit}>
                             <div className="CollegeReview_college_page_details_review_form_container__rP5km">
                               <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
                                 <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
-                                  0{/* */}
-                                  out of 5
+                                  0 out of 5
                                 </p>
                                 <div>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                      src="/assets/simpli-images/Star-Two.webp"
-                                    />
-                                  </span>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                      src="/assets/simpli-images/Star-Two.webp"
-                                    />
-                                  </span>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                      src="/assets/simpli-images/Star-Two.webp"
-                                    />
-                                  </span>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                      src="/assets/simpli-images/Star-Two.webp"
-                                    />
-                                  </span>
-                                  <span className="star">
-                                    <img
-                                      alt="rating"
-                                      loading="lazy"
-                                      width={400}
-                                      height={400}
-                                      decoding="async"
-                                      data-nimg={1}
-                                      className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                      style={{ color: "transparent" }}
-                                      srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                      src="/assets/simpli-images/Star-Two.webp"
-                                    />
-                                  </span>
+                                  {Array(5)
+                                    .fill()
+                                    .map((_, index) => (
+                                      <span className="star" key={index}>
+                                        <Image
+                                          alt="Star rating"
+                                          loading="lazy"
+                                          width={20}
+                                          height={20}
+                                          decoding="async"
+                                          className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
+                                          src="/assets/simpli-images/Star-Two.webp"
+                                        />
+                                      </span>
+                                    ))}
                                 </div>
                               </div>
                               <div className="CollegeReview_rating_form_container__q_Xvp">
@@ -1782,17 +1107,25 @@ export default function page() {
                                   placeholder="Enter your name"
                                   required
                                   name="reviewerName"
-                                  
+                                  value={reviewData.reviewerName}
+                                  onChange={handleReviewChange}
+                                  aria-label="Reviewer name"
                                 />
                                 <textarea
-                                  placeholder="Write your reviews"
+                                  placeholder="Write your review (minimum 10 characters)"
                                   className="CollegeReview_college_page_details_review_form_input__niDf2"
                                   name="comment"
                                   required
-                                  ={""}
+                                  value={reviewData.comment}
+                                  onChange={handleReviewChange}
+                                  aria-label="Review comment"
                                 />
-                                <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
-                                  Send message
+                                <button
+                                  className="CollegeReview_college_page_details_review_form_btn__xh_Sn"
+                                  disabled={isLoading}
+                                  aria-label="Submit review"
+                                >
+                                  {isLoading ? "Submitting..." : "Send message"}
                                 </button>
                               </div>
                             </div>
@@ -1808,7 +1141,235 @@ export default function page() {
           </div>
         </div>
       </div>
-
+      {isCourseModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="exampleModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close  "
+                    onClick={handleClose}
+                    aria-label="Close course enquiry modal"
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
+                  ></button>
+                  <h6>Struggling with Career Growth?</h6>
+                  <h6>Get Free Career Consultation</h6>
+                  <form onSubmit={(e) => handleFormSubmit(e, true)}>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name *"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      aria-label="Name"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email *"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      aria-label="Email"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone *"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      aria-label="Phone"
+                    />
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleChange}
+                      required
+                      aria-label="Program"
+                    >
+                      <option value="">Choose a program*</option>
+                      {[
+                        "Online GMS",
+                        "Online MBA",
+                        "Online MMS",
+                        "Online MIB",
+                        "Online MHRM",
+                        "Online CFM",
+                        "Online PGDBM",
+                        "Online CCA",
+                        "Online DMS",
+                        "Online PTC",
+                        "Online PPM",
+                        "Online PMM",
+                        "Online PFM",
+                        "Online PHRM",
+                        "Online PBI",
+                        "Online Diploma (DBM)",
+                        "Online Advance Diploma Programme",
+                        "Online Advance Certificate",
+                        "Online BCom",
+                        "Online BBA",
+                        "Online BCA",
+                        "Online BA",
+                        "Online MCA",
+                        "Online MA",
+                        "Help Me Decide",
+                      ].map((program) => (
+                        <option key={program} value={program}>
+                          {program}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      required
+                      aria-label="State"
+                    >
+                      <option value="">States/Province*</option>
+                      {[
+                        "Andhra Pradesh",
+                        "Arunachal Pradesh",
+                        "Assam",
+                        "Bihar",
+                        "Chhattisgarh",
+                        "Goa",
+                        "Gujarat",
+                        "Haryana",
+                        "Himachal Pradesh",
+                        "Jharkhand",
+                        "Karnataka",
+                        "Kerala",
+                        "Madhya Pradesh",
+                        "Maharashtra",
+                        "Manipur",
+                        "Meghalaya",
+                        "Mizoram",
+                        "Nagaland",
+                        "Odisha",
+                        "Punjab",
+                        "Rajasthan",
+                        "Sikkim",
+                        "Tamil Nadu",
+                        "Telangana",
+                        "Tripura",
+                        "Uttar Pradesh",
+                        "Uttarakhand",
+                        "West Bengal",
+                        "Andaman and Nicobar Islands",
+                        "Chandigarh",
+                        "Dadra and Nagar Haveli and Daman and Diu",
+                        "Lakshadweep",
+                        "Delhi",
+                        "Puducherry",
+                      ].map((state) => (
+                        <option key={state} value={state}>
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="td_form_card_bottom td_mb_15 mt-3">
+                      <button
+                        type="submit"
+                        className="td_btn td_style_1 td_radius_10 td_medium w-100"
+                        disabled={isLoading}
+                        aria-label="Submit enquiry"
+                      >
+                        <span className="td_btn_in td_white_color td_accent_bg">
+                          <span>{isLoading ? "Submitting..." : "Submit"}</span>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                  <p className="td_form_card_text td_fs_20 td_medium td_heading_color mb-0 mt-3">
+                    Your personal information is secure with us.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* {isSpecializationModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="specializationModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="specializationModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close position-absolute top-0 end-0 m-3"
+                    onClick={handleCloseSpecializationModal}
+                    aria-label="Close specialization modal"
+                  ></button>
+                  <h2 className="td_mb_20">
+                    {selectedCourseName} Specializations
+                  </h2>
+                  <table className="table table-bordered">
+                    <thead
+                      style={{ background: "var(--dark-blue)", color: "white" }}
+                    >
+                      <tr>
+                        <th>Specialization Name</th>
+                        <th style={{ textAlign: "center" }}>Fees</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedCourseSpecializations.length > 0 ? (
+                        selectedCourseSpecializations.map((spec, index) => (
+                          <tr key={index}>
+                            <td>{spec.name}</td>
+                            <td style={{ textAlign: "center" }}>
+                              ₹ {spec.fees.toLocaleString()}
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" style={{ textAlign: "center" }}>
+                            No specializations available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )} */}
       <Footer />
     </>
   );

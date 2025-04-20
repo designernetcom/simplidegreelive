@@ -1,47 +1,48 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import "./explore.module.css"
 
 const universities = [
   { name: "NMIMS UNIVERSITY", img: "nmis.jpg", link: "/college/nmims-cdoe" },
   {
     name: "AMITY UNIVERSITY",
-    img: "amity.jpg",
+    img: "amity.webp",
     link: "/college/amity-university-online",
   },
   {
     name: "DY PATIL UNIVERSITY",
-    img: "dy-patil.jpg",
+    img: "dypatil.webp",
     link: "/college/dr-dy-patil-vidyapeeth",
   },
   {
     name: "MANIPAL UNIVERSITY",
-    img: "manipal.jpg",
+    img: "manipal.webp",
     link: "/college/online-manipal-jaipur",
   },
   {
     name: "LPU UNIVERSITY",
-    img: "lpu.jpg",
+    img: "lpu.webp",
     link: "/college/lovely-professional-university-odl-lpu",
   },
   {
     name: "JAIN UNIVERSITY",
-    img: "jgi-jain.jpg",
+    img: "jain.webp",
     link: "/college/jain-university-online",
   },
   {
     name: "CHANDIGARH UNI.",
-    img: "chandigarh.jpg",
+    img: "cu.webp",
     link: "/college/symbiosis-centre-for-distance-learning",
   },
   {
     name: "IIM AHMEDABAD",
-    img: "iima.jpg",
+    img: "iima.webp",
     link: "/college/indian-institute-of-management-ahmedabad-iim-ahmedabad",
   },
   {
     name: "UPES UNIVERSITY",
-    img: "upes.jpg",
+    img: "ICFAi.webp",
     link: "/college/university-of-petroleum-and-energy-studies-centre-for-continued-education-upes",
   },
   {
@@ -51,18 +52,18 @@ const universities = [
   },
   {
     name: "CHITKARA UNIVERSITY",
-    img: "chitkara.jpg",
+    img: "chitkara-logo.webp",
     link: "/college/chitkara-university-centre-for-continuing-education",
   },
   {
     name: "IIM RAIPUR UNI.",
-    img: "iim-raipur.jpg",
+    img: "iim-raipur.webp",
     link: "/college/indian-institute-of-management-raipur-iim-raipur",
   },
 ];
 
 // Function to standardize university name length
-const formatUniversityName = (name, maxLength = 16) => {
+const formatUniversityName = (name, maxLength = 56) => {
   if (name.length > maxLength) {
     return name.substring(0, maxLength - 3) + "..."; // Truncate with ellipsis
   }
@@ -80,9 +81,9 @@ const ExploreUniversities = () => {
           data-wow-delay="0.2s"
         >
           <div className="td_section_heading_left">
-            <p className="td_section_subtitle_up td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_accent_color">
+            {/* <p className="td_section_subtitle_up td_fs_18 td_semibold td_spacing_1 td_mb_10 text-uppercase td_accent_color">
               <i></i> Browse Categories <i></i>
-            </p>
+            </p> */}
             <h2 className="td_section_title td_fs_48 mb-0">
               Explore Universities
             </h2>
@@ -110,9 +111,19 @@ const ExploreUniversities = () => {
                       src={`/assets/img/universities/${university.img}`}
                       alt={university.name}
                       width={150}
-                      height={100}
+                      height={60}
                     />
-                    <h6>{formatUniversityName(university.name)}</h6>
+                    <p
+                      
+                      style={{
+                        fontFamily: "'Work Sans', sans-serif",
+                        fontStyle: "normal",
+                        fontSize:"13px",
+                        fontWeight:"600",
+                      }}
+                    >
+                      {formatUniversityName(university.name)}
+                    </p>
                   </div>
                 </div>
                 <a href={university.link} className="td_iconbox_link"></a>

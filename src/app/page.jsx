@@ -14,14 +14,18 @@ import "./styles/7620326e339f446b.css";
 import "./styles/e881ba373a433cf6.css";
 import "./styles/afc7461932b964d5.css";
 import "./styles/cc9687947ca46cf2.css";
+import "./styles/42402eb91a3d915c.css"
+import Link from "next/link";
 import Menu from "../../components/Header/Menu/Menu";
 import Slider from "../../components/Slider";
+import CollegeCards from "../../components/CollegeCards";
 import TestimonialSlider from "../../components/TestimonialSlider";
+
 import HeroSlider from "../../components/HeroSlider";
+import BrowseCourses from "../../components/BrowseCourses";
 import Footer from "../../components/Footer/Footer";
 import TrustpilotRating from "../../components/TrustpilotRating";
 import ExploreUniversities from "../../components/ExploreUniversities";
-import Link from "next/link";
 
 // Dynamically import the modal with SSR disabled
 const ComparisonModal = dynamic(() => import("./ComparisonModal"), {
@@ -125,7 +129,287 @@ export default function Page() {
 
       <HeroSlider />
       <TrustpilotRating />
-      <ExploreUniversities />
+
+      <div className="AllCollegeCards_college_card_container__Ts4Zo {styles.collegeCardContainer}">
+        <div className="AllCollegeCards_college_grid_container__PA9Ro {styles.collegeGridContainer}">
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/amity-university-online"
+          >
+            <img
+              alt="AMITY UNIVERSITY"
+              fetchpriority="high"
+              loading="eager"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/amity.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              AMITY UNIVERSITY
+            </p>
+          </a>
+
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/dy-patil-university-pune-online"
+          >
+            <img
+              alt="DY PATIL UNIVERSITY"
+              fetchpriority="high"
+              loading="eager"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/dypatil.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              DY PATIL UNIVERSITY
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/iim-ahmedabad"
+          >
+            <img
+              alt="IIM AHMEDABAD"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/iima.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              IIM AHMEDABAD
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/icfai-cdoe"
+          >
+            <img
+              alt="ICFAI CDOE"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/ICFAi.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              ICFAI CDOE
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/jain-university-online"
+          >
+            <img
+              alt="JAIN UNIVERSITY"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/jain.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              JAIN UNIVERSITY
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/online-manipal-jaipur"
+          >
+            <img
+              alt="ONLINE MANIPAL"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/manipal.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              ONLINE MANIPAL
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/upes-university-online"
+          >
+            <img
+              alt="UPES UNIVERSITY"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/upes.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              UPES UNIVERSITY
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/op-jindal-global-university"
+          >
+            <img
+              alt="O.P JINDAL UNI."
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/op-jindal.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              O.P JINDAL UNI.
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/chitkara-university-online"
+          >
+            <img
+              alt="CHITKARA UNI."
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/chitkara-logo.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              CHITKARA UNI.
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/lpu-distance-education"
+          >
+            <img
+              alt="LPU ONLINE"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/lpu.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              LPU ONLINE
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/imt-cdl-ghaziabad"
+          >
+            <img
+              alt="IMT CDL"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/amity.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              IMT CDL
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/iim-raipur"
+          >
+            <img
+              alt="IIM RAIPUR"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/iim-raipur.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              IIM RAIPUR
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/online-uttaranchal-university"
+          >
+            <img
+              alt="ONLINE UU"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/amity.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              ONLINE UU
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/colleges/chandigarh-university-online"
+          >
+            <img
+              alt="CHANDIGARH UNI."
+              fetchpriority="high"
+              loading="eager"
+              width={145}
+              height={25}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/cu.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              CHANDIGARH UNI.
+            </p>
+          </a>
+        </div>
+        <div className="AllCollegeCards_viewallcontainer__yIVAn">
+          <a className="AllCollegeCards_viewAll__AEokp" href="/colleges">
+            View All Colleges
+          </a>
+        </div>
+      </div>
+
       <div>
         <div
           className="BrowseCourse_home_browse_container__tQp9L"
@@ -569,6 +853,11 @@ export default function Page() {
                             <img
                               src="/assets/img/universities/college-images-and-logo-05.jpg"
                               alt="NMIMS"
+                              style={{
+                                border: "0",
+                                maxWidth: "100%",
+                                height: "auto",
+                              }}
                             />
                           </span>
                         </a>
@@ -582,6 +871,11 @@ export default function Page() {
                                 <img
                                   src="/assets/img/icons/book.svg"
                                   alt="Book Icon"
+                                  style={{
+                                    border: "0",
+                                    maxWidth: "100%",
+                                    height: "auto",
+                                  }}
                                 />
                                 <span className="td_opacity_7">
                                   4 Semesters
@@ -631,6 +925,11 @@ export default function Page() {
                             <img
                               src="/assets/img/mba-distance/amity.jpg"
                               alt="Amity University"
+                              style={{
+                                border: "0",
+                                maxWidth: "100%",
+                                height: "auto",
+                              }}
                             />
                           </span>
                         </a>
@@ -685,6 +984,11 @@ export default function Page() {
                             <img
                               src="/assets/img/universities/dpu-200x400-1.jpg"
                               alt="DPU"
+                              style={{
+                                border: "0",
+                                maxWidth: "100%",
+                                height: "auto",
+                              }}
                             />
                           </span>
                         </a>
@@ -694,6 +998,11 @@ export default function Page() {
                               <img
                                 src="/assets/img/icons/book.svg"
                                 alt="Book Icon"
+                                style={{
+                                  border: "0",
+                                  maxWidth: "100%",
+                                  height: "auto",
+                                }}
                               />
                               <span className="td_opacity_7">4 Semesters</span>
                             </li>
@@ -740,6 +1049,11 @@ export default function Page() {
                             <img
                               src="/assets/img/mba-distance/manipal.jpg"
                               alt="Manipal"
+                              style={{
+                                border: "0",
+                                maxWidth: "100%",
+                                height: "auto",
+                              }}
                             />
                           </span>
                         </a>
@@ -749,6 +1063,11 @@ export default function Page() {
                               <img
                                 src="/assets/img/icons/book.svg"
                                 alt="Book Icon"
+                                style={{
+                                  border: "0",
+                                  maxWidth: "100%",
+                                  height: "auto",
+                                }}
                               />
                               <span className="td_opacity_7">4 Semesters</span>
                             </li>
@@ -794,6 +1113,11 @@ export default function Page() {
                             <img
                               src="/assets/img/mba-distance/lpu.jpg"
                               alt="LPU"
+                              style={{
+                                border: "0",
+                                maxWidth: "100%",
+                                height: "auto",
+                              }}
                             />
                           </span>
                         </a>
@@ -848,6 +1172,11 @@ export default function Page() {
                             <img
                               src="/assets/img/mba-distance/symbiosis.jpg"
                               alt="Symbiosis"
+                              style={{
+                                border: "0",
+                                maxWidth: "100%",
+                                height: "auto",
+                              }}
                             />
                           </span>
                         </a>
@@ -1784,7 +2113,171 @@ export default function Page() {
             </div>
           </div>
         </div> */}
-        <TestimonialSlider/>
+        {/* <TestimonialSlider /> */}
+        <div className="TestimonialSlider_container__Je36b">
+          <div className="TestimonialSlider_wrapper__IvjzI">
+            <div className="TestimonialSlider_header__znYD7">
+              <h3 className="TestimonialSlider_label__z2WhH">
+                Trusted Feedback
+              </h3>
+              <h2 className="TestimonialSlider_title__I_aMr">
+                Check What Students Think Of Us
+              </h2>
+              <div className="TestimonialSlider_navigation__cQfS8">
+                <button
+                  className="TestimonialSlider_navButton__Cflns"
+                  aria-label="Previous testimonial"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth={0}
+                    viewBox="0 0 448 512"
+                    height={24}
+                    width={24}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z" />
+                  </svg>
+                </button>
+                <div className="TestimonialSlider_progressBar__pQdwb">
+                  <div
+                    className="TestimonialSlider_progressFill__TJBB8"
+                    style={{ width: "40%" }}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="TestimonialSlider_testimonialGrid__jr3sh">
+              <div className="TestimonialSlider_testimonialCard__rAlFM TestimonialSlider_visible__zceg4">
+                <div>
+                  <div className="TestimonialSlider_imageContainer__qw6pl">
+                    <img
+                      src="/assets/img/feedback-girl.png"
+                      alt="Kartikeya Misra"
+                      className="TestimonialSlider_avatar__tkuAI"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="TestimonialSlider_name__gQxRY">
+                      Anaya Misra
+                    </h3>
+                    <p className="TestimonialSlider_role__D4hYz">
+                      (WNS Technologies Pvt Ltd.)
+                    </p>
+                    <div className="TestimonialSlider_quote__D_DKH" />
+                    <p className="TestimonialSlider_content__dEIEb">
+                      I’ve taken many online courses, but nothing compares to
+                      Simpli Degree. The real-world case studies and simulations
+                      made learning fun and relevant. I’m now more confident in
+                      my skills than ever before!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="TestimonialSlider_testimonialCard__rAlFM TestimonialSlider_visible__zceg4">
+                <div>
+                  <div className="TestimonialSlider_imageContainer__qw6pl">
+                    <img
+                      src="/assets/img/feedback.png"
+                      alt="Manav Dhodare"
+                      className="TestimonialSlider_avatar__tkuAI"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="TestimonialSlider_name__gQxRY">
+                      Pratik Sharma
+                    </h3>
+                    <p className="TestimonialSlider_role__D4hYz">(HDFC Bank)</p>
+                    <div className="TestimonialSlider_quote__D_DKH" />
+                    <p className="TestimonialSlider_content__dEIEb">
+                      I’ve taken many online courses, but nothing compares to
+                      Simpli Degree. The real-world case studies and simulations
+                      made learning fun and relevant. I’m now more confident in
+                      my skills than ever before!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="TestimonialSlider_testimonialCard__rAlFM">
+                <div>
+                  <div className="TestimonialSlider_imageContainer__qw6pl">
+                    <img
+                      src="/HomePage/Namita.webp"
+                      alt="Namita Khandelwal"
+                      className="TestimonialSlider_avatar__tkuAI"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="TestimonialSlider_name__gQxRY">
+                      Namita Khandelwal
+                    </h3>
+                    <p className="TestimonialSlider_role__D4hYz">
+                      (Deloitte India)
+                    </p>
+                    <div className="TestimonialSlider_quote__D_DKH" />
+                    <p className="TestimonialSlider_content__dEIEb">
+                      It was a great learning experience for me, especially the
+                      RM that had been assigned to me. My relationship manager
+                      was always supportive, with a ready-to-respond attitude
+                      towards every query.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="TestimonialSlider_testimonialCard__rAlFM">
+                <div>
+                  <div className="TestimonialSlider_imageContainer__qw6pl">
+                    <img
+                      src="/HomePage/Piyush.webp"
+                      alt="Piyush Sharma"
+                      className="TestimonialSlider_avatar__tkuAI"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="TestimonialSlider_name__gQxRY">
+                      Piyush Sharma
+                    </h3>
+                    <p className="TestimonialSlider_role__D4hYz">
+                      (Biocon Ltd.)
+                    </p>
+                    <div className="TestimonialSlider_quote__D_DKH" />
+                    <p className="TestimonialSlider_content__dEIEb">
+                      Thanks to Learning Routes Team for all the assistance and
+                      support they provided in my 2-year PGDM programme. Overall
+                      it was a good experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="TestimonialSlider_testimonialCard__rAlFM">
+                <div>
+                  <div className="TestimonialSlider_imageContainer__qw6pl">
+                    <img
+                      src="/HomePage/bhavika.webp"
+                      alt="Bhavika Shah"
+                      className="TestimonialSlider_avatar__tkuAI"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="TestimonialSlider_name__gQxRY">
+                      Bhavika Shah
+                    </h3>
+                    <p className="TestimonialSlider_role__D4hYz">
+                      (Dentsu Aegis Network)
+                    </p>
+                    <div className="TestimonialSlider_quote__D_DKH" />
+                    <p className="TestimonialSlider_content__dEIEb">
+                      My personal experience with Learning routes has been very
+                      good. Very supportive and patient. Thank you for the all
+                      the guidance.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <section>
         <div className="container">
@@ -1799,16 +2292,37 @@ export default function Page() {
                   <img
                     src="/assets/simpli-images/DeWatermark.ai_1740819150754.png"
                     alt
+                    style={{
+                      border: "0",
+                      maxWidth: "100%",
+                      height: "auto",
+                    }}
                   />
                 </div>
                 <div className="td_image_box_img_2">
                   <div className="td_image_box_img_2_in">
-                    <img src="/assets/simpli-images/220-SM911676.jpg" alt />
+                    <img
+                      src="/assets/simpli-images/220-SM911676.jpg"
+                      alt
+                      style={{
+                        border: "0",
+                        maxWidth: "100%",
+                        height: "auto",
+                      }}
+                    />
                   </div>
                 </div>
                 <div className="td_image_box_shape_1 position-absolute" />
                 <div className="td_image_box_shape_2 position-absolute">
-                  <img src="/assets/img/home_5/about_shape_2.svg" alt />
+                  <img
+                    src="/assets/img/home_5/about_shape_2.svg"
+                    alt
+                    style={{
+                      border: "0",
+                      maxWidth: "100%",
+                      height: "auto",
+                    }}
+                  />
                 </div>
               </div>
             </div>

@@ -1,12 +1,11 @@
-
-import React from 'react';
-import "./trending.module.css"
-import Link from 'next/link';
-import Image from 'next/image';
+import React from "react";
+import "./trending.module.css";
+import Link from "next/link";
+import Image from "next/image";
 import "../styles/3a6b4218bb14b3ef.css";
-import "../styles/style.css"
-import Menu from '../../../components/Header/Menu/Menu';
-import Footer from '../../../components/Footer/Footer';
+import "../styles/style.css";
+import Menu from "../../../components/Header/Menu/Menu";
+import Footer from "../../../components/Footer/Footer";
 
 export default function page() {
   return (
@@ -355,7 +354,10 @@ export default function page() {
                 </div>
               </div>
               <div className="BrowseCourse_browse_course_card__6O_U1">
-                <Link href="/courses//distance-mcom" style={{ textDecoration: "none" }}>
+                <Link
+                  href="/courses//distance-mcom"
+                  style={{ textDecoration: "none" }}
+                >
                   <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
                     <div>
                       <Image
@@ -415,7 +417,6 @@ export default function page() {
                   Read More
                 </div>
               </div>
-              
             </div>
           </div>
         </div>

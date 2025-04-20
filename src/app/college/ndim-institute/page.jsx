@@ -702,7 +702,6 @@ export default function page() {
                           </p>
                         </div>
                       </div>
-                
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="Review">

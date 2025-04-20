@@ -1,14 +1,11 @@
-
-
 import React from "react";
 import Image from "next/image";
-import "../globals.css"
+import "../globals.css";
 import "../styles/07b7d9be18c7582a.css";
 import "../styles/3a6b4218bb14b3ef.css";
 import Menu from "../../../components/Header/Menu/Menu";
 import Footer from "../../../components/Footer/Footer";
 import CareerTabs from "../../../components/CareerTabs";
-
 
 // async function fetchData() {
 //   const res = await fetch("http://localhost:8000/api/careerpage", {
@@ -17,8 +14,7 @@ import CareerTabs from "../../../components/CareerTabs";
 //   if (!res.ok) throw new Error("Failed to fetch careers data");
 //   return res.json();
 // }
-export default  function page() {
-   
+export default function page() {
   return (
     <>
       <Menu />
@@ -58,12 +54,9 @@ export default  function page() {
               }}
             >
               <div className="CareerHeroSection_Career_page_Hero__headingContainer__Zuaf6">
-                <h1 className="CareerHeroSection_Career_page_Hero__heading__mxV_U">
-                  
-                </h1>
+                <h1 className="CareerHeroSection_Career_page_Hero__heading__mxV_U"></h1>
                 <p className="CareerHeroSection_Career_page_Hero__subheading__T6okQ">
                   {" "}
-                  
                 </p>
               </div>
             </div>

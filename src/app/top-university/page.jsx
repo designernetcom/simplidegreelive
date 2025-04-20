@@ -12,6 +12,7 @@ import "../styles/style.css";
 import "../styles/bcdb44b6ad772c90.css";
 import "../styles/3a6b4218bb14b3ef.css";
 import "../styles/7620326e339f446b.css";
+import "../styles/47e473.css";
 import Menu from "../../../components/Header/Menu/Menu";
 import styles from "./Filter.module.css";
 import Footer from "../../../components/Footer/Footer";
@@ -1607,8 +1608,8 @@ export default function Page() {
                                     <div className="abroad_card_img_container__s1_2Z">
                                       <Image
                                         alt={`${uni.name} image`}
-                                        width={200}
-                                        height={200}
+                                        width={500}
+                                        height={500}
                                         src={uni.image}
                                         className="abroad_card_image__tQiug"
                                         loading="lazy"

@@ -10,10 +10,7 @@ import Menu from "../../../components/Header/Menu/Menu";
 import CollegeFinder from "../../../components/CollegeFinder";
 import Footer from "../../../components/Footer/Footer";
 
-
-
 export default function CollegeFinderPage() {
- 
   return (
     <>
       <Menu />

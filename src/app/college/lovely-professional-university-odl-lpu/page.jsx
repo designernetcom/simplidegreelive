@@ -1,4 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import { debounce } from "lodash";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
@@ -9,58 +14,201 @@ import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 
-export default function page() {
+export default function Page() {
+  const [activeSection, setActiveSection] = useState("About");
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    state: "",
+  });
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
+  const [selectedCourseName, setSelectedCourseName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const courseSpecializations = {
+    "Distance MSc": [{ name: "Mathematics", fees: 54000 }],
+    "Distance BBA": [{ name: "Management", fees: 75000 }],
+    "Distance DBA": [{ name: "Business Administration", fees: 26000 }],
+    "Distance MA": [
+      { name: "English", fees: 24000 },
+      { name: "History", fees: 30000 },
+    ],
+    "Distance MLIS": [{ name: "Library and Information Science", fees: 13000 }],
+    "Distance MBA": [
+      { name: "Finance", fees: 54000 },
+      { name: "Marketing", fees: 54000 },
+    ],
+    "Distance BCom": [{ name: "Commerce", fees: 57000 }],
+    "Distance MCA": [{ name: "Computer Applications", fees: 54000 }],
+    "Distance MCom": [{ name: "Commerce", fees: 38000 }],
+    "Distance BSc": [{ name: "Information Technology", fees: 75000 }],
+    "Distance BCA": [{ name: "Computer Applications", fees: 75000 }],
+    "Distance DCA": [{ name: "Computer Applications", fees: 26000 }],
+    "Distance DLIS": [{ name: "Library and Information Science", fees: 13000 }],
+    "Distance BA": [{ name: "Arts", fees: 36000 }],
+    "Distance BLIS": [{ name: "Library and Information Science", fees: 13000 }],
+  };
+
+  // Calculate fee range dynamically
+  const getFeeRange = (courseName) => {
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    if (fees.length === 0) return "N/A";
+    const min = Math.min(...fees);
+    const max = Math.max(...fees);
+    return min === max
+      ? `₹ ${min.toLocaleString()}`
+      : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
+  };
+
+  useEffect(() => {
+    const sections = [
+      "About",
+      "High",
+      "Courses",
+      "Course Eligibility",
+      "Enquire Now",
+      "Scholarships",
+      "Certification",
+      "EMI Details",
+      "Admission",
+      "Exam",
+      "Placement",
+      "FAQ's",
+      "Review",
+    ];
+
+    const handleScroll = debounce(() => {
+      let currentSection = "About";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      handleScroll.cancel();
+    };
+  }, []);
+
+  const handleClose = () => {
+    setIsCourseModalOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: "",
+      state: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e, isCourseModal = false) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      program: form.program.value,
+      state: form.state.value,
+    };
+
+    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+      alert("Invalid email format");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      console.log("Form submitted:", data);
+      // Example: await fetch("/api/enquire", { method: "POST", body: JSON.stringify(data) });
+      form.reset();
+      setFormData({ name: "", email: "", phone: "", program: "", state: "" });
+      if (isCourseModal) setIsCourseModalOpen(false);
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleViewSpecialization = (courseName) => {
+    setSelectedCourseName(courseName);
+    setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
+    setIsSpecializationModalOpen(true);
+  };
+
+  const handleCloseSpecializationModal = () => {
+    setIsSpecializationModalOpen(false);
+    setSelectedCourseSpecializations([]);
+    setSelectedCourseName("");
+  };
+
   return (
     <>
+      <Head>
+        <title>LPU Online - Courses & Admissions</title>
+        <meta
+          name="description"
+          content="Explore online and distance learning programs at LPU Online, including MSc, BBA, DBA, MA, MLIS, MBA, BCom, MCA, MCom, BSc, BCA, DCA, DLIS, BA, and BLIS."
+        />
+      </Head>
       <Menu />
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
-          <img
+          <Image
             src="https://store.learningroutes.in/images/colleges/LPU-Online/hero-image/banner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
-            alt="hero-image"
+            alt="LPU Online campus banner"
             width={240}
             height={240}
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
             <h1 className="headCarousal_collegeHeading__KBbuL">LPU Online</h1>
-            <p className="headCarousal_location__7rFlL">
-              Phagwara{/* */},{/* */}Punjab
-            </p>
+            <p className="headCarousal_location__7rFlL">Phagwara, Punjab</p>
             <p className="headCarousal_ranking__1yTOY">
               NIRF Rank: 45 (Overall)
             </p>
             <div className="headCarousal_accreditation__HUqxZ">
-              <img
-                src="https://store.learningroutes.in/images/colleges/LPU-Online/accreditations/UGC_DEB.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/LPU-Online/accreditations/AICTE.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/LPU-Online/accreditations/NAAC A++.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/LPU-Online/accreditations/WES.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
+              {[
+                { src: "UGC_DEB.webp", alt: "UGC-DEB accreditation" },
+                { src: "AICTE.webp", alt: "AICTE accreditation" },
+                { src: "NAAC A++.webp", alt: "NAAC A++ accreditation" },
+                { src: "WES.webp", alt: "WES accreditation" },
+              ].map((acc, index) => (
+                <Image
+                  key={index}
+                  src={`https://store.learningroutes.in/images/colleges/LPU-Online/accreditations/${acc.src}`}
+                  alt={acc.alt}
+                  className="headCarousal_accImg__NoM8M"
+                  width={20}
+                  height={20}
+                />
+              ))}
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
               <a href="colleges.html">
@@ -76,132 +224,51 @@ export default function page() {
             <div className="college_dataSection__0M4eV">
               <div className="collegeDetails_detailsPage__0qlWI">
                 <div className="collegeDetails_scroller__kwBjm">
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-About"
-                    href="#About"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV">
-                      About
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-High"
-                    href="#High"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Highlights
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Courses"
-                    href="#Courses"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Courses
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Course Eligibility"
-                    href="#Course Eligibility"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Course Eligibility
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Enquire Now"
-                    href="#Enquire Now"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
+                  {[
+                    { id: "About", text: "About" },
+                    { id: "High", text: "Highlights" },
+                    { id: "Courses", text: "Courses" },
+                    { id: "Course Eligibility", text: "Course Eligibility" },
+                    { id: "Enquire Now", text: "Enquire Now" },
+                    { id: "Scholarships", text: "Scholarships" },
+                    { id: "Certification", text: "Certifications" },
+                    { id: "EMI Details", text: "EMI Details" },
+                    { id: "Admission", text: "Admission Procedure" },
+                    { id: "Exam", text: "Examination Pattern" },
+                    { id: "Placement", text: "Placement" },
+                    { id: "FAQ's", text: "FAQ's" },
+                    { id: "Review", text: "Review" },
+                  ].map((item) => (
+                    <a
+                      key={item.id}
+                      className="collegeDetails_scrollerElement__iuUFa"
+                      id={`link-${item.id}`}
+                      href={`#${item.id}`}
+                    >
                       <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 5,
-                        }}
+                        className={`collegeDetails_sectionBox__ZGGBm ${
+                          activeSection === item.id
+                            ? "collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV"
+                            : "collegeDetails_textBlack__LRxI5"
+                        }`}
                       >
-                        <div>Enquire Now</div>
-                        <div className="college_blink__yxq74" />
+                        {item.id === "Enquire Now" ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 5,
+                            }}
+                          >
+                            <div>{item.text}</div>
+                            <div className="college_blink__yxq74" />
+                          </div>
+                        ) : (
+                          item.text
+                        )}
                       </div>
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Scholarships"
-                    href="#Scholarships"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Scholarships
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Certification"
-                    href="#Certification"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Certifications
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-EMI Details"
-                    href="#EMI Details"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      EMI Details
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Admission"
-                    href="#Admission"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Admission Procedure
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Exam"
-                    href="#Exam"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Examination Pattern
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Placement"
-                    href="#Placement"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Placement
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-FAQ's"
-                    href="#FAQ's"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      FAQ's
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Review"
-                    href="#Review"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Review
-                    </div>
-                  </a>
+                    </a>
+                  ))}
                 </div>
                 <div className="collegeDetails_detailsContainer__6A8oL">
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
@@ -241,189 +308,39 @@ export default function page() {
                     <div className="Highlights_container__yqw8t">
                       <h2 className="Highlights_heading__QnGK2">Highlights</h2>
                       <div className="Highlights_grid__zFaon">
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
+                        {[
+                          "Flexible learning mode",
+                          "Online proctored examination mode",
+                          "Live lectures on weekends",
+                          "Easily accessible recorded sessions",
+                          "Industry-relevant curriculum",
+                          "Global classroom experience",
+                          "Campus immersion opportunities",
+                          "International outlook for enriched and enhanced learning",
+                          "Affordable UGC-recognised degrees",
+                          "Easy pay EMI option",
+                          "24/7 academic support",
+                          "Master classes by industry experts",
+                        ].map((highlight, index) => (
+                          <div
+                            className="Highlights_pointContainer__5_snP"
+                            key={index}
                           >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Flexible learning mode</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Online proctored examination mode</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Live lectures on weekends</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Easily accessible recorded sessions</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Industry-relevant curriculum</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Global classroom experience</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Campus immersion opportunities</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            International outlook for enriched and enhanced
-                            learning
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              strokeWidth={0}
+                              viewBox="0 0 16 16"
+                              className="Highlights_pointIcon__m_iYg"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
+                            </svg>
+                            <div>{highlight}</div>
                           </div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Affordable UGC-recognised degrees</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Easy pay EMI option</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>24/7 academic support</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Master classes by industry experts</div>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -432,271 +349,108 @@ export default function page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}LPU Online
+                          Explore online learning courses in Lovely Professional
+                          University ODL (LPU)
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
                             <tr className="courses_course_head__M4Cun">
                               <th>Courses</th>
                               <th style={{ textAlign: "center" }}>Fee Range</th>
-                              <th style={{ textAlign: "center" }}>
-                                Fee Structure
-                              </th>
                               <th />
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 140000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                140,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
+                            {[
+                              {
+                                name: "Distance MSc",
+                                feeRange: getFeeRange("Distance MSc"),
+                              },
+                              {
+                                name: "Distance BBA",
+                                feeRange: getFeeRange("Distance BBA"),
+                              },
+                              {
+                                name: "Distance DBA",
+                                feeRange: getFeeRange("Distance DBA"),
+                              },
+                              {
+                                name: "Distance MA",
+                                feeRange: getFeeRange("Distance MA"),
+                              },
+                              {
+                                name: "Distance MLIS",
+                                feeRange: getFeeRange("Distance MLIS"),
+                              },
+                              {
+                                name: "Distance MBA",
+                                feeRange: getFeeRange("Distance MBA"),
+                              },
+                              {
+                                name: "Distance BCom",
+                                feeRange: getFeeRange("Distance BCom"),
+                              },
+                              {
+                                name: "Distance MCA",
+                                feeRange: getFeeRange("Distance MCA"),
+                              },
+                              {
+                                name: "Distance MCom",
+                                feeRange: getFeeRange("Distance MCom"),
+                              },
+                              {
+                                name: "Distance BSc",
+                                feeRange: getFeeRange("Distance BSc"),
+                              },
+                              {
+                                name: "Distance BCA",
+                                feeRange: getFeeRange("Distance BCA"),
+                              },
+                              {
+                                name: "Distance DCA",
+                                feeRange: getFeeRange("Distance DCA"),
+                              },
+                              {
+                                name: "Distance DLIS",
+                                feeRange: getFeeRange("Distance DLIS"),
+                              },
+                              {
+                                name: "Distance BA",
+                                feeRange: getFeeRange("Distance BA"),
+                              },
+                              {
+                                name: "Distance BLIS",
+                                feeRange: getFeeRange("Distance BLIS"),
+                              },
+                            ].map((course, index) => (
+                              <tr className="courses_tbody__ZPCxV" key={index}>
+                                <td>{course.name}</td>
+                                <td style={{ textAlign: "center" }}>
+                                  {course.feeRange}
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={() => setIsCourseModalOpen(true)}
+                                    aria-label={`Enquire about ${course.name}`}
                                   >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCom</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 100000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                100,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                    Enquire Now
+                                  </button>
+                                  <button
+                                    className="courses_viewSpsl__lrjH5"
+                                    onClick={() =>
+                                      handleViewSpecialization(course.name)
+                                    }
+                                    aria-label={`View specializations for ${course.name}`}
                                   >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 1.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 80000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                80,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 180000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>LPU-UNIVERSITY Fee Structure:</strong>
-                                <br />
-                                <strong>Per Semester:</strong> ₹ 45,000 (4
-                                semesters, Total: ₹ 1,80,000)
-                                <br />
-                                <strong>Per Year:</strong> ₹ 90,000 (2 years,
-                                Total: ₹ 1,80,000)
-                                <br />
-                                <strong>Full Fee:</strong> ₹ 1,80,000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MSc</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 80000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                80,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BCA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 180000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                180,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 120000
-                              </td>
-                              <td
-                                style={{ textAlign: "left", padding: "10px" }}
-                              >
-                                <strong>Fee Structure:</strong>
-                                <br />
-                                No detailed breakdown available. Total fee: ₹
-                                120,000.
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -708,7 +462,7 @@ export default function page() {
                   >
                     <div className="courseEligibility_wrapper__WDP1x">
                       <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                        Courses Eligibility
+                        Course Eligibility
                       </h2>
                       <table className="courseEligibility_eligible_table__ZvMdh">
                         <thead>
@@ -756,9 +510,9 @@ export default function page() {
                               Institute of Company Secretaries of India (ICSI)
                               or Completed Chartered Accountancy (CA) course
                               from Institute of Chartered Accountants of India
-                              (ICAI) or Completed Cost &amp; Management
-                              Accountancy (CMA) from Institute of Cost
-                              Accountants of India (ICAI)
+                              (ICAI) or Completed Cost & Management Accountancy
+                              (CMA) from Institute of Cost Accountants of India
+                              (ICAI)
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
@@ -796,95 +550,113 @@ export default function page() {
                         Get Free Career Consultation
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
-                        <form className="collegenquiry_form__uF7mS">
+                        <form
+                          className="collegenquiry_form__uF7mS"
+                          onSubmit={handleFormSubmit}
+                        >
                           <input
                             type="text"
                             placeholder="Name*"
                             name="name"
-                            defaultValue
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
                           />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
                           />
-                          <select name="program">
-                            <option value selected>
-                              Choose a Program*
-                            </option>
-                            <option value="Online MBA">Online MBA</option>
-                            <option value="Executive MBA">Executive MBA</option>
-                            <option value="Online MCA">Online MCA</option>
-                            <option value="Online MSC">Online MSC</option>
-                            <option value="Online MCOM">Online MCOM</option>
-                            <option value="Online MA">Online MA</option>
-                            <option value="Online PGDM">Online PGDM</option>
-                            <option value="Distance MEd">Distance MEd</option>
-                            <option value="PG Diploma">PG Diploma</option>
-                            <option value="Online BBA">Online BBA</option>
-                            <option value="Online BCA">Online BCA</option>
-                            <option value="Online BSC">Online BSC</option>
-                            <option value="Online BCom">Online BCom</option>
-                            <option value="Online BA">Online BA</option>
-                            <option value="Distance BEd">Distance BEd</option>
-                            <option value="IT Certifications">
-                              IT Certifications
-                            </option>
+                          <select
+                            name="program"
+                            value={formData.program}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Choose a Program*</option>
+                            <option value="Distance MSc">Distance MSc</option>
+                            <option value="Distance BBA">Distance BBA</option>
+                            <option value="Distance DBA">Distance DBA</option>
+                            <option value="Distance MA">Distance MA</option>
+                            <option value="Distance MLIS">Distance MLIS</option>
+                            <option value="Distance MBA">Distance MBA</option>
+                            <option value="Distance BCom">Distance BCom</option>
+                            <option value="Distance MCA">Distance MCA</option>
+                            <option value="Distance MCom">Distance MCom</option>
+                            <option value="Distance BSc">Distance BSc</option>
+                            <option value="Distance BCA">Distance BCA</option>
+                            <option value="Distance DCA">Distance DCA</option>
+                            <option value="Distance DLIS">Distance DLIS</option>
+                            <option value="Distance BA">Distance BA</option>
+                            <option value="Distance BLIS">Distance BLIS</option>
                             <option value="Help Me Decide">
                               Help Me Decide
                             </option>
                           </select>
-                          <select name="state">
-                            <option value selected>
-                              State/Province
-                            </option>
-                            <option value="Arunachal Pradesh">
-                              Arunachal Pradesh
-                            </option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">
-                              Himachal Pradesh
-                            </option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">
-                              Madhya Pradesh
-                            </option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="West Bengal">West Bengal</option>
+                          <select
+                            name="state"
+                            value={formData.state}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">State/Province*</option>
+                            {[
+                              "Arunachal Pradesh",
+                              "Assam",
+                              "Bihar",
+                              "Chhattisgarh",
+                              "Delhi",
+                              "Goa",
+                              "Gujarat",
+                              "Haryana",
+                              "Himachal Pradesh",
+                              "Jharkhand",
+                              "Karnataka",
+                              "Kerala",
+                              "Madhya Pradesh",
+                              "Maharashtra",
+                              "Manipur",
+                              "Meghalaya",
+                              "Mizoram",
+                              "Nagaland",
+                              "Odisha",
+                              "Punjab",
+                              "Rajasthan",
+                              "Sikkim",
+                              "Tamil Nadu",
+                              "Telangana",
+                              "Tripura",
+                              "Uttarakhand",
+                              "Uttar Pradesh",
+                              "West Bengal",
+                              "Andaman and Nicobar Islands",
+                              "Chandigarh",
+                              "Dadra and Nagar Haveli and Daman and Diu",
+                              "Lakshadweep",
+                              "Puducherry",
+                            ].map((state) => (
+                              <option key={state} value={state}>
+                                {state}
+                              </option>
+                            ))}
                           </select>
                           <button
                             type="submit"
                             className="collegenquiry_submit_btn__cjBuo"
+                            disabled={isLoading}
                           >
-                            Submit
+                            {isLoading ? "Submitting..." : "Submit"}
                           </button>
                         </form>
                       </div>
@@ -909,118 +681,36 @@ export default function page() {
                             defence/CAPF/paramilitary personnel and their
                             dependents.
                           </p>
-                          <div className="scholarshop_scholarDesc__hpzVr">
-                            <p className="scholarshop_description__Qzg2d">
-                              <span className="scholarshop_title__k4_Sc">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="scholarshop_diamondIcon__Spg2t"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                              </span>
-                              Depending on performance in LPUNEST, you can avail
-                              of scholarships under three different categories
-                              cut off.
-                            </p>
-                          </div>
-                          <div className="scholarshop_scholarDesc__hpzVr">
-                            <p className="scholarshop_description__Qzg2d">
-                              <span className="scholarshop_title__k4_Sc">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="scholarshop_diamondIcon__Spg2t"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                              </span>
-                              The top 20 rank holders in the merit list of a
-                              recognised school board are eligible for
-                              scholarship and fee concessions.
-                            </p>
-                          </div>
-                          <div className="scholarshop_scholarDesc__hpzVr">
-                            <p className="scholarshop_description__Qzg2d">
-                              <span className="scholarshop_title__k4_Sc">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="scholarshop_diamondIcon__Spg2t"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                              </span>
-                              LPU Online provides scholarships to provide
-                              financial assistance to students, i.e.
-                              Economically Weaker Sections (EWS), and special
-                              categories that include single girl child, single
-                              mothers, students from minorities, transgender and
-                              non-traditional students, or for Serving/ Retired
-                              Defence/ CAPF/ Para- Military Personnel and their
-                              Dependents, who need support for pursuing or
-                              continuing with their higher education.
-                            </p>
-                          </div>
-                          <div className="scholarshop_scholarDesc__hpzVr">
-                            <p className="scholarshop_description__Qzg2d">
-                              <span className="scholarshop_title__k4_Sc">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="scholarshop_diamondIcon__Spg2t"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                              </span>
-                              All the top students who apply to LPU and clear
-                              the exam conducted by the Indian Government can
-                              get Scholarships up to INR 250,000 (approximately
-                              USD 3200) per year.
-                            </p>
-                          </div>
-                          <div className="scholarshop_scholarDesc__hpzVr">
-                            <p className="scholarshop_description__Qzg2d">
-                              <span className="scholarshop_title__k4_Sc">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="scholarshop_diamondIcon__Spg2t"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                              </span>
-                              LPU offers a special scholarship scheme to
-                              students who want to pursue innovation, startup,
-                              &amp; entrepreneurship.
-                            </p>
-                          </div>
+                          {[
+                            "Depending on performance in LPUNEST, you can avail of scholarships under three different categories cut off.",
+                            "The top 20 rank holders in the merit list of a recognised school board are eligible for scholarship and fee concessions.",
+                            "LPU Online provides scholarships to provide financial assistance to students, i.e. Economically Weaker Sections (EWS), and special categories that include single girl child, single mothers, students from minorities, transgender and non-traditional students, or for Serving/ Retired Defence/ CAPF/ Para- Military Personnel and their Dependents, who need support for pursuing or continuing with their higher education.",
+                            "All the top students who apply to LPU and clear the exam conducted by the Indian Government can get Scholarships up to INR 250,000 (approximately USD 3200) per year.",
+                            "LPU offers a special scholarship scheme to students who want to pursue innovation, startup, & entrepreneurship.",
+                          ].map((desc, index) => (
+                            <div
+                              className="scholarshop_scholarDesc__hpzVr"
+                              key={index}
+                            >
+                              <p className="scholarshop_description__Qzg2d">
+                                <span className="scholarshop_title__k4_Sc">
+                                  <svg
+                                    stroke="currentColor"
+                                    fill="currentColor"
+                                    strokeWidth={0}
+                                    viewBox="0 0 512 512"
+                                    className="scholarshop_diamondIcon__Spg2t"
+                                    height="1em"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
+                                  </svg>
+                                </span>
+                                {desc}
+                              </p>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -1040,65 +730,40 @@ export default function page() {
                               Earn a degree that is recognized around the globe
                             </div>
                             <div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  UGC-DEB Recognized and accredited degree
+                              {[
+                                "UGC-DEB Recognized and accredited degree",
+                                "NAAC A++ grade recognised",
+                                "AICTE recognised & WES recognised",
+                              ].map((point, index) => (
+                                <div
+                                  className="Certificates_pointBox__xwwq4"
+                                  key={index}
+                                >
+                                  <Image
+                                    alt="Check icon"
+                                    loading="lazy"
+                                    width={20}
+                                    height={20}
+                                    decoding="async"
+                                    src="/assets/simpli-images/check.webp"
+                                  />
+                                  <div className="Certificates_point__XYWLq">
+                                    {point}
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  NAAC A++ grade recognised
-                                </div>
-                              </div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  AICTE recognised &amp; WES recognised
-                                </div>
-                              </div>
+                              ))}
                             </div>
                           </div>
                           <div>
-                            {/* <img
-                              alt="certificate_url"
+                            {/* Uncomment and update with correct image path */}
+                            {/* <Image
+                              alt="LPU Online sample degree certificate"
                               loading="lazy"
                               width={300}
                               height={200}
                               decoding="async"
-                              data-nimg={1}
                               className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
-                             
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FLPU-Online%2Fcertification%2Fcertification.webp&w=640&q=75"
+                              src="https://store.learningroutes.in/images/colleges/LPU-Online/certification/certification.webp"
                             /> */}
                           </div>
                         </div>
@@ -1122,71 +787,32 @@ export default function page() {
                             Online, which reduces the overall cost of the online
                             programme.
                           </p>
-                          <div>
-                            <p className="emi_para__0BeXd">
-                              <span className="emi_title__UXhF1">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="emi_diamondIcon__XqB7W"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                                No-Cost EMI:{" "}
-                              </span>
-                              You can pay your fees for monthly installments at
-                              no additional cost.
-                            </p>
-                          </div>
-                          <div>
-                            <p className="emi_para__0BeXd">
-                              <span className="emi_title__UXhF1">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="emi_diamondIcon__XqB7W"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                                Student Grant:
-                              </span>
-                              If you are an eligible candidate, you can avail
-                              yourself of up to 30% of the student grant on
-                              course fees.
-                            </p>
-                          </div>
-                          <div>
-                            <p className="emi_para__0BeXd">
-                              <span className="emi_title__UXhF1">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="emi_diamondIcon__XqB7W"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                                Scholarships:
-                              </span>
-                              LPU offers various scholarships to students based
-                              on several parameters, which brings down the total
-                              programme fee.
-                            </p>
-                          </div>
+                          {[
+                            "No-Cost EMI: You can pay your fees for monthly installments at no additional cost.",
+                            "Student Grant: If you are an eligible candidate, you can avail yourself of up to 30% of the student grant on course fees.",
+                            "Scholarships: LPU offers various scholarships to students based on several parameters, which brings down the total programme fee.",
+                          ].map((desc, index) => (
+                            <div key={index}>
+                              <p className="emi_para__0BeXd">
+                                <span className="emi_title__UXhF1">
+                                  <svg
+                                    stroke="currentColor"
+                                    fill="currentColor"
+                                    strokeWidth={0}
+                                    viewBox="0 0 512 512"
+                                    className="emi_diamondIcon__XqB7W"
+                                    height="1em"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
+                                  </svg>
+                                  {desc.split(": ")[0]}:
+                                </span>
+                                {desc.split(": ")[1]}
+                              </p>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -1203,53 +829,25 @@ export default function page() {
                         The admissions process takes place in online mode. Fresh
                         admission starts from the month of January of every
                         year. There are direct admissions, no entrance exam is
-                        conducted for the admission process.The addmission
-                        procedure
-                        {/* */}2025{/* */}
-                        for the online course at
-                        {/* */}LPU Online{/* */}
-                        is as follow:
+                        conducted for the admission process. The admission
+                        procedure 2025 for the online course at LPU Online is as
+                        follow:
                       </p>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}1
+                      {[
+                        "Registration: Sign up and pay the initial registration fee.",
+                        "Online Application Form: Fill in the details, pay program fee and upload relevant documents",
+                        "Document verification by University: Sit back and wait for admission confirmation",
+                        "Student Registration and LMS Activation: Get your LMS credentials over the email",
+                      ].map((step, index) => (
+                        <div className="Admissions_step__4mDzm" key={index}>
+                          <div className="Admissions_stepCount__f9yhl">
+                            STEP {index + 1}
+                          </div>
+                          <div className="Admissions_stepText___L_GT">
+                            {step}
+                          </div>
                         </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Registration: Sign up and pay the initial registration
-                          fee.
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}2
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Online Application Form: Fill in the details, pay
-                          program fee and upload relevant documents
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}3
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Document verification by University: Sit back and wait
-                          for admission confirmation
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}4
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Student Registration and LMS Activation: Get your LMS
-                          credentials over the email
-                        </div>
-                      </div>
+                      ))}
                       <div className="Admissions_stepHide__nIt_6" />
                     </div>
                   </div>
@@ -1261,54 +859,22 @@ export default function page() {
                       <div>
                         <div className="Exam_examDesc___HPjs">
                           <p className="Exam_text__iZpVR" />
-                          <div>
-                            <p className="Exam_paragraph__CFH4S">
-                              <span className="Exam_title__zgD3N">
-                                Mode of Examination:
-                              </span>
-                              Flexible, online, and proctored examination mode
-                              with LPU e-Connect (Learning Management System for
-                              Online and Distance Learners).
-                            </p>
-                          </div>
-                          <div>
-                            <p className="Exam_paragraph__CFH4S">
-                              <span className="Exam_title__zgD3N">
-                                Proctoring:{" "}
-                              </span>
-                              Exams are monitored remotely via webcam, and an
-                              additional device for third-eye view to ensure
-                              integrity.
-                            </p>
-                          </div>
-                          <div>
-                            <p className="Exam_paragraph__CFH4S">
-                              <span className="Exam_title__zgD3N">
-                                Flexibility:
-                              </span>
-                              Choose your exam time within a designated window.
-                            </p>
-                          </div>
-                          <div>
-                            <p className="Exam_paragraph__CFH4S">
-                              <span className="Exam_title__zgD3N">
-                                Location:
-                              </span>
-                              Take exams from home or a convenient location of
-                              your choice.
-                            </p>
-                          </div>
-                          <div>
-                            <p className="Exam_paragraph__CFH4S">
-                              <span className="Exam_title__zgD3N">
-                                Basic Requirements:
-                              </span>
-                              (1) Laptop or desktop with a microphone and
-                              webcam. (2) Internet: Stable, high-speed
-                              connection. (3) Browser: Latest version of Google
-                              Chrome.
-                            </p>
-                          </div>
+                          {[
+                            "Mode of Examination: Flexible, online, and proctored examination mode with LPU e-Connect (Learning Management System for Online and Distance Learners).",
+                            "Proctoring: Exams are monitored remotely via webcam, and an additional device for third-eye view to ensure integrity.",
+                            "Flexibility: Choose your exam time within a designated window.",
+                            "Location: Take exams from home or a convenient location of your choice.",
+                            "Basic Requirements: (1) Laptop or desktop with a microphone and webcam. (2) Internet: Stable, high-speed connection. (3) Browser: Latest version of Google Chrome.",
+                          ].map((desc, index) => (
+                            <div key={index}>
+                              <p className="Exam_paragraph__CFH4S">
+                                <span className="Exam_title__zgD3N">
+                                  {desc.split(": ")[0]}:
+                                </span>
+                                {desc.split(": ")[1]}
+                              </p>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -1325,60 +891,26 @@ export default function page() {
                         <h3 className="placement_subHeading__1vY2G">
                           Our students have an opportunity of
                         </h3>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>
-                            Learn employability skills through assessments and
-                            tests
-                          </p>
-                        </div>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>Top recruiters from leading Companies</p>
-                        </div>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>Job that suitably fits the student profile</p>
-                        </div>
+                        {[
+                          "Learn employability skills through assessments and tests",
+                          "Top recruiters from leading Companies",
+                          "Job that suitably fits the student profile",
+                        ].map((point, index) => (
+                          <div
+                            className="placementSubpoint_subHeadingPoints__uE7MR"
+                            key={index}
+                          >
+                            <Image
+                              alt="Check icon"
+                              loading="lazy"
+                              width={20}
+                              height={20}
+                              decoding="async"
+                              src="/assets/simpli-images/check.webp"
+                            />
+                            <p>{point}</p>
+                          </div>
+                        ))}
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
@@ -1410,144 +942,37 @@ export default function page() {
                     <div className="faq_container__v2O04">
                       <h2 className="faq_heading__ypOPH">FAQ's</h2>
                       <div className="faq_faqMainContainer__T9i6Q">
-                        <div className="faq_faqMain__ACefH">
-                          <div className="faq_questionContainer__zAsad">
-                            <div className="faq_ques__Hgq7Z">
-                              Q.{/* */}1{/* */}
-                              {/* */}Is distance education available at LPU?
-                            </div>
-                            <div className="faq_accordionIcon__8lbAd">
-                              <svg
-                                stroke="currentColor"
-                                fill="currentColor"
-                                strokeWidth={0}
-                                viewBox="0 0 24 24"
-                                className="faq_icon__lyHtn"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="faq_faqMain__ACefH">
-                          <div className="faq_questionContainer__zAsad">
-                            <div className="faq_ques__Hgq7Z">
-                              Q.{/* */}2{/* */}
-                              {/* */}Is LPU Online recognised by UGC?
-                            </div>
-                            <div className="faq_accordionIcon__8lbAd">
-                              <svg
-                                stroke="currentColor"
-                                fill="currentColor"
-                                strokeWidth={0}
-                                viewBox="0 0 24 24"
-                                className="faq_icon__lyHtn"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                              </svg>
+                        {[
+                          "Is distance education available at LPU?",
+                          "Is LPU Online recognised by UGC?",
+                          "Is the LPU Online degree valid?",
+                          "Is LPU Online worth it?",
+                          "Does LPU Online provide placement?",
+                          "Is LPU Online recognised by WES?",
+                        ].map((ques, index) => (
+                          <div className="faq_faqMain__ACefH" key={index}>
+                            <div className="faq_questionContainer__zAsad">
+                              <div className="faq_ques__Hgq7Z">
+                                Q.{index + 1} {ques}
+                              </div>
+                              <div className="faq_accordionIcon__8lbAd">
+                                <svg
+                                  stroke="currentColor"
+                                  fill="currentColor"
+                                  strokeWidth={0}
+                                  viewBox="0 0 24 24"
+                                  className="faq_icon__lyHtn"
+                                  height="1em"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
+                                  <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
+                                </svg>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="faq_faqMain__ACefH">
-                          <div className="faq_questionContainer__zAsad">
-                            <div className="faq_ques__Hgq7Z">
-                              Q.{/* */}3{/* */}
-                              {/* */}Is the LPU Online degree valid?
-                            </div>
-                            <div className="faq_accordionIcon__8lbAd">
-                              <svg
-                                stroke="currentColor"
-                                fill="currentColor"
-                                strokeWidth={0}
-                                viewBox="0 0 24 24"
-                                className="faq_icon__lyHtn"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="faq_faqMain__ACefH">
-                          <div className="faq_questionContainer__zAsad">
-                            <div className="faq_ques__Hgq7Z">
-                              Q.{/* */}4{/* */}
-                              {/* */}Is LPU Online worth it?
-                            </div>
-                            <div className="faq_accordionIcon__8lbAd">
-                              <svg
-                                stroke="currentColor"
-                                fill="currentColor"
-                                strokeWidth={0}
-                                viewBox="0 0 24 24"
-                                className="faq_icon__lyHtn"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="faq_faqMain__ACefH">
-                          <div className="faq_questionContainer__zAsad">
-                            <div className="faq_ques__Hgq7Z">
-                              Q.{/* */}5{/* */}
-                              {/* */}Does LPU Online provide placement?
-                            </div>
-                            <div className="faq_accordionIcon__8lbAd">
-                              <svg
-                                stroke="currentColor"
-                                fill="currentColor"
-                                strokeWidth={0}
-                                viewBox="0 0 24 24"
-                                className="faq_icon__lyHtn"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="faq_faqMain__ACefH">
-                          <div className="faq_questionContainer__zAsad">
-                            <div className="faq_ques__Hgq7Z">
-                              Q.{/* */}6{/* */}
-                              {/* */}Is LPU Online recognised by WES?
-                            </div>
-                            <div className="faq_accordionIcon__8lbAd">
-                              <svg
-                                stroke="currentColor"
-                                fill="currentColor"
-                                strokeWidth={0}
-                                viewBox="0 0 24 24"
-                                className="faq_icon__lyHtn"
-                                height="1em"
-                                width="1em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M12 1.993C6.486 1.994 2 6.48 2 11.994c0 5.513 4.486 9.999 10 10 5.514 0 10-4.486 10-10s-4.485-10-10-10.001zm0 18.001c-4.411-.001-8-3.59-8-8 0-4.411 3.589-8 8-8.001 4.411.001 8 3.59 8 8.001s-3.589 8-8 8z" />
-                                <path d="M13 8h-2v4H7.991l4.005 4.005L16 12h-3z" />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -1557,8 +982,7 @@ export default function page() {
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        LPU Online{/* */}
-                        Review
+                        LPU Online Review
                       </h2>
                       <div>
                         <form>
@@ -1568,79 +992,21 @@ export default function page() {
                                 0 out of 5
                               </p>
                               <div>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
+                                {Array(5)
+                                  .fill()
+                                  .map((_, index) => (
+                                    <span className="star" key={index}>
+                                      <Image
+                                        alt="rating"
+                                        loading="lazy"
+                                        width={400}
+                                        height={400}
+                                        decoding="async"
+                                        className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
+                                        src="/assets/simpli-images/Star-Two.webp"
+                                      />
+                                    </span>
+                                  ))}
                               </div>
                             </div>
                             <div className="CollegeReview_rating_form_container__q_Xvp">
@@ -1655,7 +1021,7 @@ export default function page() {
                                 placeholder="Write your reviews"
                                 className="CollegeReview_college_page_details_review_form_input__niDf2"
                                 name="comment"
-                                required={""}
+                                required
                               />
                               <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
                                 Send message
@@ -1673,7 +1039,213 @@ export default function page() {
           </div>
         </div>
       </div>
-
+      {isCourseModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="exampleModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close "
+                    onClick={handleClose}
+                    aria-label="Close course enquiry modal"
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
+                  ></button>
+                  <h6>Struggling with Career Growth?</h6>
+                  <h6 className="td_mb_20">Get Free Career Consultation</h6>
+                  <form onSubmit={(e) => handleFormSubmit(e, true)}>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name *"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email *"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone *"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Choose a program*</option>
+                      <option value="Distance MSc">Distance MSc</option>
+                      <option value="Distance BBA">Distance BBA</option>
+                      <option value="Distance DBA">Distance DBA</option>
+                      <option value="Distance MA">Distance MA</option>
+                      <option value="Distance MLIS">Distance MLIS</option>
+                      <option value="Distance MBA">Distance MBA</option>
+                      <option value="Distance BCom">Distance BCom</option>
+                      <option value="Distance MCA">Distance MCA</option>
+                      <option value="Distance MCom">Distance MCom</option>
+                      <option value="Distance BSc">Distance BSc</option>
+                      <option value="Distance BCA">Distance BCA</option>
+                      <option value="Distance DCA">Distance DCA</option>
+                      <option value="Distance DLIS">Distance DLIS</option>
+                      <option value="Distance BA">Distance BA</option>
+                      <option value="Distance BLIS">Distance BLIS</option>
+                      <option value="Help Me Decide">Help Me Decide</option>
+                    </select>
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">States/Province*</option>
+                      {[
+                        "Arunachal Pradesh",
+                        "Assam",
+                        "Bihar",
+                        "Chhattisgarh",
+                        "Delhi",
+                        "Goa",
+                        "Gujarat",
+                        "Haryana",
+                        "Himachal Pradesh",
+                        "Jharkhand",
+                        "Karnataka",
+                        "Kerala",
+                        "Madhya Pradesh",
+                        "Maharashtra",
+                        "Manipur",
+                        "Meghalaya",
+                        "Mizoram",
+                        "Nagaland",
+                        "Odisha",
+                        "Punjab",
+                        "Rajasthan",
+                        "Sikkim",
+                        "Tamil Nadu",
+                        "Telangana",
+                        "Tripura",
+                        "Uttarakhand",
+                        "Uttar Pradesh",
+                        "West Bengal",
+                        "Andaman and Nicobar Islands",
+                        "Chandigarh",
+                        "Dadra and Nagar Haveli and Daman and Diu",
+                        "Lakshadweep",
+                        "Puducherry",
+                      ].map((state) => (
+                        <option key={state} value={state}>
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="td_form_card_bottom td_mb_15 mt-3">
+                      <button
+                        type="submit"
+                        className="td_btn td_style_1 td_radius_10 td_medium w-100"
+                        disabled={isLoading}
+                      >
+                        <span className="td_btn_in td_white_color td_accent_bg">
+                          <span>{isLoading ? "Submitting..." : "Submit"}</span>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                  <p className="td_form_card_text td_fs_20 td_medium td_heading_color mb-0 mt-3">
+                    Your personal information is secure with us.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* {isSpecializationModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="specializationModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="specializationModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close position-absolute top-0 end-0 m-3"
+                    onClick={handleCloseSpecializationModal}
+                    aria-label="Close specialization modal"
+                  ></button>
+                  <h2 className="td_mb_20">
+                    {selectedCourseName} Specializations
+                  </h2>
+                  <table className="table table-bordered">
+                    <thead
+                      style={{ background: "var(--dark-blue)", color: "white" }}
+                    >
+                      <tr>
+                        <th>Specialization Name</th>
+                        <th style={{ textAlign: "center" }}>Fees</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedCourseSpecializations.length > 0 ? (
+                        selectedCourseSpecializations.map((spec, index) => (
+                          <tr key={index}>
+                            <td>{spec.name}</td>
+                            <td style={{ textAlign: "center" }}>
+                              ₹ {spec.fees.toLocaleString()}
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" style={{ textAlign: "center" }}>
+                            No specializations available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )} */}
       <Footer />
     </>
   );

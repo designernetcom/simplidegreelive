@@ -248,10 +248,7 @@ export default function page() {
                 </div>
               </div>
               <div className="BrowseCourse_browse_course_card__6O_U1">
-                <Link
-                  href="/courses/mba-90-ects-by-iu-university"
-                  passHref
-                >
+                <Link href="/courses/mba-90-ects-by-iu-university" passHref>
                   <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
                     <div>
                       <img
@@ -281,10 +278,7 @@ export default function page() {
                 </div>
               </div>
               <div className="BrowseCourse_browse_course_card__6O_U1">
-                <Link
-                  href="/courses/mba-from-clarkson-university"
-                  passHref
-                >
+                <Link href="/courses/mba-from-clarkson-university" passHref>
                   <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
                     <div>
                       <img

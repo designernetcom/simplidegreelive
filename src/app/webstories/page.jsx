@@ -75,11 +75,11 @@ const storySets = [
 const youtubeVideos = [
   {
     id: "AA6sCEMRp48",
-    title: "Explore IIM Raipur: A Journey to Excellence",
+    title: "Get your MBA Degree with Simpli Degree.",
   },
   {
     id: "WLPIo6lIcds",
-    title: "IMT CDL: Empowering Future Leaders",
+    title: "Simpli Degree: Your Bright Future Starts Here.",
   },
 ];
 // Card data for the cards
@@ -133,8 +133,6 @@ export default function Page() {
     <>
       <Menu />
       <div>
-  
-
         {/* Web Stories Banner */}
         <div>
           <div className="AllWebStory_webStoryCarousal__mlw9X">
@@ -198,7 +196,7 @@ export default function Page() {
           <div className="study_maxWidth__jJbIL" id="Introduction">
             <div className={styles.container}>
               {/* Floating WhatsApp Button */}
-        
+
               <div
                 className="study_maxWidth__jJbIL"
                 id="Leading International Colleges"

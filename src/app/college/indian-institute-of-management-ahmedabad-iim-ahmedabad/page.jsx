@@ -1,4 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import { debounce } from "lodash";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
@@ -9,17 +14,177 @@ import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 
-export default function page() {
+export default function Page() {
+  const [activeSection, setActiveSection] = useState("About");
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    state: "",
+  });
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
+  const [selectedCourseName, setSelectedCourseName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const courseSpecializations = {
+    "Post Graduate Certificate (PGC)": [
+      { name: "General Management", fees: 180000 },
+    ],
+    "Executive Programme": [
+      { name: "Business Analytics", fees: 325000 },
+      { name: "Digital Transformation", fees: 475000 },
+    ],
+    "ePost Graduate Diploma": [{ name: "Business Analytics", fees: 1200000 }],
+    "e-Post Graduate Programme in Management": [
+      { name: "Management", fees: 2000000 },
+    ],
+    "Programme on Strategic Management": [
+      { name: "Strategic Management", fees: 281000 },
+    ],
+    "Accelarated General Management Programme": [
+      { name: "General Management", fees: 690000 },
+    ],
+    "Financial Reporting and Corporate Governance": [
+      { name: "Finance and Governance", fees: 191000 },
+    ],
+    "Advanced Programme": [{ name: "Advanced Management", fees: 325000 }],
+    "Senior Management Programme": [
+      { name: "Senior Management", fees: 815000 },
+    ],
+    "Management and Finance for Chartered Accountants Programme": [
+      { name: "Finance for CAs", fees: 350000 },
+    ],
+  };
+
+  // Calculate fee range dynamically
+  const getFeeRange = (courseName) => {
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    if (fees.length === 0) return "N/A";
+    const min = Math.min(...fees);
+    const max = Math.max(...fees);
+    return min === max
+      ? `₹ ${min.toLocaleString()}`
+      : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
+  };
+
+  useEffect(() => {
+    const sections = [
+      "About",
+      "High",
+      "Courses",
+      "Course Eligibility",
+      "Enquire Now",
+      "Certification",
+      "Admission",
+      "Placement",
+      "Review",
+    ];
+
+    const handleScroll = debounce(() => {
+      let currentSection = "About";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      handleScroll.cancel();
+    };
+  }, []);
+
+  const handleClose = () => {
+    setIsCourseModalOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: "",
+      state: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = async (e, isCourseModal = false) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      program: form.program.value,
+      state: form.state.value,
+    };
+
+    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+      alert("Invalid email format");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      console.log("Form submitted:", data);
+      // Example: await fetch("/api/enquire", { method: "POST", body: JSON.stringify(data) });
+      form.reset();
+      setFormData({ name: "", email: "", phone: "", program: "", state: "" });
+      if (isCourseModal) setIsCourseModalOpen(false);
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleViewSpecialization = (courseName) => {
+    setSelectedCourseName(courseName);
+    setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
+    setIsSpecializationModalOpen(true);
+  };
+
+  const handleCloseSpecializationModal = () => {
+    setIsSpecializationModalOpen(false);
+    setSelectedCourseSpecializations([]);
+    setSelectedCourseName("");
+  };
+
   return (
     <>
+      <Head>
+        <title>IIM Ahmedabad - Online Courses & Admissions</title>
+        <meta
+          name="description"
+          content="Explore online and blended learning programs at IIM Ahmedabad, including Post Graduate Certificates, Executive Programmes, and e-Post Graduate Diplomas with top-tier faculty and placement support."
+        />
+      </Head>
       <Menu />
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
-          <img
+          <Image
             src="https://store.learningroutes.in/images/colleges/indian-institute-of-management-ahmedabad/hero-image/banner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
-            alt="hero-image"
+            alt="IIM Ahmedabad campus banner"
             width={240}
             height={240}
           />
@@ -28,23 +193,21 @@ export default function page() {
             <h1 className="headCarousal_collegeHeading__KBbuL">
               Indian Institute of Management, Ahmedabad (IIM Ahmedabad)
             </h1>
-            <p className="headCarousal_location__7rFlL">
-              Ahmedabad{/* */},{/* */}Gujarat
-            </p>
+            <p className="headCarousal_location__7rFlL">Ahmedabad, Gujarat</p>
             <p className="headCarousal_ranking__1yTOY">
               NIRF Rank: 1 (Management)
             </p>
             <div className="headCarousal_accreditation__HUqxZ">
-              <img
+              <Image
                 src="https://store.learningroutes.in/images/colleges/indian-institute-of-management-ahmedabad/accreditations/EQUIS.webp"
-                alt="accreditation"
+                alt="EQUIS accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="colleges.html">
+              <a href="/colleges">
                 <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
@@ -57,96 +220,47 @@ export default function page() {
             <div className="college_dataSection__0M4eV">
               <div className="collegeDetails_detailsPage__0qlWI">
                 <div className="collegeDetails_scroller__kwBjm">
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-About"
-                    href="#About"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV">
-                      About
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-High"
-                    href="#High"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Highlights
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Courses"
-                    href="#Courses"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Courses
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Course Eligibility"
-                    href="#Course Eligibility"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Course Eligibility
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Enquire Now"
-                    href="#Enquire Now"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
+                  {[
+                    { id: "About", text: "About" },
+                    { id: "High", text: "Highlights" },
+                    { id: "Courses", text: "Courses" },
+                    { id: "Course Eligibility", text: "Course Eligibility" },
+                    { id: "Enquire Now", text: "Enquire Now" },
+                    { id: "Certification", text: "Certifications" },
+                    { id: "Admission", text: "Admission Procedure" },
+                    { id: "Placement", text: "Placement" },
+                    { id: "Review", text: "Review" },
+                  ].map((item) => (
+                    <a
+                      key={item.id}
+                      className="collegeDetails_scrollerElement__iuUFa"
+                      id={`link-${item.id}`}
+                      href={`#${item.id}`}
+                    >
                       <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 5,
-                        }}
+                        className={`collegeDetails_sectionBox__ZGGBm ${
+                          activeSection === item.id
+                            ? "collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV"
+                            : "collegeDetails_textBlack__LRxI5"
+                        }`}
                       >
-                        <div>Enquire Now</div>
-                        <div className="college_blink__yxq74" />
+                        {item.id === "Enquire Now" ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 5,
+                            }}
+                          >
+                            <div>{item.text}</div>
+                            <div className="college_blink__yxq74" />
+                          </div>
+                        ) : (
+                          item.text
+                        )}
                       </div>
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Certification"
-                    href="#Certification"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Certifications
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Admission"
-                    href="#Admission"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Admission Procedure
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Placement"
-                    href="#Placement"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Placement
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Review"
-                    href="#Review"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Review
-                    </div>
-                  </a>
+                    </a>
+                  ))}
                 </div>
                 <div className="collegeDetails_detailsContainer__6A8oL">
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
@@ -178,99 +292,33 @@ export default function page() {
                     <div className="Highlights_container__yqw8t">
                       <h2 className="Highlights_heading__QnGK2">Highlights</h2>
                       <div className="Highlights_grid__zFaon">
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
+                        {[
+                          "Award of IIMA Alumni Membership",
+                          "Weekend Classes",
+                          "Blended Learning Courses",
+                          "High Graduate Employment Rate",
+                          "Internationally Reputed Faculty",
+                          "Uninterrupted Technical Support in Conducting Online Classes, Attendance, Quizzes by Technology Partner",
+                        ].map((highlight, index) => (
+                          <div
+                            className="Highlights_pointContainer__5_snP"
+                            key={index}
                           >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Award of IIMA Alumni Membership</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Weekend Classes</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Blended Learning Courses</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>High Graduate Employment Rate</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Internationally Reputed Faculty</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            Uninterrupted Technical Support in Conducting Online
-                            Classes, Attendance, Quizzes by Technology Partner
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              strokeWidth={0}
+                              viewBox="0 0 16 16"
+                              className="Highlights_pointIcon__m_iYg"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
+                            </svg>
+                            <div>{highlight}</div>
                           </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -279,9 +327,8 @@ export default function page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}Indian Institute of Management, Ahmedabad (IIM
-                          Ahmedabad)
+                          Explore online learning courses in Indian Institute of
+                          Management, Ahmedabad (IIM Ahmedabad)
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -292,281 +339,90 @@ export default function page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Post Graduate Certificate (PGC)</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 180000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
+                            {[
+                              {
+                                name: "Post Graduate Certificate (PGC)",
+                                feeRange: getFeeRange(
+                                  "Post Graduate Certificate (PGC)"
+                                ),
+                              },
+                              {
+                                name: "Executive Programme",
+                                feeRange: getFeeRange("Executive Programme"),
+                              },
+                              {
+                                name: "ePost Graduate Diploma",
+                                feeRange: getFeeRange("ePost Graduate Diploma"),
+                              },
+                              {
+                                name: "e-Post Graduate Programme in Management",
+                                feeRange: getFeeRange(
+                                  "e-Post Graduate Programme in Management"
+                                ),
+                              },
+                              {
+                                name: "Programme on Strategic Management",
+                                feeRange: getFeeRange(
+                                  "Programme on Strategic Management"
+                                ),
+                              },
+                              {
+                                name: "Accelarated General Management Programme",
+                                feeRange: getFeeRange(
+                                  "Accelarated General Management Programme"
+                                ),
+                              },
+                              {
+                                name: "Financial Reporting and Corporate Governance",
+                                feeRange: getFeeRange(
+                                  "Financial Reporting and Corporate Governance"
+                                ),
+                              },
+                              {
+                                name: "Advanced Programme",
+                                feeRange: getFeeRange("Advanced Programme"),
+                              },
+                              {
+                                name: "Senior Management Programme",
+                                feeRange: getFeeRange(
+                                  "Senior Management Programme"
+                                ),
+                              },
+                              {
+                                name: "Management and Finance for Chartered Accountants Programme",
+                                feeRange: getFeeRange(
+                                  "Management and Finance for Chartered Accountants Programme"
+                                ),
+                              },
+                            ].map((course, index) => (
+                              <tr className="courses_tbody__ZPCxV" key={index}>
+                                <td>{course.name}</td>
+                                <td style={{ textAlign: "center" }}>
+                                  {course.feeRange}
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={() => setIsCourseModalOpen(true)}
+                                    aria-label={`Enquire about ${course.name}`}
                                   >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Executive Programme</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 325000-₹ 475000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                    Enquire Now
+                                  </button>
+                                  <button
+                                    className="courses_viewSpsl__lrjH5"
+                                    onClick={() =>
+                                      handleViewSpecialization(course.name)
+                                    }
+                                    aria-label={`View specializations for ${course.name}`}
                                   >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>ePost Graduate Diploma</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 1200000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>e-Post Graduate Programme in Management</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 2000000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Programme on Strategic Management</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 281000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Accelarated General Management Programme</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 690000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>
-                                Financial Reporting and Corporate Governance
-                              </td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 191000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Advanced Programme</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 325000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Senior Management Programme</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 815000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>
-                                Management and Finance for Chartered Accountants
-                                Programme
-                              </td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 350000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
-                              </td>
-                            </tr>
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -588,126 +444,68 @@ export default function page() {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Post Graduate Certificate (PGC)</td>
-                            <td>
-                              Diploma (10+2+3)/ Bachelor’s Degree or equivalent
-                              (10+2+3 or 10+2+4)/ 2 Years Master’s Degree or
-                              Equivalent/ from a recognized university
-                              (UGC/AICTE/DEC/AIU/State Government) in any
-                              discipline Min 2 years’ experience is preferable
-                              after completion of qualifying education
-                              Participants who fulfil the above criteria but are
-                              not working currently are also eligible for the
-                              programme
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Executive Programme</td>
-                            <td>
-                              Graduate working executives (10+2+3 or equivalent)
-                              in any discipline with 50% score with at least two
-                              years of experience in operations at Senior /
-                              Middle / Junior managerial levels or
-                              entrepreneurs. Applicants with some programming
-                              language skills are preferred.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>ePost Graduate Diploma</td>
-                            <td>
-                              Bachelor's degree holders with strong quantitative
-                              and analytical problem-solving skills. Minimum of
-                              2 years' work experience (preferably in the domain
-                              of business analytics); the experience criterion
-                              may be relaxed for candidates with exceptional
-                              academics/professional qualifications in a
-                              relevant field and A valid test score
-                              (CAT/GATE/GMAT/GRE or the ePGD-ABA
-                              qualifying-cum-aptitude test).
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>e-Post Graduate Programme in Management</td>
-                            <td>
-                              Working Professionals and Entrepreneurs with a
-                              minimum of 3 years’ fulltime work experience
-                              (after completion of graduation) as on March
-                              31,2020. Minimum Age 24 years and above as on
-                              March 31, 2020 (born on or before March 31, 1996).
-                              Holding at least a Bachelor’s Degree/CA/CS/ICWA,
-                              with at least 50 percent marks in aggregate or
-                              equivalent CGPA, awarded by any of the recognized
-                              universities
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Programme on Strategic Management</td>
-                            <td>
-                              Working executives who are graduates (10+2+3 or
-                              equivalent) in any discipline with 50% marks, with
-                              an experience profile of at least five years after
-                              graduation are eligible.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Accelarated General Management Programme</td>
-                            <td>
-                              Working managers with an experience profile of
-                              five years or more, ideally up to 10 years. Those
-                              with up to 15 years of experience but only in one
-                              functional domain, will also be considered. The
-                              candidates should be graduates/postgraduates in
-                              any discipline with 50% or more marks.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>
-                              Financial Reporting and Corporate Governance
-                            </td>
-                            <td>
-                              The candidates should be graduates/postgraduates
-                              in any discipline with 50% or more marks and
-                              minimum 2 - 3 years of work experience. Executives
-                              in junior and middle management, and entrepreneurs
-                              are welcome. Participants would be selected on the
-                              basis of assessment of their work experience,
-                              academic background and motivation to do the
-                              programme as demonstrated in the application form.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Advanced Programme</td>
-                            <td>---</td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Senior Management Programme</td>
-                            <td>
-                              Working professionals/self-employed (Graduates)
-                              with minimum work experience of 10 years, and who
-                              have done well and now aspire to take a leap and
-                              lead the next level of senior management
-                              functions.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>
-                              Management and Finance for Chartered Accountants
-                              Programme
-                            </td>
-                            <td>
-                              The programme is meant for CAs with more than 3
-                              years of experience who have chosen to work with
-                              corporate sector (Indian/MNCs,
-                              large/mid-size/small firms), own or work for large
-                              CA firms, or consultancy firms. The participants
-                              may be sponsored by their employers or be
-                              self-sponsored. The applicants to the programme
-                              should be Chartered Accountants and should have
-                              reasonable comfort with English as the medium of
-                              instruction.
-                            </td>
-                          </tr>
+                          {[
+                            {
+                              course: "Post Graduate Certificate (PGC)",
+                              eligibility:
+                                "Diploma (10+2+3)/ Bachelor’s Degree or equivalent (10+2+3 or 10+2+4)/ 2 Years Master’s Degree or Equivalent/ from a recognized university (UGC/AICTE/DEC/AIU/State Government) in any discipline Min 2 years’ experience is preferable after completion of qualifying education Participants who fulfil the above criteria but are not working currently are also eligible for the programme",
+                            },
+                            {
+                              course: "Executive Programme",
+                              eligibility:
+                                "Graduate working executives (10+2+3 or equivalent) in any discipline with 50% score with at least two years of experience in operations at Senior / Middle / Junior managerial levels or entrepreneurs. Applicants with some programming language skills are preferred.",
+                            },
+                            {
+                              course: "ePost Graduate Diploma",
+                              eligibility:
+                                "Bachelor's degree holders with strong quantitative and analytical problem-solving skills. Minimum of 2 years' work experience (preferably in the domain of business analytics); the experience criterion may be relaxed for candidates with exceptional academics/professional qualifications in a relevant field and A valid test score (CAT/GATE/GMAT/GRE or the ePGD-ABA qualifying-cum-aptitude test).",
+                            },
+                            {
+                              course: "e-Post Graduate Programme in Management",
+                              eligibility:
+                                "Working Professionals and Entrepreneurs with a minimum of 3 years’ fulltime work experience (after completion of graduation) as on March 31,2020. Minimum Age 24 years and above as on March 31, 2020 (born on or before March 31, 1996). Holding at least a Bachelor’s Degree/CA/CS/ICWA, with at least 50 percent marks in aggregate or equivalent CGPA, awarded by any of the recognized universities",
+                            },
+                            {
+                              course: "Programme on Strategic Management",
+                              eligibility:
+                                "Working executives who are graduates (10+2+3 or equivalent) in any discipline with 50% marks, with an experience profile of at least five years after graduation are eligible.",
+                            },
+                            {
+                              course:
+                                "Accelarated General Management Programme",
+                              eligibility:
+                                "Working managers with an experience profile of five years or more, ideally up to 10 years. Those with up to 15 years of experience but only in one functional domain, will also be considered. The candidates should be graduates/postgraduates in any discipline with 50% or more marks.",
+                            },
+                            {
+                              course:
+                                "Financial Reporting and Corporate Governance",
+                              eligibility:
+                                "The candidates should be graduates/postgraduates in any discipline with 50% or more marks and minimum 2 - 3 years of work experience. Executives in junior and middle management, and entrepreneurs are welcome. Participants would be selected on the basis of assessment of their work experience, academic background and motivation to do the programme as demonstrated in the application form.",
+                            },
+                            {
+                              course: "Advanced Programme",
+                              eligibility: "Information not available",
+                            },
+                            {
+                              course: "Senior Management Programme",
+                              eligibility:
+                                "Working professionals/self-employed (Graduates) with minimum work experience of 10 years, and who have done well and now aspire to take a leap and lead the next level of senior management functions.",
+                            },
+                            {
+                              course:
+                                "Management and Finance for Chartered Accountants Programme",
+                              eligibility:
+                                "The programme is meant for CAs with more than 3 years of experience who have chosen to work with corporate sector (Indian/MNCs, large/mid-size/small firms), own or work for large CA firms, or consultancy firms. The participants may be sponsored by their employers or be self-sponsored. The applicants to the programme should be Chartered Accountants and should have reasonable comfort with English as the medium of instruction.",
+                            },
+                          ].map((item, index) => (
+                            <tr
+                              className="courseEligibility_eligible_tbody__q_tOM"
+                              key={index}
+                            >
+                              <td>{item.course}</td>
+                              <td>{item.eligibility}</td>
+                            </tr>
+                          ))}
                         </tbody>
                       </table>
                     </div>
@@ -721,88 +519,129 @@ export default function page() {
                         Get Free Career Consultation
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
-                        <form className="collegenquiry_form__uF7mS">
-                          <input type="text" placeholder="Name*" name="name" />
+                        <form
+                          className="collegenquiry_form__uF7mS"
+                          onSubmit={handleFormSubmit}
+                        >
+                          <input
+                            type="text"
+                            placeholder="Name*"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                          />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
                           />
-                          <select name="program">
-                            <option value selected>
-                              Choose a Program*
+                          <select
+                            name="program"
+                            value={formData.program}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Choose a Program*</option>
+                            <option value="Post Graduate Certificate (PGC)">
+                              Post Graduate Certificate (PGC)
                             </option>
-                            <option value="Online MBA">Online MBA</option>
-                            <option value="Executive MBA">Executive MBA</option>
-                            <option value="Online MCA">Online MCA</option>
-                            <option value="Online MSC">Online MSC</option>
-                            <option value="Online MCOM">Online MCOM</option>
-                            <option value="Online MA">Online MA</option>
-                            <option value="Online PGDM">Online PGDM</option>
-                            <option value="Distance MEd">Distance MEd</option>
-                            <option value="PG Diploma">PG Diploma</option>
-                            <option value="Online BBA">Online BBA</option>
-                            <option value="Online BCA">Online BCA</option>
-                            <option value="Online BSC">Online BSC</option>
-                            <option value="Online BCom">Online BCom</option>
-                            <option value="Online BA">Online BA</option>
-                            <option value="Distance BEd">Distance BEd</option>
-                            <option value="IT Certifications">
-                              IT Certifications
+                            <option value="Executive Programme">
+                              Executive Programme
+                            </option>
+                            <option value="ePost Graduate Diploma">
+                              ePost Graduate Diploma
+                            </option>
+                            <option value="e-Post Graduate Programme in Management">
+                              e-Post Graduate Programme in Management
+                            </option>
+                            <option value="Programme on Strategic Management">
+                              Programme on Strategic Management
+                            </option>
+                            <option value="Accelarated General Management Programme">
+                              Accelarated General Management Programme
+                            </option>
+                            <option value="Financial Reporting and Corporate Governance">
+                              Financial Reporting and Corporate Governance
+                            </option>
+                            <option value="Advanced Programme">
+                              Advanced Programme
+                            </option>
+                            <option value="Senior Management Programme">
+                              Senior Management Programme
+                            </option>
+                            <option value="Management and Finance for Chartered Accountants Programme">
+                              Management and Finance for Chartered Accountants
+                              Programme
                             </option>
                             <option value="Help Me Decide">
                               Help Me Decide
                             </option>
                           </select>
-                          <select name="state">
-                            <option value selected>
-                              State/Province
-                            </option>
-                            <option value="Arunachal Pradesh">
-                              Arunachal Pradesh
-                            </option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">
-                              Himachal Pradesh
-                            </option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">
-                              Madhya Pradesh
-                            </option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="West Bengal">West Bengal</option>
+                          <select
+                            name="state"
+                            value={formData.state}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">State/Province*</option>
+                            {[
+                              "Arunachal Pradesh",
+                              "Assam",
+                              "Bihar",
+                              "Chhattisgarh",
+                              "Delhi",
+                              "Goa",
+                              "Gujarat",
+                              "Haryana",
+                              "Himachal Pradesh",
+                              "Jharkhand",
+                              "Karnataka",
+                              "Kerala",
+                              "Madhya Pradesh",
+                              "Maharashtra",
+                              "Manipur",
+                              "Meghalaya",
+                              "Mizoram",
+                              "Nagaland",
+                              "Odisha",
+                              "Punjab",
+                              "Rajasthan",
+                              "Sikkim",
+                              "Tamil Nadu",
+                              "Telangana",
+                              "Tripura",
+                              "Uttarakhand",
+                              "Uttar Pradesh",
+                              "West Bengal",
+                              "Andaman and Nicobar Islands",
+                              "Chandigarh",
+                              "Dadra and Nagar Haveli and Daman and Diu",
+                              "Lakshadweep",
+                              "Puducherry",
+                            ].map((state) => (
+                              <option key={state} value={state}>
+                                {state}
+                              </option>
+                            ))}
                           </select>
                           <button
                             type="submit"
                             className="collegenquiry_submit_btn__cjBuo"
+                            disabled={isLoading}
                           >
-                            Submit
+                            {isLoading ? "Submitting..." : "Submit"}
                           </button>
                         </form>
                       </div>
@@ -824,77 +663,40 @@ export default function page() {
                               globe
                             </div>
                             <div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  One of the leading Executive Programmes
-                                  offering Institute in India
+                              {[
+                                "One of the leading Executive Programmes offering Institute in India",
+                                "NIRF- 1st rank (management)",
+                                "EQUIS Recognised",
+                              ].map((point, index) => (
+                                <div
+                                  className="Certificates_pointBox__xwwq4"
+                                  key={index}
+                                >
+                                  <Image
+                                    alt="Check icon"
+                                    loading="lazy"
+                                    width={20}
+                                    height={20}
+                                    decoding="async"
+                                    src="/assets/simpli-images/check.webp"
+                                  />
+                                  <div className="Certificates_point__XYWLq">
+                                    {point}
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  NIRF- 1st rank (management)
-                                </div>
-                              </div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  EQUIS Recognised
-                                </div>
-                              </div>
+                              ))}
                             </div>
                           </div>
                           <div>
-                            {/* <img
-                              alt="certificate_url"
+                            {/* Uncomment and update with correct image path */}
+                            {/* <Image
+                              alt="IIM Ahmedabad sample certificate"
                               loading="lazy"
                               width={300}
                               height={200}
                               decoding="async"
-                              data-nimg={1}
                               className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-ahmedabad%2Fcertification%2Fno-img.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-ahmedabad%2Fcertification%2Fno-img.webp&w=640&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Findian-institute-of-management-ahmedabad%2Fcertification%2Fno-img.webp&w=640&q=75"
+                              src="https://store.learningroutes.in/images/colleges/indian-institute-of-management-ahmedabad/certification/sample-certificate.webp"
                             /> */}
                           </div>
                         </div>
@@ -913,81 +715,28 @@ export default function page() {
                         The admissions process takes place in online mode. Fresh
                         admission starts from the month of January of every
                         year. There are direct admissions, no entrance exam is
-                        conducted for the admission process.The addmission
-                        procedure
-                        {/* */}2025{/* */}
-                        for the online course at
-                        {/* */}Indian Institute of Management, Ahmedabad (IIM
-                        Ahmedabad){/* */}
-                        is as follow:
+                        conducted for the admission process. The admission
+                        procedure 2025 for the online course at Indian Institute
+                        of Management, Ahmedabad (IIM Ahmedabad) is as follow:
                       </p>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}1
+                      {[
+                        "Visit the official Online@IIMA page",
+                        "Create an account and select the course of interest",
+                        "Fill in necessary details",
+                        "For paid courses, make online payment during the application process",
+                        "Live courses may have a filtering process",
+                        "Instructors will review your profile to ensure suitability for the course cohort",
+                        "Participant selection based on assessment of work experience, academic background, and motivation demonstrated in the application form",
+                      ].map((step, index) => (
+                        <div className="Admissions_step__4mDzm" key={index}>
+                          <div className="Admissions_stepCount__f9yhl">
+                            STEP {index + 1}
+                          </div>
+                          <div className="Admissions_stepText___L_GT">
+                            {step}
+                          </div>
                         </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Visit the official Online@IIMA page
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}2
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Create an account and select the course of interest
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}3
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Fill in necessary details
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}4
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          For paid courses, make online payment during the
-                          application process
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}5
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Live courses may have a filtering process
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}6
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Instructors will review your profile to ensure
-                          suitability for the course cohort
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}7
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Participant selection based on assessment of work
-                          experience, academic background, and motivation
-                          demonstrated in the application form
-                        </div>
-                      </div>
+                      ))}
                       <div className="Admissions_stepHide__nIt_6" />
                     </div>
                   </div>
@@ -1003,43 +752,25 @@ export default function page() {
                         <h3 className="placement_subHeading__1vY2G">
                           Our students have an opportunity of
                         </h3>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>
-                            Learn employability skills through Continuous
-                            Evaluation Process
-                          </p>
-                        </div>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>Job that suitably fits the student profile</p>
-                        </div>
+                        {[
+                          "Learn employability skills through Continuous Evaluation Process",
+                          "Job that suitably fits the student profile",
+                        ].map((point, index) => (
+                          <div
+                            className="placementSubpoint_subHeadingPoints__uE7MR"
+                            key={index}
+                          >
+                            <Image
+                              alt="Check icon"
+                              loading="lazy"
+                              width={20}
+                              height={20}
+                              decoding="async"
+                              src="/assets/simpli-images/check.webp"
+                            />
+                            <p>{point}</p>
+                          </div>
+                        ))}
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
@@ -1075,8 +806,7 @@ export default function page() {
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
                         Indian Institute of Management, Ahmedabad (IIM
-                        Ahmedabad){/* */}
-                        Review
+                        Ahmedabad) Review
                       </h2>
                       <div>
                         <form>
@@ -1086,91 +816,21 @@ export default function page() {
                                 0 out of 5
                               </p>
                               <div>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
+                                {Array(5)
+                                  .fill()
+                                  .map((_, index) => (
+                                    <span className="star" key={index}>
+                                      <Image
+                                        alt="Rating star"
+                                        loading="lazy"
+                                        width={400}
+                                        height={400}
+                                        decoding="async"
+                                        className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
+                                        src="/assets/simpli-images/Star-Two.webp"
+                                      />
+                                    </span>
+                                  ))}
                               </div>
                             </div>
                             <div className="CollegeReview_rating_form_container__q_Xvp">
@@ -1186,7 +846,6 @@ export default function page() {
                                 className="CollegeReview_college_page_details_review_form_input__niDf2"
                                 name="comment"
                                 required
-                                defaultValue={""}
                               />
                               <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
                                 Send message
@@ -1204,7 +863,229 @@ export default function page() {
           </div>
         </div>
       </div>
-
+      {isCourseModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="exampleModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close "
+                    onClick={handleClose}
+                    aria-label="Close course enquiry modal"
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
+                  ></button>
+                  <h6>Struggling with Career Growth?</h6>
+                  <h6>Get Free Career Consultation</h6>
+                  <form onSubmit={(e) => handleFormSubmit(e, true)}>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name *"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email *"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone *"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                    />
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Choose a program*</option>
+                      <option value="Post Graduate Certificate (PGC)">
+                        Post Graduate Certificate (PGC)
+                      </option>
+                      <option value="Executive Programme">
+                        Executive Programme
+                      </option>
+                      <option value="ePost Graduate Diploma">
+                        ePost Graduate Diploma
+                      </option>
+                      <option value="e-Post Graduate Programme in Management">
+                        e-Post Graduate Programme in Management
+                      </option>
+                      <option value="Programme on Strategic Management">
+                        Programme on Strategic Management
+                      </option>
+                      <option value="Accelarated General Management Programme">
+                        Accelarated General Management Programme
+                      </option>
+                      <option value="Financial Reporting and Corporate Governance">
+                        Financial Reporting and Corporate Governance
+                      </option>
+                      <option value="Advanced Programme">
+                        Advanced Programme
+                      </option>
+                      <option value="Senior Management Programme">
+                        Senior Management Programme
+                      </option>
+                      <option value="Management and Finance for Chartered Accountants Programme">
+                        Management and Finance for Chartered Accountants
+                        Programme
+                      </option>
+                      <option value="Help Me Decide">Help Me Decide</option>
+                    </select>
+                    <select
+                      className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">States/Province*</option>
+                      {[
+                        "Arunachal Pradesh",
+                        "Assam",
+                        "Bihar",
+                        "Chhattisgarh",
+                        "Delhi",
+                        "Goa",
+                        "Gujarat",
+                        "Haryana",
+                        "Himachal Pradesh",
+                        "Jharkhand",
+                        "Karnataka",
+                        "Kerala",
+                        "Madhya Pradesh",
+                        "Maharashtra",
+                        "Manipur",
+                        "Meghalaya",
+                        "Mizoram",
+                        "Nagaland",
+                        "Odisha",
+                        "Punjab",
+                        "Rajasthan",
+                        "Sikkim",
+                        "Tamil Nadu",
+                        "Telangana",
+                        "Tripura",
+                        "Uttarakhand",
+                        "Uttar Pradesh",
+                        "West Bengal",
+                        "Andaman and Nicobar Islands",
+                        "Chandigarh",
+                        "Dadra and Nagar Haveli and Daman and Diu",
+                        "Lakshadweep",
+                        "Puducherry",
+                      ].map((state) => (
+                        <option key={state} value={state}>
+                          {state}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="td_form_card_bottom td_mb_15 mt-3">
+                      <button
+                        type="submit"
+                        className="td_btn td_style_1 td_radius_10 td_medium w-100"
+                        disabled={isLoading}
+                      >
+                        <span className="td_btn_in td_white_color td_accent_bg">
+                          <span>{isLoading ? "Submitting..." : "Submit"}</span>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                  <p className="td_form_card_text td_fs_20 td_medium td_heading_color mb-0 mt-3">
+                    Your personal information is secure with us.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* {isSpecializationModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="specializationModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="specializationModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close position-absolute top-0 end-0 m-3"
+                    onClick={handleCloseSpecializationModal}
+                    aria-label="Close specialization modal"
+                  ></button>
+                  <h2 className="td_mb_20">
+                    {selectedCourseName} Specializations
+                  </h2>
+                  <table className="table table-bordered">
+                    <thead
+                      style={{ background: "var(--dark-blue)", color: "white" }}
+                    >
+                      <tr>
+                        <th>Specialization Name</th>
+                        <th style={{ textAlign: "center" }}>Fees</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedCourseSpecializations.length > 0 ? (
+                        selectedCourseSpecializations.map((spec, index) => (
+                          <tr key={index}>
+                            <td>{spec.name}</td>
+                            <td style={{ textAlign: "center" }}>
+                              ₹ {spec.fees.toLocaleString()}
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" style={{ textAlign: "center" }}>
+                            No specializations available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )} */}
       <Footer />
     </>
   );
