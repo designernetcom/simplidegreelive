@@ -417,7 +417,7 @@ export default function Page() {
                 </div>
 
                 {/* University Cards */}
-                <div className="study_detailsContainer__xkYZm">
+                <div className="">
                   <div
                     className="study_maxWidth__jJbIL"
                     id="Leading International Colleges"

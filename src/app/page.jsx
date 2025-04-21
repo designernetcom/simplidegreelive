@@ -14,7 +14,8 @@ import "./styles/7620326e339f446b.css";
 import "./styles/e881ba373a433cf6.css";
 import "./styles/afc7461932b964d5.css";
 import "./styles/cc9687947ca46cf2.css";
-import "./styles/42402eb91a3d915c.css"
+import "./styles/42402eb91a3d915c.css";
+
 import Link from "next/link";
 import Menu from "../../components/Header/Menu/Menu";
 import Slider from "../../components/Slider";
@@ -35,6 +36,11 @@ const ComparisonModal = dynamic(() => import("./ComparisonModal"), {
 export default function Page() {
   const [compareList, setCompareList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("td_tab_1"); // Default active tab
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId); // Update active tab state
+  };
 
   const universities = [
     {
@@ -109,7 +115,329 @@ export default function Page() {
     },
     // ... (rest of your university data)
   ];
+const courseData = {
+  "Online PG Programmes": [
+    {
+      title: "Online MBA",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMBA.png",
+    },
+    {
+      title: "Online MCA",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMCA.webp",
+    },
+    {
+      title: "Online MCom",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineBCom.webp",
+    },
+    {
+      title: "Online MSc",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMSc.webp",
+    },
+    {
+      title: "Online MA",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMA.webp",
+    },
+    {
+      title: "M.Com with ACCA",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMCom.webp",
+    },
+    {
+      title: "Distance MBA",
+      duration: "2 Years",
+      img: "/assets/img/courses/DistanceMBA.webp",
+    },
+    {
+      title: "Distance MCA",
+      duration: "2 Years",
+      img: "/assets/img/courses/DistanceMCA.webp",
+    },
+    {
+      title: "Distance MCom",
+      duration: "2 Years",
+      img: "/assets/img/courses/DistanceMCom.webp",
+    },
+    {
+      title: "Distance MLIS",
+      duration: "1 Year",
+      img: "/assets/img/courses/PG_Diploma_In_Human_Resource_Management.webp",
+    },
+  ],
+  "Online UG Programmes": [
+    {
+      title: "Online BBA",
+      duration: "2 Years",
+      img: "/assets/img/home_7/OnlineBBA.webp",
+    },
+    {
+      title: "Online BCA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/OnlineBCA.webp",
+    },
+    {
+      title: "Online BCom",
+      duration: "3 Years",
+      img: "/assets/img/home_7/OnlineBCom.webp",
+    },
+    {
+      title: "Distance BA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBBA.webp",
+    },
+    {
+      title: "Online BA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/OnlineBA.webp",
+    },
+    {
+      title: "Distance BCA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBCA.webp",
+    },
+    {
+      title: "Distance BBA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBBA.webp",
+    },
+    {
+      title: "Distance BCom",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBCom.webp",
+    },
+    {
+      title: "Distance BSc",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBSc.webp",
+    },
+    {
+      title: "Distance BLIS",
+      duration: "1 Year",
+      img: "/assets/img/home_7/Diploma_in_Banking_and_Finance_Management.webp",
+    },
+  ],
+  "Diploma Courses": [
+    {
+      title: "PGD Finance & Acc.",
+      duration: "1-2 years",
+      img: "/assets/img/home_7/PG_Diploma_in_Finance_&_Accounting.webp",
+    },
+    {
+      title: "PGD Data Science",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/PG_Diploma_in_Data_Science.webp",
+    },
+    {
+      title: "Digital Marketing",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+    },
+    {
+      title: "PGD Retail Mgmt.",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/PG_Diploma_in_Retail_Management.webp",
+    },
+    {
+      title: "PGD Marketing",
+      duration: "1 Year",
+      img: "/assets/img/home_7/PG_Diploma_in_Marketing_Management.webp",
+    },
+    {
+      title: "PGD HR Mgmt.",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/PG_Diploma_In_Human_Resource_Management.webp",
+    },
+    {
+      title: "Banking & Finance",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/Diploma_in_Banking_and_Finance_Management.webp",
+    },
+    {
+      title: "International Trade",
+      duration: "12 Months",
+      img: "/assets/img/home_7/Diploma_in_International_Trade_Management.webp",
+    },
+    {
+      title: "Cyber Law",
+      duration: "1 Year",
+      img: "/assets/img/home_7/Diploma_in_Cyber_Law.webp",
+    },
+    {
+      title: "PGD IT",
+      duration: "1 Year",
+      img: "/assets/img/home_7/PGDiplomainIT.webp",
+    },
+  ],
+  "Executive Programmes": [
+    {
+      title: "Master of Business Administration",
+      duration: "Upto 3 Years",
+      img: "/assets/img/home_7/ExecutiveMBA.webp",
+    },
+    {
+      title: "EPGD Business Analytics",
+      duration: "15-16 months",
+      img: "/assets/img/home_7/ExecutivePGDiplomainBusinessAnalytics.webp",
+    },
+    {
+      title: "Operations and Supply Chain Mgmt.",
+      duration: "6 to 12 months",
+      img: "/assets/img/home_7/ExecutiveProgrammeinOperationsandSupplyChainManagement.webp",
+    },
+    {
+      title: "EDP Strategic Management",
+      duration: "6 - 12 months",
+      img: "/assets/img/home_7/ExecutiveDevelopmentProgrammeinStrategicManagement.webp",
+    },
+    {
+      title: "Chief Financial Officer Programme",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/OnlineMA.webp",
+    },
+    {
+      title: "Leadership and Management",
+      duration: "4 to 12 months",
+      img: "/assets/img/courses/OnlineMCom.webp",
+    },
+    {
+      title: "EP in General Management",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/DistanceMBA.webp",
+    },
+    {
+      title: "EDP Strategic HR Management",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/DistanceMCA.webp",
+    },
+    {
+      title: "EP in Project Management",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/DistanceMCom.webp",
+    },
+    {
+      title: "Healthcare Service Management",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/ExecutiveProgrammeinHealthcareServiceManagement.webp",
+    },
+  ],
+  "International Programmes": [
+    {
+      title: "MBA - Golden Gate University",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAGoldenGateUniversity.webp",
+    },
+    {
+      title: "MBA - Liverpool Business School",
+      duration: "2 Years",
+      img: "/assets/img/home_7/LiverpoolBusinessSchool.webp",
+    },
+    {
+      title: "MBA - Edgewood",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAEdgewood.webp",
+    },
+    {
+      title: "MBA (Global) - Deakin",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAGlobalDeakin.webp",
+    },
+    {
+      title: "MBA - UTICA",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAUTICA.webp",
+    },
+    {
+      title: "MBA (90 ECTS) - IU",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBA90ECTSIU.webp",
+    },
+    {
+      title: "MBA - Clarkson",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAClarkson.webp",
+    },
+    {
+      title: "MBA - ISM",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAISM.webp",
+    },
+    {
+      title: "MBA - Sunderland",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBASunderland.webp",
+    },
+    {
+      title: "MSBA - Golden Gate",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MSBAGoldenGate.webp",
+    },
+  ],
+  "Free Courses": [
+    {
+      title: "Data Analytics",
+      duration: "Upto 12 weeks",
+      img: "/assets/img/home_7/DataAnalyticsCertification.webp",
+    },
+    {
+      title: "Digital Marketing",
+      duration: "Upto 6 months",
+      img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+    },
+    {
+      title: "Cyber Security",
+      duration: "Upto 3 months",
+      img: "/assets/img/home_7/CyberSecurityCertification.webp",
+    },
+    {
+      title: "MS Excel",
+      duration: "Upto 7 days",
+      img: "/assets/img/home_7/CertificationInMsExcel.webp",
+    },
+    {
+      title: "AI and ML",
+      duration: "Upto 12 hrs",
+      img: "/assets/img/home_7/CertificationInAIandML.webp",
+    },
+    {
+      title: "Marketing",
+      duration: "Upto months",
+      img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+    },
+    {
+      title: "Leadership Skills",
+      duration: "Upto 4 weeks",
+      img: "/assets/img/home_7/CertificationInLeadershipSkills.webp",
+    },
+    {
+      title: "Project Management",
+      duration: "Upto 22 hrs",
+      img: "/assets/img/home_7/ProjectManagementCertification.webp",
+    },
+    {
+      title: "Supply Chain Mgmt.",
+      duration: "Upto 28 hrs",
+      img: "/assets/img/home_7/SupplyChainManagementCertification.webp",
+    },
+    {
+      title: "Financial Accounting",
+      duration: "3 hrs to 3 months",
+      img: "/assets/img/home_7/FinancialAccountingCertification.webp",
+    },
+  ],
+};
 
+const categories = [
+  "Online PG Programmes",
+  "Online UG Programmes",
+  "Diploma Courses",
+  "Executive Programmes",
+  "International Programmes",
+  "Free Courses",
+];
   const toggleCompare = (university) => {
     if (compareList.some((item) => item.id === university.id)) {
       setCompareList(compareList.filter((item) => item.id !== university.id));
@@ -120,8 +448,19 @@ export default function Page() {
     }
   };
 
+  const openCoursesModal = () => {
+    setIsCoursesModalOpen(!isCoursesModalOpen);
+    if (!openMenuMobile && window.innerWidth <= 768) {
+      setOpenMenuMobile(true);
+    }
+  };
+
+  const closeCoursesModal = () => {
+    setIsCoursesModalOpen(false);
+  };
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const [activeCategory, setActiveCategory] = useState("Online PG Programmes");
 
   return (
     <>
@@ -134,7 +473,7 @@ export default function Page() {
         <div className="AllCollegeCards_college_grid_container__PA9Ro {styles.collegeGridContainer}">
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/amity-university-online"
+            href="/college/amity-university-online"
           >
             <img
               alt="AMITY UNIVERSITY"
@@ -155,7 +494,7 @@ export default function Page() {
 
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/dy-patil-university-pune-online"
+            href="/college/dr-dy-patil-vidyapeeth"
           >
             <img
               alt="DY PATIL UNIVERSITY"
@@ -175,7 +514,27 @@ export default function Page() {
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/iim-ahmedabad"
+            href="/college/chandigarh-university-online"
+          >
+            <img
+              alt="CHANDIGARH UNI."
+              fetchpriority="high"
+              loading="eager"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/cu.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              CHANDIGARH UNI.
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/college/indian-institute-of-management-ahmedabad-iim-ahmedabad"
           >
             <img
               alt="IIM AHMEDABAD"
@@ -192,28 +551,10 @@ export default function Page() {
               IIM AHMEDABAD
             </p>
           </a>
+
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/icfai-cdoe"
-          >
-            <img
-              alt="ICFAI CDOE"
-              loading="lazy"
-              width={145}
-              height={45}
-              decoding="async"
-              data-nimg={1}
-              className="AllCollegeCards_college_indi_card_img__8_YF2"
-              style={{ color: "transparent" }}
-              src="/assets/img/universities/ICFAi.webp"
-            />
-            <p className="AllCollegeCards_college_indi_card_name__25zbO">
-              ICFAI CDOE
-            </p>
-          </a>
-          <a
-            className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/jain-university-online"
+            href="/college/jain-university-online"
           >
             <img
               alt="JAIN UNIVERSITY"
@@ -232,7 +573,7 @@ export default function Page() {
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/online-manipal-jaipur"
+            href="/college/online-manipal-jaipur"
           >
             <img
               alt="ONLINE MANIPAL"
@@ -251,7 +592,7 @@ export default function Page() {
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/upes-university-online"
+            href="/college/university-of-petroleum-and-energy-studies-centre-for-continued-education-upes"
           >
             <img
               alt="UPES UNIVERSITY"
@@ -270,7 +611,7 @@ export default function Page() {
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/op-jindal-global-university"
+            href="/college/op-jindal-global-university"
           >
             <img
               alt="O.P JINDAL UNI."
@@ -289,7 +630,7 @@ export default function Page() {
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/chitkara-university-online"
+            href="/college/chitkara-university-centre-for-continuing-education"
           >
             <img
               alt="CHITKARA UNI."
@@ -308,7 +649,7 @@ export default function Page() {
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/lpu-distance-education"
+            href="/college/lovely-professional-university-odl-lpu"
           >
             <img
               alt="LPU ONLINE"
@@ -327,7 +668,7 @@ export default function Page() {
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/imt-cdl-ghaziabad"
+            href="/college/indian-institute-of-finance"
           >
             <img
               alt="IMT CDL"
@@ -338,15 +679,15 @@ export default function Page() {
               data-nimg={1}
               className="AllCollegeCards_college_indi_card_img__8_YF2"
               style={{ color: "transparent" }}
-              src="/assets/img/universities/amity.webp"
+              src="/assets/img/universities/icon-iif.webp"
             />
             <p className="AllCollegeCards_college_indi_card_name__25zbO">
-              IMT CDL
+              Indian Institute of Finance
             </p>
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/iim-raipur"
+            href="/college/indian-institute-of-management-raipur-iim-raipur"
           >
             <img
               alt="IIM RAIPUR"
@@ -365,7 +706,7 @@ export default function Page() {
           </a>
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/online-uttaranchal-university"
+            href="/college/delhi-degree-college"
           >
             <img
               alt="ONLINE UU"
@@ -376,449 +717,132 @@ export default function Page() {
               data-nimg={1}
               className="AllCollegeCards_college_indi_card_img__8_YF2"
               style={{ color: "transparent" }}
-              src="/assets/img/universities/amity.webp"
+              src="/assets/img/universities/icon-delhi-degree.webp"
             />
             <p className="AllCollegeCards_college_indi_card_name__25zbO">
-              ONLINE UU
+              Delhi Degree College
             </p>
           </a>
+
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/colleges/chandigarh-university-online"
+            href="/college/gla-university-online"
           >
             <img
-              alt="CHANDIGARH UNI."
-              fetchpriority="high"
-              loading="eager"
+              alt="GLA University Online"
+              loading="lazy"
               width={145}
-              height={25}
+              height={45}
               decoding="async"
               data-nimg={1}
               className="AllCollegeCards_college_indi_card_img__8_YF2"
               style={{ color: "transparent" }}
-              src="/assets/img/universities/cu.webp"
+              src="/assets/img/universities/icon-gla.webp"
             />
             <p className="AllCollegeCards_college_indi_card_name__25zbO">
-              CHANDIGARH UNI.
+              GLA University Online
             </p>
           </a>
         </div>
         <div className="AllCollegeCards_viewallcontainer__yIVAn">
-          <a className="AllCollegeCards_viewAll__AEokp" href="/colleges">
+          <a className="AllCollegeCards_viewAll__AEokp" href="/top-university">
             View All Colleges
           </a>
         </div>
       </div>
-
-      <div>
-        <div
-          className="BrowseCourse_home_browse_container__tQp9L"
-          id="brCourses"
-        >
-          <div className="BrowseCourse_home_browse_heading_container__EJAFM">
-            <div className="BrowseCourse_home_browse_heading_img_container__gqEkj">
+     <div>
+          <div className="BrowseCourse_home_browse_container__tQp9L" id="brCourses">
+        <div className="BrowseCourse_home_browse_heading_container__EJAFM">
+          <div className="BrowseCourse_home_browse_heading_img_container__gqEkj">
               <div>
-                <div>
-                  <h2 className="BrowseCourse_home_browse_heading__10RSs">
-                    EXPLORE OUR COURSES &amp; BE AWESOME
-                  </h2>
-                </div>
-                {/* <div>
+                <h2 className="BrowseCourse_home_browse_heading__10RSs">
+                  EXPLORE OUR COURSES &amp; BE AWESOME
+                </h2>
+              </div>
+              {/* <div>
               <p class="BrowseCourse_home_browse_sub_heading__IbpwW">
                 Select the category and compare the university
               </p>
             </div> */}
-              </div>
             </div>
-            <div />
           </div>
-          <div>
-            <div className="BrowseCourse_home_browse_course_container__PlZ71">
-              <div className="BrowseCourse_home_browse_course_list_main_box__2D0BM">
-                <div
-                  className="BrowseCourse_home_course_list_single_box__d92j6 BrowseCourse_bgColor__zDC4o"
-                  style={{ color: "white" }}
+          <div />
+        </div>
+        
+        <div
+          className="BrowseCourse_home_browse_course_container__PlZ71"
+          style={{ padding: "30px" }}
+        >
+          <div className="BrowseCourse_home_browse_course_list_main_box__2D0BM">
+            {categories.map((category, index) => (
+              <div
+                key={index}
+                className={`BrowseCourse_home_course_list_single_box__d92j6 ${
+                  activeCategory === category
+                    ? "BrowseCourse_bgColor__zDC4o"
+                    : ""
+                }`}
+                style={{
+                  color: activeCategory === category ? "white" : "#0c2d50",
+                }}
+                onClick={() => setActiveCategory(category)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) =>
+                  e.key === "Enter" && setActiveCategory(category)
+                }
+              >
+                <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
+                  <span className="cursor-pointer">{category}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="BrowseCourse_course_grid_box__h2DdU">
+            {courseData[activeCategory]?.map((course, index) => (
+              <div
+                key={index}
+                className="BrowseCourse_browse_course_card__6O_U1"
+              >
+                <Link
+                  href={`/courses/${course.title
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}`}
+                  passHref
+                  onClick={closeCoursesModal}
                 >
-                  <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
-                    <span>
-                      {" "}
-                      <Link href="/online-pg-programmes">
-                        Online PG Programmes
-                      </Link>
-                    </span>
+                  <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
+                    <div>
+                      <img
+                        alt={course.title}
+                        loading="lazy"
+                        width={200}
+                        height={180}
+                        decoding="async"
+                        className="BrowseCourse_browse_course_card_img__UCBw8"
+                        style={{ color: "transparent" }}
+                        src={course.img}
+                      />
+                    </div>
+                    <div>
+                      <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
+                        {course.title}
+                      </div>
+                      <div className="BrowseCourse_browse_course_card_duration__mSOzf">
+                        Duration: {course.duration}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="BrowseCourse_home_course_list_single_box__d92j6">
-                  <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
-                    <span>
-                      <Link href="/online-ug-programmes">
-                        Online UG Programmes
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-                <div className="BrowseCourse_home_course_list_single_box__d92j6">
-                  <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
-                    <span>
-                      <Link href="/diploma-Courses">Diploma Courses</Link>
-                    </span>
-                  </div>
-                </div>
-                <div className="BrowseCourse_home_course_list_single_box__d92j6">
-                  <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
-                    <span>
-                      <Link href="/executive-programmes">
-                        Executive Programmes
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-                <div className="BrowseCourse_home_course_list_single_box__d92j6">
-                  <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
-                    <span>
-                      <Link
-                        href="/international-programmes"
-                        className="text-blue-500 font-semibold hover:underline"
-                      >
-                        International Programmes
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-                <div className="BrowseCourse_home_course_list_single_box__d92j6">
-                  <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
-                    <span>
-                      {" "}
-                      <Link
-                        href="/free-courses"
-                        className="text-blue-500 font-semibold hover:underline"
-                      >
-                        Free Courses
-                      </Link>
-                    </span>
-                  </div>
+                </Link>
+                <div className="BrowseCourse_browse_course_card_view__wBC_X">
+                  Read More
                 </div>
               </div>
-              <div className="BrowseCourse_course_grid_box__h2DdU">
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/online-mba" passHref>
-                    <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
-                      <div>
-                        <img
-                          alt="Online MBA"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/OnlineMBA.png"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Online MBA
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/online-mca" passHref>
-                    <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
-                      <div>
-                        <img
-                          alt="Online MCA"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/OnlineMCA.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Online MCA
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/online-mcom" passHref>
-                    <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
-                      <div>
-                        <img
-                          alt="Online MCom"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/OnlineBCom.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Online MCom
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/online-msc" passHref>
-                    <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
-                      <div>
-                        <img
-                          alt="Online MSc"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/OnlineMSc.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Online MSc
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/online-ma" passHref>
-                    <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
-                      <div>
-                        <img
-                          alt="Online MA"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/OnlineMA.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Online MA
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/online-acca-mcom" passHref>
-                    <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
-                      <div>
-                        <img
-                          alt="M.Com with ACCA"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/OnlineMCom.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          M.Com with ACCA
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/distance-mba" passHref>
-                    <div
-                      className="BrowseCourse_browse_course_card_top_container__4dzBP"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <div>
-                        <img
-                          alt="Distance MBA"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/DistanceMBA.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Distance MBA
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/distance-mca" passHref>
-                    <div
-                      className="BrowseCourse_browse_course_card_top_container__4dzBP"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <div>
-                        <img
-                          alt="Distance MCA"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/DistanceMCA.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Distance MCA
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link href="/courses/distance-mcom" passHref>
-                    <div
-                      className="BrowseCourse_browse_course_card_top_container__4dzBP"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <div>
-                        <img
-                          alt="Distance MCom"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/DistanceMCom.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Distance MCom
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 2 Years
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-                <div className="BrowseCourse_browse_course_card__6O_U1">
-                  <Link
-                    href="/courses/master-of-library-and-information-science"
-                    passHref
-                  >
-                    <div
-                      className="BrowseCourse_browse_course_card_top_container__4dzBP"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <div>
-                        <img
-                          alt="Distance MLIS"
-                          loading="lazy"
-                          width={200}
-                          height={180}
-                          decoding="async"
-                          data-nimg={1}
-                          className="BrowseCourse_browse_course_card_img__UCBw8"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/courses/PG_Diploma_In_Human_Resource_Management.webp"
-                        />
-                      </div>
-                      <div>
-                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                          Distance MLIS
-                        </div>
-                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                          Duration: 1 Year
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                    Read More
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
+      </div>
+      <div>
         <section className="td_gray_bg_4 home-courses">
           <div className="td_height_10" />
           <div className="container">
@@ -2281,7 +2305,7 @@ export default function Page() {
       </div>
       <section>
         <div className="container">
-          <div className="row  td_gap_y_40">
+          <div className="row td_gap_y_40">
             <div
               className="col-lg-6 wow fadeInLeft"
               data-wow-duration="1s"
@@ -2291,7 +2315,7 @@ export default function Page() {
                 <div className="td_image_box_img_1">
                   <img
                     src="/assets/simpli-images/DeWatermark.ai_1740819150754.png"
-                    alt
+                    alt=""
                     style={{
                       border: "0",
                       maxWidth: "100%",
@@ -2303,7 +2327,7 @@ export default function Page() {
                   <div className="td_image_box_img_2_in">
                     <img
                       src="/assets/simpli-images/220-SM911676.jpg"
-                      alt
+                      alt=""
                       style={{
                         border: "0",
                         maxWidth: "100%",
@@ -2316,7 +2340,7 @@ export default function Page() {
                 <div className="td_image_box_shape_2 position-absolute">
                   <img
                     src="/assets/img/home_5/about_shape_2.svg"
-                    alt
+                    alt=""
                     style={{
                       border: "0",
                       maxWidth: "100%",
@@ -2349,19 +2373,99 @@ export default function Page() {
               </div>
               <div className="td_tabs td_style_1">
                 <ul className="td_tab_links td_style_3 td_mp_0 td_medium td_fs_24 td_heading_color">
-                  <li className="active">
-                    <a href="#td_tab_1">Proven Success</a>
+                  <li
+                    style={{
+                      display: "inline-block",
+                      marginRight: "20px",
+                      cursor: "pointer",
+                      fontWeight: activeTab === "td_tab_1" ? "bold" : "normal",
+                      color: activeTab === "td_tab_1" ? "#007bff" : "#333",
+                      borderBottom:
+                        activeTab === "td_tab_1" ? "2px solid #007bff" : "none",
+                      transition: "all 0.3s ease",
+                    }}
+                  >
+                    <button
+                      onClick={() => handleTabClick("td_tab_1")}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        padding: "0",
+                        fontSize: "24px",
+                        color: "inherit",
+                        cursor: "pointer",
+                        outline: "none",
+                      }}
+                    >
+                      Proven Success
+                    </button>
                   </li>
-                  <li>
-                    <a href="#td_tab_2">Real Impact </a>
+                  <li
+                    style={{
+                      display: "inline-block",
+                      marginRight: "20px",
+                      cursor: "pointer",
+                      fontWeight: activeTab === "td_tab_2" ? "bold" : "normal",
+                      color: activeTab === "td_tab_2" ? "#007bff" : "#333",
+                      borderBottom:
+                        activeTab === "td_tab_2" ? "2px solid #007bff" : "none",
+                      transition: "all 0.3s ease",
+                    }}
+                  >
+                    <button
+                      onClick={() => handleTabClick("td_tab_2")}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        padding: "0",
+                        fontSize: "24px",
+                        color: "inherit",
+                        cursor: "pointer",
+                        outline: "none",
+                      }}
+                    >
+                      Real Impact
+                    </button>
                   </li>
-                  <li>
-                    <a href="#td_tab_3"> Community </a>
+                  <li
+                    style={{
+                      display: "inline-block",
+                      marginRight: "20px",
+                      cursor: "pointer",
+                      fontWeight: activeTab === "td_tab_3" ? "bold" : "normal",
+                      color: activeTab === "td_tab_3" ? "#007bff" : "#333",
+                      borderBottom:
+                        activeTab === "td_tab_3" ? "2px solid #007bff" : "none",
+                      transition: "all 0.3s ease",
+                    }}
+                  >
+                    <button
+                      onClick={() => handleTabClick("td_tab_3")}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        padding: "0",
+                        fontSize: "24px",
+                        color: "inherit",
+                        cursor: "pointer",
+                        outline: "none",
+                      }}
+                    >
+                      Community
+                    </button>
                   </li>
                 </ul>
                 <div className="td_height_30 td_height_lg_30" />
                 <div className="td_tab_body">
-                  <div className="td_tab active" id="td_tab_1">
+                  <div
+                    className="td_tab"
+                    id="td_tab_1"
+                    style={{
+                      display: activeTab === "td_tab_1" ? "block" : "none",
+                      opacity: activeTab === "td_tab_1" ? 1 : 0,
+                      transition: "opacity 0.3s ease",
+                    }}
+                  >
                     <ul className="td_list td_style_5 td_mp_0">
                       <li>
                         <h3 className="td_fs_24 td_mb_8">
@@ -2373,7 +2477,7 @@ export default function Page() {
                       </li>
                       <li>
                         <h3 className="td_fs_24 td_mb_8">
-                          Over 50,000 professionals{" "}
+                          Over 50,000 professionals
                         </h3>
                         <p className="td_fs_18 mb-0">
                           Professionals have transformed their careers with
@@ -2382,7 +2486,15 @@ export default function Page() {
                       </li>
                     </ul>
                   </div>
-                  <div className="td_tab" id="td_tab_2">
+                  <div
+                    className="td_tab"
+                    id="td_tab_2"
+                    style={{
+                      display: activeTab === "td_tab_2" ? "block" : "none",
+                      opacity: activeTab === "td_tab_2" ? 1 : 0,
+                      transition: "opacity 0.3s ease",
+                    }}
+                  >
                     <ul className="td_list td_style_5 td_mp_0">
                       <li>
                         <h3 className="td_fs_24 td_mb_8">
@@ -2394,7 +2506,7 @@ export default function Page() {
                         </p>
                       </li>
                       <li>
-                        <h3 className="td_fs_24 td_mb_8">Alumni projects </h3>
+                        <h3 className="td_fs_24 td_mb_8">Alumni projects</h3>
                         <p className="td_fs_18 mb-0">
                           Alumni projects have been featured in renowned
                           industry forums and publications.
@@ -2402,7 +2514,15 @@ export default function Page() {
                       </li>
                     </ul>
                   </div>
-                  <div className="td_tab" id="td_tab_3">
+                  <div
+                    className="td_tab"
+                    id="td_tab_3"
+                    style={{
+                      display: activeTab === "td_tab_3" ? "block" : "none",
+                      opacity: activeTab === "td_tab_3" ? 1 : 0,
+                      transition: "opacity 0.3s ease",
+                    }}
+                  >
                     <ul className="td_list td_style_5 td_mp_0">
                       <li>
                         <h3 className="td_fs_24 td_mb_8">Over 30 countries</h3>
@@ -2413,7 +2533,7 @@ export default function Page() {
                       </li>
                       <li>
                         <h3 className="td_fs_24 td_mb_8">
-                          Alumni work with top companies{" "}
+                          Alumni work with top companies
                         </h3>
                         <p className="td_fs_18 mb-0">
                           Top companies like Google, Amazon, and Deloitte,
@@ -2428,7 +2548,17 @@ export default function Page() {
               <a
                 href="https://onlinemba.simplidegree.com/"
                 className="td_btn td_style_1 td_radius_10 td_medium"
-              ></a>
+                style={{
+                  display: "inline-block",
+                  padding: "10px 20px",
+                  backgroundColor: "#007bff",
+                  color: "#fff",
+                  textDecoration: "none",
+                  borderRadius: "10px",
+                }}
+              >
+                Learn More
+              </a>
             </div>
           </div>
         </div>

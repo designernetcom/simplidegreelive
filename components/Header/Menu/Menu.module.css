@@ -8,13 +8,14 @@
   left: 0;
   width: 100%;
   z-index: 99999;
+  
 }
 
 .mobileNavbarHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding-top: "0px";
   background-color: rgba(0, 0, 0, .1); /* Transparent black */
 }
 
@@ -85,11 +86,17 @@
 .menuOverlay a,
 .mobileLogin {
   color: #fff;
-  padding: 15px 0;
+  padding: 2rem 0 1rem 2rem;
   text-decoration: none;
   font-size: 1.1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+   border-bottom: 1px solid gray;
   transition: background-color 0.3s ease;
+
+        line-height: 40px;
+       
+       
+       
+    
 }
 
 .menuOverlay a:hover,
@@ -358,7 +365,7 @@
   display: none;
   flex-direction: column;
   background-color: white;
-  padding: 10px;
+  padding: 1px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -369,7 +376,7 @@
 }
 
 .mobileNavbarLogo {
-  height: 30px;
+  height: 20px;
 }
 
 .mobileNavbarToggle {
@@ -382,7 +389,7 @@
 .mobileNavbarMenu {
   display: none;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
 .mobileNavbarMenu a {
@@ -430,7 +437,7 @@
     display: flex;
   }
   .mobileNavbarLogo {
-    height: 45px;
+    height: 30px;
   }
   .mobileNavbarMenu a {
     padding: 12px;
@@ -459,7 +466,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3px;
+    padding: 0px;
+    margin-top: 7px;
   }
   .mobileNavbarLogo {
     object-fit: contain;
@@ -476,11 +484,11 @@
     flex-direction: column;
     background-color: #0c2d50;
     position: fixed;
-    top: 60px;
+    top: 10px;
     left: 0;
     width: 100%;
     height: calc(100vh - 60px);
-    padding: 20px;
+    padding: 0px;
     z-index: 9999;
   }
   .mobileNavbarMenu.active {
@@ -832,8 +840,9 @@
 .hamburger,
 .hamburgerOpen {
   display: block;
-  width: 25px;
-  height: 20px;
+  right: 10px;
+  width: 20px;
+  /* height: 15px; */
   position: relative;
 }
 
@@ -841,10 +850,10 @@
 .hamburgerOpen span {
   position: absolute;
   width: 100%;
-  height: 3px;
+  height: 2px;
   background-color: #000;
   transition: all 0.3s ease;
-  right: 3px;
+  right: 0px;
 }
 
 .hamburger span:nth-child(1) { top: 0; }
@@ -865,7 +874,7 @@
 
 .mobileNavbarMenu {
   position: fixed;
-  top: 60px;
+  top: 50px;
   left: -100%;
   width: 100%;
   height: calc(100vh - 60px);
@@ -880,7 +889,7 @@
 .menuOverlay {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .menuOverlay a,

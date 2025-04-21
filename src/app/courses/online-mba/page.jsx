@@ -4,9 +4,13 @@ import "../../styles/85aaac7cee097ab2.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/3a6b4218bb14b3ef.css";
 import "../../styles/5107c2122129e0bb.css";
+import "../../styles/e2836b1e.css";
+import "../../styles/8c8030bf7e3ee32c.css";
+import "../../styles/6608b0a3809d6608.css";
 import CourseSlider from "../../../../components/CourseSlider";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
+
 export default function page() {
   return (
     <>
@@ -14,27 +18,67 @@ export default function page() {
       <div>
         <div>
           <div className="CourseHero_courseCarousalOne__Sb3_f">
-            <a>
+            <a
+              preload="true"
+              href="https://store.learningroutes.in/images/courses/online-mba/OnlineMBABanner.webp"
+            >
               <img
                 alt="img"
-                fetchPriority="high"
+                fetchpriority="high"
                 width={1500}
+                height={900}
                 decoding="async"
                 data-nimg={1}
                 className="CourseHero_course_banner__lk16C"
-                style={{ color: "transparent", height: "600px !important" }}
-                src="/assets/course/10.png"
+                style={{ color: "transparent" }}
+                srcSet="
+        /_next/image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcourses%2Fonline-mba%2FOnlineMBABanner.webp&w=1920&q=75 1x,
+        /_next/image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcourses%2Fonline-mba%2FOnlineMBABanner.webp&w=3840&q=75 2x
+      "
+                src="/_next/image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcourses%2Fonline-mba%2FOnlineMBABanner.webp&w=3840&q=75"
               />
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
             <div className="CourseHero_courseHeadingContainer__nbBmj">
+              <nav className="Breadcrumb_breadcrumb__j1UHX">
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a className="Breadcrumb_link__zmGnw" href="/">
+                    Home
+                  </a>
+                  <span className="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a className="Breadcrumb_link__zmGnw" href="/courses">
+                    Courses
+                  </a>
+                  <span className="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <span>Online MBA</span>
+                </span>
+              </nav>
               <h1 className="CourseHero_courseHeading___dgJj">Online MBA</h1>
               <p className="CourseHero_courseSubHeading__8DEDx">
                 Master the field of business through online learning with
                 India's best universities
               </p>
+              <div style={{ marginTop: 20, marginBottom: 20 }}>
+                <a
+                  className="HeroButtons_buttonBase__cGDGR HeroButtons_primary__sDdf6"
+                  href="#enquiry-form"
+                >
+                  Enquire Now
+                </a>
+                <a
+                  className="HeroButtons_buttonBase__cGDGR HeroButtons_secondary__XKLDX"
+                  href="/top-university"
+                >
+                  Explore Colleges
+                </a>
+              </div>
             </div>
           </div>
+
           <CourseSlider />
           <div className="CourseAbout_course_about_container__xEAH5">
             <div className="CourseAbout_course_about_left_col__KRo_I">

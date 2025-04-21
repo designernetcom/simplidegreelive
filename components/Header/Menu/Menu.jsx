@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import styles from "./Menu.module.css";
+import { Work_Sans } from "next/font/google";
 
 // Shared data for courses and universities
 const universities = [
@@ -373,7 +374,11 @@ const courseData = {
     },
   ],
 };
-
+  const workSans = Work_Sans({
+    subsets: ["latin"],
+    weight: ["500"], // Match the weight used in mobile view
+    display: "swap",
+  });
 const categories = [
   "Online PG Programmes",
   "Online UG Programmes",
@@ -691,7 +696,7 @@ const Menu = () => {
                 alt="logo"
                 src="/assets/img/Simplidegree_logo_3.png"
                 width={150}
-                height={50}
+                height={30}
                 className={styles.mobileNavbarLogo}
               />
             </Link>
@@ -749,6 +754,7 @@ const Menu = () => {
                   padding: "10px 0",
                   fontSize: "16px",
                   fontWeight: "500",
+                  fontFamily: `${workSans.style.fontFamily}, sans-serif`,
                 }}
                 aria-expanded={isCoursesModalOpen}
               >
@@ -850,6 +856,7 @@ const Menu = () => {
                   padding: "10px 0",
                   fontSize: "16px",
                   fontWeight: "500",
+                  fontFamily: `${workSans.style.fontFamily}, sans-serif`,
                 }}
               >
                 Top University
@@ -950,21 +957,31 @@ const Menu = () => {
               <Link
                 href="/trending-course"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontFamily: `${workSans.style.fontFamily}, sans-serif`,
+                }}
               >
                 Trending Courses
               </Link>
               <Link
                 href="/study-abroad"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  
+                }}
               >
                 Study Abroad
               </Link>
               <Link
                 href="/exam"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontFamily: `${workSans.style.fontFamily}, sans-serif`,
+                  
+                }}
               >
                 Entrance Exams
               </Link>
@@ -1825,8 +1842,7 @@ const Menu = () => {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        <div className="contact-bg">
-          Enquire Now</div>
+        <div className="contact-bg">Enquire Now</div>
       </button>
     </>
   );

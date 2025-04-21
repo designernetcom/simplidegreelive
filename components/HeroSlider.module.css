@@ -2304,14 +2304,14 @@
 }
 .Hero_Hero_text_1__tiOzY {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 25px;
   z-index: 10001;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 }
 .Hero_Hero_text_2__pG74x {
   font-weight: 700;
   padding: 0;
-  font-size: 24px;
+  font-size: 20px;
   z-index: 10001;
   color: var(--dark-blue);
 }

@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "./HeroSlider.module.css";
 
 
+
 const HeroSlider = () => {
   const slides = [
     {
@@ -44,10 +45,7 @@ const HeroSlider = () => {
   ];
 
   return (
-    <div
-      className="Hero_relative__x641X {`remove-padding-mobile slider-container ${styles.sliderContainer}`}"
-     
-    >
+    <div className="Hero_relative__x641X ">
       <div className="Hero_newheroContainer__lAPRu">
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -74,18 +72,20 @@ const HeroSlider = () => {
                             <div className="counter_digit__L6cff">0</div>
                             <div className="counter_digit__L6cff">0</div>
                             <div className="counter_digit__L6cff">0</div>
-                      
+                            <div className="counter_digit__L6cff">0</div>
+                            <div className="counter_digit__L6cff">0</div>
+
                             <div
                               className="counter_livetextbanner__Vykhp"
                               style={{
                                 position: "absolute",
-                                top: "-12px",
+                                top: "-15px",
                                 right: "-30px",
                                 backgroundColor: "red",
                                 color: "#fff",
-                                fontSize:"10px",
+                                fontSize: ".69vw;",
                                 fontWeight: 700,
-                                padding: "2px 9px",
+                                padding: "1px 9px",
                                 borderRadius: "5px",
                                 zIndex: 10,
                               }}
@@ -138,7 +138,7 @@ const HeroSlider = () => {
                           alt="hashtag"
                           width={slide.hashtagWidth}
                           height={slide.hashtagHeight}
-                          quality={75}
+                          quality={70}
                           loading="lazy"
                         />
                       </div>
