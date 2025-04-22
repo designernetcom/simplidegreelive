@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import dynamic from "next/dynamic";
 import "./globals.css";
 import "./styles/8b2861424f796947.css";
@@ -27,11 +27,14 @@ import BrowseCourses from "../../components/BrowseCourses";
 import Footer from "../../components/Footer/Footer";
 import TrustpilotRating from "../../components/TrustpilotRating";
 import ExploreUniversities from "../../components/ExploreUniversities";
-
+import EnquiryModel from "../../components/EnquiryModel";
 // Dynamically import the modal with SSR disabled
 const ComparisonModal = dynamic(() => import("./ComparisonModal"), {
   ssr: false,
 });
+
+
+
 
 export default function Page() {
   const [compareList, setCompareList] = useState([]);
@@ -461,6 +464,18 @@ const categories = [
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   const [activeCategory, setActiveCategory] = useState("Online PG Programmes");
+  const [showModal, setShowModal] = useState(false); // Manage modal visibility
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setFixedHeader(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -750,95 +765,97 @@ const categories = [
           </a>
         </div>
       </div>
-     <div>
-          <div className="BrowseCourse_home_browse_container__tQp9L" id="brCourses">
-        <div className="BrowseCourse_home_browse_heading_container__EJAFM">
-          <div className="BrowseCourse_home_browse_heading_img_container__gqEkj">
+      <div>
+        <div
+          className="BrowseCourse_home_browse_container__tQp9L"
+          id="brCourses"
+        >
+          <div className="BrowseCourse_home_browse_heading_container__EJAFM">
+            <div className="BrowseCourse_home_browse_heading_img_container__gqEkj">
               <div>
                 <h2 className="BrowseCourse_home_browse_heading__10RSs">
                   EXPLORE OUR COURSES &amp; BE AWESOME
                 </h2>
+                <div>
+                  <p class="BrowseCourse_home_browse_sub_heading__IbpwW">
+                    Select the category and compare the university
+                  </p>
+                </div>
               </div>
-              {/* <div>
-              <p class="BrowseCourse_home_browse_sub_heading__IbpwW">
-                Select the category and compare the university
-              </p>
-            </div> */}
             </div>
           </div>
-          <div />
-        </div>
-        
-        <div
-          className="BrowseCourse_home_browse_course_container__PlZ71"
-          style={{ padding: "30px" }}
-        >
-          <div className="BrowseCourse_home_browse_course_list_main_box__2D0BM">
-            {categories.map((category, index) => (
-              <div
-                key={index}
-                className={`BrowseCourse_home_course_list_single_box__d92j6 ${
-                  activeCategory === category
-                    ? "BrowseCourse_bgColor__zDC4o"
-                    : ""
-                }`}
-                style={{
-                  color: activeCategory === category ? "white" : "#0c2d50",
-                }}
-                onClick={() => setActiveCategory(category)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) =>
-                  e.key === "Enter" && setActiveCategory(category)
-                }
-              >
-                <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
-                  <span className="cursor-pointer">{category}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="BrowseCourse_course_grid_box__h2DdU">
-            {courseData[activeCategory]?.map((course, index) => (
-              <div
-                key={index}
-                className="BrowseCourse_browse_course_card__6O_U1"
-              >
-                <Link
-                  href={`/courses/${course.title
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")}`}
-                  passHref
-                  onClick={closeCoursesModal}
+
+          <div
+            className="BrowseCourse_home_browse_course_container__PlZ71"
+            style={{}}
+          >
+            <div className="BrowseCourse_home_browse_course_list_main_box__2D0BM">
+              {categories.map((category, index) => (
+                <div
+                  key={index}
+                  className={`BrowseCourse_home_course_list_single_box__d92j6 ${
+                    activeCategory === category
+                      ? "BrowseCourse_bgColor__zDC4o"
+                      : ""
+                  }`}
+                  style={{
+                    color: activeCategory === category ? "white" : "#0c2d50",
+                  }}
+                  onClick={() => setActiveCategory(category)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" && setActiveCategory(category)
+                  }
                 >
-                  <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
-                    <div>
-                      <img
-                        alt={course.title}
-                        loading="lazy"
-                        width={200}
-                        height={180}
-                        decoding="async"
-                        className="BrowseCourse_browse_course_card_img__UCBw8"
-                        style={{ color: "transparent" }}
-                        src={course.img}
-                      />
-                    </div>
-                    <div>
-                      <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
-                        {course.title}
-                      </div>
-                      <div className="BrowseCourse_browse_course_card_duration__mSOzf">
-                        Duration: {course.duration}
-                      </div>
-                    </div>
+                  <div className="BrowseCourse_browse_slide_individual_box__PeTNq">
+                    <span className="cursor-pointer">{category}</span>
                   </div>
-                </Link>
-                <div className="BrowseCourse_browse_course_card_view__wBC_X">
-                  Read More
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="BrowseCourse_course_grid_box__h2DdU">
+              {courseData[activeCategory]?.map((course, index) => (
+                <div
+                  key={index}
+                  className="BrowseCourse_browse_course_card__6O_U1"
+                >
+                  <Link
+                    href={`/courses/${course.title
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`}
+                    passHref
+                    onClick={closeCoursesModal}
+                  >
+                    <div className="BrowseCourse_browse_course_card_top_container__4dzBP">
+                      <div>
+                        <img
+                          alt={course.title}
+                          loading="lazy"
+                          width={200}
+                          height={180}
+                          decoding="async"
+                          className="BrowseCourse_browse_course_card_img__UCBw8"
+                          style={{ color: "transparent" }}
+                          src={course.img}
+                        />
+                      </div>
+                      <div>
+                        <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
+                          {course.title}
+                        </div>
+                        <div className="BrowseCourse_browse_course_card_duration__mSOzf">
+                          Duration: {course.duration}
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                  <div className="BrowseCourse_browse_course_card_view__wBC_X">
+                    Read More
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -924,7 +941,18 @@ const categories = [
                               className="spnm"
                             >
                               <span>
-                                <span>Enroll Now</span>
+                                <span
+                                  onClick={handleOpenModal}
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  Enquire Now
+                                </span>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
                               </span>
                             </a>
                             <a
@@ -983,7 +1011,18 @@ const categories = [
                               className="spnm"
                             >
                               <span>
-                                <span>Enroll Now</span>
+                                <span
+                                  onClick={handleOpenModal}
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  Enquire Now
+                                </span>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
                               </span>
                             </a>
                             <a
@@ -1048,7 +1087,18 @@ const categories = [
                               className="spnm"
                             >
                               <span>
-                                <span>Enroll Now</span>
+                                <span
+                                  onClick={handleOpenModal}
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  Enquire Now
+                                </span>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
                               </span>
                             </a>
                             <a
@@ -1112,7 +1162,18 @@ const categories = [
                               className="spnm"
                             >
                               <span>
-                                <span>Enroll Now</span>
+                                <span
+                                  onClick={handleOpenModal}
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  Enquire Now
+                                </span>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
                               </span>
                             </a>
                             <a
@@ -1171,7 +1232,18 @@ const categories = [
                               className="spnm"
                             >
                               <span>
-                                <span>Enroll Now</span>
+                                <span
+                                  onClick={handleOpenModal}
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  Enquire Now
+                                </span>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
                               </span>
                             </a>
                             <a
@@ -1230,7 +1302,18 @@ const categories = [
                               className="spnm"
                             >
                               <span>
-                                <span>Enroll Now</span>
+                                <span
+                                  onClick={handleOpenModal}
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  Enquire Now
+                                </span>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
                               </span>
                             </a>
                             <a
@@ -2845,3 +2928,4 @@ const categories = [
     </>
   );
 }
+

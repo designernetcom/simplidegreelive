@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Menu from "../../../../components/Header/Menu/Menu";
+import SecondMenu from "../../../../components/Header/Menu/SecondMenu";
 import Footer from "../../../../components/Footer/Footer";
 import FirstVisitModal from "../../../../components/FirstVisitModal";
 import "../../styles/5107c2122129e0bb.css";
@@ -10,6 +10,10 @@ import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
+import "../../styles/ecbb68b163419596.css";
+import "../../styles/e74b165e0d429359.css";
+import "../../styles/8c8030bf7e3ee32c.css";
+
 import Image from "next/image";
 
 export default function Page() {
@@ -169,7 +173,7 @@ export default function Page() {
 
   return (
     <>
-      <Menu />
+      <SecondMenu />
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <img
@@ -949,19 +953,19 @@ export default function Page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
+                    <h4
+                      style={{
+                        fontSize: "24px",
+                        margin: "20px 0",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                        fontStyle: "normal",
+                        fontWeight: "700",
+                      }}
+                    >
+                      Courses Eligibility
+                    </h4>
                     <div className="courseEligibility_wrapper__WDP1x">
-                      <h4
-                        style={{
-                          fontSize: "24px",
-                          margin: "20px 0",
-                          fontFamily:
-                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                          fontStyle: "normal",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Courses Eligibility
-                      </h4>
                       <table className="courseEligibility_eligible_table__ZvMdh">
                         <thead>
                           <tr className="courseEligibility_eligible_head__GsY_a">

@@ -8,6 +8,8 @@ import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
+import "../../styles/e74b165e0d429359.css";
+import "../../styles/8c8030bf7e3ee32c.css";
 
 export default function page() {
   return (
@@ -497,10 +499,10 @@ export default function page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
+                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                      Courses Eligibility
+                    </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
-                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                        Courses Eligibility
-                      </h2>
                       <table className="courseEligibility_eligible_table__ZvMdh">
                         <thead>
                           <tr className="courseEligibility_eligible_head__GsY_a">

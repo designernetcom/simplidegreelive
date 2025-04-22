@@ -1398,13 +1398,26 @@ export default function Page() {
           />
           <div className="bestcollege_banner__DvNyN">
             <h1 className="bestcollege_explore_heading__IahiT">
-              EXPLORE BEST COURSES FROM TOP UNIVERSITIES
+              Explore Best Colleges For You
             </h1>
             <h4 className="bestcollege_banner_description__OxDnN">
-              Build Your Career With
+              Build Your Career With Simpli Degree Pvt Ltd
             </h4>
           </div>
         </div>
+ <div className="topuniversity_container__3aJeI">
+  <h3 className="topuniversity_explore_heading__e5Cnd">
+    EXPLORE BEST COURSES FROM TOP UNIVERSITIES
+  </h3>
+  <button className="topuniversity_filter_button__Ra_9x">
+    Filter
+    <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 24 24" fontSize="15px" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+      <path fill="none" d="M0 0h24v24H0V0z" />
+      <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+    </svg>
+  </button>
+</div>
+
 
         {/* Main Content */}
         <div className="study_collegWrapper__qXs_p">

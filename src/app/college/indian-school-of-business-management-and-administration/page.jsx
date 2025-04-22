@@ -13,7 +13,8 @@ import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
-
+import "../../styles/e74b165e0d429359.css";
+import "../../styles/8c8030bf7e3ee32c.css";
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
   const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);

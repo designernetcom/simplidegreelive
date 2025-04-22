@@ -1,0 +1,115 @@
+.CourseBenefits_benefits_container__HTmun {
+  margin: 1rem auto;
+  padding: 0;
+}
+.CourseBenefits_benefit_card__MSZpX {
+  margin: 1rem 0;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.CourseBenefits_benefit_card_with_heading__GQe2M,
+.CourseBenefits_benefit_card_with_heading__GQe2M:hover {
+  background-color: #f4feff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px dotted #002d62;
+}
+.CourseBenefits_benefit_card_with_heading__GQe2M:hover {
+  background-color: #fff7ee;
+  transform: translateY(-5px);
+}
+.CourseBenefits_benefit_card_without_heading__mx5F0 {
+  background: #fff;
+}
+.CourseBenefits_benefit_content__o7da3 {
+  padding: 1.2rem;
+}
+.CourseBenefits_benefit_heading__VaifU {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--dark-blue);
+}
+.CourseBenefits_benefit_description__xKviE {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.CourseBenefits_benefit_card_with_heading__GQe2M
+  .CourseBenefits_benefit_description__xKviE,
+.CourseBenefits_benefit_card_without_heading__mx5F0
+  .CourseBenefits_benefit_description__xKviE {
+  color: #333;
+}
+@media (max-width: 768px) {
+  .CourseBenefits_benefit_content__o7da3 {
+    padding: 1.5rem;
+    font-size: 14px;
+  }
+  .CourseBenefits_benefit_heading__VaifU {
+    font-size: 1rem;
+  }
+  .CourseBenefits_benefit_description__xKviE {
+    font-size: 14px;
+  }
+}
+.TableOfContents_toc_container__Tu4fl {
+  margin: 1rem auto 0;
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(12, 45, 81, 0.08);
+}
+.TableOfContents_content_item__Ik7VM {
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  background: rgba(12, 45, 81, 0.02);
+}
+.TableOfContents_content_item__Ik7VM:hover {
+  background: rgba(12, 45, 81, 0.05);
+  border-left: 3px solid #e89e26;
+  background-color: #fdf7ee;
+  transform: translateX(5px);
+}
+.TableOfContents_content_link__PJdPu {
+  text-decoration: none;
+  color: #0c2d51;
+  display: flex;
+  align-items: center;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.TableOfContents_content_link__PJdPu:hover {
+  color: #f09f1e !important;
+}
+.TableOfContents_content_number__FsXh9 {
+  min-width: 28px;
+  height: 28px;
+  background: #0c2d51;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.TableOfContents_content_text__Ff7hf {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .TableOfContents_content_item__Ik7VM {
+    padding: 0.6rem 0.8rem;
+  }
+  .TableOfContents_content_link__PJdPu {
+    font-size: 15px;
+  }
+  .TableOfContents_content_number__FsXh9 {
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+}

@@ -191,11 +191,11 @@ export default function Page() {
             ))}
           </div>
         </div>
-
+{/* 
         <div className="study_detailsContainer__xkYZm">
           <div className="study_maxWidth__jJbIL" id="Introduction">
             <div className={styles.container}>
-              {/* Floating WhatsApp Button */}
+           
 
               <div
                 className="study_maxWidth__jJbIL"
@@ -247,12 +247,12 @@ export default function Page() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* Full-Screen Continuous Story View */}
-        {selectedCardIndex !== null && selectedStoryIndex !== null && (
+        {/* {selectedCardIndex !== null && selectedStoryIndex !== null && (
           <div className={styles.fullScreenStory}>
             <div className={styles.storyContent}>
-              {/* Progress Bars */}
+             
               <div className={styles.progressBars}>
                 {storySets[selectedCardIndex].map((_, index) => (
                   <div
@@ -267,13 +267,13 @@ export default function Page() {
                 ))}
               </div>
 
-              {/* Story Image */}
+            
               <img
                 src={storySets[selectedCardIndex][selectedStoryIndex].image}
                 alt={storySets[selectedCardIndex][selectedStoryIndex].title}
               />
 
-              {/* Navigation Buttons */}
+          
               <button
                 className={styles.navButton}
                 style={{ left: "10px" }}
@@ -302,13 +302,13 @@ export default function Page() {
                 {">"}
               </button>
 
-              {/* Close Button */}
+            
               <button className={styles.closeButton} onClick={handleCloseStory}>
                 Close
               </button>
             </div>
           </div>
-        )}
+        )} */}
       </div>
       <Footer />
     </>

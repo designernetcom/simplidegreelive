@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
@@ -8,8 +10,22 @@ import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
-
+import "../../styles/e74b165e0d429359.css";
+import "../../styles/8c8030bf7e3ee32c.css";
+import EnquiryModel from "../../../../components/EnquiryModel";
 export default function page() {
+  const [showModal, setShowModal] = useState(false); // Manage modal visibility
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setFixedHeader(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
       <Menu />
@@ -290,218 +306,499 @@ export default function page() {
                         </div>
                       </div>
                     </div>
-              <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
-  <div className="courses_wrapper__5pXR3">
-    <div className="courses_container__c_BRe">
-      <h2 className="courses_heading__nCyjm">Courses</h2>
-      <p className="courses_course_college_name__Reg2z">
-        Explore online learning courses in
-        {/* */}U.P. Rajarshi Tandan Open University
-      </p>
-      <table className="courses_course_table__llAtE">
-        <thead style={{background: 'var(--dark-blue)'}}>
-          <tr className="courses_course_head__M4Cun">
-            <th>Courses</th>
-            <th style={{textAlign: 'center'}}>Fee Range</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BA</td>
-            <td style={{textAlign: 'center'}}>₹ 13500</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BLIS</td>
-            <td style={{textAlign: 'center'}}>₹ 28500</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BSC</td>
-            <td style={{textAlign: 'center'}}>₹ 24000-₹ 24600</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BCA</td>
-            <td style={{textAlign: 'center'}}>₹ 39000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BCom</td>
-            <td style={{textAlign: 'center'}}>₹ null</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BBA</td>
-            <td style={{textAlign: 'center'}}>₹ null</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BEd</td>
-            <td style={{textAlign: 'center'}}>₹ 37000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BEd(SE)</td>
-            <td style={{textAlign: 'center'}}>₹ 50000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online BFD</td>
-            <td style={{textAlign: 'center'}}>₹ 13500</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online B.Textile Design</td>
-            <td style={{textAlign: 'center'}}>₹ 13500</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online MA</td>
-            <td style={{textAlign: 'center'}}>₹ 17000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online MSc</td>
-            <td style={{textAlign: 'center'}}>₹ 16400-₹ 30000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online MCA</td>
-            <td style={{textAlign: 'center'}}>₹ 34000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online MBA</td>
-            <td style={{textAlign: 'center'}}>₹ 36000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online MCom</td>
-            <td style={{textAlign: 'center'}}>₹ 16000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online PhD</td>
-            <td style={{textAlign: 'center'}}>₹ null</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online Diploma</td>
-            <td style={{textAlign: 'center'}}>₹ 4200-₹ 12000</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online PG Diploma</td>
-            <td style={{textAlign: 'center'}}>₹ 4200-₹ 8200</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-          <tr className="courses_tbody__ZPCxV">
-            <td>Online Certificate</td>
-            <td style={{textAlign: 'center'}}>₹ 2200-₹ 6200</td>
-            <td style={{textAlign: 'center'}} className="group_btn">
-              <button className="courses_enqnow__8Vb3P">
-                Enquire Now</button><button className="courses_viewSpsl__lrjH5">
-                View Specialization
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+                    <div
+                      className="collegeDetails_maxWidth__6vBVL"
+                      id="Courses"
+                    >
+                      <div className="courses_wrapper__5pXR3">
+                        <div className="courses_container__c_BRe">
+                          <h2 className="courses_heading__nCyjm">Courses</h2>
+                          <p className="courses_course_college_name__Reg2z">
+                            Explore online learning courses in
+                            {/* */}U.P. Rajarshi Tandan Open University
+                          </p>
+                          <table className="courses_course_table__llAtE">
+                            <thead style={{ background: "var(--dark-blue)" }}>
+                              <tr className="courses_course_head__M4Cun">
+                                <th>Courses</th>
+                                <th style={{ textAlign: "center" }}>
+                                  Fee Range
+                                </th>
+                                <th />
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BA</td>
+                                <td style={{ textAlign: "center" }}>₹ 13500</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BLIS</td>
+                                <td style={{ textAlign: "center" }}>₹ 28500</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BSC</td>
+                                <td style={{ textAlign: "center" }}>
+                                  ₹ 24000-₹ 24600
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BCA</td>
+                                <td style={{ textAlign: "center" }}>₹ 39000</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BCom</td>
+                                <td style={{ textAlign: "center" }}>₹ null</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BBA</td>
+                                <td style={{ textAlign: "center" }}>₹ null</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BEd</td>
+                                <td style={{ textAlign: "center" }}>₹ 37000</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BEd(SE)</td>
+                                <td style={{ textAlign: "center" }}>₹ 50000</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online BFD</td>
+                                <td style={{ textAlign: "center" }}>₹ 13500</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online B.Textile Design</td>
+                                <td style={{ textAlign: "center" }}>₹ 13500</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online MA</td>
+                                <td style={{ textAlign: "center" }}>₹ 17000</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online MSc</td>
+                                <td style={{ textAlign: "center" }}>
+                                  ₹ 16400-₹ 30000
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online MCA</td>
+                                <td style={{ textAlign: "center" }}>₹ 34000</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online MBA</td>
+                                <td style={{ textAlign: "center" }}>₹ 36000</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online MCom</td>
+                                <td style={{ textAlign: "center" }}>₹ 16000</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online PhD</td>
+                                <td style={{ textAlign: "center" }}>₹ null</td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online Diploma</td>
+                                <td style={{ textAlign: "center" }}>
+                                  ₹ 4200-₹ 12000
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online PG Diploma</td>
+                                <td style={{ textAlign: "center" }}>
+                                  ₹ 4200-₹ 8200
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr className="courses_tbody__ZPCxV">
+                                <td>Online Certificate</td>
+                                <td style={{ textAlign: "center" }}>
+                                  ₹ 2200-₹ 6200
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
+                                >
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                  >
+                                    Enquire Now
+                                  </button>
+
+                                  {/* Render Modal */}
+                                  <EnquiryModel
+                                    showModal={showModal}
+                                    setShowModal={setShowModal}
+                                  />
+                                  <button className="courses_viewSpsl__lrjH5">
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
 
                     <div
                       className="collegeDetails_maxWidth__6vBVL"

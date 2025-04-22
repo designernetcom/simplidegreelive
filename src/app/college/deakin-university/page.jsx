@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import { useState, useEffect } from "react";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import "../../styles/5107c2122129e0bb.css";
@@ -8,7 +9,22 @@ import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
+import "../../styles/e74b165e0d429359.css";
+import "../../styles/8c8030bf7e3ee32c.css";
+import EnquiryModel from "../../../../components/EnquiryModel";
 export default function page() {
+  const [showModal, setShowModal] = useState(false); // Manage modal visibility
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setFixedHeader(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
       <Menu />
@@ -287,8 +303,8 @@ export default function page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}Deakin University
+                          Explore online learning courses in {/* */}Deakin
+                          University
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -302,487 +318,445 @@ export default function page() {
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online BA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 5377386-₹ 6266353
+                                ₹ 5377386-₹ 6266353
                               </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Bachelor of International Studies (BIS)</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 5425534
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 5425534</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online BCom</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 6777513
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 6777513</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Bachelor of Psychological Science (BA)</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 6223621
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 6223621</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Bachelor of Business</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 6260000
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 6260000</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online BSc</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 8392133-₹ 8868334
+                                ₹ 8392133-₹ 8868334
                               </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online BA</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 6297256-₹ 8396342
+                                ₹ 6297256-₹ 8396342
                               </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Bachelor of Computer Science (BSc)</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 6297256
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 6297256</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online BSc</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 6297256-₹ 8396342
+                                ₹ 6297256-₹ 8396342
                               </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 4892921
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 4892921</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Master of Business Analytics</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 4328013
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 4328013</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Master of Business (Sports Management)</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 4741241
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 4741241</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MCom</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 4741241
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 4741241</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online M.Bus</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 4329382-₹ 4742607
+                                ₹ 4329382-₹ 4742607
                               </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MEd</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 3677804
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 3677804</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Online MSc</td>
                               <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 1251564-₹ 47633002
+                                ₹ 1251564-₹ 47633002
                               </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Graduate Certificate</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 1425372
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 1425372</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
                               <td>Graduate Diploma</td>
-                              <td style={{ textAlign: "center" }}>
-                                {/* */}₹ 2165523
-                              </td>
-                              <td className="courses_specilaization_modal__MFNNY">
-                                <div className="courses_viewSpsl__lrjH5">
+                              <td style={{ textAlign: "center" }}>₹ 2165523</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+
+                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
-                                  <svg
-                                    stroke="currentColor"
-                                    fill="none"
-                                    strokeWidth={0}
-                                    viewBox="0 0 15 15"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      clipRule="evenodd"
-                                      d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                                      fill="currentColor"
-                                    />
-                                  </svg>
-                                </div>
+                                </button>
                               </td>
                             </tr>
                           </tbody>
@@ -790,14 +764,15 @@ export default function page() {
                       </div>
                     </div>
                   </div>
+
                   <div
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
+                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                      Courses Eligibility
+                    </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
-                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                        Courses Eligibility
-                      </h2>
                       <table className="courseEligibility_eligible_table__ZvMdh">
                         <thead>
                           <tr className="courseEligibility_eligible_head__GsY_a">
@@ -1685,13 +1660,13 @@ export default function page() {
                       <div className="partners_container___c9cx" />
                     </div>
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                  {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                     <div
                       className="CollegeReview_college_page_details_review_container__KbbIU"
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        Deakin University{/* */}
+                        Deakin University
                         Review
                       </h2>
                       <div>
@@ -1814,7 +1789,7 @@ export default function page() {
                       </div>
                       <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

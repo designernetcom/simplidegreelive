@@ -7,14 +7,20 @@ import "../../styles/5107c2122129e0bb.css";
 import "../../styles/e2836b1e.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 import "../../styles/6608b0a3809d6608.css";
+import "../../styles/style.css";
+import "../../styles/bootstrap.min.css";
+import "../../styles/33f1be5fd79e728d.css";
+import "../../styles/bcdb44b6ad772c90.css";
+import "../../styles/ecbb68b163419596.css";
+import "../../styles/e74b165e0d429359.css";
 import CourseSlider from "../../../../components/CourseSlider";
-import Menu from "../../../../components/Header/Menu/Menu";
+import SecondMenu from "../../../../components/Header/Menu/SecondMenu";
 import Footer from "../../../../components/Footer/Footer";
 
 export default function page() {
   return (
     <>
-      <Menu />
+      <SecondMenu />
       <div>
         <div>
           <div className="CourseHero_courseCarousalOne__Sb3_f">

@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "../../../components/Header/Menu/Menu";
+import SecondMenu from "../../../components/Header/Menu/SecondMenu";
 import Footer from "../../../components/Footer/Footer";
 import "../styles/3a6b4218bb14b3ef.css";
 import "../styles/83d9da8bb5d66f96.css";
@@ -12,11 +12,21 @@ import "../styles/8b2861424f796947.css";
 import "../styles/04bdd9c7a469b901.css";
 import "../styles/2e85c571399b9690.css";
 import "../styles/cc9687947ca46cf2.css";
+import "../styles/5107c2122129e0bb.css";
+import "../styles/style.css";
+import "../styles/3a6b4218bb14b3ef.css";
+import "../styles/bootstrap.min.css";
+import "../styles/33f1be5fd79e728d.css";
+import "../styles/cc66cf431efece60.css";
+import "../styles/bcdb44b6ad772c90.css";
+import "../styles/ecbb68b163419596.css";
+import "../styles/e74b165e0d429359.css";
+import "../styles/8c8030bf7e3ee32c.css";
 
 export default function page() {
   return (
     <>
-      <Menu />
+      <SecondMenu />
       <div>
         <a
           className="float"

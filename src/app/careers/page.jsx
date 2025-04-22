@@ -3,9 +3,19 @@ import Image from "next/image";
 import "../globals.css";
 import "../styles/07b7d9be18c7582a.css";
 import "../styles/3a6b4218bb14b3ef.css";
-import Menu from "../../../components/Header/Menu/Menu";
+import SecondMenu from "../../../components/Header/Menu/SecondMenu";
 import Footer from "../../../components/Footer/Footer";
 import CareerTabs from "../../../components/CareerTabs";
+import "../styles/5107c2122129e0bb.css";
+import "../styles/style.css";
+import "../styles/3a6b4218bb14b3ef.css";
+import "../styles/bootstrap.min.css";
+import "../styles/33f1be5fd79e728d.css";
+import "../styles/cc66cf431efece60.css";
+import "../styles/bcdb44b6ad772c90.css";
+import "../styles/ecbb68b163419596.css";
+import "../styles/e74b165e0d429359.css";
+import "../styles/8c8030bf7e3ee32c.css";
 
 // async function fetchData() {
 //   const res = await fetch("http://localhost:8000/api/careerpage", {
@@ -17,8 +27,7 @@ import CareerTabs from "../../../components/CareerTabs";
 export default function page() {
   return (
     <>
-      <Menu />
-
+      <SecondMenu />
       <div>
         <div>
           {/* <button
@@ -377,7 +386,6 @@ export default function page() {
           </div>
         </div>
       </div>
-
       <Footer />
     </>
   );

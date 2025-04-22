@@ -1,16 +1,33 @@
-import Menu from "../../../../components/Header/Menu/Menu";
-import Footer from "../../../../components/Footer/Footer";
 import React from "react";
+
+import SecondMenu from "../../../../components/Header/Menu/SecondMenu";
+import Footer from "../../../../components/Footer/Footer";
+
 import "../../styles/85aaac7cee097ab2.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/3a6b4218bb14b3ef.css";
-import "../../styles/cc66cf431efece60.css";
 import "../../styles/5107c2122129e0bb.css";
+import "../../styles/85aaac7cee097ab2.css";
+import "../../styles/cc66cf431efece60.css";
+import "../../styles/3a6b4218bb14b3ef.css";
+import "../../styles/5107c2122129e0bb.css";
+import "../../styles/e2836b1e.css";
+import "../../styles/8c8030bf7e3ee32c.css";
+import "../../styles/6608b0a3809d6608.css";
+import "../../styles/style.css";
+import "../../styles/bootstrap.min.css";
+import "../../styles/33f1be5fd79e728d.css";
+import "../../styles/bcdb44b6ad772c90.css";
+import "../../styles/ecbb68b163419596.css";
+import "../../styles/e74b165e0d429359.css";
+import "../../styles/885f0dd8048415c9.css";
+
+import CourseSlider from "../../../../components/CourseSlider";
 
 export default function page() {
   return (
     <>
-      <Menu />
+      <SecondMenu />
       <div>
         <div>
           <div

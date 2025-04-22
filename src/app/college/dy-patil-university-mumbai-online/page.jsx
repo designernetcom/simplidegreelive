@@ -446,10 +446,10 @@ export default function () {
                       className="collegeDetails_maxWidth__6vBVL"
                       id="Course Eligibility"
                     >
+                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                        Courses Eligibility
+                      </h2>
                       <div className="courseEligibility_wrapper__WDP1x">
-                        <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                          Courses Eligibility
-                        </h2>
                         <table className="courseEligibility_eligible_table__ZvMdh">
                           <thead>
                             <tr className="courseEligibility_eligible_head__GsY_a">
