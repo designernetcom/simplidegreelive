@@ -13,6 +13,7 @@ import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 import EnquiryModel from "../../../../components/EnquiryModel";
+
 export default function page() {
   const [showModal, setShowModal] = useState(false); // Manage modal visibility
 

@@ -4,6 +4,10 @@ import "../../styles/85aaac7cee097ab2.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/3a6b4218bb14b3ef.css";
 import "../../styles/5107c2122129e0bb.css";
+import "../../styles/85aaac7cee097ab2.css";
+import "../../styles/cc66cf431efece60.css";
+import "../../styles/3a6b4218bb14b3ef.css";
+import "../../styles/5107c2122129e0bb.css";
 import "../../styles/e2836b1e.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 import "../../styles/6608b0a3809d6608.css";
@@ -13,6 +17,7 @@ import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/ecbb68b163419596.css";
 import "../../styles/e74b165e0d429359.css";
+import "../../styles/885f0dd8048415c9.css";
 import CourseSlider from "../../../../components/CourseSlider";
 import SecondMenu from "../../../../components/Header/Menu/SecondMenu";
 import Footer from "../../../../components/Footer/Footer";
@@ -46,7 +51,7 @@ export default function page() {
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
             <div className="CourseHero_courseHeadingContainer__nbBmj">
-              <nav className="Breadcrumb_breadcrumb__j1UHX">
+              {/* <nav className="Breadcrumb_breadcrumb__j1UHX">
                 <span className="Breadcrumb_breadcrumbItem__lnXIo">
                   <a className="Breadcrumb_link__zmGnw" href="/">
                     Home
@@ -62,13 +67,13 @@ export default function page() {
                 <span className="Breadcrumb_breadcrumbItem__lnXIo">
                   <span>Online MBA</span>
                 </span>
-              </nav>
+              </nav> */}
               <h1 className="CourseHero_courseHeading___dgJj">Online MBA</h1>
               <p className="CourseHero_courseSubHeading__8DEDx">
                 Master the field of business through online learning with
                 India's best universities
               </p>
-              <div style={{ marginTop: 20, marginBottom: 20 }}>
+              {/* <div style={{ marginTop: 20, marginBottom: 20 }}>
                 <a
                   className="HeroButtons_buttonBase__cGDGR HeroButtons_primary__sDdf6"
                   href="#enquiry-form"
@@ -81,7 +86,7 @@ export default function page() {
                 >
                   Explore Colleges
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
