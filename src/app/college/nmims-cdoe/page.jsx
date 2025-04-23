@@ -211,6 +211,23 @@ export default function Page() {
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
+            <nav class="Breadcrumb_breadcrumb__j1UHX">
+              <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                <a class="Breadcrumb_link__zmGnw" href="/">
+                  Home
+                </a>
+                <span class="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                <a class="Breadcrumb_link__zmGnw" href="/top-university">
+                  Colleges
+                </a>
+                <span class="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                <span> NMIMS Centre for Distance and Online Education</span>
+              </span>
+            </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
               NMIMS Centre for Distance and Online Education
             </h1>
@@ -233,7 +250,7 @@ export default function Page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="colleges.html">
+              <a href="/top-university">
                 <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>

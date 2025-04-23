@@ -18,7 +18,6 @@ import "../../styles/ecbb68b163419596.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 
-
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
   const [isModalOpen, setIsModalOpen] = useState(false); // For FirstVisitModal
@@ -274,6 +273,25 @@ export default function Page() {
             />
             <div className="headCarousal_gradientOverlayStyle__DEkSg" />
             <div className="headCarousal_collegeHeadingContainer__E4uDz">
+              <nav class="Breadcrumb_breadcrumb__j1UHX">
+                <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a class="Breadcrumb_link__zmGnw" href="/">
+                    Home
+                  </a>
+                  <span class="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a class="Breadcrumb_link__zmGnw" href="/top-university">
+                    Colleges
+                  </a>
+                  <span class="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                  <span>
+                    Academy of Continuing Education, Shiv Nadar University
+                  </span>
+                </span>
+              </nav>
               <h1 className="headCarousal_collegeHeading__KBbuL">
                 Academy of Continuing Education, Shiv Nadar University
               </h1>
@@ -305,7 +323,7 @@ export default function Page() {
                 />
               </div>
               <div className="headCarousal_proceedCompareContainer__rekWb">
-                <a href="colleges.html">
+                <a href="/top-university">
                   <button
                     className="headCarousal_collegeCompare__znhHH"
                     aria-label="Add to compare"

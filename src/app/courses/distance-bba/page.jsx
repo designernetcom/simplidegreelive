@@ -29,7 +29,6 @@ export default function page() {
     <>
       <SecondMenu />
       <div>
-
         <div>
           <div>
             <a>
@@ -47,10 +46,41 @@ export default function page() {
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
             <div className="CourseHero_courseHeadingContainer__nbBmj">
+              <nav className="Breadcrumb_breadcrumb__j1UHX">
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a className="Breadcrumb_link__zmGnw" href="/">
+                    Home
+                  </a>
+                  <span className="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a className="Breadcrumb_link__zmGnw" href="/courses">
+                    Courses
+                  </a>
+                  <span className="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <span>Distance BBA</span>
+                </span>
+              </nav>
               <h1 className="CourseHero_courseHeading___dgJj">Distance BBA</h1>
               <p className="CourseHero_courseSubHeading__8DEDx">
                 Elevate your Career Beyond Limits
               </p>
+              <div style={{ marginTop: 20, marginBottom: 20 }}>
+                <a
+                  className="HeroButtons_buttonBase__cGDGR HeroButtons_primary__sDdf6"
+                  href="#enquiry-form"
+                >
+                  Enquire Now
+                </a>
+                <a
+                  className="HeroButtons_buttonBase__cGDGR HeroButtons_secondary__XKLDX"
+                  href="/top-university"
+                >
+                  Explore Colleges
+                </a>
+              </div>
             </div>
           </div>
           <CourseSlider />

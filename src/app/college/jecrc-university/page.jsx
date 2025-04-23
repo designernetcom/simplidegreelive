@@ -290,7 +290,7 @@ export default function Page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="colleges.html">
+              <a href="/top-university">
                 <button
                   className="headCarousal_collegeCompare__znhHH"
                   aria-label="Add to compare"

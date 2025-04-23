@@ -19,13 +19,17 @@ export default function page() {
   const handleOpenModal = () => {
     setShowModal(true);
   };
-  useEffect(() => {
-    const handleScroll = () => {
-      setFixedHeader(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+// useEffect(() => {
+//   if (typeof window === "undefined") return;
+
+//   const handleScroll = () => {
+//     setFixedHeader(window.scrollY > 50);
+//   };
+
+//   window.addEventListener("scroll", handleScroll);
+//   return () => window.removeEventListener("scroll", handleScroll);
+// }, []);
+
   return (
     <>
       <Menu />
@@ -41,6 +45,26 @@ export default function page() {
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
+            <nav class="Breadcrumb_breadcrumb__j1UHX">
+              <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                <a class="Breadcrumb_link__zmGnw" href="/">
+                  Home
+                </a>
+                <span class="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                <a class="Breadcrumb_link__zmGnw" href="/top-university">
+                  Colleges
+                </a>
+                <span class="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                <span>
+                  {" "}
+                  Indian Institute of Management Kozhikode (IIM Kozhikode)
+                </span>
+              </span>
+            </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
               Indian Institute of Management Kozhikode (IIM Kozhikode)
             </h1>

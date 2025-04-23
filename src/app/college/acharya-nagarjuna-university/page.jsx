@@ -279,6 +279,23 @@ export default function Page() {
             />
             <div className="headCarousal_gradientOverlayStyle__DEkSg" />
             <div className="headCarousal_collegeHeadingContainer__E4uDz">
+              <nav class="Breadcrumb_breadcrumb__j1UHX">
+                <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a class="Breadcrumb_link__zmGnw" href="/">
+                    Home
+                  </a>
+                  <span class="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a class="Breadcrumb_link__zmGnw" href="/top-university">
+                    Colleges
+                  </a>
+                  <span class="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span class="Breadcrumb_breadcrumbItem__lnXIo">
+                  <span>Acharya Nagarjuna University</span>
+                </span>
+              </nav>
               <h1 className="headCarousal_collegeHeading__KBbuL">
                 Acharya Nagarjuna University
               </h1>

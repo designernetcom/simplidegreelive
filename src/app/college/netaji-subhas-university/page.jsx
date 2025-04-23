@@ -20,13 +20,17 @@ export default function page() {
   const handleOpenModal = () => {
     setShowModal(true);
   };
-  useEffect(() => {
-    const handleScroll = () => {
-      setFixedHeader(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  
+useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  const handleScroll = () => {
+    setFixedHeader(window.scrollY > 50);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
   return (
     <>
       <Menu />

@@ -51,7 +51,7 @@ export default function page() {
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
             <div className="CourseHero_courseHeadingContainer__nbBmj">
-              {/* <nav className="Breadcrumb_breadcrumb__j1UHX">
+              <nav className="Breadcrumb_breadcrumb__j1UHX">
                 <span className="Breadcrumb_breadcrumbItem__lnXIo">
                   <a className="Breadcrumb_link__zmGnw" href="/">
                     Home
@@ -67,13 +67,13 @@ export default function page() {
                 <span className="Breadcrumb_breadcrumbItem__lnXIo">
                   <span>Online MBA</span>
                 </span>
-              </nav> */}
+              </nav>
               <h1 className="CourseHero_courseHeading___dgJj">Online MBA</h1>
               <p className="CourseHero_courseSubHeading__8DEDx">
                 Master the field of business through online learning with
                 India's best universities
               </p>
-              {/* <div style={{ marginTop: 20, marginBottom: 20 }}>
+              <div style={{ marginTop: 20, marginBottom: 20 }}>
                 <a
                   className="HeroButtons_buttonBase__cGDGR HeroButtons_primary__sDdf6"
                   href="#enquiry-form"
@@ -86,7 +86,7 @@ export default function page() {
                 >
                   Explore Colleges
                 </a>
-              </div> */}
+              </div>
             </div>
           </div>
 

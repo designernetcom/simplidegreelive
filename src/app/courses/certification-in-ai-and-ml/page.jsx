@@ -59,13 +59,44 @@ export default function page() {
         >
           <div className="FreeCourseAbout_freecourse_about_left_col__0OEIt">
             <div className="FreeCourseHeroSection_freegradientOverlayStyle__OJhqs" />
-            <div className="FreeCourseHeroSection_freecourseHeadingContainer__jSMO0">
+            <div className="CourseHero_courseHeadingContainer__nbBmj">
+              <nav className="Breadcrumb_breadcrumb__j1UHX">
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a className="Breadcrumb_link__zmGnw" href="/">
+                    Home
+                  </a>
+                  <span className="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a className="Breadcrumb_link__zmGnw" href="/courses">
+                    Courses
+                  </a>
+                  <span className="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <span>Certification in AI and ML</span>
+                </span>
+              </nav>
               <h1 className="FreeCourseHeroSection_freecourseHeading__h_5BL">
                 Certification in AI and ML
               </h1>
               <p className="FreeCourseHeroSection_freecourseSubHeading__RLSRE">
                 Be at the Top of the World
               </p>
+              <div style={{ marginTop: 20, marginBottom: 20 }}>
+                <a
+                  className="HeroButtons_buttonBase__cGDGR HeroButtons_primary__sDdf6"
+                  href="#enquiry-form"
+                >
+                  Enquire Now
+                </a>
+                <a
+                  className="HeroButtons_buttonBase__cGDGR HeroButtons_secondary__XKLDX"
+                  href="/top-university"
+                >
+                  Explore Colleges
+                </a>
+              </div>
             </div>
           </div>
           <h2 className="FreeCourseAbout_freecourse_about_heading__aCSOA">

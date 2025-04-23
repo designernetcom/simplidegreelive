@@ -28,769 +28,794 @@ export default function page() {
   return (
     <>
       <SecondMenu />
-   
 
-        <div>
-          <div
-            className="CourseHero_courseCarousalOne__Sb3_f"
-            style={{ paddingTop: "30px" }}
-          >
-            <a>
-              <img
-                alt="img"
-                fetchPriority="high"
-                width={1500}
-                height={900}
-                decoding="async"
-                data-nimg={1}
-                className="CourseHero_course_banner__lk16C"
-                style={{ color: "transparent" }}
-                src="/assets/course/5.png"
-              />
-            </a>
-            <div className="CourseHero_gradientOverlayStyle__iGFOK" />
-            <div className="CourseHero_courseHeadingContainer__nbBmj">
-              <h1 className="CourseHero_courseHeading___dgJj">
-                Certification in MS Excel
-              </h1>
-              <p className="CourseHero_courseSubHeading__8DEDx">
-                Level-up Your Excel Skills
-              </p>
-            </div>
-          </div>
-          <CourseSlider />
-          <div className="CourseAbout_course_about_container__xEAH5">
-            <div className="CourseAbout_course_about_left_col__KRo_I">
-              <h2 className="CourseAbout_course_about_heading__n0jzu">
-                About the Course
-              </h2>
-              <p className="CourseAbout_course_about_desc__oih9S">
-                The free certificate courses in MS Excel are designed for
-                beginner to intermediate level candidates to equip them with
-                essential skills. Excel is one of the most extensively used tool
-                which facilitates data analysis, financial modeling, and
-                efficient information management. In these courses, participants
-                will learn about the fundamentals of Excel, learning how to
-                create and format spreadsheets, use formulas and functions, and
-                create insightful charts. As businesses increasingly depend on
-                data-driven decision-making, proficiency in Excel has become an
-                important asset for professionals in diverse fields. These free
-                courses are open to all, with no specific eligibility criteria,
-                providing easy accessibility in acquiring this essential skill
-                set.
-              </p>
-            </div>
-            <div className="CourseAbout_course_about_right_col__q4drQ">
-              <a href>
-                <img
-                  alt="about_img"
-                  loading="lazy"
-                  width={800}
-                  height={100}
-                  decoding="async"
-                  data-nimg={1}
-                  className="CourseAbout_course_about_img__6V0u_"
-                  style={{ color: "transparent" }}
-                  src="/assets/simpli-images/CertificationinMSExcelAbout.webp"
-                />
+      <div>
+        <div
+          className="CourseHero_courseCarousalOne__Sb3_f"
+          style={{ paddingTop: "30px" }}
+        >
+          <a>
+            <img
+              alt="img"
+              fetchPriority="high"
+              width={1500}
+              height={900}
+              decoding="async"
+              data-nimg={1}
+              className="CourseHero_course_banner__lk16C"
+              style={{ color: "transparent" }}
+              src="/assets/course/5.png"
+            />
+          </a>
+          <div className="CourseHero_gradientOverlayStyle__iGFOK" />
+          <div className="CourseHero_courseHeadingContainer__nbBmj">
+            <nav className="Breadcrumb_breadcrumb__j1UHX">
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/">
+                  Home
+                </a>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/courses">
+                  Courses
+                </a>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <span>Certification in MS Excel</span>
+              </span>
+            </nav>
+            <h1 className="CourseHero_courseHeading___dgJj">
+              Certification in MS Excel
+            </h1>
+            <p className="CourseHero_courseSubHeading__8DEDx">
+              Level-up Your Excel Skills
+            </p>
+            <div style={{ marginTop: 20, marginBottom: 20 }}>
+              <a
+                className="HeroButtons_buttonBase__cGDGR HeroButtons_primary__sDdf6"
+                href="#enquiry-form"
+              >
+                Enquire Now
+              </a>
+              <a
+                className="HeroButtons_buttonBase__cGDGR HeroButtons_secondary__XKLDX"
+                href="/top-university"
+              >
+                Explore Colleges
               </a>
             </div>
           </div>
-          <div className="CourseContent_course_content_container__mlHEy">
-            <div className="CourseContent_course_accordion_data_container__KN_1W">
-              <div className="Accordion_accordion__5wgWj">
-                <input
-                  type="checkbox"
-                  id="Table Of Content"
-                  className="Accordion_section_input__JFMqB"
-                  defaultChecked
-                />
-                <label
-                  htmlFor="Table Of Content"
-                  className="Accordion_section_label__URJGe"
-                >
-                  <h2 className="Accordion_section_label_heading__xcEiW">
-                    Table Of Content
-                  </h2>
-                  <span className="Accordion_symbol__FZc6B" />
-                </label>
-                <div className="Accordion_section_content__OZp9o">
-                  <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
-                    1{/* */}.{/* */}What You Will Learn?
-                  </div>
-                  <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
-                    2{/* */}.{/* */}Who Should Go For It?
-                  </div>
-                  <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
-                    3{/* */}.{/* */}Points to Note
-                  </div>
-                  <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
-                    4{/* */}.{/* */}Summary
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="CourseContent_course_accordion_data_container__KN_1W">
-              <div className="Accordion_accordion__5wgWj">
-                <input
-                  type="checkbox"
-                  id="What You Will Learn?"
-                  className="Accordion_section_input__JFMqB"
-                  defaultChecked
-                />
-                <label
-                  htmlFor="What You Will Learn?"
-                  className="Accordion_section_label__URJGe"
-                >
-                  <h2 className="Accordion_section_label_heading__xcEiW">
-                    What You Will Learn?
-                  </h2>
-                  <span className="Accordion_symbol__FZc6B" />
-                </label>
-                <div className="Accordion_section_content__OZp9o">
-                  <p style={{ margin: "10px 0px" }}>
-                    From fundamental concepts to advanced techniques,
-                    participants will acquire essential skills tailored for
-                    real-world applications. Through the free certificate
-                    courses, you will learn the following apart from other
-                    topics:
-                  </p>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Cell Referencing
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Tables and Borders in Excel
-                    </div>
-                  </div>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Date and Time in Excel
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Sorting and Filtering
-                    </div>
-                  </div>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      If-Else Condition
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      General Functions in Descriptive Analysis
-                    </div>
-                  </div>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Excel Dashboard Creation
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Conditional Formatting
-                    </div>
-                  </div>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Pivot Tables and Charts
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Macros and VBA for Data Sorting
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="CourseContent_course_accordion_data_container__KN_1W">
-              <div className="Accordion_accordion__5wgWj">
-                <input
-                  type="checkbox"
-                  id="Who Should Go For It?"
-                  className="Accordion_section_input__JFMqB"
-                  defaultChecked
-                />
-                <label
-                  htmlFor="Who Should Go For It?"
-                  className="Accordion_section_label__URJGe"
-                >
-                  <h2 className="Accordion_section_label_heading__xcEiW">
-                    Who Should Go For It?
-                  </h2>
-                  <span className="Accordion_symbol__FZc6B" />
-                </label>
-                <div className="Accordion_section_content__OZp9o">
-                  <p style={{ margin: "10px 0px" }}>
-                    These free courses are made for individuals from various
-                    backgrounds, ensuring relevance and applicability in the
-                    industry:
-                  </p>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Fresh graduates
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Sales executives
-                    </div>
-                  </div>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Strategic planners
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Data professionals
-                    </div>
-                  </div>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Business executives
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Marketing specialists
-                    </div>
-                  </div>
-                  <div className="freecourse_learn_point_main__OODfZ">
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Finance analysts
-                    </div>
-                    <div>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Budding entrepreneurs
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="CourseContent_course_accordion_data_container__KN_1W">
-              <div className="Accordion_accordion__5wgWj">
-                <input
-                  type="checkbox"
-                  id="Points To Note"
-                  className="Accordion_section_input__JFMqB"
-                  defaultChecked
-                />
-                <label
-                  htmlFor="Points To Note"
-                  className="Accordion_section_label__URJGe"
-                >
-                  <h2 className="Accordion_section_label_heading__xcEiW">
-                    Points To Note
-                  </h2>
-                  <span className="Accordion_symbol__FZc6B" />
-                </label>
-                <div className="Accordion_section_content__OZp9o">
-                  <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
-                    <span>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    <div>
-                      Candidates can learn at their own pace with a flexible
-                      learning structure and can gain insights from
-                      industry-relevant content, ensuring practical
-                      applicability.
-                    </div>
-                  </div>
-                  <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
-                    <span>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    <div>
-                      The duration of these free courses ranges from 2 hours to
-                      7 days.
-                    </div>
-                  </div>
-                  <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
-                    <span>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    <div>
-                      You get 90 days to a lifetime access to the course
-                      material depending upon the platform.
-                    </div>
-                  </div>
-                  <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
-                    <span>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth={0}
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                        color="green"
-                        className="freecourse_icon_size__1H3VU"
-                        style={{ color: "green" }}
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    <div>
-                      Some platforms may include regular quizzes and assessments
-                      in the course structure.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="summaryclick" className="styles_summarySection__x75WS">
-              <h2 className="styles_summaryheading__h1Gvn">Summary</h2>
-              <table className="styles_summarytable__xJrP0">
-                <tbody>
-                  <tr>
-                    <td className="styles_tableheading__8FWeN">
-                      Field of Study:
-                    </td>
-                    <td className="styles_tabledesc__ehe2J">Microsoft Excel</td>
-                  </tr>
-                  <tr>
-                    <td className="styles_tableheading__8FWeN">Type:</td>
-                    <td className="styles_tabledesc__ehe2J">
-                      Free Certificate Course
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="styles_tableheading__8FWeN">Duration:</td>
-                    <td className="styles_tabledesc__ehe2J">
-                      1.5 hours to 7 days
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="styles_tableheading__8FWeN">
-                      Mode of Learning:
-                    </td>
-                    <td className="styles_tabledesc__ehe2J">Online</td>
-                  </tr>
-                  <tr>
-                    <td className="styles_tableheading__8FWeN">
-                      Average Salary Offered:
-                    </td>
-                    <td className="styles_tabledesc__ehe2J">
-                      Excel is a tool used in various job roles and industries,
-                      so depending on that, you can earn between ₹1.4 LPA to ₹12
-                      LPA
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="styles_tableheading__8FWeN">
-                      Employment Roles:
-                    </td>
-                    <td className="styles_tabledesc__ehe2J">
-                      <ul style={{ marginLeft: 10 }}>
-                        <li>Data Analyst</li>
-                        <li>Financial Analyst</li>
-                        <li>Business Analyst</li>
-                        <li>Sales Operations Specialist</li>
-                        <li>Project Manager</li>
-                        <li>Administrative Assistant</li>
-                        <li>Operations Manager</li>
-                        <li>Executive Assistant</li>
-                        <li>Research Associate</li>
-                      </ul>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        </div>
+        <CourseSlider />
+        <div className="CourseAbout_course_about_container__xEAH5">
+          <div className="CourseAbout_course_about_left_col__KRo_I">
+            <h2 className="CourseAbout_course_about_heading__n0jzu">
+              About the Course
+            </h2>
+            <p className="CourseAbout_course_about_desc__oih9S">
+              The free certificate courses in MS Excel are designed for beginner
+              to intermediate level candidates to equip them with essential
+              skills. Excel is one of the most extensively used tool which
+              facilitates data analysis, financial modeling, and efficient
+              information management. In these courses, participants will learn
+              about the fundamentals of Excel, learning how to create and format
+              spreadsheets, use formulas and functions, and create insightful
+              charts. As businesses increasingly depend on data-driven
+              decision-making, proficiency in Excel has become an important
+              asset for professionals in diverse fields. These free courses are
+              open to all, with no specific eligibility criteria, providing easy
+              accessibility in acquiring this essential skill set.
+            </p>
+          </div>
+          <div className="CourseAbout_course_about_right_col__q4drQ">
+            <a href>
+              <img
+                alt="about_img"
+                loading="lazy"
+                width={800}
+                height={100}
+                decoding="async"
+                data-nimg={1}
+                className="CourseAbout_course_about_img__6V0u_"
+                style={{ color: "transparent" }}
+                src="/assets/simpli-images/CertificationinMSExcelAbout.webp"
+              />
+            </a>
           </div>
         </div>
-    
+        <div className="CourseContent_course_content_container__mlHEy">
+          <div className="CourseContent_course_accordion_data_container__KN_1W">
+            <div className="Accordion_accordion__5wgWj">
+              <input
+                type="checkbox"
+                id="Table Of Content"
+                className="Accordion_section_input__JFMqB"
+                defaultChecked
+              />
+              <label
+                htmlFor="Table Of Content"
+                className="Accordion_section_label__URJGe"
+              >
+                <h2 className="Accordion_section_label_heading__xcEiW">
+                  Table Of Content
+                </h2>
+                <span className="Accordion_symbol__FZc6B" />
+              </label>
+              <div className="Accordion_section_content__OZp9o">
+                <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
+                  1{/* */}.{/* */}What You Will Learn?
+                </div>
+                <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
+                  2{/* */}.{/* */}Who Should Go For It?
+                </div>
+                <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
+                  3{/* */}.{/* */}Points to Note
+                </div>
+                <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
+                  4{/* */}.{/* */}Summary
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="CourseContent_course_accordion_data_container__KN_1W">
+            <div className="Accordion_accordion__5wgWj">
+              <input
+                type="checkbox"
+                id="What You Will Learn?"
+                className="Accordion_section_input__JFMqB"
+                defaultChecked
+              />
+              <label
+                htmlFor="What You Will Learn?"
+                className="Accordion_section_label__URJGe"
+              >
+                <h2 className="Accordion_section_label_heading__xcEiW">
+                  What You Will Learn?
+                </h2>
+                <span className="Accordion_symbol__FZc6B" />
+              </label>
+              <div className="Accordion_section_content__OZp9o">
+                <p style={{ margin: "10px 0px" }}>
+                  From fundamental concepts to advanced techniques, participants
+                  will acquire essential skills tailored for real-world
+                  applications. Through the free certificate courses, you will
+                  learn the following apart from other topics:
+                </p>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Cell Referencing
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Tables and Borders in Excel
+                  </div>
+                </div>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Date and Time in Excel
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Sorting and Filtering
+                  </div>
+                </div>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    If-Else Condition
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    General Functions in Descriptive Analysis
+                  </div>
+                </div>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Excel Dashboard Creation
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Conditional Formatting
+                  </div>
+                </div>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Pivot Tables and Charts
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Macros and VBA for Data Sorting
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="CourseContent_course_accordion_data_container__KN_1W">
+            <div className="Accordion_accordion__5wgWj">
+              <input
+                type="checkbox"
+                id="Who Should Go For It?"
+                className="Accordion_section_input__JFMqB"
+                defaultChecked
+              />
+              <label
+                htmlFor="Who Should Go For It?"
+                className="Accordion_section_label__URJGe"
+              >
+                <h2 className="Accordion_section_label_heading__xcEiW">
+                  Who Should Go For It?
+                </h2>
+                <span className="Accordion_symbol__FZc6B" />
+              </label>
+              <div className="Accordion_section_content__OZp9o">
+                <p style={{ margin: "10px 0px" }}>
+                  These free courses are made for individuals from various
+                  backgrounds, ensuring relevance and applicability in the
+                  industry:
+                </p>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Fresh graduates
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Sales executives
+                  </div>
+                </div>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Strategic planners
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Data professionals
+                  </div>
+                </div>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Business executives
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Marketing specialists
+                  </div>
+                </div>
+                <div className="freecourse_learn_point_main__OODfZ">
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Finance analysts
+                  </div>
+                  <div>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Budding entrepreneurs
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="CourseContent_course_accordion_data_container__KN_1W">
+            <div className="Accordion_accordion__5wgWj">
+              <input
+                type="checkbox"
+                id="Points To Note"
+                className="Accordion_section_input__JFMqB"
+                defaultChecked
+              />
+              <label
+                htmlFor="Points To Note"
+                className="Accordion_section_label__URJGe"
+              >
+                <h2 className="Accordion_section_label_heading__xcEiW">
+                  Points To Note
+                </h2>
+                <span className="Accordion_symbol__FZc6B" />
+              </label>
+              <div className="Accordion_section_content__OZp9o">
+                <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
+                  <span>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    Candidates can learn at their own pace with a flexible
+                    learning structure and can gain insights from
+                    industry-relevant content, ensuring practical applicability.
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
+                  <span>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    The duration of these free courses ranges from 2 hours to 7
+                    days.
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
+                  <span>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    You get 90 days to a lifetime access to the course material
+                    depending upon the platform.
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 5, padding: "5px 0px" }}>
+                  <span>
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth={0}
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      color="green"
+                      className="freecourse_icon_size__1H3VU"
+                      style={{ color: "green" }}
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    Some platforms may include regular quizzes and assessments
+                    in the course structure.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="summaryclick" className="styles_summarySection__x75WS">
+            <h2 className="styles_summaryheading__h1Gvn">Summary</h2>
+            <table className="styles_summarytable__xJrP0">
+              <tbody>
+                <tr>
+                  <td className="styles_tableheading__8FWeN">
+                    Field of Study:
+                  </td>
+                  <td className="styles_tabledesc__ehe2J">Microsoft Excel</td>
+                </tr>
+                <tr>
+                  <td className="styles_tableheading__8FWeN">Type:</td>
+                  <td className="styles_tabledesc__ehe2J">
+                    Free Certificate Course
+                  </td>
+                </tr>
+                <tr>
+                  <td className="styles_tableheading__8FWeN">Duration:</td>
+                  <td className="styles_tabledesc__ehe2J">
+                    1.5 hours to 7 days
+                  </td>
+                </tr>
+                <tr>
+                  <td className="styles_tableheading__8FWeN">
+                    Mode of Learning:
+                  </td>
+                  <td className="styles_tabledesc__ehe2J">Online</td>
+                </tr>
+                <tr>
+                  <td className="styles_tableheading__8FWeN">
+                    Average Salary Offered:
+                  </td>
+                  <td className="styles_tabledesc__ehe2J">
+                    Excel is a tool used in various job roles and industries, so
+                    depending on that, you can earn between ₹1.4 LPA to ₹12 LPA
+                  </td>
+                </tr>
+                <tr>
+                  <td className="styles_tableheading__8FWeN">
+                    Employment Roles:
+                  </td>
+                  <td className="styles_tabledesc__ehe2J">
+                    <ul style={{ marginLeft: 10 }}>
+                      <li>Data Analyst</li>
+                      <li>Financial Analyst</li>
+                      <li>Business Analyst</li>
+                      <li>Sales Operations Specialist</li>
+                      <li>Project Manager</li>
+                      <li>Administrative Assistant</li>
+                      <li>Operations Manager</li>
+                      <li>Executive Assistant</li>
+                      <li>Research Associate</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
       <Footer />
     </>

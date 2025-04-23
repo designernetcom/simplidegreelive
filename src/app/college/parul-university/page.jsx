@@ -13,19 +13,24 @@ import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 import EnquiryModel from "../../../../components/EnquiryModel";
-export default function page() {
+export default function Page() {
   const [showModal, setShowModal] = useState(false); // Manage modal visibility
+  const [fixedHeader, setFixedHeader] = useState(false); // Manage header state
 
   const handleOpenModal = () => {
     setShowModal(true);
   };
-  useEffect(() => {
-    const handleScroll = () => {
-      setFixedHeader(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+  // useEffect(() => {
+  //   // Ensure `window` is only accessed in the browser
+  //   if (typeof window !== "undefined") {
+  //     const handleScroll = () => {
+  //       setFixedHeader(window.scrollY > 50);
+  //     };
+  //     window.addEventListener("scroll", handleScroll);
+  //     return () => window.removeEventListener("scroll", handleScroll);
+  //   }
+  // }, []);
   return (
     <>
       <Menu />
@@ -88,7 +93,7 @@ export default function page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="colleges.html">
+              <a href="/top-university">
                 <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>

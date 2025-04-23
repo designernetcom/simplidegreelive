@@ -19,13 +19,13 @@ export default function page() {
   const handleOpenModal = () => {
     setShowModal(true);
   };
-  useEffect(() => {
-    const handleScroll = () => {
-      setFixedHeader(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setFixedHeader(window.scrollY > 50);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
   return (
     <>
       <Menu />
@@ -115,7 +115,7 @@ export default function page() {
                 />
               </div>
               <div className="headCarousal_proceedCompareContainer__rekWb">
-                <a href="colleges.html">
+                <a href="/top-university">
                   <button className="headCarousal_collegeCompare__znhHH">
                     Add To Compare
                   </button>

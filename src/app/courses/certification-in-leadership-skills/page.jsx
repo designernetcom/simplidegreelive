@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React ,{useEffect}from "react";
 
 import SecondMenu from "../../../../components/Header/Menu/SecondMenu";
 import Footer from "../../../../components/Footer/Footer";
@@ -25,11 +26,21 @@ import "../../styles/885f0dd8048415c9.css";
 import CourseSlider from "../../../../components/CourseSlider";
 
 export default function page() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleScroll = () => {
+      setFixedHeader(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <SecondMenu />
       <div>
-   
         <div>
           <div
             className="CourseHero_courseCarousalOne__Sb3_f"
@@ -50,12 +61,43 @@ export default function page() {
             </a>
             <div className="CourseHero_gradientOverlayStyle__iGFOK" />
             <div className="CourseHero_courseHeadingContainer__nbBmj">
+              <nav className="Breadcrumb_breadcrumb__j1UHX">
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a className="Breadcrumb_link__zmGnw" href="/">
+                    Home
+                  </a>
+                  <span className="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <a className="Breadcrumb_link__zmGnw" href="/courses">
+                    Courses
+                  </a>
+                  <span className="Breadcrumb_separator__e7M6o">/</span>
+                </span>
+                <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                  <span>Certification in Leadership Skills</span>
+                </span>
+              </nav>
               <h1 className="CourseHero_courseHeading___dgJj">
                 Certification in Leadership Skills
               </h1>
               <p className="CourseHero_courseSubHeading__8DEDx">
                 The Art and Science of Being a Leader
               </p>
+              <div style={{ marginTop: 20, marginBottom: 20 }}>
+                <a
+                  className="HeroButtons_buttonBase__cGDGR HeroButtons_primary__sDdf6"
+                  href="#enquiry-form"
+                >
+                  Enquire Now
+                </a>
+                <a
+                  className="HeroButtons_buttonBase__cGDGR HeroButtons_secondary__XKLDX"
+                  href="/top-university"
+                >
+                  Explore Colleges
+                </a>
+              </div>
             </div>
           </div>
           <CourseSlider />

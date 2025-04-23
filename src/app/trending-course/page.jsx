@@ -15,51 +15,61 @@ export default function page() {
         title: "Online MBA",
         duration: "2 Years",
         img: "/assets/img/courses/OnlineMBA.png",
+        href: "online-mba",
       },
       {
         title: "Online MCA",
         duration: "2 Years",
         img: "/assets/img/courses/OnlineMCA.webp",
+        href: "online-mca",
       },
       {
         title: "Online MCom",
         duration: "2 Years",
         img: "/assets/img/courses/OnlineBCom.webp",
+        href: "online-mcom",
       },
       {
         title: "Online MSc",
         duration: "2 Years",
         img: "/assets/img/courses/OnlineMSc.webp",
+        href: "online-msc",
       },
       {
         title: "Online MA",
         duration: "2 Years",
         img: "/assets/img/courses/OnlineMA.webp",
+        href: "online-ma",
       },
       {
         title: "M.Com with ACCA",
         duration: "2 Years",
         img: "/assets/img/courses/OnlineMCom.webp",
+        href: "online-acca-mcom",
       },
       {
         title: "Distance MBA",
         duration: "2 Years",
         img: "/assets/img/courses/DistanceMBA.webp",
+        href: "online-mba",
       },
       {
         title: "Distance MCA",
         duration: "2 Years",
         img: "/assets/img/courses/DistanceMCA.webp",
+        href: "distance-mca",
       },
       {
         title: "Distance MCom",
         duration: "2 Years",
         img: "/assets/img/courses/DistanceMCom.webp",
+        href: "distance-mcom",
       },
       {
         title: "Distance MLIS",
         duration: "1 Year",
         img: "/assets/img/courses/PG_Diploma_In_Human_Resource_Management.webp",
+        href: "master-of-library-and-information-science",
       },
     ],
     "Online UG Programmes": [
@@ -67,103 +77,123 @@ export default function page() {
         title: "Online BBA",
         duration: "2 Years",
         img: "/assets/img/home_7/OnlineBBA.webp",
+        href: "online-bca",
       },
       {
         title: "Online BCA",
         duration: "3 Years",
         img: "/assets/img/home_7/OnlineBCA.webp",
+        href: "online-bba",
       },
       {
         title: "Online BCom",
         duration: "3 Years",
         img: "/assets/img/home_7/OnlineBCom.webp",
+        href: "online-bcom",
       },
       {
         title: "Distance BA",
         duration: "3 Years",
         img: "/assets/img/home_7/DistanceBBA.webp",
+        href: "distance-ba",
       },
       {
         title: "Online BA",
         duration: "3 Years",
         img: "/assets/img/home_7/OnlineBA.webp",
+        href: "online-ba",
       },
       {
         title: "Distance BCA",
         duration: "3 Years",
         img: "/assets/img/home_7/DistanceBCA.webp",
+        href: "distance-bca",
       },
       {
         title: "Distance BBA",
         duration: "3 Years",
         img: "/assets/img/home_7/DistanceBBA.webp",
+        href: "distance-bba",
       },
       {
         title: "Distance BCom",
         duration: "3 Years",
         img: "/assets/img/home_7/DistanceBCom.webp",
+        href: "distance-bcom",
       },
       {
         title: "Distance BSc",
         duration: "3 Years",
         img: "/assets/img/home_7/DistanceBSc.webp",
+        href: "distance-bsc",
       },
       {
         title: "Distance BLIS",
         duration: "1 Year",
         img: "/assets/img/home_7/Diploma_in_Banking_and_Finance_Management.webp",
+        href: "distance-bachelor-of-library-and-information-science",
       },
     ],
     "Diploma Courses": [
       {
-        title: "PGD Finance & Acc.",
+        title: "PGD Finance & Acc",
         duration: "1-2 years",
         img: "/assets/img/home_7/PG_Diploma_in_Finance_&_Accounting.webp",
+        href: "pg-diploma-finance-accounting",
       },
       {
         title: "PGD Data Science",
         duration: "1 to 2 years",
         img: "/assets/img/home_7/PG_Diploma_in_Data_Science.webp",
+        href: "pg-diploma-data-science",
       },
       {
         title: "Digital Marketing",
         duration: "1 to 2 years",
         img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+        href: "professional-diploma-digital-marketing",
       },
       {
         title: "PGD Retail Mgmt.",
         duration: "1 to 2 years",
         img: "/assets/img/home_7/PG_Diploma_in_Retail_Management.webp",
+        href: "pg-diploma-retail-management",
       },
       {
         title: "PGD Marketing",
         duration: "1 Year",
         img: "/assets/img/home_7/PG_Diploma_in_Marketing_Management.webp",
+        href: "pg-diploma-marketing-management",
       },
       {
         title: "PGD HR Mgmt.",
         duration: "1 to 2 years",
         img: "/assets/img/home_7/PG_Diploma_In_Human_Resource_Management.webp",
+        href: "diploma-hr-management",
       },
       {
         title: "Banking & Finance",
         duration: "1 to 2 years",
         img: "/assets/img/home_7/Diploma_in_Banking_and_Finance_Management.webp",
+        href: "banking-finance-management-diploma",
       },
       {
         title: "International Trade",
         duration: "12 Months",
         img: "/assets/img/home_7/Diploma_in_International_Trade_Management.webp",
+        href: "international-trade-management-diploma",
       },
       {
         title: "Cyber Law",
         duration: "1 Year",
         img: "/assets/img/home_7/Diploma_in_Cyber_Law.webp",
+        href: "diploma-in-cyber-law",
       },
       {
         title: "PGD IT",
         duration: "1 Year",
         img: "/assets/img/home_7/PGDiplomainIT.webp",
+        href: "pg-diploma-in-it",
       },
     ],
     "Executive Programmes": [
@@ -171,51 +201,61 @@ export default function page() {
         title: "Master of Business Administration",
         duration: "Upto 3 Years",
         img: "/assets/img/home_7/ExecutiveMBA.webp",
+        href: "executive-mba",
       },
       {
         title: "EPGD Business Analytics",
         duration: "15-16 months",
         img: "/assets/img/home_7/ExecutivePGDiplomainBusinessAnalytics.webp",
+        href: "executive-pg-diploma-in-business-analytics",
       },
       {
         title: "Operations and Supply Chain Mgmt.",
         duration: "6 to 12 months",
         img: "/assets/img/home_7/ExecutiveProgrammeinOperationsandSupplyChainManagement.webp",
+        href: "executive-programme-in-operations-and-supply-chain-management",
       },
       {
         title: "EDP Strategic Management",
         duration: "6 - 12 months",
         img: "/assets/img/home_7/ExecutiveDevelopmentProgrammeinStrategicManagement.webp",
+        href: "executive-development-programme-in-strategic-management",
       },
       {
         title: "Chief Financial Officer Programme",
         duration: "6 to 12 months",
         img: "/assets/img/courses/OnlineMA.webp",
+        href: "chief-financial-officer-programme",
       },
       {
         title: "Leadership and Management",
         duration: "4 to 12 months",
         img: "/assets/img/courses/OnlineMCom.webp",
+        href: "executive-programme-in-leadership-and-management",
       },
       {
         title: "EP in General Management",
         duration: "6 to 12 months",
         img: "/assets/img/courses/DistanceMBA.webp",
+        href: "executive-programme-in-general-management",
       },
       {
         title: "EDP Strategic HR Management",
         duration: "6 to 12 months",
         img: "/assets/img/courses/DistanceMCA.webp",
+        href: "executive-development-programme-in-strategic-human-resource-management",
       },
       {
         title: "EP in Project Management",
         duration: "6 to 12 months",
         img: "/assets/img/courses/DistanceMCom.webp",
+        href: "executive-programme-in-project-management",
       },
       {
         title: "Healthcare Service Management",
         duration: "6 to 12 months",
         img: "/assets/img/courses/ExecutiveProgrammeinHealthcareServiceManagement.webp",
+        href: "executive-programme-in-healthcare-service-management",
       },
     ],
     "International Programmes": [
@@ -223,51 +263,61 @@ export default function page() {
         title: "MBA - Golden Gate University",
         duration: "2 Years",
         img: "/assets/img/home_7/MBAGoldenGateUniversity.webp",
+        href: "mba-from-golden-gate-university",
       },
       {
         title: "MBA - Liverpool Business School",
         duration: "2 Years",
         img: "/assets/img/home_7/LiverpoolBusinessSchool.webp",
+        href: "mba-by-liverpool-business-school",
       },
       {
         title: "MBA - Edgewood",
         duration: "2 Years",
         img: "/assets/img/home_7/MBAEdgewood.webp",
+        href: "mba-from-edgewood-college",
       },
       {
         title: "MBA (Global) - Deakin",
         duration: "2 Years",
         img: "/assets/img/home_7/MBAGlobalDeakin.webp",
+        href: "mba-global-from-deakin-business-school",
       },
       {
         title: "MBA - UTICA",
         duration: "2 Years",
         img: "/assets/img/home_7/MBAUTICA.webp",
+        href: "mba-from-utica-university",
       },
       {
         title: "MBA (90 ECTS) - IU",
         duration: "2 Years",
         img: "/assets/img/home_7/MBA90ECTSIU.webp",
+        href: "mba-90-ects-by-iu-university",
       },
       {
         title: "MBA - Clarkson",
         duration: "2 Years",
         img: "/assets/img/home_7/MBAClarkson.webp",
+        href: "mba-from-clarkson-university",
       },
       {
         title: "MBA - ISM",
         duration: "2 Years",
         img: "/assets/img/home_7/MBAISM.webp",
+        href: "mba-from-ism-international-school-of-management-germany",
       },
       {
         title: "MBA - Sunderland",
         duration: "2 Years",
         img: "/assets/img/home_7/MBASunderland.webp",
+        href: "mba-from-university-of-sunderland-uk",
       },
       {
         title: "MSBA - Golden Gate",
         duration: "2 Years",
         img: "/assets/img/home_7/MSBAGoldenGate.webp",
+        href: "ms-in-business-analytics-by-golden-gate-university-usa",
       },
     ],
     "Free Courses": [
@@ -275,51 +325,61 @@ export default function page() {
         title: "Data Analytics",
         duration: "Upto 12 weeks",
         img: "/assets/img/home_7/DataAnalyticsCertification.webp",
+        href: "data-analytics-certification",
       },
       {
         title: "Digital Marketing",
         duration: "Upto 6 months",
         img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+        href: "digital-marketing-certification",
       },
       {
         title: "Cyber Security",
         duration: "Upto 3 months",
         img: "/assets/img/home_7/CyberSecurityCertification.webp",
+        href: "cyber-security-certification",
       },
       {
         title: "MS Excel",
         duration: "Upto 7 days",
         img: "/assets/img/home_7/CertificationInMsExcel.webp",
+        href: "certification-in-ms-excel",
       },
       {
         title: "AI and ML",
         duration: "Upto 12 hrs",
         img: "/assets/img/home_7/CertificationInAIandML.webp",
+        href: "certification-in-ai-and-ml",
       },
       {
         title: "Marketing",
         duration: "Upto months",
         img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+        href: "certification-in-marketing",
       },
       {
         title: "Leadership Skills",
         duration: "Upto 4 weeks",
         img: "/assets/img/home_7/CertificationInLeadershipSkills.webp",
+        href: "certification-in-leadership-skills",
       },
       {
         title: "Project Management",
         duration: "Upto 22 hrs",
         img: "/assets/img/home_7/ProjectManagementCertification.webp",
+        href: "project-management-certification",
       },
       {
         title: "Supply Chain Mgmt.",
         duration: "Upto 28 hrs",
         img: "/assets/img/home_7/SupplyChainManagementCertification.webp",
+        href: "supply-chain-management-certification",
       },
       {
         title: "Financial Accounting",
         duration: "3 hrs to 3 months",
         img: "/assets/img/home_7/FinancialAccountingCertification.webp",
+        href: "financial-accounting-certification",
       },
     ],
   };
@@ -410,9 +470,7 @@ export default function page() {
                   className="BrowseCourse_browse_course_card__6O_U1"
                 >
                   <Link
-                    href={`/courses/${course.title
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
+                    href={`/courses/${course.href}`}
                     passHref
                     onClick={closeCoursesModal}
                   >
