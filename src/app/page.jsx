@@ -955,11 +955,8 @@ const categories = [
                                 />
                               </span>
                             </a>
-                            <a
-                              data-bs-toggle="modal"
-                              data-bs-target="#exampleModal"
-                            >
-                              <span className="btnw">
+                            <a href="" download className="btnw">
+                              <span>
                                 <span>Download Brochure</span>
                               </span>
                             </a>
@@ -1026,10 +1023,11 @@ const categories = [
                               </span>
                             </a>
                             <a
-                              data-bs-toggle="modal"
-                              data-bs-target="#exampleModal"
+                              href="/assets/brochure/Amity-MBA-BusinessAnalytics.pdf" target="_blank"
+                              download
+                              className="btnw"
                             >
-                              <span className="btnw">
+                              <span>
                                 <span>Download Brochure</span>
                               </span>
                             </a>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
@@ -7,9 +8,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./HeroSlider.module.css";
 
-
-
 const HeroSlider = () => {
+  const router = useRouter();
   const slides = [
     {
       text1: "Grab It Now: Early Bird Offer!",
@@ -44,6 +44,10 @@ const HeroSlider = () => {
     },
   ];
 
+  const handleSearchClick = () => {
+    router.push("/search");
+  };
+
   return (
     <div className="Hero_relative__x641X ">
       <div className="Hero_newheroContainer__lAPRu">
@@ -72,9 +76,6 @@ const HeroSlider = () => {
                             <div className="counter_digit__L6cff">0</div>
                             <div className="counter_digit__L6cff">0</div>
                             <div className="counter_digit__L6cff">0</div>
-                            <div className="counter_digit__L6cff">0</div>
-                            <div className="counter_digit__L6cff">0</div>
-
                             <div
                               className="counter_livetextbanner__Vykhp"
                               style={{
@@ -83,7 +84,7 @@ const HeroSlider = () => {
                                 right: "-30px",
                                 backgroundColor: "red",
                                 color: "#fff",
-                                fontSize: ".69vw;",
+                                fontSize: ".69vw",
                                 fontWeight: 700,
                                 padding: "1px 9px",
                                 borderRadius: "5px",
@@ -101,7 +102,10 @@ const HeroSlider = () => {
                       <div>
                         <div className="SearchBar_searchWrapper__zmgjs">
                           <div className="SearchBar_searchBar__lYNNN">
-                            <div className="SearchBar_Hero_input__VYpfM">
+                            <div
+                              className="SearchBar_Hero_input__VYpfM cursor-pointer"
+                              onClick={handleSearchClick}
+                            >
                               Search for colleges and courses
                             </div>
                             <div className="SearchBar_Hero_iconContainer__psyvf">
