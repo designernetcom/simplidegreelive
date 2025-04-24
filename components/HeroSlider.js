@@ -76,6 +76,8 @@ const HeroSlider = () => {
                             <div className="counter_digit__L6cff">0</div>
                             <div className="counter_digit__L6cff">0</div>
                             <div className="counter_digit__L6cff">0</div>
+                            {/* <div className="counter_digit__L6cff">0</div>
+                            <div className="counter_digit__L6cff">0</div> */}
                             <div
                               className="counter_livetextbanner__Vykhp"
                               style={{
@@ -84,7 +86,7 @@ const HeroSlider = () => {
                                 right: "-30px",
                                 backgroundColor: "red",
                                 color: "#fff",
-                                fontSize: ".69vw",
+                                // fontSize: ".69vw",
                                 fontWeight: 700,
                                 padding: "1px 9px",
                                 borderRadius: "5px",
