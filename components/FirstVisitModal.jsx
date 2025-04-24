@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "../src/app/styles/style.css";
 
 const FirstVisitModal = () => {
-  const [showModal, setShowModal] = useState(true); // Show on first page load
+  const [showModal, setShowModal] = useState(false); // Initially false to delay display
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,6 +11,16 @@ const FirstVisitModal = () => {
     program: "",
     state: "",
   });
+
+  // Add useEffect to delay modal display by 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 6000); // 3000ms = 3 seconds
+
+    // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
+  }, []); // Empty dependency array to run once on mount
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -47,16 +57,13 @@ const FirstVisitModal = () => {
             <div className="td_form_card_in position-relative">
               <button
                 type="button"
-                className="btn-close "
+                className="btn-close"
                 onClick={handleClose}
                 style={{
                   right: "-10px",
                   height: "5em",
                   width: "3em",
                   top: "-20px",
-                  
-                 
-                  
                 }}
               ></button>
 

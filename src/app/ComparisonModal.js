@@ -26,8 +26,8 @@ export default function ComparisonModal({
           padding: "20px",
           borderRadius: "10px",
           width: "80%",
-          maxWidth: "800px",
-          maxHeight: "80vh",
+          maxWidth: "1700px",
+          maxHeight: "100vh",
           overflowY: "auto",
           position: "relative",
         }}
@@ -48,12 +48,22 @@ export default function ComparisonModal({
         >
           Close
         </button>
-        <h4>Compare Universities</h4>
+        <h4>Here is the details comparison of selected Universities</h4>
         <div className="comparison-table">
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr>
-                <th style={{ border: "1px solid #ddd", padding: "8px" }}>
+                <th
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
                   Colleges
                 </th>
                 {compareList.map((uni) => (
@@ -68,46 +78,279 @@ export default function ComparisonModal({
             </thead>
             <tbody>
               <tr>
-                <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                  Fee
-                </td>
-                {compareList.map((uni) => (
-                  <td
-                    key={uni.id}
-                    style={{ border: "1px solid #ddd", padding: "8px" }}
-                  >
-                    ₹{uni.fee.toLocaleString()}
-                  </td>
-                ))}
-              </tr>
-              <tr>
-                <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
                   Approvals
                 </td>
                 {compareList.map((uni) => (
                   <td
                     key={uni.id}
-                    style={{ border: "1px solid #ddd", padding: "8px" }}
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
                   >
                     {uni.accreditations.join(", ")}
                   </td>
                 ))}
               </tr>
               <tr>
-                <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                  Rank
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
+                  Placement
                 </td>
                 {compareList.map((uni) => (
                   <td
                     key={uni.id}
-                    style={{ border: "1px solid #ddd", padding: "8px" }}
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
+                  ></td>
+                ))}
+              </tr>
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
+                  Education Mode
+                </td>
+                {compareList.map((uni) => (
+                  <td
+                    key={uni.id}
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
+                  ></td>
+                ))}
+              </tr>
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
+                  Ranking
+                </td>
+                {compareList.map((uni) => (
+                  <td
+                    key={uni.id}
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
                   >
                     {uni.rank}
                   </td>
                 ))}
               </tr>
               <tr>
-                <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
+                  Examination Mode
+                </td>
+                {compareList.map((uni) => (
+                  <td
+                    key={uni.id}
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
+                  >
+                    {uni.rank}
+                  </td>
+                ))}
+              </tr>
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
+                  Highest Placement
+                </td>
+                {compareList.map((uni) => (
+                  <td
+                    key={uni.id}
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
+                  ></td>
+                ))}
+              </tr>
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
+                  Average Placement
+                </td>
+                {compareList.map((uni) => (
+                  <td
+                    key={uni.id}
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
+                  >
+                    {uni.rank}
+                  </td>
+                ))}
+              </tr>
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
+                  Course Offered
+                </td>
+                {compareList.map((uni) => (
+                  <td
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
+                  ></td>
+                ))}
+              </tr>
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
+                  Fee
+                </td>
+                {compareList.map((uni) => (
+                  <td
+                    key={uni.id}
+                    style={{
+                      border: "1px solid #ddd",
+                      padding: "8px",
+                      fontSize: "14px",
+                      color: "#000;",
+                      fontWeight: "500",
+                      fontFamily: "'Work Sans', sans-serif",
+                    }}
+                  >
+                    ₹{uni.fee.toLocaleString()}
+                  </td>
+                ))}
+              </tr>
+
+              <tr>
+                <td
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "18px",
+                    fontSize: "18px",
+                    color: "#000;",
+                    fontWeight: "500",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                  }}
+                >
                   Action
                 </td>
                 {compareList.map((uni) => (
@@ -119,14 +362,14 @@ export default function ComparisonModal({
                       onClick={() => toggleCompare(uni)}
                       style={{
                         padding: "5px 10px",
-                        backgroundColor: "#dc3545",
+
                         color: "white",
                         border: "none",
                         borderRadius: "5px",
                         cursor: "pointer",
                       }}
                     >
-                      Remove
+                      X
                     </button>
                   </td>
                 ))}
