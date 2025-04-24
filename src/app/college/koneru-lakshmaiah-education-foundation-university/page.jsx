@@ -1,8 +1,21 @@
 "use client";
-import React, { useState, useEffect } from "react";
 
-import Menu from "../../../../components/Header/Menu/Menu";
-import Footer from "../../../../components/Footer/Footer";
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically import components with SSR disabled to prevent window access during SSR
+const Menu = dynamic(() => import("../../../../components/Header/Menu/Menu"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("../../../../components/Footer/Footer"), {
+  ssr: false,
+});
+const EnquiryModel = dynamic(
+  () => import("../../../../components/EnquiryModel"),
+  { ssr: false }
+);
+
+// CSS imports remain unchanged
 import "../../styles/5107c2122129e0bb.css";
 import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
@@ -12,7 +25,7 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
-import EnquiryModel from "../../../../components/EnquiryModel";
+
 export default function Page() {
   const [showModal, setShowModal] = useState(false); // Manage modal visibility
   const [fixedHeader, setFixedHeader] = useState(false); // Manage header state
@@ -21,16 +34,15 @@ export default function Page() {
     setShowModal(true);
   };
 
-  // useEffect(() => {
-  //   // Ensure `window` is only accessed in the browser
-  //   if (typeof window !== "undefined") {
-  //     const handleScroll = () => {
-  //       setFixedHeader(window.scrollY > 50);
-  //     };
-  //     window.addEventListener("scroll", handleScroll);
-  //     return () => window.removeEventListener("scroll", handleScroll);
-  //   }
-  // }, []);
+  // Uncommented and ensured window access is safe
+  useEffect(() => {
+    const handleScroll = () => {
+      setFixedHeader(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Menu />

@@ -397,13 +397,28 @@ const Menu = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isCoursesModalOpen, setIsCoursesModalOpen] = useState(false);
   const [isStatesModalOpen, setIsStatesModalOpen] = useState(false);
-  // const [isUniversitySidebarOpen, setIsUniversitySidebarOpen] = useState(false);
+  const [isUniversitySidebarOpen, setIsUniversitySidebarOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("Online PG Programmes");
-const [showModal, setShowModal] = useState(false); // Manage modal visibility
+  const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Initialize as false
 
-const handleOpenModal = () => {
-  setShowModal(true);
-};
+  // Handle window-dependent initialization and resize
+  useEffect(() => {
+    // Set initial isMobile state
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth <= 768);
+    }
+
+    // Handle resize
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Handle scroll for fixed header
   useEffect(() => {
     const handleScroll = () => {
       setFixedHeader(window.scrollY > 50);
@@ -421,13 +436,14 @@ const handleOpenModal = () => {
     }
   };
 
-  // const openUniversityModal = () => {
-  //   if (window.innerWidth <= 768) {
-  //     setIsUniversitySidebarOpen(true);
-  //   } else {
-  //     setIsUniversityModalOpen(true);
-  //   }
-  // };
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const openUniversityModal = () => {
+    console.log("Toggling Top Universities");
+    setIsUniversitySidebarOpen((prev) => !prev);
+  };
 
   const closeUniversityModal = () => {
     setIsUniversityModalOpen(false);
@@ -443,7 +459,7 @@ const handleOpenModal = () => {
 
   const openCoursesModal = () => {
     setIsCoursesModalOpen(!isCoursesModalOpen);
-    if (!openMenuMobile && window.innerWidth <= 768) {
+    if (!openMenuMobile && isMobile) {
       setOpenMenuMobile(true);
     }
   };
@@ -459,22 +475,7 @@ const handleOpenModal = () => {
   const closeStatesModal = () => {
     setIsStatesModalOpen(false);
   };
-const [isUniversitySidebarOpen, setIsUniversitySidebarOpen] = useState(false);
-const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-useEffect(() => {
-  const handleResize = () => {
-    setIsMobile(window.innerWidth <= 768);
-  };
-
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
-
-const openUniversityModal = () => {
-  console.log("Toggling Top Universities");
-  setIsUniversitySidebarOpen((prev) => !prev);
-};
   return (
     <>
       <div className={fixedHeader ? "fixed-header" : ""}>

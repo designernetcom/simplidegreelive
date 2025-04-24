@@ -1,8 +1,21 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Menu from "../../../../components/Header/Menu/Menu";
-import Footer from "../../../../components/Footer/Footer";
+import dynamic from "next/dynamic";
+
+// Dynamically import components with SSR disabled to prevent window access during SSR
+const Menu = dynamic(() => import("../../../../components/Header/Menu/Menu"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("../../../../components/Footer/Footer"), {
+  ssr: false,
+});
+const EnquiryModel = dynamic(
+  () => import("../../../../components/EnquiryModel"),
+  { ssr: false }
+);
+
+// CSS imports remain unchanged
 import "../../styles/5107c2122129e0bb.css";
 import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
@@ -12,7 +25,7 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
-import EnquiryModel from "../../../../components/EnquiryModel";
+
 export default function Page() {
   const [showModal, setShowModal] = useState(false); // Manage modal visibility
   const [fixedHeader, setFixedHeader] = useState(false); // Manage header state
@@ -21,16 +34,15 @@ export default function Page() {
     setShowModal(true);
   };
 
-  // useEffect(() => {
-  //   // Ensure `window` is only accessed in the browser
-  //   if (typeof window !== "undefined") {
-  //     const handleScroll = () => {
-  //       setFixedHeader(window.scrollY > 50);
-  //     };
-  //     window.addEventListener("scroll", handleScroll);
-  //     return () => window.removeEventListener("scroll", handleScroll);
-  //   }
-  // }, []);
+  // Uncommented and ensured window access is safe
+  useEffect(() => {
+    const handleScroll = () => {
+      setFixedHeader(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Menu />
@@ -50,7 +62,7 @@ export default function Page() {
               Sri Venkateswara University, Tirupati
             </h1>
             <p className="headCarousal_location__7rFlL">
-              Tirupati{/* */},{/* */}Andhra Pradesh
+              Tirupati, Andhra Pradesh
             </p>
             <p className="headCarousal_ranking__1yTOY">
               NIRF Rank: 87 (Top 100 Universities)
@@ -223,7 +235,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Ehanced opportunitries for learners</div>
+                          <div>Enhanced opportunities for learners</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -238,7 +250,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Approved by reknowned governing bodies.</div>
+                          <div>Approved by renowned governing bodies.</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -253,7 +265,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>E- Learning resources.</div>
+                          <div>E-Learning resources.</div>
                         </div>
                       </div>
                     </div>
@@ -263,8 +275,8 @@ export default function Page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}Sri Venkateswara University, Tirupati
+                          Explore online learning courses in Sri Venkateswara
+                          University, Tirupati
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -283,7 +295,7 @@ export default function Page() {
                                 className="group_btn"
                               >
                                 <button className="courses_enqnow__8Vb3P">
-                                  Enquire Now{" "}
+                                  Enquire Now
                                 </button>
                                 <button className="courses_viewSpsl__lrjH5">
                                   View Specialization
@@ -305,8 +317,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -329,8 +339,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -353,8 +361,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -379,8 +385,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -403,8 +407,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -429,8 +431,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -453,8 +453,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -477,8 +475,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -503,8 +499,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -519,7 +513,6 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-
                   <div
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
@@ -562,15 +555,15 @@ export default function Page() {
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MCom</td>
                             <td>
-                              Eligibilty will vary according to the
-                              specilization
+                              Eligibility will vary according to the
+                              specialization
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MSc</td>
                             <td>
-                              Eligibilty will vary according to the
-                              specilization
+                              Eligibility will vary according to the
+                              specialization
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
@@ -710,13 +703,13 @@ export default function Page() {
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
                                   srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                    image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                                    /assets/simpli-images/check.webp 2x
+                                  "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  Video &amp; Audio lessons
+                                  Video & Audio lessons
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -729,13 +722,13 @@ export default function Page() {
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
                                   srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                    image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                                    /assets/simpli-images/check.webp 2x
+                                  "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  Dedicated student greivance cell.
+                                  Dedicated student grievance cell.
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -748,9 +741,9 @@ export default function Page() {
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
                                   srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                    image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                                    /assets/simpli-images/check.webp 2x
+                                  "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -768,9 +761,9 @@ export default function Page() {
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
                                   srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                    image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                                    /assets/simpli-images/check.webp 2x
+                                  "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
@@ -779,23 +772,6 @@ export default function Page() {
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <div>
-                            {/* <img
-                              alt="certificate_url"
-                              loading="lazy"
-                              width={300}
-                              height={200}
-                              decoding="async"
-                              data-nimg={1}
-                              className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FSri-Venkateswara-University-Tirupati%2Fcertification%2Fno-img.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FSri-Venkateswara-University-Tirupati%2Fcertification%2Fno-img.webp&w=640&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FSri-Venkateswara-University-Tirupati%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            /> */}
                           </div>
                         </div>
                       </div>
@@ -813,17 +789,13 @@ export default function Page() {
                         The admissions process takes place in online mode. Fresh
                         admission starts from the month of January of every
                         year. There are direct admissions, no entrance exam is
-                        conducted for the admission process.The addmission
-                        procedure
-                        {/* */}2025{/* */}
-                        for the online course at
-                        {/* */}Sri Venkateswara University, Tirupati{/* */}
-                        is as follow:
+                        conducted for the admission process. The admission
+                        procedure 2025 for the online course at Sri Venkateswara
+                        University, Tirupati is as follows:
                       </p>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}1
+                          STEP 1
                         </div>
                         <div className="Admissions_stepText___L_GT">
                           Open the official website of the college.
@@ -831,8 +803,7 @@ export default function Page() {
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}2
+                          STEP 2
                         </div>
                         <div className="Admissions_stepText___L_GT">
                           Click on the application form and fill out the
@@ -841,8 +812,7 @@ export default function Page() {
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}3
+                          STEP 3
                         </div>
                         <div className="Admissions_stepText___L_GT">
                           Select the course you want to pursue.
@@ -850,8 +820,7 @@ export default function Page() {
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}4
+                          STEP 4
                         </div>
                         <div className="Admissions_stepText___L_GT">
                           Pay the fees for the course and you shall be admitted
@@ -883,9 +852,9 @@ export default function Page() {
                             data-nimg={1}
                             style={{ color: "transparent" }}
                             srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
+                              image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                              /assets/simpli-images/check.webp 2x
+                            "
                             src="/assets/simpli-images/check.webp"
                           />
                           <p>
@@ -903,9 +872,9 @@ export default function Page() {
                             data-nimg={1}
                             style={{ color: "transparent" }}
                             srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
+                              image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                              /assets/simpli-images/check.webp 2x
+                            "
                             src="/assets/simpli-images/check.webp"
                           />
                           <p>Top recruiters from leading Companies</p>
@@ -920,9 +889,9 @@ export default function Page() {
                             data-nimg={1}
                             style={{ color: "transparent" }}
                             srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
+                              image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                              /assets/simpli-images/check.webp 2x
+                            "
                             src="/assets/simpli-images/check.webp"
                           />
                           <p>Job that suitably fits the student profile</p>
@@ -961,8 +930,7 @@ export default function Page() {
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        Sri Venkateswara University, Tirupati{/* */}
-                        Review
+                        Sri Venkateswara University, Tirupati Review
                       </h2>
                       <div>
                         <form>
@@ -983,9 +951,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1000,9 +968,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1017,9 +985,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1034,9 +1002,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1051,9 +1019,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1090,7 +1058,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-
       <Footer />
     </>
   );

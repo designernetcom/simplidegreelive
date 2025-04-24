@@ -1835,7 +1835,7 @@ const categories = [
                           data-nimg={1}
                           className="Expert_Expert__image__8wv_Z"
                           style={{ color: "transparent" }}
-                          src="/assets/img/tutot-new-4.png"
+                          src="/assets/img/tutot-new-41.png"
                         />
                         <div className="Expert_Expert__ratingContainer__UIlw9">
                           <div>
