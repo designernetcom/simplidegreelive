@@ -830,7 +830,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   cursor: "pointer",
-                  padding: "10px 0",
+                 
                   fontSize: "16px",
                   fontWeight: "500",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
@@ -839,7 +839,7 @@ const openUniversityModal = () => {
                   alignItems: "center",
                   backgroundColor: "transparent",
                   width: "fit-content",
-                  padding: "3px 2px",
+                  padding: "10px 2px 10px 10px",
                   borderRadius: "8px",
                 }}
                 aria-expanded={isCoursesModalOpen}
@@ -848,12 +848,31 @@ const openUniversityModal = () => {
                   Explore Courses{" "}
                   <span
                     style={{
-                      fontSize: "16px",
-                      marginTop: "1px",
-                      paddingLeft: "3px",
+                      display: "inline-block",
+                      verticalAlign: "middle",
+                      // marginTop: "1px",
+                      // paddingLeft: "3px",
                     }}
                   >
-                    {isCoursesModalOpen ? "⮝" : "⮟"}
+                    {isCoursesModalOpen ? (
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M4 10l4-4 4 4H4z" />
+                      </svg>
+                    ) : (
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M4 6l4 4 4-4H4z" />
+                      </svg>
+                    )}
                   </span>
                 </span>
               </div>
@@ -949,7 +968,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   cursor: "pointer",
-                  padding: "10px 0",
+
                   fontSize: "16px",
                   fontWeight: "500",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
@@ -958,7 +977,7 @@ const openUniversityModal = () => {
                   alignItems: "center",
                   backgroundColor: "transparent",
                   width: "fit-content",
-                  padding: "3px 2px",
+                  padding: "10px 2px 10px 10px",
                   borderRadius: "5px",
                   pointerEvents: "auto",
                 }}
@@ -966,8 +985,26 @@ const openUniversityModal = () => {
               >
                 <span>
                   Top Universities{" "}
-                  <span style={{ fontSize: "15px", marginTop: "1px" }}>
-                    {isUniversitySidebarOpen ? "⮝" : "⮟"}
+                  <span style={{ fontSize: "25px", marginTop: "1px" }}>
+                    {isUniversitySidebarOpen ? (
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M4 10l4-4 4 4H4z" />
+                      </svg>
+                    ) : (
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M4 6l4 4 4-4H4z" />
+                      </svg>
+                    )}
                   </span>
                 </span>
               </div>
