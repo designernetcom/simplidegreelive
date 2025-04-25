@@ -766,7 +766,6 @@ const openUniversityModal = () => {
             </div>
           </div>
         </div>
-
         {/* Mobile Navigation */}
         <div className={styles.mobileNavbar}>
           <div className={styles.mobileNavbarHeader}>
@@ -783,6 +782,7 @@ const openUniversityModal = () => {
               className={styles.mobileNavbarToggle}
               onClick={toggleMobileMenu}
               aria-label="Toggle menu"
+              disabled={isMobile && showModal} // Disable if modal is open (from FirstVisitModal)
             >
               <span
                 className={
@@ -802,6 +802,8 @@ const openUniversityModal = () => {
             style={{
               background: "hsla(0, 0%, 8%, 0.7)",
               backdropFilter: "blur(5px)",
+              maxHeight: "100vh", // Ensure it fits within viewport
+              overflowY: "auto", // Enable scrolling
             }}
           >
             <div className={styles.menuOverlay}>
@@ -812,7 +814,7 @@ const openUniversityModal = () => {
                     fill="currentColor"
                     strokeWidth={0}
                     viewBox="0 0 256 256"
-                    fontSize="1.3rem"
+                    fontSize="clamp(1rem, 2.5vw, 1.2rem)" // Adaptive font size
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -820,7 +822,13 @@ const openUniversityModal = () => {
                   >
                     <path d="M152.27,37.93a8,8,0,0,1,9.80-5.66,86.22,86.22,0,0,1,61.66,61.66,8,8,0,0,1-5.66,9.80A8.23,8.23,0,0,1,216,104a8,8,0,0,1-7.73-5.93,70.35,70.35,0,0,0-50.33-50.34A8,8,0,0,1,152.27,37.93Zm-2.33,41.80c13.79,3.68,22.65,12.55,26.33,26.34A8,8,0,0,0,184,112a8.23,8.23,0,0,0,2.07-.27,8,8,0,0,0,5.66-9.80c-5.12-19.16-18.50-32.54-37.66-37.66a8,8,0,1,0-4.13,15.46Zm72.43,78.73-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.40,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.20-.25.39-.50.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.40,64.60,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z" />
                   </svg>
-                  <Link href="tel:+918806099993" style={{ color: "#fff" }}>
+                  <Link
+                    href="tel:+918806099993"
+                    style={{
+                      color: "#fff",
+                      fontSize: "clamp(0.9rem, 2.2vw, 1rem)",
+                    }}
+                  >
                     8806099993
                   </Link>
                 </div>
@@ -830,8 +838,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   cursor: "pointer",
-                 
-                  fontSize: "16px",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)", // Adaptive font size
                   fontWeight: "500",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
                   display: "flex",
@@ -850,14 +857,12 @@ const openUniversityModal = () => {
                     style={{
                       display: "inline-block",
                       verticalAlign: "middle",
-                      // marginTop: "1px",
-                      // paddingLeft: "3px",
                     }}
                   >
                     {isCoursesModalOpen ? (
                       <svg
-                        width="26"
-                        height="26"
+                        width="clamp(20px, 3vw, 22px)" // Adaptive SVG size
+                        height="clamp(20px, 3vw, 22px)"
                         viewBox="0 0 16 16"
                         fill="currentColor"
                       >
@@ -865,8 +870,8 @@ const openUniversityModal = () => {
                       </svg>
                     ) : (
                       <svg
-                        width="26"
-                        height="26"
+                        width="clamp(20px, 3vw, 22px)"
+                        height="clamp(20px, 3vw, 22px)"
                         viewBox="0 0 16 16"
                         fill="currentColor"
                       >
@@ -906,6 +911,7 @@ const openUniversityModal = () => {
                                 activeCategory === category
                                   ? "white"
                                   : "#0c2d50",
+                              fontSize: "clamp(0.85rem, 2vw, 0.95rem)", // Adaptive font size
                             }}
                             onClick={() => setActiveCategory(category)}
                           >
@@ -943,16 +949,29 @@ const openUniversityModal = () => {
                                   />
                                 </div>
                                 <div>
-                                  <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
+                                  <div
+                                    className="BrowseCourse_browse_course_card_heading__7Cx3L"
+                                    style={{
+                                      fontSize: "clamp(0.9rem, 2.2vw, 1rem)",
+                                    }}
+                                  >
                                     {course.title}
                                   </div>
-                                  <div className="BrowseCourse_browse_course_card_duration__mSOzf">
+                                  <div
+                                    className="BrowseCourse_browse_course_card_duration__mSOzf"
+                                    style={{
+                                      fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
+                                    }}
+                                  >
                                     Duration: {course.duration}
                                   </div>
                                 </div>
                               </div>
                             </Link>
-                            <div className="BrowseCourse_browse_course_card_view__wBC_X">
+                            <div
+                              className="BrowseCourse_browse_course_card_view__wBC_X"
+                              style={{ fontSize: "clamp(0.8rem, 2vw, 0.9rem)" }}
+                            >
                               Read More
                             </div>
                           </div>
@@ -968,8 +987,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   cursor: "pointer",
-
-                  fontSize: "16px",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)", // Adaptive font size
                   fontWeight: "500",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
                   display: "flex",
@@ -985,11 +1003,13 @@ const openUniversityModal = () => {
               >
                 <span>
                   Top Universities{" "}
-                  <span style={{ fontSize: "25px", marginTop: "1px" }}>
+                  <span
+                    style={{ display: "inline-block", verticalAlign: "middle" }}
+                  >
                     {isUniversitySidebarOpen ? (
                       <svg
-                        width="26"
-                        height="26"
+                        width="clamp(20px, 3vw, 22px)" // Adaptive SVG size
+                        height="clamp(20px, 3vw, 22px)"
                         viewBox="0 0 16 16"
                         fill="currentColor"
                       >
@@ -997,8 +1017,8 @@ const openUniversityModal = () => {
                       </svg>
                     ) : (
                       <svg
-                        width="26"
-                        height="26"
+                        width="clamp(20px, 3vw, 22px)"
+                        height="clamp(20px, 3vw, 22px)"
                         viewBox="0 0 16 16"
                         fill="currentColor"
                       >
@@ -1025,7 +1045,7 @@ const openUniversityModal = () => {
                     style={{
                       color: "#fff",
                       marginBottom: "15px",
-                      fontSize: "1.2rem",
+                      fontSize: "clamp(1rem, 2.5vw, 1.2rem)", // Adaptive font size
                       fontWeight: "600",
                     }}
                   >
@@ -1073,7 +1093,7 @@ const openUniversityModal = () => {
                         />
                         <span
                           style={{
-                            fontSize: "0.9rem",
+                            fontSize: "clamp(0.8rem, 2vw, 0.9rem)", // Adaptive font size
                             fontWeight: "500",
                             textAlign: "center",
                           }}
@@ -1088,7 +1108,10 @@ const openUniversityModal = () => {
               <Link
                 href="/freecounseling"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 <svg
                   stroke="currentColor"
@@ -1107,7 +1130,10 @@ const openUniversityModal = () => {
               <Link
                 href="/college-finder"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 College Finder
                 <span
@@ -1122,7 +1148,7 @@ const openUniversityModal = () => {
                     position: "relative",
                     zIndex: 0,
                     borderRadius: "5px",
-                    fontSize: "12px",
+                    fontSize: "clamp(0.7rem, 1.8vw, 0.8rem)", // Adaptive font size
                     padding: "5px",
                     cursor: "pointer",
                     display: "flex",
@@ -1134,18 +1160,23 @@ const openUniversityModal = () => {
                   AI Based
                 </span>
               </Link>
-
               <Link
                 href="/blog"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Blogs
               </Link>
               <Link
                 href="/contact"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Contact Us
               </Link>
@@ -1156,6 +1187,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
                 }}
               >
                 Trending Courses
@@ -1165,6 +1197,7 @@ const openUniversityModal = () => {
                 onClick={toggleMobileMenu}
                 style={{
                   color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
                 }}
               >
                 Study Abroad
@@ -1175,6 +1208,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
                 }}
               >
                 Entrance Exams
@@ -1182,35 +1216,41 @@ const openUniversityModal = () => {
               <Link
                 href="/webstories"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Web Stories
               </Link>
               <Link
                 href="/free-courses"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Free Courses
               </Link>
               <div
                 className={styles.mobileLogin}
                 onClick={openLoginModal}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Login
               </div>
-
-              {/* <Link
-                href="/careers"
-                onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
-              >
-                Career
-              </Link> */}
-
               <Link href="/refer-and-earn" onClick={toggleMobileMenu}>
-                <div className={styles.referral} style={{ color: "#fff" }}>
+                <div
+                  className={styles.referral}
+                  style={{
+                    color: "#fff",
+                    fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                  }}
+                >
                   <Image
                     alt="referral"
                     loading="lazy"
@@ -1221,30 +1261,6 @@ const openUniversityModal = () => {
                   Refer and Earn <span className={styles.rupee}>₹ 5000</span>
                 </div>
               </Link>
-              {/* <div>
-                <button
-                  className="enquirynow_enquirynow_btn__mRuEZ"
-                  onClick={handleOpenModal}
-                  style={{ transformOrigin: "bottom right" }}
-                >
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth={0}
-                    viewBox="0 0 512 512"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z" />
-                  </svg>
-                  Enquire Now
-                </button>
-                <EnquiryModel
-                  showModal={showModal}
-                  setShowModal={setShowModal}
-                />
-              </div> */}
             </div>
           </div>
         </div>

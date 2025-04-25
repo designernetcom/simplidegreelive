@@ -1,6 +1,23 @@
 import React from "react";
 import "../styles/3a6b4218bb14b3ef.css";
+import "../globals.css";
+import "../styles/8b2861424f796947.css";
+import "../styles/cc66cf431efece60.css";
+import "../styles/bootstrap.min.css";
+import "../styles/style.css";
+import "../styles/bcdb44b6ad772c90.css";
+import "../styles/3a6b4218bb14b3ef.css";
+import "../styles/7620326e339f446b.css";
+import "../styles/47e473.css";
+import "../styles/5107c2122129e0bb.css";
+import "../styles/style.css";
+import "../styles/cc66cf431efece60.css";
+import "../styles/bcdb44b6ad772c90.css";
+import "../styles/e74b165e0d429359.css";
+import "../styles/8c8030bf7e3ee32c.css";
+import "../styles/6608b0a3809d6608.css";
 import Menu from "../../../components/Header/Menu/Menu";
+
 import Footer from "../../../components/Footer/Footer";
 
 export default function page() {

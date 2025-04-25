@@ -63,380 +63,380 @@ const universities = [
   },
 ];
 
- const courseData = {
-   "Online PG Programmes": [
-     {
-       title: "Online MBA",
-       duration: "2 Years",
-       img: "/assets/img/courses/OnlineMBA.png",
-       href: "online-mba",
-     },
-     {
-       title: "Online MCA",
-       duration: "2 Years",
-       img: "/assets/img/courses/OnlineMCA.webp",
-       href: "online-mca",
-     },
-     {
-       title: "Online MCom",
-       duration: "2 Years",
-       img: "/assets/img/courses/OnlineBCom.webp",
-       href: "online-mcom",
-     },
-     {
-       title: "Online MSc",
-       duration: "2 Years",
-       img: "/assets/img/courses/OnlineMSc.webp",
-       href: "online-msc",
-     },
-     {
-       title: "Online MA",
-       duration: "2 Years",
-       img: "/assets/img/courses/OnlineMA.webp",
-       href: "online-ma",
-     },
-     {
-       title: "M.Com with ACCA",
-       duration: "2 Years",
-       img: "/assets/img/courses/OnlineMCom.webp",
-       href: "online-acca-mcom",
-     },
-     {
-       title: "Distance MBA",
-       duration: "2 Years",
-       img: "/assets/img/courses/DistanceMBA.webp",
-       href: "online-mba",
-     },
-     {
-       title: "Distance MCA",
-       duration: "2 Years",
-       img: "/assets/img/courses/DistanceMCA.webp",
-       href: "distance-mca",
-     },
-     {
-       title: "Distance MCom",
-       duration: "2 Years",
-       img: "/assets/img/courses/DistanceMCom.webp",
-       href: "distance-mcom",
-     },
-     {
-       title: "Distance MLIS",
-       duration: "1 Year",
-       img: "/assets/img/courses/PG_Diploma_In_Human_Resource_Management.webp",
-       href: "master-of-library-and-information-science",
-     },
-   ],
-   "Online UG Programmes": [
-     {
-       title: "Online BBA",
-       duration: "2 Years",
-       img: "/assets/img/home_7/OnlineBBA.webp",
-       href: "online-bba",
-     },
-     {
-       title: "Online BCA",
-       duration: "3 Years",
-       img: "/assets/img/home_7/OnlineBCA.webp",
-       href: "online-bca",
-     },
-     {
-       title: "Online BCom",
-       duration: "3 Years",
-       img: "/assets/img/home_7/OnlineBCom.webp",
-       href: "online-bcom",
-     },
-     {
-       title: "Distance BA",
-       duration: "3 Years",
-       img: "/assets/img/home_7/DistanceBBA.webp",
-       href: "distance-ba",
-     },
-     {
-       title: "Online BA",
-       duration: "3 Years",
-       img: "/assets/img/home_7/OnlineBA.webp",
-       href: "online-ba",
-     },
-     {
-       title: "Distance BCA",
-       duration: "3 Years",
-       img: "/assets/img/home_7/DistanceBCA.webp",
-       href: "distance-bca",
-     },
-     {
-       title: "Distance BBA",
-       duration: "3 Years",
-       img: "/assets/img/home_7/DistanceBBA.webp",
-       href: "distance-bba",
-     },
-     {
-       title: "Distance BCom",
-       duration: "3 Years",
-       img: "/assets/img/home_7/DistanceBCom.webp",
-       href: "distance-bcom",
-     },
-     {
-       title: "Distance BSc",
-       duration: "3 Years",
-       img: "/assets/img/home_7/DistanceBSc.webp",
-       href: "distance-bsc",
-     },
-     {
-       title: "Distance BLIS",
-       duration: "1 Year",
-       img: "/assets/img/home_7/Diploma_in_Banking_and_Finance_Management.webp",
-       href: "distance-bachelor-of-library-and-information-science",
-     },
-   ],
-   "Diploma Courses": [
-     {
-       title: "PGD Finance & Acc",
-       duration: "1-2 years",
-       img: "/assets/img/home_7/PG_Diploma_in_Finance_&_Accounting.webp",
-       href: "pg-diploma-finance-accounting",
-     },
-     {
-       title: "PGD Data Science",
-       duration: "1 to 2 years",
-       img: "/assets/img/home_7/PG_Diploma_in_Data_Science.webp",
-       href: "pg-diploma-data-science",
-     },
-     {
-       title: "Digital Marketing",
-       duration: "1 to 2 years",
-       img: "/assets/img/home_7/DigitalMarketingCertification.webp",
-       href: "professional-diploma-digital-marketing",
-     },
-     {
-       title: "PGD Retail Mgmt.",
-       duration: "1 to 2 years",
-       img: "/assets/img/home_7/PG_Diploma_in_Retail_Management.webp",
-       href: "pg-diploma-retail-management",
-     },
-     {
-       title: "PGD Marketing",
-       duration: "1 Year",
-       img: "/assets/img/home_7/PG_Diploma_in_Marketing_Management.webp",
-       href: "pg-diploma-marketing-management",
-     },
-     {
-       title: "PGD HR Mgmt.",
-       duration: "1 to 2 years",
-       img: "/assets/img/home_7/PG_Diploma_In_Human_Resource_Management.webp",
-       href: "diploma-hr-management",
-     },
-     {
-       title: "Banking & Finance",
-       duration: "1 to 2 years",
-       img: "/assets/img/home_7/Diploma_in_Banking_and_Finance_Management.webp",
-       href: "banking-finance-management-diploma",
-     },
-     {
-       title: "International Trade",
-       duration: "12 Months",
-       img: "/assets/img/home_7/Diploma_in_International_Trade_Management.webp",
-       href: "international-trade-management-diploma",
-     },
-     {
-       title: "Cyber Law",
-       duration: "1 Year",
-       img: "/assets/img/home_7/Diploma_in_Cyber_Law.webp",
-       href: "diploma-in-cyber-law",
-     },
-     {
-       title: "PGD IT",
-       duration: "1 Year",
-       img: "/assets/img/home_7/PGDiplomainIT.webp",
-       href: "pg-diploma-in-it",
-     },
-   ],
-   "Executive Programmes": [
-     {
-       title: "Master of Business Administration",
-       duration: "Upto 3 Years",
-       img: "/assets/img/home_7/ExecutiveMBA.webp",
-       href: "executive-mba",
-     },
-     {
-       title: "EPGD Business Analytics",
-       duration: "15-16 months",
-       img: "/assets/img/home_7/ExecutivePGDiplomainBusinessAnalytics.webp",
-       href: "executive-pg-diploma-in-business-analytics",
-     },
-     {
-       title: "Operations and Supply Chain Mgmt.",
-       duration: "6 to 12 months",
-       img: "/assets/img/home_7/ExecutiveProgrammeinOperationsandSupplyChainManagement.webp",
-       href: "executive-programme-in-operations-and-supply-chain-management",
-     },
-     {
-       title: "EDP Strategic Management",
-       duration: "6 - 12 months",
-       img: "/assets/img/home_7/ExecutiveDevelopmentProgrammeinStrategicManagement.webp",
-       href: "executive-development-programme-in-strategic-management",
-     },
-     {
-       title: "Chief Financial Officer Programme",
-       duration: "6 to 12 months",
-       img: "/assets/img/courses/OnlineMA.webp",
-       href: "chief-financial-officer-programme",
-     },
-     {
-       title: "Leadership and Management",
-       duration: "4 to 12 months",
-       img: "/assets/img/courses/OnlineMCom.webp",
-       href: "executive-programme-in-leadership-and-management",
-     },
-     {
-       title: "EP in General Management",
-       duration: "6 to 12 months",
-       img: "/assets/img/courses/DistanceMBA.webp",
-       href: "executive-programme-in-general-management",
-     },
-     {
-       title: "EDP Strategic HR Management",
-       duration: "6 to 12 months",
-       img: "/assets/img/courses/DistanceMCA.webp",
-       href: "executive-development-programme-in-strategic-human-resource-management",
-     },
-     {
-       title: "EP in Project Management",
-       duration: "6 to 12 months",
-       img: "/assets/img/courses/DistanceMCom.webp",
-       href: "executive-programme-in-project-management",
-     },
-     {
-       title: "Healthcare Service Management",
-       duration: "6 to 12 months",
-       img: "/assets/img/courses/ExecutiveProgrammeinHealthcareServiceManagement.webp",
-       href: "executive-programme-in-healthcare-service-management",
-     },
-   ],
-   "International Programmes": [
-     {
-       title: "MBA - Golden Gate University",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MBAGoldenGateUniversity.webp",
-       href: "mba-from-golden-gate-university",
-     },
-     {
-       title: "MBA - Liverpool Business School",
-       duration: "2 Years",
-       img: "/assets/img/home_7/LiverpoolBusinessSchool.webp",
-       href: "mba-by-liverpool-business-school",
-     },
-     {
-       title: "MBA - Edgewood",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MBAEdgewood.webp",
-       href: "mba-from-edgewood-college",
-     },
-     {
-       title: "MBA (Global) - Deakin",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MBAGlobalDeakin.webp",
-       href: "mba-global-from-deakin-business-school",
-     },
-     {
-       title: "MBA - UTICA",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MBAUTICA.webp",
-       href: "mba-from-utica-university",
-     },
-     {
-       title: "MBA (90 ECTS) - IU",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MBA90ECTSIU.webp",
-       href: "mba-90-ects-by-iu-university",
-     },
-     {
-       title: "MBA - Clarkson",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MBAClarkson.webp",
-       href: "mba-from-clarkson-university",
-     },
-     {
-       title: "MBA - ISM",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MBAISM.webp",
-       href: "mba-from-ism-international-school-of-management-germany",
-     },
-     {
-       title: "MBA - Sunderland",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MBASunderland.webp",
-       href: "mba-from-university-of-sunderland-uk",
-     },
-     {
-       title: "MSBA - Golden Gate",
-       duration: "2 Years",
-       img: "/assets/img/home_7/MSBAGoldenGate.webp",
-       href: "ms-in-business-analytics-by-golden-gate-university-usa",
-     },
-   ],
-   "Free Courses": [
-     {
-       title: "Data Analytics",
-       duration: "Upto 12 weeks",
-       img: "/assets/img/home_7/DataAnalyticsCertification.webp",
-       href: "data-analytics-certification",
-     },
-     {
-       title: "Digital Marketing",
-       duration: "Upto 6 months",
-       img: "/assets/img/home_7/DigitalMarketingCertification.webp",
-       href: "digital-marketing-certification",
-     },
-     {
-       title: "Cyber Security",
-       duration: "Upto 3 months",
-       img: "/assets/img/home_7/CyberSecurityCertification.webp",
-       href: "cyber-security-certification",
-     },
-     {
-       title: "MS Excel",
-       duration: "Upto 7 days",
-       img: "/assets/img/home_7/CertificationInMsExcel.webp",
-       href: "certification-in-ms-excel",
-     },
-     {
-       title: "AI and ML",
-       duration: "Upto 12 hrs",
-       img: "/assets/img/home_7/CertificationInAIandML.webp",
-       href: "certification-in-ai-and-ml",
-     },
-     {
-       title: "Marketing",
-       duration: "Upto months",
-       img: "/assets/img/home_7/DigitalMarketingCertification.webp",
-       href: "certification-in-marketing",
-     },
-     {
-       title: "Leadership Skills",
-       duration: "Upto 4 weeks",
-       img: "/assets/img/home_7/CertificationInLeadershipSkills.webp",
-       href: "certification-in-leadership-skills",
-     },
-     {
-       title: "Project Management",
-       duration: "Upto 22 hrs",
-       img: "/assets/img/home_7/ProjectManagementCertification.webp",
-       href: "project-management-certification",
-     },
-     {
-       title: "Supply Chain Mgmt.",
-       duration: "Upto 28 hrs",
-       img: "/assets/img/home_7/SupplyChainManagementCertification.webp",
-       href: "supply-chain-management-certification",
-     },
-     {
-       title: "Financial Accounting",
-       duration: "3 hrs to 3 months",
-       img: "/assets/img/home_7/FinancialAccountingCertification.webp",
-       href: "financial-accounting-certification",
-     },
-   ],
- };
+const courseData = {
+  "Online PG Programmes": [
+    {
+      title: "Online MBA",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMBA.png",
+      href: "online-mba",
+    },
+    {
+      title: "Online MCA",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMCA.webp",
+      href: "online-mca",
+    },
+    {
+      title: "Online MCom",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineBCom.webp",
+      href: "online-mcom",
+    },
+    {
+      title: "Online MSc",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMSc.webp",
+      href: "online-msc",
+    },
+    {
+      title: "Online MA",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMA.webp",
+      href: "online-ma",
+    },
+    {
+      title: "M.Com with ACCA",
+      duration: "2 Years",
+      img: "/assets/img/courses/OnlineMCom.webp",
+      href: "online-acca-mcom",
+    },
+    {
+      title: "Distance MBA",
+      duration: "2 Years",
+      img: "/assets/img/courses/DistanceMBA.webp",
+      href: "online-mba",
+    },
+    {
+      title: "Distance MCA",
+      duration: "2 Years",
+      img: "/assets/img/courses/DistanceMCA.webp",
+      href: "distance-mca",
+    },
+    {
+      title: "Distance MCom",
+      duration: "2 Years",
+      img: "/assets/img/courses/DistanceMCom.webp",
+      href: "distance-mcom",
+    },
+    {
+      title: "Distance MLIS",
+      duration: "1 Year",
+      img: "/assets/img/courses/PG_Diploma_In_Human_Resource_Management.webp",
+      href: "master-of-library-and-information-science",
+    },
+  ],
+  "Online UG Programmes": [
+    {
+      title: "Online BBA",
+      duration: "2 Years",
+      img: "/assets/img/home_7/OnlineBBA.webp",
+      href: "online-bba",
+    },
+    {
+      title: "Online BCA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/OnlineBCA.webp",
+      href: "online-bca",
+    },
+    {
+      title: "Online BCom",
+      duration: "3 Years",
+      img: "/assets/img/home_7/OnlineBCom.webp",
+      href: "online-bcom",
+    },
+    {
+      title: "Distance BA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBBA.webp",
+      href: "distance-ba",
+    },
+    {
+      title: "Online BA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/OnlineBA.webp",
+      href: "online-ba",
+    },
+    {
+      title: "Distance BCA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBCA.webp",
+      href: "distance-bca",
+    },
+    {
+      title: "Distance BBA",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBBA.webp",
+      href: "distance-bba",
+    },
+    {
+      title: "Distance BCom",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBCom.webp",
+      href: "distance-bcom",
+    },
+    {
+      title: "Distance BSc",
+      duration: "3 Years",
+      img: "/assets/img/home_7/DistanceBSc.webp",
+      href: "distance-bsc",
+    },
+    {
+      title: "Distance BLIS",
+      duration: "1 Year",
+      img: "/assets/img/home_7/Diploma_in_Banking_and_Finance_Management.webp",
+      href: "distance-bachelor-of-library-and-information-science",
+    },
+  ],
+  "Diploma Courses": [
+    {
+      title: "PGD Finance & Acc",
+      duration: "1-2 years",
+      img: "/assets/img/home_7/PG_Diploma_in_Finance_&_Accounting.webp",
+      href: "pg-diploma-finance-accounting",
+    },
+    {
+      title: "PGD Data Science",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/PG_Diploma_in_Data_Science.webp",
+      href: "pg-diploma-data-science",
+    },
+    {
+      title: "Digital Marketing",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+      href: "professional-diploma-digital-marketing",
+    },
+    {
+      title: "PGD Retail Mgmt.",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/PG_Diploma_in_Retail_Management.webp",
+      href: "pg-diploma-retail-management",
+    },
+    {
+      title: "PGD Marketing",
+      duration: "1 Year",
+      img: "/assets/img/home_7/PG_Diploma_in_Marketing_Management.webp",
+      href: "pg-diploma-marketing-management",
+    },
+    {
+      title: "PGD HR Mgmt.",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/PG_Diploma_In_Human_Resource_Management.webp",
+      href: "diploma-hr-management",
+    },
+    {
+      title: "Banking & Finance",
+      duration: "1 to 2 years",
+      img: "/assets/img/home_7/Diploma_in_Banking_and_Finance_Management.webp",
+      href: "banking-finance-management-diploma",
+    },
+    {
+      title: "International Trade",
+      duration: "12 Months",
+      img: "/assets/img/home_7/Diploma_in_International_Trade_Management.webp",
+      href: "international-trade-management-diploma",
+    },
+    {
+      title: "Cyber Law",
+      duration: "1 Year",
+      img: "/assets/img/home_7/Diploma_in_Cyber_Law.webp",
+      href: "diploma-in-cyber-law",
+    },
+    {
+      title: "PGD IT",
+      duration: "1 Year",
+      img: "/assets/img/home_7/PGDiplomainIT.webp",
+      href: "pg-diploma-in-it",
+    },
+  ],
+  "Executive Programmes": [
+    {
+      title: "Master of Business Administration",
+      duration: "Upto 3 Years",
+      img: "/assets/img/home_7/ExecutiveMBA.webp",
+      href: "executive-mba",
+    },
+    {
+      title: "EPGD Business Analytics",
+      duration: "15-16 months",
+      img: "/assets/img/home_7/ExecutivePGDiplomainBusinessAnalytics.webp",
+      href: "executive-pg-diploma-in-business-analytics",
+    },
+    {
+      title: "Operations and Supply Chain Mgmt.",
+      duration: "6 to 12 months",
+      img: "/assets/img/home_7/ExecutiveProgrammeinOperationsandSupplyChainManagement.webp",
+      href: "executive-programme-in-operations-and-supply-chain-management",
+    },
+    {
+      title: "EDP Strategic Management",
+      duration: "6 - 12 months",
+      img: "/assets/img/home_7/ExecutiveDevelopmentProgrammeinStrategicManagement.webp",
+      href: "executive-development-programme-in-strategic-management",
+    },
+    {
+      title: "Chief Financial Officer Programme",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/OnlineMA.webp",
+      href: "chief-financial-officer-programme",
+    },
+    {
+      title: "Leadership and Management",
+      duration: "4 to 12 months",
+      img: "/assets/img/courses/OnlineMCom.webp",
+      href: "executive-programme-in-leadership-and-management",
+    },
+    {
+      title: "EP in General Management",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/DistanceMBA.webp",
+      href: "executive-programme-in-general-management",
+    },
+    {
+      title: "EDP Strategic HR Management",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/DistanceMCA.webp",
+      href: "executive-development-programme-in-strategic-human-resource-management",
+    },
+    {
+      title: "EP in Project Management",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/DistanceMCom.webp",
+      href: "executive-programme-in-project-management",
+    },
+    {
+      title: "Healthcare Service Management",
+      duration: "6 to 12 months",
+      img: "/assets/img/courses/ExecutiveProgrammeinHealthcareServiceManagement.webp",
+      href: "executive-programme-in-healthcare-service-management",
+    },
+  ],
+  "International Programmes": [
+    {
+      title: "MBA - Golden Gate University",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAGoldenGateUniversity.webp",
+      href: "mba-from-golden-gate-university",
+    },
+    {
+      title: "MBA - Liverpool Business School",
+      duration: "2 Years",
+      img: "/assets/img/home_7/LiverpoolBusinessSchool.webp",
+      href: "mba-by-liverpool-business-school",
+    },
+    {
+      title: "MBA - Edgewood",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAEdgewood.webp",
+      href: "mba-from-edgewood-college",
+    },
+    {
+      title: "MBA (Global) - Deakin",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAGlobalDeakin.webp",
+      href: "mba-global-from-deakin-business-school",
+    },
+    {
+      title: "MBA - UTICA",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAUTICA.webp",
+      href: "mba-from-utica-university",
+    },
+    {
+      title: "MBA (90 ECTS) - IU",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBA90ECTSIU.webp",
+      href: "mba-90-ects-by-iu-university",
+    },
+    {
+      title: "MBA - Clarkson",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAClarkson.webp",
+      href: "mba-from-clarkson-university",
+    },
+    {
+      title: "MBA - ISM",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBAISM.webp",
+      href: "mba-from-ism-international-school-of-management-germany",
+    },
+    {
+      title: "MBA - Sunderland",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MBASunderland.webp",
+      href: "mba-from-university-of-sunderland-uk",
+    },
+    {
+      title: "MSBA - Golden Gate",
+      duration: "2 Years",
+      img: "/assets/img/home_7/MSBAGoldenGate.webp",
+      href: "ms-in-business-analytics-by-golden-gate-university-usa",
+    },
+  ],
+  "Free Courses": [
+    {
+      title: "Data Analytics",
+      duration: "Upto 12 weeks",
+      img: "/assets/img/home_7/DataAnalyticsCertification.webp",
+      href: "data-analytics-certification",
+    },
+    {
+      title: "Digital Marketing",
+      duration: "Upto 6 months",
+      img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+      href: "digital-marketing-certification",
+    },
+    {
+      title: "Cyber Security",
+      duration: "Upto 3 months",
+      img: "/assets/img/home_7/CyberSecurityCertification.webp",
+      href: "cyber-security-certification",
+    },
+    {
+      title: "MS Excel",
+      duration: "Upto 7 days",
+      img: "/assets/img/home_7/CertificationInMsExcel.webp",
+      href: "certification-in-ms-excel",
+    },
+    {
+      title: "AI and ML",
+      duration: "Upto 12 hrs",
+      img: "/assets/img/home_7/CertificationInAIandML.webp",
+      href: "certification-in-ai-and-ml",
+    },
+    {
+      title: "Marketing",
+      duration: "Upto months",
+      img: "/assets/img/home_7/DigitalMarketingCertification.webp",
+      href: "certification-in-marketing",
+    },
+    {
+      title: "Leadership Skills",
+      duration: "Upto 4 weeks",
+      img: "/assets/img/home_7/CertificationInLeadershipSkills.webp",
+      href: "certification-in-leadership-skills",
+    },
+    {
+      title: "Project Management",
+      duration: "Upto 22 hrs",
+      img: "/assets/img/home_7/ProjectManagementCertification.webp",
+      href: "project-management-certification",
+    },
+    {
+      title: "Supply Chain Mgmt.",
+      duration: "Upto 28 hrs",
+      img: "/assets/img/home_7/SupplyChainManagementCertification.webp",
+      href: "supply-chain-management-certification",
+    },
+    {
+      title: "Financial Accounting",
+      duration: "3 hrs to 3 months",
+      img: "/assets/img/home_7/FinancialAccountingCertification.webp",
+      href: "financial-accounting-certification",
+    },
+  ],
+};
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -504,15 +504,15 @@ const Menu = () => {
     setShowModal(true);
   };
 
-const openUniversityModal = () => {
-  if (window.innerWidth > 768) {
-    console.log("Toggling Top Universities Modal for Desktop");
-    setIsUniversityModalOpen((prev) => !prev);
-  } else {
-    console.log("Toggling Top Universities Sidebar for Mobile");
-    setIsUniversitySidebarOpen((prev) => !prev);
-  }
-};
+  const openUniversityModal = () => {
+    if (window.innerWidth > 768) {
+      console.log("Toggling Top Universities Modal for Desktop");
+      setIsUniversityModalOpen((prev) => !prev);
+    } else {
+      console.log("Toggling Top Universities Sidebar for Mobile");
+      setIsUniversitySidebarOpen((prev) => !prev);
+    }
+  };
   const closeUniversityModal = () => {
     setIsUniversityModalOpen(false);
   };
@@ -766,7 +766,6 @@ const openUniversityModal = () => {
             </div>
           </div>
         </div>
-
         {/* Mobile Navigation */}
         <div className={styles.mobileNavbar}>
           <div className={styles.mobileNavbarHeader}>
@@ -783,6 +782,7 @@ const openUniversityModal = () => {
               className={styles.mobileNavbarToggle}
               onClick={toggleMobileMenu}
               aria-label="Toggle menu"
+              disabled={isMobile && showModal} // Disable if modal is open (from FirstVisitModal)
             >
               <span
                 className={
@@ -802,6 +802,8 @@ const openUniversityModal = () => {
             style={{
               background: "hsla(0, 0%, 8%, 0.7)",
               backdropFilter: "blur(5px)",
+              maxHeight: "100vh", // Ensure it fits within viewport
+              overflowY: "auto", // Enable scrolling
             }}
           >
             <div className={styles.menuOverlay}>
@@ -812,7 +814,7 @@ const openUniversityModal = () => {
                     fill="currentColor"
                     strokeWidth={0}
                     viewBox="0 0 256 256"
-                    fontSize="1.3rem"
+                    fontSize="clamp(1rem, 2.5vw, 1.2rem)" // Adaptive font size
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -820,7 +822,13 @@ const openUniversityModal = () => {
                   >
                     <path d="M152.27,37.93a8,8,0,0,1,9.80-5.66,86.22,86.22,0,0,1,61.66,61.66,8,8,0,0,1-5.66,9.80A8.23,8.23,0,0,1,216,104a8,8,0,0,1-7.73-5.93,70.35,70.35,0,0,0-50.33-50.34A8,8,0,0,1,152.27,37.93Zm-2.33,41.80c13.79,3.68,22.65,12.55,26.33,26.34A8,8,0,0,0,184,112a8.23,8.23,0,0,0,2.07-.27,8,8,0,0,0,5.66-9.80c-5.12-19.16-18.50-32.54-37.66-37.66a8,8,0,1,0-4.13,15.46Zm72.43,78.73-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.40,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.20-.25.39-.50.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.40,64.60,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z" />
                   </svg>
-                  <Link href="tel:+918806099993" style={{ color: "#fff" }}>
+                  <Link
+                    href="tel:+918806099993"
+                    style={{
+                      color: "#fff",
+                      fontSize: "clamp(0.9rem, 2.2vw, 1rem)",
+                    }}
+                  >
                     8806099993
                   </Link>
                 </div>
@@ -830,8 +838,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   cursor: "pointer",
-                  padding: "10px 0",
-                  fontSize: "16px",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)", // Adaptive font size
                   fontWeight: "500",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
                   display: "flex",
@@ -839,7 +846,7 @@ const openUniversityModal = () => {
                   alignItems: "center",
                   backgroundColor: "transparent",
                   width: "fit-content",
-                  padding: "3px 2px",
+                  padding: "10px 2px 10px 10px",
                   borderRadius: "8px",
                 }}
                 aria-expanded={isCoursesModalOpen}
@@ -848,12 +855,29 @@ const openUniversityModal = () => {
                   Explore Courses{" "}
                   <span
                     style={{
-                      fontSize: "16px",
-                      marginTop: "1px",
-                      paddingLeft: "3px",
+                      display: "inline-block",
+                      verticalAlign: "middle",
                     }}
                   >
-                    {isCoursesModalOpen ? "⮝" : "⮟"}
+                    {isCoursesModalOpen ? (
+                      <svg
+                        width="clamp(20px, 3vw, 22px)" // Adaptive SVG size
+                        height="clamp(20px, 3vw, 22px)"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M4 10l4-4 4 4H4z" />
+                      </svg>
+                    ) : (
+                      <svg
+                        width="clamp(20px, 3vw, 22px)"
+                        height="clamp(20px, 3vw, 22px)"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M4 6l4 4 4-4H4z" />
+                      </svg>
+                    )}
                   </span>
                 </span>
               </div>
@@ -887,6 +911,7 @@ const openUniversityModal = () => {
                                 activeCategory === category
                                   ? "white"
                                   : "#0c2d50",
+                              fontSize: "clamp(0.85rem, 2vw, 0.95rem)", // Adaptive font size
                             }}
                             onClick={() => setActiveCategory(category)}
                           >
@@ -924,16 +949,29 @@ const openUniversityModal = () => {
                                   />
                                 </div>
                                 <div>
-                                  <div className="BrowseCourse_browse_course_card_heading__7Cx3L">
+                                  <div
+                                    className="BrowseCourse_browse_course_card_heading__7Cx3L"
+                                    style={{
+                                      fontSize: "clamp(0.9rem, 2.2vw, 1rem)",
+                                    }}
+                                  >
                                     {course.title}
                                   </div>
-                                  <div className="BrowseCourse_browse_course_card_duration__mSOzf">
+                                  <div
+                                    className="BrowseCourse_browse_course_card_duration__mSOzf"
+                                    style={{
+                                      fontSize: "clamp(0.8rem, 2vw, 0.9rem)",
+                                    }}
+                                  >
                                     Duration: {course.duration}
                                   </div>
                                 </div>
                               </div>
                             </Link>
-                            <div className="BrowseCourse_browse_course_card_view__wBC_X">
+                            <div
+                              className="BrowseCourse_browse_course_card_view__wBC_X"
+                              style={{ fontSize: "clamp(0.8rem, 2vw, 0.9rem)" }}
+                            >
                               Read More
                             </div>
                           </div>
@@ -949,8 +987,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   cursor: "pointer",
-                  padding: "10px 0",
-                  fontSize: "16px",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)", // Adaptive font size
                   fontWeight: "500",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
                   display: "flex",
@@ -958,7 +995,7 @@ const openUniversityModal = () => {
                   alignItems: "center",
                   backgroundColor: "transparent",
                   width: "fit-content",
-                  padding: "3px 2px",
+                  padding: "10px 2px 10px 10px",
                   borderRadius: "5px",
                   pointerEvents: "auto",
                 }}
@@ -966,8 +1003,28 @@ const openUniversityModal = () => {
               >
                 <span>
                   Top Universities{" "}
-                  <span style={{ fontSize: "15px", marginTop: "1px" }}>
-                    {isUniversitySidebarOpen ? "⮝" : "⮟"}
+                  <span
+                    style={{ display: "inline-block", verticalAlign: "middle" }}
+                  >
+                    {isUniversitySidebarOpen ? (
+                      <svg
+                        width="clamp(20px, 3vw, 22px)" // Adaptive SVG size
+                        height="clamp(20px, 3vw, 22px)"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M4 10l4-4 4 4H4z" />
+                      </svg>
+                    ) : (
+                      <svg
+                        width="clamp(20px, 3vw, 22px)"
+                        height="clamp(20px, 3vw, 22px)"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                      >
+                        <path d="M4 6l4 4 4-4H4z" />
+                      </svg>
+                    )}
                   </span>
                 </span>
               </div>
@@ -988,7 +1045,7 @@ const openUniversityModal = () => {
                     style={{
                       color: "#fff",
                       marginBottom: "15px",
-                      fontSize: "1.2rem",
+                      fontSize: "clamp(1rem, 2.5vw, 1.2rem)", // Adaptive font size
                       fontWeight: "600",
                     }}
                   >
@@ -1036,7 +1093,7 @@ const openUniversityModal = () => {
                         />
                         <span
                           style={{
-                            fontSize: "0.9rem",
+                            fontSize: "clamp(0.8rem, 2vw, 0.9rem)", // Adaptive font size
                             fontWeight: "500",
                             textAlign: "center",
                           }}
@@ -1051,7 +1108,10 @@ const openUniversityModal = () => {
               <Link
                 href="/freecounseling"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 <svg
                   stroke="currentColor"
@@ -1070,7 +1130,10 @@ const openUniversityModal = () => {
               <Link
                 href="/college-finder"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 College Finder
                 <span
@@ -1085,7 +1148,7 @@ const openUniversityModal = () => {
                     position: "relative",
                     zIndex: 0,
                     borderRadius: "5px",
-                    fontSize: "12px",
+                    fontSize: "clamp(0.7rem, 1.8vw, 0.8rem)", // Adaptive font size
                     padding: "5px",
                     cursor: "pointer",
                     display: "flex",
@@ -1097,18 +1160,23 @@ const openUniversityModal = () => {
                   AI Based
                 </span>
               </Link>
-
               <Link
                 href="/blog"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Blogs
               </Link>
               <Link
                 href="/contact"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Contact Us
               </Link>
@@ -1119,6 +1187,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
                 }}
               >
                 Trending Courses
@@ -1128,6 +1197,7 @@ const openUniversityModal = () => {
                 onClick={toggleMobileMenu}
                 style={{
                   color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
                 }}
               >
                 Study Abroad
@@ -1138,6 +1208,7 @@ const openUniversityModal = () => {
                 style={{
                   color: "#fff",
                   fontFamily: `${workSans.style.fontFamily}, sans-serif`,
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
                 }}
               >
                 Entrance Exams
@@ -1145,35 +1216,41 @@ const openUniversityModal = () => {
               <Link
                 href="/webstories"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Web Stories
               </Link>
               <Link
                 href="/free-courses"
                 onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Free Courses
               </Link>
               <div
                 className={styles.mobileLogin}
                 onClick={openLoginModal}
-                style={{ color: "#fff" }}
+                style={{
+                  color: "#fff",
+                  fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                }}
               >
                 Login
               </div>
-
-              {/* <Link
-                href="/careers"
-                onClick={toggleMobileMenu}
-                style={{ color: "#fff" }}
-              >
-                Career
-              </Link> */}
-
               <Link href="/refer-and-earn" onClick={toggleMobileMenu}>
-                <div className={styles.referral} style={{ color: "#fff" }}>
+                <div
+                  className={styles.referral}
+                  style={{
+                    color: "#fff",
+                    fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
+                  }}
+                >
                   <Image
                     alt="referral"
                     loading="lazy"
@@ -1184,30 +1261,6 @@ const openUniversityModal = () => {
                   Refer and Earn <span className={styles.rupee}>₹ 5000</span>
                 </div>
               </Link>
-              <div>
-                <button
-                  className="enquirynow_enquirynow_btn__mRuEZ"
-                  onClick={handleOpenModal}
-                  style={{ transformOrigin: "bottom right" }}
-                >
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth={0}
-                    viewBox="0 0 512 512"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z" />
-                  </svg>
-                  Enquire Now
-                </button>
-                <EnquiryModel
-                  showModal={showModal}
-                  setShowModal={setShowModal}
-                />
-              </div>
             </div>
           </div>
         </div>
