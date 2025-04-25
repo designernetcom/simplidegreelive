@@ -132,7 +132,10 @@ export default function ComparisonModal({
                       fontWeight: "500",
                       fontFamily: "'Work Sans', sans-serif",
                     }}
-                  ></td>
+                  >
+                    {uni.placement || "N/A"}{" "}
+                    {/* Add fallback if data is missing */}
+                  </td>
                 ))}
               </tr>
               <tr>
@@ -297,6 +300,7 @@ export default function ComparisonModal({
                 </td>
                 {compareList.map((uni) => (
                   <td
+                    key={uni.id} // Add key prop here
                     style={{
                       border: "1px solid #ddd",
                       padding: "8px",
