@@ -1184,7 +1184,7 @@ const openUniversityModal = () => {
                   Refer and Earn <span className={styles.rupee}>₹ 5000</span>
                 </div>
               </Link>
-              <div>
+              {/* <div>
                 <button
                   className="enquirynow_enquirynow_btn__mRuEZ"
                   onClick={handleOpenModal}
@@ -1207,7 +1207,7 @@ const openUniversityModal = () => {
                   showModal={showModal}
                   setShowModal={setShowModal}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
