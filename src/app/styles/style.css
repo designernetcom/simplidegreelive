@@ -15955,6 +15955,7 @@ li::marker {
   top: 45%;
   z-index: 99;
   font-size: 18px;
+  border-radius: 12px  ;
   border: transparent;
   transform: rotate(-90deg);
   /* transform: translateY(-50%) rotate(90deg); */
@@ -15973,7 +15974,7 @@ li::marker {
   padding: 10px 30px;
   font-weight: 600;
   letter-spacing: 1px;
-  border-radius: 10px;
+  border-radius: 12px  ;
   z-index: 10;
   -webkit-box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.1);

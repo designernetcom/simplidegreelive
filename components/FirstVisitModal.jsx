@@ -12,19 +12,11 @@ const FirstVisitModal = () => {
     state: "",
   });
 
-  // Check localStorage and set up modal display
+  // Add useEffect to delay modal display by 3 seconds
   useEffect(() => {
-    // Check if modal has been dismissed or submitted
-    const isModalDismissed = localStorage.getItem("firstVisitModalDismissed");
-    if (isModalDismissed) {
-      setShowModal(false); // Don't show modal if already dismissed
-      return;
-    }
-
-    // Delay modal display by 6 seconds
     const timer = setTimeout(() => {
       setShowModal(true);
-    }, 6000); // 6000ms = 6 seconds
+    }, 6000); // 3000ms = 3 seconds
 
     // Cleanup timer on component unmount
     return () => clearTimeout(timer);
@@ -40,14 +32,10 @@ const FirstVisitModal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
-    // Mark modal as dismissed in localStorage
-    localStorage.setItem("firstVisitModalDismissed", "true");
     setShowModal(false);
   };
 
   const handleClose = () => {
-    // Mark modal as dismissed in localStorage
-    localStorage.setItem("firstVisitModalDismissed", "true");
     setShowModal(false);
   };
 
