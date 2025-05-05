@@ -16,7 +16,12 @@ import "../styles/47e473.css";
 import Menu from "../../../components/Header/Menu/Menu";
 import styles from "./Filter.module.css";
 import Footer from "../../../components/Footer/Footer";
+import { Metadata } from "next";
 
+ const metadata = {
+  title: "My Blog",
+  description: "...",
+};
 const ComparisonModal = dynamic(() => import("../ComparisonModal"), {
   ssr: false,
 });

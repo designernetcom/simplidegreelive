@@ -16,33 +16,8 @@ const SearchPage = () => {
   // Sample data for trending colleges, courses, and topics
   const trendingColleges = [
     {
-      title: "Amity University",
-      href: "college/amity-university-online",
-      type: "college",
-    },
-    {
-      title: "Chandigarh University",
+      title: "NMIMS University",
       href: "college/chandigarh-university-online",
-      type: "college",
-    },
-    {
-      title: "Online Manipal",
-      href: "college/online-manipal-jaipur",
-      type: "college",
-    },
-    {
-      title: "Delhi Degree College",
-      href: "college/delhi-degree-college",
-      type: "college",
-    },
-    {
-      title: "GLA University",
-      href: "college/gla-university-online",
-      type: "college",
-    },
-    {
-      title: "NMIMS CDOE",
-      href: "college/nmims-cdoe",
       type: "college",
     },
     {
@@ -70,6 +45,34 @@ const SearchPage = () => {
       href: "college/symbiosis-centre-for-distance-learning",
       type: "college",
     },
+
+    {
+      title: "Amity University",
+      href: "college/amity-university-online",
+      type: "college",
+    },
+
+    {
+      title: "Online Manipal",
+      href: "college/online-manipal-jaipur",
+      type: "college",
+    },
+    // {
+    //   title: "Dy Patil University",
+    //   href: "college/delhi-degree-college",
+    //   type: "college",
+    // },
+    // {
+    //   title: "LPU Online",
+    //   href: "college/gla-university-online",
+    //   type: "college",
+    // },
+    {
+      title: "NMIMS CDOE",
+      href: "college/nmims-cdoe",
+      type: "college",
+    },
+
     {
       title: "Chandigarh University Online",
       href: "college/chandigarh-university-online",

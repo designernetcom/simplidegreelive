@@ -26,8 +26,8 @@ export default function ComparisonModal({
           padding: "20px",
           borderRadius: "10px",
           width: "80%",
-          maxWidth: "1700px",
-          maxHeight: "100vh",
+          maxWidth: "1600px",
+          maxHeight: "80vh",
           overflowY: "auto",
           position: "relative",
         }}

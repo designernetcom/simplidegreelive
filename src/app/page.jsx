@@ -491,6 +491,26 @@ const categories = [
             href="/college/amity-university-online"
           >
             <img
+              alt="NMIMS UNIVERSITY"
+              fetchpriority="high"
+              loading="eager"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/nmis.jpg"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              NMIMS UNIVERSITY
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/college/amity-university-online"
+          >
+            <img
               alt="AMITY UNIVERSITY"
               fetchpriority="high"
               loading="eager"
@@ -521,10 +541,49 @@ const categories = [
               data-nimg={1}
               className="AllCollegeCards_college_indi_card_img__8_YF2"
               style={{ color: "transparent" }}
-              src="/assets/img/universities/dypatil.webp"
+              src="/assets/img/universities/dy-patil.jpg"
             />
             <p className="AllCollegeCards_college_indi_card_name__25zbO">
               DY PATIL UNIVERSITY
+            </p>
+          </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/college/online-manipal-jaipur"
+          >
+            <img
+              alt="ONLINE MANIPAL"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/manipal.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              ONLINE MANIPAL
+            </p>
+          </a>
+          
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/college/lovely-professional-university-odl-lpu"
+          >
+            <img
+              alt="LPU ONLINE"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/lpu.webp"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+              LPU ONLINE
             </p>
           </a>
           <a
@@ -567,44 +626,7 @@ const categories = [
             </p>
           </a>
 
-          <a
-            className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/college/jain-university-online"
-          >
-            <img
-              alt="JAIN UNIVERSITY"
-              loading="lazy"
-              width={145}
-              height={45}
-              decoding="async"
-              data-nimg={1}
-              className="AllCollegeCards_college_indi_card_img__8_YF2"
-              style={{ color: "transparent" }}
-              src="/assets/img/universities/jain.webp"
-            />
-            <p className="AllCollegeCards_college_indi_card_name__25zbO">
-              JAIN UNIVERSITY
-            </p>
-          </a>
-          <a
-            className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/college/online-manipal-jaipur"
-          >
-            <img
-              alt="ONLINE MANIPAL"
-              loading="lazy"
-              width={145}
-              height={45}
-              decoding="async"
-              data-nimg={1}
-              className="AllCollegeCards_college_indi_card_img__8_YF2"
-              style={{ color: "transparent" }}
-              src="/assets/img/universities/manipal.webp"
-            />
-            <p className="AllCollegeCards_college_indi_card_name__25zbO">
-              ONLINE MANIPAL
-            </p>
-          </a>
+
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
             href="/college/university-of-petroleum-and-energy-studies-centre-for-continued-education-upes"
@@ -662,25 +684,7 @@ const categories = [
               CHITKARA UNI.
             </p>
           </a>
-          <a
-            className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/college/lovely-professional-university-odl-lpu"
-          >
-            <img
-              alt="LPU ONLINE"
-              loading="lazy"
-              width={145}
-              height={45}
-              decoding="async"
-              data-nimg={1}
-              className="AllCollegeCards_college_indi_card_img__8_YF2"
-              style={{ color: "transparent" }}
-              src="/assets/img/universities/lpu.webp"
-            />
-            <p className="AllCollegeCards_college_indi_card_name__25zbO">
-              LPU ONLINE
-            </p>
-          </a>
+
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
             href="/college/indian-institute-of-finance"
@@ -738,7 +742,6 @@ const categories = [
               Delhi Degree College
             </p>
           </a>
-
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
             href="/college/gla-university-online"
@@ -886,7 +889,8 @@ const categories = [
                   <div className="row td_gap_y_30 td_row_gap_30">
                     <div className="col-lg-4 col-md-6">
                       <div className="td_card td_style_5 td_type_1">
-                        <a
+                        <Link
+                          href="/college/nmims-cdoe"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
@@ -901,7 +905,7 @@ const categories = [
                               }}
                             />
                           </span>
-                        </a>
+                        </Link>
                         <div className="td_card_content">
                           <a
                             data-bs-toggle="modal"
@@ -932,7 +936,7 @@ const categories = [
                           <br />
                           <p>
                             2,20,000/- For 2 Years <br />
-                            Approved / Recognized By: UGC / DEB
+                            Approved By: UGC / DEB
                           </p>
                           <div className="td_card_btns_wrap">
                             <a
@@ -966,7 +970,8 @@ const categories = [
                     </div>
                     <div className="col-lg-4 col-md-6">
                       <div className="td_card td_style_5 td_type_1">
-                        <a
+                        <Link
+                          href="/college/amity-university-online"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
@@ -981,7 +986,7 @@ const categories = [
                               }}
                             />
                           </span>
-                        </a>
+                        </Link>
                         <div className="td_card_content">
                           <ul className="td_card_meta td_mp_0 td_fs_16 td_heading_color">
                             <li>
@@ -999,7 +1004,7 @@ const categories = [
                           </h2>
                           <p>
                             Rs.1,99,000/- For 2 Years <br />
-                            Approved / Recognized By: UGC
+                            Approved By: UGC
                           </p>
                           <div className="td_card_btns_wrap">
                             <a
@@ -1023,7 +1028,8 @@ const categories = [
                               </span>
                             </a>
                             <a
-                              href="/assets/brochure/Amity-MBA-BusinessAnalytics.pdf" target="_blank"
+                              href="/assets/brochure/Amity-MBA-BusinessAnalytics.pdf"
+                              target="_blank"
                               download
                               className="btnw"
                             >
@@ -1037,7 +1043,8 @@ const categories = [
                     </div>
                     <div className="col-lg-4 col-md-6">
                       <div className="td_card td_style_5 td_type_1">
-                        <a
+                        <Link
+                          href="/college/dr-dy-patil-vidyapeeth"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
@@ -1052,7 +1059,7 @@ const categories = [
                               }}
                             />
                           </span>
-                        </a>
+                        </Link>
                         <div className="td_card_content">
                           <ul className="td_card_meta td_mp_0 td_fs_16 td_heading_color">
                             <li>
@@ -1076,7 +1083,7 @@ const categories = [
                           <br />
                           <p>
                             1,89,400/- For 2 Years <br />
-                            Approved / Recognized By: UGC / DEB
+                            Approved By: UGC / DEB
                           </p>
                           <div className="td_card_btns_wrap">
                             <a
@@ -1113,7 +1120,8 @@ const categories = [
                     </div>
                     <div className="col-lg-4 col-md-6">
                       <div className="td_card td_style_5 td_type_1">
-                        <a
+                        <Link
+                          href="/college/online-manipal-jaipur"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
@@ -1128,7 +1136,7 @@ const categories = [
                               }}
                             />
                           </span>
-                        </a>
+                        </Link>
                         <div className="td_card_content">
                           <ul className="td_card_meta td_mp_0 td_fs_16 td_heading_color">
                             <li>
@@ -1151,7 +1159,7 @@ const categories = [
                           </h2>
                           <p>
                             1,75,000/- For 2 Years <br />
-                            Approved / Recognized By: UGC
+                            Approved By: UGC
                           </p>
                           <div className="td_card_btns_wrap">
                             <a
@@ -1188,7 +1196,8 @@ const categories = [
                     </div>
                     <div className="col-lg-4 col-md-6">
                       <div className="td_card td_style_5 td_type_1">
-                        <a
+                        <Link
+                          href="/college/lovely-professional-university-odl-lpu"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
@@ -1203,7 +1212,7 @@ const categories = [
                               }}
                             />
                           </span>
-                        </a>
+                        </Link>
                         <div className="td_card_content">
                           <ul className="td_card_meta td_mp_0 td_fs_16 td_heading_color">
                             <li>
@@ -1221,7 +1230,7 @@ const categories = [
                           </h2>
                           <p>
                             1,80,000/- For 2 Years <br />
-                            Approved / Recognized By: UGC
+                            Approved By: UGC
                           </p>
                           <div className="td_card_btns_wrap">
                             <a
@@ -1258,7 +1267,8 @@ const categories = [
                     </div>
                     <div className="col-lg-4 col-md-6">
                       <div className="td_card td_style_5 td_type_1">
-                        <a
+                        <Link
+                          href="/college/symbiosis-centre-for-distance-learning"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
@@ -1273,7 +1283,7 @@ const categories = [
                               }}
                             />
                           </span>
-                        </a>
+                        </Link>
                         <div className="td_card_content">
                           <ul className="td_card_meta td_mp_0 td_fs_16 td_heading_color">
                             <li>
@@ -1291,7 +1301,7 @@ const categories = [
                           </h2>
                           <p>
                             3,00,000/- For 2 Years <br />
-                            Approved / Recognized By: UGC/AICTE
+                            Approved By: UGC/AICTE
                           </p>
                           <div className="td_card_btns_wrap">
                             <a

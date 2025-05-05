@@ -41,11 +41,11 @@ const universities = [
     href: "/colleges/Punjab",
     icon: "/assets/img/icon/punjab.webp",
   },
-  // {
-  //   name: 'Uttar Pradesh',
-  //   href: '/colleges/Uttar-Pradesh',
-  //   icon: '/assets/img/icon/up.webp',
-  // },
+  {
+    name: 'Uttar Pradesh',
+    href: '/colleges/Uttar-Pradesh',
+    icon: '/assets/img/icon/up.webp',
+  },
   {
     name: "Rajasthan",
     href: "/colleges/Rajasthan",
@@ -1055,7 +1055,7 @@ const openUniversityModal = () => {
                     style={{
                       display: "grid",
                       gridTemplateColumns:
-                        "repeat(auto-fit, minmax(90px, 1fr))",
+                        "repeat(auto-fit, minmax(100px, 1fr))",
                       gap: "15px",
                     }}
                   >
@@ -1087,8 +1087,8 @@ const openUniversityModal = () => {
                         <Image
                           alt={`${university.name} icon`}
                           src={university.icon}
-                          width={80}
-                          height={60}
+                          width={50}
+                          height={30}
                           style={{ marginBottom: "1px" }}
                         />
                         <span
