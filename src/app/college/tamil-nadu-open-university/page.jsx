@@ -2,8 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import Head from "next/head";
+import Image from "next/image";
+import { debounce } from "lodash";
 
-// Dynamically import components with SSR disabled to prevent window access during SSR
+// Dynamically import components with SSR disabled
 const Menu = dynamic(() => import("../../../../components/Header/Menu/Menu"), {
   ssr: false,
 });
@@ -15,7 +18,7 @@ const EnquiryModel = dynamic(
   { ssr: false }
 );
 
-// CSS imports remain unchanged
+// CSS imports
 import "../../styles/5107c2122129e0bb.css";
 import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
@@ -27,80 +30,346 @@ import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 
 export default function Page() {
-  const [showModal, setShowModal] = useState(false); // Manage modal visibility
-  const [fixedHeader, setFixedHeader] = useState(false); // Manage header state
+  const [activeSection, setActiveSection] = useState("About");
+  const [showModal, setShowModal] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false);
+  const [fixedHeader, setFixedHeader] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    state: "",
+  });
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
+  const [selectedCourseName, setSelectedCourseName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [reviewFormData, setReviewFormData] = useState({
+    reviewerName: "",
+    comment: "",
+  });
+
+  const courseSpecializations = {
+    "Distance BBA": [
+      { name: "General", fees: 16650 },
+      { name: "Marketing Management", fees: 16650 },
+    ],
+    "Distance BA": [
+      { name: "English", fees: 12900 },
+      { name: "Tamil", fees: 12900 },
+      { name: "History", fees: 12900 },
+    ],
+    "Distance BCom": [
+      { name: "General", fees: 12900 },
+      { name: "Accounting and Finance", fees: 12900 },
+    ],
+    "Distance BCA": [{ name: "Computer Applications", fees: 30900 }],
+    "Distance BSc": [
+      { name: "Mathematics", fees: 18000 },
+      { name: "Psychology", fees: 20400 },
+    ],
+    "Distance MA": [
+      { name: "English", fees: 15300 },
+      { name: "History", fees: 17400 },
+      { name: "Public Administration", fees: 15300 },
+    ],
+    "Distance MCom": [{ name: "General", fees: 17400 }],
+    "Distance MSW": [{ name: "Social Work", fees: 21900 }],
+    "Distance MBA": [
+      { name: "General", fees: 39900 },
+      { name: "Hospital Administration", fees: 39900 },
+    ],
+    "Distance MSc": [
+      { name: "Mathematics", fees: 20000 },
+      { name: "Psychology", fees: 25400 },
+    ],
+    "Distance Vocational Diploma": [
+      { name: "Early Childhood Care", fees: 5500 },
+      { name: "Fashion Design", fees: 8500 },
+    ],
+    "Distance Certificate Programme": [
+      { name: "Entrepreneurship", fees: 800 },
+      { name: "NGO Management", fees: 2800 },
+    ],
+  };
+
+  const getFeeRange = (courseName) => {
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    if (fees.length === 0) return "Contact for details";
+    const min = Math.min(...fees);
+    const max = Math.max(...fees);
+    return min === max
+      ? `₹ ${min.toLocaleString()}`
+      : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
+  };
+
+  useEffect(() => {
+    const sections = [
+      "About",
+      "High",
+      "Courses",
+      "Course Eligibility",
+      "Enquire Now",
+      "Certification",
+      "Admission",
+      "Placement",
+      "Review",
+    ];
+
+    const handleScroll = debounce(() => {
+      const scrollY = window.scrollY + 100;
+      let closestSection = "About";
+      let minDistance = Infinity;
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const distance = Math.abs(scrollY - element.offsetTop);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = section;
+          }
+        }
+      });
+
+      setActiveSection(closestSection);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    const handleHeaderScroll = () => {
+      setFixedHeader(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleHeaderScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleHeaderScroll);
+      handleScroll.cancel();
+    };
+  }, []);
 
   const handleOpenModal = () => {
     setShowModal(true);
   };
 
-  // Uncommented and ensured window access is safe
-  useEffect(() => {
-    const handleScroll = () => {
-      setFixedHeader(window.scrollY > 50);
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: "",
+      state: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleReviewChange = (e) => {
+    const { name, value } = e.target;
+    setReviewFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      alert("Invalid email format");
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(formData.phone)) {
+      alert("Phone number must be 10 digits");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      console.log("Form submitted:", formData);
+      handleCloseModal();
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEnquirySubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      program: form.program.value,
+      state: form.state.value,
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+      alert("Invalid email format");
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(data.phone)) {
+      alert("Phone number must be 10 digits");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      console.log("Enquiry submitted:", data);
+      form.reset();
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        program: "",
+        state: "",
+      });
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleReviewSubmit = async (e) => {
+    e.preventDefault();
+    if (!reviewFormData.reviewerName.trim()) {
+      alert("Name is required");
+      return;
+    }
+    if (!reviewFormData.comment.trim()) {
+      alert("Review comment is required");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      console.log("Review submitted:", reviewFormData);
+      setReviewFormData({ reviewerName: "", comment: "" });
+    } catch (error) {
+      alert("Error submitting review");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleViewSpecialization = (courseName) => {
+    setSelectedCourseName(courseName);
+    setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
+    setIsSpecializationModalOpen(true);
+  };
+
+  const handleCloseSpecializationModal = () => {
+    setIsSpecializationModalOpen(false);
+    setSelectedCourseSpecializations([]);
+    setSelectedCourseName("");
+  };
+
+  const states = [
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttarakhand",
+    "Uttar Pradesh",
+    "West Bengal",
+  ];
 
   return (
     <>
+      <Head>
+        <title>Tamil Nadu Open University - Courses & Admissions</title>
+        <meta
+          name="description"
+          content="Explore distance learning programs at Tamil Nadu Open University, including BBA, BA, BCom, BCA, BSc, MA, MCom, MSW, MBA, MSc, and more."
+        />
+        <meta property="og:title" content="Tamil Nadu Open University" />
+        <meta
+          property="og:description"
+          content="Explore distance learning programs at TNOU."
+        />
+        <meta
+          property="og:image"
+          content="https://store.learningroutes.in/images/colleges/Tamil-Nadu-Open-University/hero-image/banner.webp"
+        />
+      </Head>
       <Menu />
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
-          <img
+          <Image
             src="https://store.learningroutes.in/images/colleges/Tamil-Nadu-Open-University/hero-image/banner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
-            alt="hero-image"
+            alt="Tamil Nadu Open University campus banner"
             width={240}
             height={240}
+            layout="responsive"
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
+            <nav className="Breadcrumb_breadcrumb__j1UHX">
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/">
+                  Home
+                </a>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/top-university">
+                  Colleges
+                </a>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <span>Tamil Nadu Open University</span>
+              </span>
+            </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
               Tamil Nadu Open University
             </h1>
-            <p className="headCarousal_location__7rFlL">
-              Chennai{/* */},{/* */}Tamil Nadu
-            </p>
-            <p className="headCarousal_ranking__1yTOY">NIRF Rank: ---</p>
+            <p className="headCarousal_location__7rFlL">Chennai, Tamil Nadu</p>
+            <p className="headCarousal_ranking__1yTOY">NIRF Rank: Not Ranked</p>
             <div className="headCarousal_accreditation__HUqxZ">
-              <img
-                src="https://store.learningroutes.in/images/colleges/Tamil-Nadu-Open-University/accreditations/NAAC A++.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/Tamil-Nadu-Open-University/accreditations/UGC_DEB.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/Tamil-Nadu-Open-University/accreditations/ncte.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/Tamil-Nadu-Open-University/accreditations/RCI.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <img
-                src="https://store.learningroutes.in/images/colleges/Tamil-Nadu-Open-University/accreditations/aicte.webp"
-                alt="accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
+              {[
+                { src: "NAAC A++.webp", alt: "NAAC A++ accreditation" },
+                { src: "UGC_DEB.webp", alt: "UGC-DEB accreditation" },
+                { src: "ncte.webp", alt: "NCTE accreditation" },
+                { src: "RCI.webp", alt: "RCI accreditation" },
+                { src: "aicte.webp", alt: "AICTE accreditation" },
+              ].map((acc, index) => (
+                <Image
+                  key={index}
+                  src={`https://store.learningroutes.in/images/colleges/Tamil-Nadu-Open-University/accreditations/${acc.src}`}
+                  alt={acc.alt}
+                  className="headCarousal_accImg__NoM8M"
+                  width={20}
+                  height={20}
+                />
+              ))}
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
               <a href="/top-university">
@@ -116,96 +385,53 @@ export default function Page() {
             <div className="college_dataSection__0M4eV">
               <div className="collegeDetails_detailsPage__0qlWI">
                 <div className="collegeDetails_scroller__kwBjm">
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-About"
-                    href="#About"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV">
-                      About
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-High"
-                    href="#High"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Highlights
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Courses"
-                    href="#Courses"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Courses
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Course Eligibility"
-                    href="#Course Eligibility"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Course Eligibility
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Enquire Now"
-                    href="#Enquire Now"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
+                  {[
+                    { id: "About", text: "About" },
+                    { id: "High", text: "Highlights" },
+                    { id: "Courses", text: "Courses" },
+                    { id: "Course Eligibility", text: "Course Eligibility" },
+                    { id: "Enquire Now", text: "Enquire Now" },
+                    { id: "Certification", text: "Certifications" },
+                    { id: "Admission", text: "Admission Procedure" },
+                    { id: "Placement", text: "Placement" },
+                    { id: "Review", text: "Review" },
+                  ].map((item) => (
+                    <a
+                      key={item.id}
+                      className="collegeDetails_scrollerElement__iuUFa"
+                      id={`link-${item.id}`}
+                      href={`#${item.id}`}
+                      onClick={
+                        item.id === "Enquire Now" ? handleOpenModal : undefined
+                      }
+                      aria-current={
+                        activeSection === item.id ? "true" : undefined
+                      }
+                    >
                       <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 5,
-                        }}
+                        className={`collegeDetails_sectionBox__ZGGBm ${
+                          activeSection === item.id
+                            ? "collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV"
+                            : "collegeDetails_textBlack__LRxI5"
+                        }`}
                       >
-                        <div>Enquire Now</div>
-                        <div className="college_blink__yxq74" />
+                        {item.id === "Enquire Now" ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 5,
+                            }}
+                          >
+                            <div>{item.text}</div>
+                            <div className="college_blink__yxq74" />
+                          </div>
+                        ) : (
+                          item.text
+                        )}
                       </div>
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Certification"
-                    href="#Certification"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Certifications
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Admission"
-                    href="#Admission"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Admission Procedure
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Placement"
-                    href="#Placement"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Placement
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Review"
-                    href="#Review"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Review
-                    </div>
-                  </a>
+                    </a>
+                  ))}
                 </div>
                 <div className="collegeDetails_detailsContainer__6A8oL">
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
@@ -214,22 +440,17 @@ export default function Page() {
                         Tamil Nadu Open University
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
-                        The Tamil Nadu Open University (TNOU) is known for the
-                        inclusivity of higher education. With a bold vision to
-                        democratize learning, TNOU has pioneered offering
-                        distance degree programs, breaking barriers to education
-                        for countless individuals. Accredited by esteemed
-                        governing bodies including the UGC, AICTE, NCTE, and
-                        DEB, TNOU ensures a high standard of education, earning
-                        the trust of students and employers alike. Notably, over
-                        one million students have completed degree programs
-                        through TNOU across 234 programs. This remarkable
-                        milestone speaks volumes about TNOU's commitment to
-                        providing accessible, quality education to learners
-                        irrespective of their backgrounds, empowering them to
-                        pursue their dreams with flexibility and comfort.
-                        Additionally, TNOU has started to offer PhD programs
-                        also, insisting learning should never stop.
+                        The Tamil Nadu Open University (TNOU) is renowned for
+                        its inclusive approach to higher education. With a
+                        mission to democratize learning, TNOU offers a wide
+                        range of distance degree programs, breaking barriers for
+                        countless individuals. Accredited by esteemed bodies
+                        including UGC, AICTE, NCTE, DEB, and RCI, TNOU ensures
+                        high-quality education, earning trust from students and
+                        employers. Over one million students have completed 234
+                        programs, reflecting TNOU’s commitment to accessible,
+                        quality education. TNOU also offers PhD programs,
+                        emphasizing lifelong learning.
                       </p>
                     </div>
                   </div>
@@ -237,51 +458,30 @@ export default function Page() {
                     <div className="Highlights_container__yqw8t">
                       <h2 className="Highlights_heading__QnGK2">Highlights</h2>
                       <div className="Highlights_grid__zFaon">
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
+                        {[
+                          "Alumni Networking",
+                          "Access to Digital Library",
+                          "Flexible learning",
+                        ].map((highlight, index) => (
+                          <div
+                            className="Highlights_pointContainer__5_snP"
+                            key={index}
                           >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Alumni Networking</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Access to Digital Library</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Flexible learning</div>
-                        </div>
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              strokeWidth={0}
+                              viewBox="0 0 16 16"
+                              className="Highlights_pointIcon__m_iYg"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
+                            </svg>
+                            <div>{highlight}</div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -290,8 +490,8 @@ export default function Page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}Tamil Nadu Open University
+                          Explore online learning courses in Tamil Nadu Open
+                          University
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -302,316 +502,99 @@ export default function Page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance BBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 16650</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
+                            {[
+                              {
+                                name: "Distance BBA",
+                                feeRange: getFeeRange("Distance BBA"),
+                              },
+                              {
+                                name: "Distance BA",
+                                feeRange: getFeeRange("Distance BA"),
+                              },
+                              {
+                                name: "Distance BCom",
+                                feeRange: getFeeRange("Distance BCom"),
+                              },
+                              {
+                                name: "Distance BCA",
+                                feeRange: getFeeRange("Distance BCA"),
+                              },
+                              {
+                                name: "Distance BSc",
+                                feeRange: getFeeRange("Distance BSc"),
+                              },
+                              {
+                                name: "Distance MA",
+                                feeRange: getFeeRange("Distance MA"),
+                              },
+                              {
+                                name: "Distance MCom",
+                                feeRange: getFeeRange("Distance MCom"),
+                              },
+                              {
+                                name: "Distance MSW",
+                                feeRange: getFeeRange("Distance MSW"),
+                              },
+                              {
+                                name: "Distance MBA",
+                                feeRange: getFeeRange("Distance MBA"),
+                              },
+                              {
+                                name: "Distance MSc",
+                                feeRange: getFeeRange("Distance MSc"),
+                              },
+                              {
+                                name: "Distance Vocational Diploma",
+                                feeRange: getFeeRange(
+                                  "Distance Vocational Diploma"
+                                ),
+                              },
+                              {
+                                name: "Distance Certificate Programme",
+                                feeRange: getFeeRange(
+                                  "Distance Certificate Programme"
+                                ),
+                              },
+                            ].map((course, index) => (
+                              <tr className="courses_tbody__ZPCxV" key={index}>
+                                <td>{course.name}</td>
+                                <td style={{ textAlign: "center" }}>
+                                  {course.feeRange}
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
                                 >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance BA</td>
-                              <td style={{ textAlign: "center" }}>₹ 12900</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance BCom</td>
-                              <td style={{ textAlign: "center" }}>₹ 12900</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance BCA</td>
-                              <td style={{ textAlign: "center" }}>₹ 30900</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance BSc</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 18000-₹ 20400
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance MA</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 15300-₹ 17400
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance MCom</td>
-                              <td style={{ textAlign: "center" }}>₹ 17400</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance MSW</td>
-                              <td style={{ textAlign: "center" }}>₹ 21900</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance MBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 39900</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance MSc</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 20000-₹ 25400
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance Vocational Diploma</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 5500-₹ 8500
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance Certificate Programme</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 800-₹ 2800
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                    aria-label={`Enquire about ${course.name}`}
+                                  >
+                                    Enquire Now
+                                  </button>
+                                  <button
+                                    className="courses_viewSpsl__lrjH5"
+                                    onClick={() =>
+                                      handleViewSpecialization(course.name)
+                                    }
+                                    aria-label={`View specializations for ${course.name}`}
+                                  >
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
                     </div>
                   </div>
-
                   <div
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
                     <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                      Courses Eligibility
+                      Course Eligibility
                     </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
                       <table className="courseEligibility_eligible_table__ZvMdh">
@@ -625,92 +608,90 @@ export default function Page() {
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance BBA</td>
                             <td>
-                              Applicant must have passed 10+2 or any equivalent
-                              exam. Or Applicant holding a Diploma from a
-                              recognised polytechnic college will allowed for
-                              2nd year lateral entry
+                              10+2 or equivalent from a recognized board, or a
+                              Diploma from a recognized polytechnic college for
+                              2nd-year lateral entry.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance BA</td>
                             <td>
-                              Applicant must have passed 10+2 or any equivalent
-                              exam. Or Applicant holding a Diploma from a
-                              recognised polytechnic college will be allowed for
-                              2nd year lateral entry
+                              10+2 or equivalent from a recognized board, or a
+                              Diploma from a recognized polytechnic college for
+                              2nd-year lateral entry.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance BCom</td>
                             <td>
-                              Applicant must passed 10+2 or any equivalent exam
-                              with relevant subject
+                              10+2 or equivalent from a recognized board with
+                              relevant subjects.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance BCA</td>
                             <td>
-                              Applicant must passed 10+2 or any equivalent exam
-                              with relevant subject.
+                              10+2 or equivalent from a recognized board with
+                              relevant subjects.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance BSc</td>
                             <td>
-                              Applicant must have passed 10+2 or any equivalent
-                              exam with relevant subject
+                              10+2 or equivalent from a recognized board with
+                              relevant subjects.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MA</td>
                             <td>
-                              Applicant must hold a bachelor's degree in any
-                              discipline from a recognised university
+                              Bachelor’s degree in any discipline from a
+                              recognized university.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MCom</td>
                             <td>
-                              Applicant must hold a bacherlor's degree in
-                              Commerce/Business administraion/ Corporate
-                              Secretaryship from a recognised university, with
-                              minimum 2 papers in commerce during UG programme
+                              Bachelor’s degree in Commerce, Business
+                              Administration, or Corporate Secretaryship from a
+                              recognized university, with at least two commerce
+                              papers.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MSW</td>
                             <td>
-                              Applicant must hold a bacherlor's degree in any
-                              discipline from a recognised university
+                              Bachelor’s degree in any discipline from a
+                              recognized university.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MBA</td>
                             <td>
-                              Applicant must hold a bacherlor's degree in any
-                              discipline from a recognised university
+                              Bachelor’s degree in any discipline from a
+                              recognized university.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MSc</td>
                             <td>
-                              Applicant must hold a bachelor's degree in
-                              Mathematics/Applied Math/Applied B.E from a
-                              recognised university
+                              Bachelor’s degree in Mathematics, Applied
+                              Mathematics, or Applied B.E. from a recognized
+                              university.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance Vocational Diploma</td>
                             <td>
-                              Applicant must have completed 10th grade from
-                              Tamil Nadu State board or from any other
-                              recognised board by Tamil Nadu
+                              10th grade from Tamil Nadu State Board or any
+                              other board recognized by Tamil Nadu.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance Certificate Programme</td>
                             <td>
-                              Eligibility varies with different specialisations
+                              Varies by specialization; contact the university
+                              for details.
                             </td>
                           </tr>
                         </tbody>
@@ -726,22 +707,41 @@ export default function Page() {
                         Get Free Career Consultation
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
-                        <form className="collegenquiry_form__uF7mS">
-                          <input type="text" placeholder="Name*" name="name" />
+                        <form
+                          className="collegenquiry_form__uF7mS"
+                          onSubmit={handleEnquirySubmit}
+                        >
+                          <input
+                            type="text"
+                            placeholder="Name*"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                          />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
                           />
-                          <select name="program">
-                            <option value selected>
-                              Choose a Program*
-                            </option>
+                          <select
+                            name="program"
+                            value={formData.program}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Choose a Program*</option>
                             <option value="Online MBA">Online MBA</option>
                             <option value="Executive MBA">Executive MBA</option>
                             <option value="Online MCA">Online MCA</option>
@@ -764,50 +764,25 @@ export default function Page() {
                               Help Me Decide
                             </option>
                           </select>
-                          <select name="state">
-                            <option value selected>
-                              State/Province
-                            </option>
-                            <option value="Arunachal Pradesh">
-                              Arunachal Pradesh
-                            </option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">
-                              Himachal Pradesh
-                            </option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">
-                              Madhya Pradesh
-                            </option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="West Bengal">West Bengal</option>
+                          <select
+                            name="state"
+                            value={formData.state}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">State/Province*</option>
+                            {states.map((state) => (
+                              <option key={state} value={state}>
+                                {state}
+                              </option>
+                            ))}
                           </select>
                           <button
                             type="submit"
                             className="collegenquiry_submit_btn__cjBuo"
+                            disabled={isLoading}
                           >
-                            Submit
+                            {isLoading ? "Submitting..." : "Submit"}
                           </button>
                         </form>
                       </div>
@@ -829,62 +804,28 @@ export default function Page() {
                               educational status
                             </div>
                             <div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  UGC-DEB recognised degree
+                              {[
+                                "UGC-DEB recognized degree",
+                                "Highly qualified and knowledgeable teachers",
+                              ].map((point, index) => (
+                                <div
+                                  className="Certificates_pointBox__xwwq4"
+                                  key={index}
+                                >
+                                  <Image
+                                    alt="Check icon"
+                                    loading="lazy"
+                                    width={20}
+                                    height={20}
+                                    decoding="async"
+                                    src="/assets/simpli-images/check.webp"
+                                  />
+                                  <div className="Certificates_point__XYWLq">
+                                    {point}
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  Highly qualified and knowledgeable teachers
-                                </div>
-                              </div>
+                              ))}
                             </div>
-                          </div>
-                          <div>
-                            {/* <img
-                              alt="certificate_url"
-                              loading="lazy"
-                              width={300}
-                              height={200}
-                              decoding="async"
-                              data-nimg={1}
-                              className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FTamil-Nadu-Open-University%2Fcertification%2Fno-img.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FTamil-Nadu-Open-University%2Fcertification%2Fno-img.webp&w=640&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FTamil-Nadu-Open-University%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            /> */}
                           </div>
                         </div>
                       </div>
@@ -899,53 +840,27 @@ export default function Page() {
                         Admission Process
                       </h2>
                       <p className="Admissions_description__sKdUj">
-                        The admissions process takes place in online mode. Fresh
-                        admission starts from the month of January of every
-                        year. There are direct admissions, no entrance exam is
-                        conducted for the admission process.The addmission
-                        procedure
-                        {/* */}2025{/* */}
-                        for the online course at
-                        {/* */}Tamil Nadu Open University{/* */}
-                        is as follow:
+                        The admissions process is conducted online. Fresh
+                        admissions start in January each year. No entrance exam
+                        is required, and admissions are direct. The admission
+                        procedure for 2025 at Tamil Nadu Open University is as
+                        follows:
                       </p>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}1
+                      {[
+                        "Complete the application form on the official website.",
+                        "Upload the required documents for verification.",
+                        "Pay the admission fee.",
+                        "Admission status will be confirmed via email.",
+                      ].map((step, index) => (
+                        <div className="Admissions_step__4mDzm" key={index}>
+                          <div className="Admissions_stepCount__f9yhl">
+                            STEP {index + 1}
+                          </div>
+                          <div className="Admissions_stepText___L_GT">
+                            {step}
+                          </div>
                         </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Complete the application form given in the official
-                          website
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}2
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Upload the required documents for verification
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}3
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Pay the admission fee
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}4
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Admission status will be confirmed via mail
-                        </div>
-                      </div>
+                      ))}
                       <div className="Admissions_stepHide__nIt_6" />
                     </div>
                   </div>
@@ -959,73 +874,34 @@ export default function Page() {
                           Online Placement Partners
                         </h2>
                         <h3 className="placement_subHeading__1vY2G">
-                          The University provides the placement assistance apart
-                          from the academics
+                          The University provides placement assistance alongside
+                          academics
                         </h3>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>
-                            Conduct workshops with Schoolguru Eduverse, Mumbai
-                          </p>
-                        </div>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>
-                            Training students with employment-linked skilling
-                            programs (ELSP) and parallel education and
-                            employment programme (PEEP)
-                          </p>
-                        </div>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>
-                            Organising job fairs to provide students placements
-                          </p>
-                        </div>
+                        {[
+                          "Conduct workshops with Schoolguru Eduverse, Mumbai",
+                          "Train students with employment-linked skilling programs (ELSP) and parallel education and employment programme (PEEP)",
+                          "Organize job fairs to provide student placements",
+                        ].map((point, index) => (
+                          <div
+                            className="placementSubpoint_subHeadingPoints__uE7MR"
+                            key={index}
+                          >
+                            <Image
+                              alt="Check icon"
+                              loading="lazy"
+                              width={20}
+                              height={20}
+                              decoding="async"
+                              src="/assets/simpli-images/check.webp"
+                            />
+                            <p>{point}</p>
+                          </div>
+                        ))}
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ NaN LPA
+                            ₹ 4 LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Average Salary
@@ -1033,7 +909,7 @@ export default function Page() {
                         </div>
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ NaN LPA
+                            ₹ 8 LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Highest Salary
@@ -1054,102 +930,31 @@ export default function Page() {
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        Tamil Nadu Open University{/* */}
-                        Review
+                        Tamil Nadu Open University Review
                       </h2>
                       <div>
-                        <form>
+                        <form onSubmit={handleReviewSubmit}>
                           <div className="CollegeReview_college_page_details_review_form_container__rP5km">
                             <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
                               <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
                                 0 out of 5
                               </p>
                               <div>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
+                                {Array(5)
+                                  .fill()
+                                  .map((_, index) => (
+                                    <span className="star" key={index}>
+                                      <Image
+                                        alt="rating star"
+                                        loading="lazy"
+                                        width={20}
+                                        height={20}
+                                        decoding="async"
+                                        className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
+                                        src="/assets/simpli-images/Star-Two.webp"
+                                      />
+                                    </span>
+                                  ))}
                               </div>
                             </div>
                             <div className="CollegeReview_rating_form_container__q_Xvp">
@@ -1159,16 +964,22 @@ export default function Page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
+                                value={reviewFormData.reviewerName}
+                                onChange={handleReviewChange}
                               />
                               <textarea
                                 placeholder="Write your reviews"
                                 className="CollegeReview_college_page_details_review_form_input__niDf2"
                                 name="comment"
                                 required
-                                defaultValue={""}
+                                value={reviewFormData.comment}
+                                onChange={handleReviewChange}
                               />
-                              <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
-                                Send message
+                              <button
+                                className="CollegeReview_college_page_details_review_form_btn__xh_Sn"
+                                disabled={isLoading}
+                              >
+                                {isLoading ? "Submitting..." : "Send message"}
                               </button>
                             </div>
                           </div>
@@ -1183,7 +994,80 @@ export default function Page() {
           </div>
         </div>
       </div>
-
+      {showModal && (
+        <EnquiryModel
+          showModal={showModal}
+          setShowModal={setShowModal}
+          formData={formData}
+          setFormData={setFormData}
+          handleSubmit={handleSubmit}
+          isLoading={isLoading}
+          states={states}
+        />
+      )}
+      {isSpecializationModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="specializationModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="specializationModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={handleCloseSpecializationModal}
+                    aria-label="Close specialization modal"
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
+                  ></button>
+                  <h2 className="td_mb_20">
+                    {selectedCourseName} Specializations
+                  </h2>
+                  <table className="table table-bordered">
+                    <thead
+                      style={{ background: "var(--dark-blue)", color: "white" }}
+                    >
+                      <tr>
+                        <th>Specialization Name</th>
+                        <th style={{ textAlign: "center" }}>Fees</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedCourseSpecializations.length > 0 ? (
+                        selectedCourseSpecializations.map((spec, index) => (
+                          <tr key={index}>
+                            <td>{spec.name}</td>
+                            <td style={{ textAlign: "center" }}>
+                              ₹ {spec.fees.toLocaleString()}
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" style={{ textAlign: "center" }}>
+                            No specializations available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <Footer />
     </>
   );

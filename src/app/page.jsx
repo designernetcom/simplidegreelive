@@ -488,7 +488,7 @@ const categories = [
         <div className="AllCollegeCards_college_grid_container__PA9Ro {styles.collegeGridContainer}">
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
-            href="/college/amity-university-online"
+            href="/college/nmims-cdoe"
           >
             <img
               alt="NMIMS UNIVERSITY"
@@ -566,7 +566,7 @@ const categories = [
               ONLINE MANIPAL
             </p>
           </a>
-          
+
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
             href="/college/lovely-professional-university-odl-lpu"
@@ -625,7 +625,6 @@ const categories = [
               IIM AHMEDABAD
             </p>
           </a>
-
 
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"

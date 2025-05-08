@@ -17,7 +17,7 @@ const SearchPage = () => {
   const trendingColleges = [
     {
       title: "NMIMS University",
-      href: "college/chandigarh-university-online",
+      href: "college/nmims-cdoe",
       type: "college",
     },
     {
@@ -46,17 +46,17 @@ const SearchPage = () => {
       type: "college",
     },
 
-    {
-      title: "Amity University",
-      href: "college/amity-university-online",
-      type: "college",
-    },
+    // {
+    //   title: "Amity University",
+    //   href: "college/amity-university-online",
+    //   type: "college",
+    // },
 
-    {
-      title: "Online Manipal",
-      href: "college/online-manipal-jaipur",
-      type: "college",
-    },
+    // {
+    //   title: "Online Manipal",
+    //   href: "college/online-manipal-jaipur",
+    //   type: "college",
+    // },
     // {
     //   title: "Dy Patil University",
     //   href: "college/delhi-degree-college",
@@ -67,11 +67,11 @@ const SearchPage = () => {
     //   href: "college/gla-university-online",
     //   type: "college",
     // },
-    {
-      title: "NMIMS CDOE",
-      href: "college/nmims-cdoe",
-      type: "college",
-    },
+    // {
+    //   title: "NMIMS CDOE",
+    //   href: "college/nmims-cdoe",
+    //   type: "college",
+    // },
 
     {
       title: "Chandigarh University Online",

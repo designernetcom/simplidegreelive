@@ -833,13 +833,13 @@ export default function Page() {
                       <div className="partners_container___c9cx" />
                     </div>
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                  {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                     <div
                       className="CollegeReview_college_page_details_review_container__KbbIU"
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        Savitribai Phule Pune University{/* */}
+                        Savitribai Phule Pune University
                         Review
                       </h2>
                       <div>
@@ -961,7 +961,7 @@ export default function Page() {
                       </div>
                       <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

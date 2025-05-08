@@ -319,11 +319,8 @@ export default function Page() {
                 />
               </div>
               <div className="headCarousal_proceedCompareContainer__rekWb">
-                <a href="/colleges">
-                  <button
-                    className="headCarousal_collegeCompare__znhHH"
-                    aria-label="Add to compare"
-                  >
+                <a href="/top-university">
+                  <button className="headCarousal_collegeCompare__znhHH">
                     Add To Compare
                   </button>
                 </a>
@@ -770,15 +767,15 @@ export default function Page() {
                               </div>
                             </div>
                             <div>
-                              <Image
+                              {/* <Image
                                 alt="Delhi Degree College sample degree certificate"
                                 loading="lazy"
                                 width={300}
                                 height={200}
                                 decoding="async"
                                 className="Certificates_img__GOe9v"
-                                src="/assets/course/ddc-degree.png"
-                              />
+                                src="/assets/course/ddc-degree.jpeg"
+                              /> */}
                             </div>
                           </div>
                         </div>

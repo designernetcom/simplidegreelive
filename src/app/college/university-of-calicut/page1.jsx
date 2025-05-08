@@ -49,7 +49,7 @@ export default function Page() {
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <img
-            src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/hero-image/banner.webp"
+            src="https://store.learningroutes.in/images/colleges/University-of-Calicut/hero-image/banner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="hero-image"
@@ -59,23 +59,24 @@ export default function Page() {
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
             <h1 className="headCarousal_collegeHeading__KBbuL">
-              School of Distance Education, Online Learning Programmes,
-              Bharathiar University
+              University of Calicut
             </h1>
             <p className="headCarousal_location__7rFlL">
-              Coimbatore{/* */},{/* */}Tamil Nadu
+              Malappuram{/* */},{/* */}Kerala
             </p>
-            <p className="headCarousal_ranking__1yTOY">NIRF Rank: 26</p>
+            <p className="headCarousal_ranking__1yTOY">
+              NIRF Rank: 89(University)
+            </p>
             <div className="headCarousal_accreditation__HUqxZ">
               <img
-                src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/accreditations/UGC.webp"
+                src="https://store.learningroutes.in/images/colleges/University-of-Calicut/accreditations/NAAC A+.webp"
                 alt="accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
               />
               <img
-                src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/accreditations/NAAC A++.webp"
+                src="https://store.learningroutes.in/images/colleges/University-of-Calicut/accreditations/UGC_DEB.webp"
                 alt="accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
@@ -191,24 +192,20 @@ export default function Page() {
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
                     <div className="about_collegeDetails__67FzM">
                       <h2 className="about_collegeDetailsHeading__AA_dr">
-                        School of Distance Education, Online Learning
-                        Programmes, Bharathiar University
+                        University of Calicut
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
-                        Established in 1982 by the Government of Tamil Nadu in
-                        Coimbatore, the university provides a wide range of
-                        graduate, post-graduate, MPhil, and PhD programmes. The
-                        university ranks 21st among the top 100 institutions in
-                        the NIRF ranking. Built on the thought of Educate and
-                        Elevate, the university seeks to realise the vision of
-                        India in making education accessible to everyone. Over
-                        the years, the university has successfully enhanced its
-                        education quality and expanded its scope through its
-                        School of Distance Education (SDE). It offers both
-                        graduate and post-graduate programmes in areas including
-                        business, arts, and commerce. Its online programmes are
-                        UGC accredited and at par with the regular offline mode
-                        classes.
+                        Calicut University was founded in Malappuram, Kerala, in
+                        1968. The university is governed by the Calicut
+                        University Act of 1975, which was passed by the Kerala
+                        Legislative Assembly. Calicut University placed in the
+                        rank band 101–150 in the overall category and 70th in
+                        the universities category of the NIRF Ranking 2023. It
+                        has received recognition from the UG-DEB and has
+                        received a fourth A+ accreditation from the NAAC. With
+                        34 departments and 406 affiliated colleges, it is a
+                        state university and the biggest residential
+                        college-affiliating university in Kerala.
                       </p>
                     </div>
                   </div>
@@ -229,7 +226,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Highly Accredited Programs</div>
+                          <div>Internships and Industry Projects</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -244,7 +241,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Affordable and Flexible Learning Experience</div>
+                          <div>Grievances Cell</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -259,7 +256,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Placement Guidance and Support</div>
+                          <div>Higher Study Preferences</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -274,85 +271,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>E-Content</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Virtual Classroom</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Discussion Forum</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>e-Tutorials</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Project-Based Learning</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            Industry-Institute Partnership Facilitating Enhanced
-                            Learning
-                          </div>
+                          <div>Alumni Network</div>
                         </div>
                       </div>
                     </div>
@@ -363,8 +282,7 @@ export default function Page() {
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
                           Explore online learning courses in
-                          {/* */}School of Distance Education, Online Learning
-                          Programmes, Bharathiar University
+                          {/* */}University of Calicut
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -376,8 +294,8 @@ export default function Page() {
                           </thead>
                           <tbody>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance BA</td>
+                              <td style={{ textAlign: "center" }}>₹ 4875</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -400,8 +318,10 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50880</td>
+                              <td>Distance BCom</td>
+                              <td style={{ textAlign: "center" }}>
+                                ₹ 5565-₹ 10440
+                              </td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -424,8 +344,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online BA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance BBA</td>
+                              <td style={{ textAlign: "center" }}>₹ 10440</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -448,8 +368,10 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 70880</td>
+                              <td>Distance MA</td>
+                              <td style={{ textAlign: "center" }}>
+                                ₹ 4630-₹ 6945
+                              </td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -472,8 +394,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA</td>
-                              <td style={{ textAlign: "center" }}>₹ 44880</td>
+                              <td>Distance MSc</td>
+                              <td style={{ textAlign: "center" }}>₹ 6945</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -496,32 +418,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online M.Com</td>
-                              <td style={{ textAlign: "center" }}>₹ 44880</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online B.Com</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance MCom</td>
+                              <td style={{ textAlign: "center" }}>₹ null</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -566,67 +464,63 @@ export default function Page() {
                         </thead>
                         <tbody>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BBA</td>
+                            <td>Distance BA</td>
                             <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
+                              Candidates who have passed (Eligible for Higher
+                              Studies) the HSE of the Kerala State Board of
+                              Higher Secondary Examination or any other
+                              examination recognized as equivalent thereto are
+                              eligible for admission.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MCA</td>
+                            <td>Distance BCom</td>
                             <td>
-                              Graduate in Computer Science/ Computer Systems
-                              &amp; Design/ Computer Technology/ Information
-                              Systems/ Information Technology/ Computer
-                              Applications from a recognised university OR
-                              Graduate in any field with Mathematics as a
-                              compulsory subject at 10+2/Graduation level from a
-                              recognised university OR Graduate in
-                              Commerce-Computer Applications with Business
-                              Mathematics &amp; Business Statistics as one of
-                              the subjects from a recognised university
+                              Candidates who have passed (Eligible for Higher
+                              Studies) the HSE of the Kerala State Board of
+                              Higher Secondary Examination or any other
+                              examination recognized as equivalent thereto with
+                              at least one commerce subject are eligible for
+                              admission. Candidates who have not studied
+                              commerce subject for Higher Secondary or an
+                              equivalent examination with not less than 45%
+                              marks are also eligible.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BA</td>
+                            <td>Distance BBA</td>
                             <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
+                              Candidates who have passed (Eligible for Higher
+                              Studies) the HSE of the Kerala State Board of
+                              Higher Secondary Examination or any other
+                              examination recognized as equivalent thereto are
+                              eligible for admission.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MBA</td>
+                            <td>Distance MA</td>
+                            <td>Eligibility varies with specialization</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance MSc</td>
                             <td>
-                              Graduate in any field from a recognised university
+                              B.Sc. Degree in Mathematics of this University or
+                              an equivalent* degree, with at least 50% marks or
+                              equivalent CGPA in Main (Core) and at least 50%
+                              marks or equivalent CGPA in Part III (Core and
+                              Complementary put together).
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MA</td>
+                            <td>Distance MCom</td>
                             <td>
-                              Graduate in any field with
-                              Economics/Econometrics/Business Mathematics &amp;
-                              Engineering/Managerial
-                              Economics/Mathematics/Statistics/Business
-                              Statistics as one of the subjects from a
-                              recognized university
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online M.Com</td>
-                            <td>
-                              Graduate in Commerce/Business
-                              Administration/Business Management/Corporate
-                              Secretaryship from a recognized university
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online B.Com</td>
-                            <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
+                              Any candidate who has passed B.Com or BBA (earlier
+                              BBS) degree of University of Calicut or
+                              recognized# B.Com, BBA, BBM or BBS degree of any
+                              other University or Institutes in any states, with
+                              minimum of 45% aggregate marks or equivalent
+                              overall CGPA is eligible for admission to the
+                              M.Com programme.
                             </td>
                           </tr>
                         </tbody>
@@ -643,23 +537,16 @@ export default function Page() {
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
                         <form className="collegenquiry_form__uF7mS">
-                          <input
-                            type="text"
-                            placeholder="Name*"
-                            name="name"
-                            defaultValue
-                          />
+                          <input type="text" placeholder="Name*" name="name" />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
                           />
                           <select name="program">
                             <option value selected>
@@ -748,8 +635,8 @@ export default function Page() {
                               Sample Certificate
                             </h2>
                             <div className="Certificates_subHeading__CKwq6">
-                              Earn an UGC entitled degree, recognized around the
-                              globe
+                              The University has established a credible
+                              educational status
                             </div>
                             <div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -768,7 +655,7 @@ export default function Page() {
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  NAAC A++ Recognised
+                                  Value for money
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -787,7 +674,7 @@ export default function Page() {
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  NIRF- 36 (Overall Category)
+                                  Variety of UG and PG courses
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -806,14 +693,33 @@ export default function Page() {
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  One of the leading Distance University in
-                                  India
+                                  Books, journals, online lectures, etc. are
+                                  provided
+                                </div>
+                              </div>
+                              <div className="Certificates_pointBox__xwwq4">
+                                <img
+                                  alt="check-image"
+                                  loading="lazy"
+                                  width={20}
+                                  height={20}
+                                  decoding="async"
+                                  data-nimg={1}
+                                  style={{ color: "transparent" }}
+                                  srcSet="
+                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                            /assets/simpli-images/check.webp 2x
+                          "
+                                  src="/assets/simpli-images/check.webp"
+                                />
+                                <div className="Certificates_point__XYWLq">
+                                  Employment opportunities
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -823,11 +729,11 @@ export default function Page() {
                               className="Certificates_img__GOe9v"
                               style={{ color: "transparent" }}
                               srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FUniversity-of-Calicut%2Fcertification%2Fno-img.webp&w=384&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FUniversity-of-Calicut%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75"
-                            />
+                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FUniversity-of-Calicut%2Fcertification%2Fno-img.webp&w=640&q=75"
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -849,8 +755,7 @@ export default function Page() {
                         procedure
                         {/* */}2025{/* */}
                         for the online course at
-                        {/* */}School of Distance Education, Online Learning
-                        Programmes, Bharathiar University{/* */}
+                        {/* */}University of Calicut{/* */}
                         is as follow:
                       </p>
                       <div className="Admissions_step__4mDzm">
@@ -859,8 +764,8 @@ export default function Page() {
                           {/* */}1
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Select your course and register at the online
-                          application portal
+                          Visit the official website of Calicut University -
+                          admission.uoc.ac.in
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
@@ -869,7 +774,9 @@ export default function Page() {
                           {/* */}2
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Add your qualification, address, and other details
+                          Click on 'Apply Now' and create a 'CAP ID' by entering
+                          personal information including mobile number and email
+                          ID
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
@@ -878,7 +785,8 @@ export default function Page() {
                           {/* */}3
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Upload all the necessary documents
+                          Fill in all details, create a CAP ID and password,
+                          then click on the register button
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
@@ -887,7 +795,9 @@ export default function Page() {
                           {/* */}4
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Preview and Submit the application
+                          Complete the student profile by entering necessary
+                          details such as marks in qualifying examinations and
+                          uploading required documents and photograph
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
@@ -896,8 +806,7 @@ export default function Page() {
                           {/* */}5
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Pay the registration fee through GPAY, PayTM, UPI, Net
-                          banking, Credit/Debit(ATM) card, etc.
+                          Select the college course
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
@@ -906,26 +815,7 @@ export default function Page() {
                           {/* */}6
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          After this, your application will be validated by the
-                          university
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}7
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Upon validation, pay the course fee
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}8
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Login and Download the Admission cum ID card
+                          Pay the fees for the course and wait for confirmation
                         </div>
                       </div>
                       <div className="Admissions_stepHide__nIt_6" />
@@ -941,7 +831,7 @@ export default function Page() {
                           Online Placement Partners
                         </h2>
                         <h3 className="placement_subHeading__1vY2G">
-                          Our students have an opportunity of
+                          The students have an opportunity of
                         </h3>
                         <div className="placementSubpoint_subHeadingPoints__uE7MR">
                           <img
@@ -958,10 +848,24 @@ export default function Page() {
                     "
                             src="/assets/simpli-images/check.webp"
                           />
-                          <p>
-                            Learn employability skills through assessments and
-                            tests
-                          </p>
+                          <p>Learn employability skills</p>
+                        </div>
+                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
+                          <img
+                            alt="img"
+                            loading="lazy"
+                            width={20}
+                            height={20}
+                            decoding="async"
+                            data-nimg={1}
+                            style={{ color: "transparent" }}
+                            srcSet="
+                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                      /assets/simpli-images/check.webp 2x
+                    "
+                            src="/assets/simpli-images/check.webp"
+                          />
+                          <p>Top recruiters from leading Companies</p>
                         </div>
                         <div className="placementSubpoint_subHeadingPoints__uE7MR">
                           <img
@@ -984,7 +888,7 @@ export default function Page() {
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ 3 LPA
+                            ₹ NaN LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Average Salary
@@ -992,7 +896,7 @@ export default function Page() {
                         </div>
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ 52 LPA
+                            ₹ NaN LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Highest Salary
@@ -1008,14 +912,13 @@ export default function Page() {
                       <div className="partners_container___c9cx" />
                     </div>
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                  {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                     <div
                       className="CollegeReview_college_page_details_review_container__KbbIU"
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        School of Distance Education, Online Learning
-                        Programmes, Bharathiar University{/* */}
+                        University of Calicut
                         Review
                       </h2>
                       <div>
@@ -1120,7 +1023,6 @@ export default function Page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
                               />
                               <textarea
                                 placeholder="Write your reviews"
@@ -1138,7 +1040,7 @@ export default function Page() {
                       </div>
                       <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

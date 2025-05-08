@@ -462,9 +462,11 @@ export default function Page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
+                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                      Courses Eligibility
+                    </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
                       <div className="courseEligibility_container__fIu_K">
-                        <h2>Courses Eligibility</h2>
                         <table className="courseEligibility_course_table__Sr9wq">
                           <thead style={{ background: "var(--dark-blue)" }}>
                             <tr className="courseEligibility_eligible_head__GsY_a">
@@ -685,7 +687,7 @@ export default function Page() {
                             </div>
                           </div>
                           <div>
-                            <Image
+                            {/* <Image
                               alt="JECRC University sample certificate"
                               loading="lazy"
                               width={300}
@@ -695,7 +697,7 @@ export default function Page() {
                               className="Certificates_img__GOe9v"
                               style={{ color: "transparent" }}
                               src="/assets/course/DEGREE.jpeg"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -835,7 +837,7 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                  {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                     <div
                       className="CollegeReview_college_page_details_review_container__KbbIU"
                       id="contact"
@@ -900,7 +902,7 @@ export default function Page() {
                       </div>
                       <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

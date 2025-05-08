@@ -30,7 +30,7 @@ const HeroSlider = () => {
       hashtagHeight: 215,
       mainWidth: 986,
       mainHeight: 763,
-      link: "/colleges",
+      link: "/top-university",
     },
     {
       text1: "Study Hard, Shine Bright",
@@ -82,7 +82,7 @@ const HeroSlider = () => {
                               className="counter_livetextbanner__Vykhp"
                               style={{
                                 position: "absolute",
-                                top: "-15px",
+                                top: "-25px",
                                 right: "-30px",
                                 backgroundColor: "red",
                                 color: "#fff",

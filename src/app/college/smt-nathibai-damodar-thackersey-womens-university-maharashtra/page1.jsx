@@ -49,7 +49,7 @@ export default function Page() {
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <img
-            src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/hero-image/banner.webp"
+            src="https://store.learningroutes.in/images/colleges/Smt-Nathibai-Damodar-Thackersey-Women_s-University-Maharashtra/hero-image/banner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="hero-image"
@@ -59,23 +59,22 @@ export default function Page() {
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
             <h1 className="headCarousal_collegeHeading__KBbuL">
-              School of Distance Education, Online Learning Programmes,
-              Bharathiar University
+              Smt. Nathibai Damodar Thackersey Women's University, Maharashtra
             </h1>
             <p className="headCarousal_location__7rFlL">
-              Coimbatore{/* */},{/* */}Tamil Nadu
+              Mumbai{/* */},{/* */}Maharashtra
             </p>
-            <p className="headCarousal_ranking__1yTOY">NIRF Rank: 26</p>
+            <p className="headCarousal_ranking__1yTOY">NIRF Rank: ---</p>
             <div className="headCarousal_accreditation__HUqxZ">
               <img
-                src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/accreditations/UGC.webp"
+                src="https://store.learningroutes.in/images/colleges/Smt-Nathibai-Damodar-Thackersey-Women_s-University-Maharashtra/accreditations/NAAC A.webp"
                 alt="accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
               />
               <img
-                src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/accreditations/NAAC A++.webp"
+                src="https://store.learningroutes.in/images/colleges/Smt-Nathibai-Damodar-Thackersey-Women_s-University-Maharashtra/accreditations/UGC.webp"
                 alt="accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
@@ -191,24 +190,21 @@ export default function Page() {
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
                     <div className="about_collegeDetails__67FzM">
                       <h2 className="about_collegeDetailsHeading__AA_dr">
-                        School of Distance Education, Online Learning
-                        Programmes, Bharathiar University
+                        Smt. Nathibai Damodar Thackersey Women's University,
+                        Maharashtra
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
-                        Established in 1982 by the Government of Tamil Nadu in
-                        Coimbatore, the university provides a wide range of
-                        graduate, post-graduate, MPhil, and PhD programmes. The
-                        university ranks 21st among the top 100 institutions in
-                        the NIRF ranking. Built on the thought of Educate and
-                        Elevate, the university seeks to realise the vision of
-                        India in making education accessible to everyone. Over
-                        the years, the university has successfully enhanced its
-                        education quality and expanded its scope through its
-                        School of Distance Education (SDE). It offers both
-                        graduate and post-graduate programmes in areas including
-                        business, arts, and commerce. Its online programmes are
-                        UGC accredited and at par with the regular offline mode
-                        classes.
+                        Established in 1916, SNDT is the first Women’s
+                        university in India as well as South-East Asia.
+                        Headquartered in Churchgate Campus, Mumbai, this
+                        University is providing quality education to thousands
+                        of women’s in various disciplines. The Centre for
+                        Distance Education (CDE) offers several certificate
+                        /diploma /degree /post-graduate courses in various
+                        disciplines to thousands of girls/housewives/working
+                        women who could not complete their education (not even
+                        SSC/HSC), but are strongly motivated to upgrade their
+                        educational and /or professional qualifications.
                       </p>
                     </div>
                   </div>
@@ -229,7 +225,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Highly Accredited Programs</div>
+                          <div>Approved by renowned governing bodies.</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -244,7 +240,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Affordable and Flexible Learning Experience</div>
+                          <div>Affordable fees.</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -259,7 +255,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Placement Guidance and Support</div>
+                          <div>UG and PG liberal programmes</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -274,85 +270,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>E-Content</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Virtual Classroom</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Discussion Forum</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>e-Tutorials</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Project-Based Learning</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            Industry-Institute Partnership Facilitating Enhanced
-                            Learning
-                          </div>
+                          <div>Job-oriented short-term courses</div>
                         </div>
                       </div>
                     </div>
@@ -363,8 +281,8 @@ export default function Page() {
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
                           Explore online learning courses in
-                          {/* */}School of Distance Education, Online Learning
-                          Programmes, Bharathiar University
+                          {/* */}Smt. Nathibai Damodar Thackersey Women's
+                          University, Maharashtra
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -376,8 +294,8 @@ export default function Page() {
                           </thead>
                           <tbody>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance BA</td>
+                              <td style={{ textAlign: "center" }}>₹ 17790</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -400,8 +318,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50880</td>
+                              <td>Distance BCom</td>
+                              <td style={{ textAlign: "center" }}>₹ 17790</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -424,8 +342,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online BA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance MA</td>
+                              <td style={{ textAlign: "center" }}>₹ 24960</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -448,8 +366,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 70880</td>
+                              <td>Distance MCom</td>
+                              <td style={{ textAlign: "center" }}>₹ 24960</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -472,8 +390,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA</td>
-                              <td style={{ textAlign: "center" }}>₹ 44880</td>
+                              <td>Distance PG Diploma</td>
+                              <td style={{ textAlign: "center" }}>₹ null</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -496,32 +414,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online M.Com</td>
-                              <td style={{ textAlign: "center" }}>₹ 44880</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online B.Com</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance Certificate</td>
+                              <td style={{ textAlign: "center" }}>₹ null</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -566,68 +460,28 @@ export default function Page() {
                         </thead>
                         <tbody>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BBA</td>
-                            <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
-                            </td>
+                            <td>Distance BA</td>
+                            <td>---</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MCA</td>
-                            <td>
-                              Graduate in Computer Science/ Computer Systems
-                              &amp; Design/ Computer Technology/ Information
-                              Systems/ Information Technology/ Computer
-                              Applications from a recognised university OR
-                              Graduate in any field with Mathematics as a
-                              compulsory subject at 10+2/Graduation level from a
-                              recognised university OR Graduate in
-                              Commerce-Computer Applications with Business
-                              Mathematics &amp; Business Statistics as one of
-                              the subjects from a recognised university
-                            </td>
+                            <td>Distance BCom</td>
+                            <td>---</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BA</td>
-                            <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
-                            </td>
+                            <td>Distance MA</td>
+                            <td>---</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MBA</td>
-                            <td>
-                              Graduate in any field from a recognised university
-                            </td>
+                            <td>Distance MCom</td>
+                            <td>---</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MA</td>
-                            <td>
-                              Graduate in any field with
-                              Economics/Econometrics/Business Mathematics &amp;
-                              Engineering/Managerial
-                              Economics/Mathematics/Statistics/Business
-                              Statistics as one of the subjects from a
-                              recognized university
-                            </td>
+                            <td>Distance PG Diploma</td>
+                            <td>---</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online M.Com</td>
-                            <td>
-                              Graduate in Commerce/Business
-                              Administration/Business Management/Corporate
-                              Secretaryship from a recognized university
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online B.Com</td>
-                            <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
-                            </td>
+                            <td>Distance Certificate</td>
+                            <td>---</td>
                           </tr>
                         </tbody>
                       </table>
@@ -643,23 +497,16 @@ export default function Page() {
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
                         <form className="collegenquiry_form__uF7mS">
-                          <input
-                            type="text"
-                            placeholder="Name*"
-                            name="name"
-                            defaultValue
-                          />
+                          <input type="text" placeholder="Name*" name="name" />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
                           />
                           <select name="program">
                             <option value selected>
@@ -748,8 +595,7 @@ export default function Page() {
                               Sample Certificate
                             </h2>
                             <div className="Certificates_subHeading__CKwq6">
-                              Earn an UGC entitled degree, recognized around the
-                              globe
+                              Earn a degree that is recognized around the globe
                             </div>
                             <div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -768,7 +614,8 @@ export default function Page() {
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  NAAC A++ Recognised
+                                  Provides reading facility for 9 to 10 Hours
+                                  Daily.
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -787,7 +634,7 @@ export default function Page() {
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  NIRF- 36 (Overall Category)
+                                  E-Resources.
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -806,14 +653,34 @@ export default function Page() {
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  One of the leading Distance University in
-                                  India
+                                  Opportunity for working women to complete
+                                  higher education
+                                </div>
+                              </div>
+                              <div className="Certificates_pointBox__xwwq4">
+                                <img
+                                  alt="check-image"
+                                  loading="lazy"
+                                  width={20}
+                                  height={20}
+                                  decoding="async"
+                                  data-nimg={1}
+                                  style={{ color: "transparent" }}
+                                  srcSet="
+                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                            /assets/simpli-images/check.webp 2x
+                          "
+                                  src="/assets/simpli-images/check.webp"
+                                />
+                                <div className="Certificates_point__XYWLq">
+                                  Opportunity for life long learning to increase
+                                  professional qualities
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -823,11 +690,11 @@ export default function Page() {
                               className="Certificates_img__GOe9v"
                               style={{ color: "transparent" }}
                               srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FSmt-Nathibai-Damodar-Thackersey-Women_s-University-Maharashtra%2Fcertification%2Fno-img.webp&w=384&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FSmt-Nathibai-Damodar-Thackersey-Women_s-University-Maharashtra%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75"
-                            />
+                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FSmt-Nathibai-Damodar-Thackersey-Women_s-University-Maharashtra%2Fcertification%2Fno-img.webp&w=640&q=75"
+                            /> */}
                           </div>
                         </div>
                       </div>
@@ -849,8 +716,8 @@ export default function Page() {
                         procedure
                         {/* */}2025{/* */}
                         for the online course at
-                        {/* */}School of Distance Education, Online Learning
-                        Programmes, Bharathiar University{/* */}
+                        {/* */}Smt. Nathibai Damodar Thackersey Women's
+                        University, Maharashtra{/* */}
                         is as follow:
                       </p>
                       <div className="Admissions_step__4mDzm">
@@ -859,8 +726,7 @@ export default function Page() {
                           {/* */}1
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Select your course and register at the online
-                          application portal
+                          Visit the official website.
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
@@ -869,7 +735,7 @@ export default function Page() {
                           {/* */}2
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Add your qualification, address, and other details
+                          Register yourself.
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
@@ -878,7 +744,7 @@ export default function Page() {
                           {/* */}3
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Upload all the necessary documents
+                          Select the course &amp; pay the fees.
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
@@ -887,45 +753,7 @@ export default function Page() {
                           {/* */}4
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Preview and Submit the application
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}5
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Pay the registration fee through GPAY, PayTM, UPI, Net
-                          banking, Credit/Debit(ATM) card, etc.
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}6
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          After this, your application will be validated by the
-                          university
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}7
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Upon validation, pay the course fee
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}8
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Login and Download the Admission cum ID card
+                          Wait for the confirmation message.
                         </div>
                       </div>
                       <div className="Admissions_stepHide__nIt_6" />
@@ -978,13 +806,30 @@ export default function Page() {
                     "
                             src="/assets/simpli-images/check.webp"
                           />
+                          <p>Top recruiters from leading Companies</p>
+                        </div>
+                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
+                          <img
+                            alt="img"
+                            loading="lazy"
+                            width={20}
+                            height={20}
+                            decoding="async"
+                            data-nimg={1}
+                            style={{ color: "transparent" }}
+                            srcSet="
+                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                      /assets/simpli-images/check.webp 2x
+                    "
+                            src="/assets/simpli-images/check.webp"
+                          />
                           <p>Job that suitably fits the student profile</p>
                         </div>
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ 3 LPA
+                            ₹ NaN LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Average Salary
@@ -992,7 +837,7 @@ export default function Page() {
                         </div>
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ 52 LPA
+                            ₹ NaN LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Highest Salary
@@ -1014,8 +859,8 @@ export default function Page() {
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        School of Distance Education, Online Learning
-                        Programmes, Bharathiar University{/* */}
+                        Smt. Nathibai Damodar Thackersey Women's University,
+                        Maharashtra{/* */}
                         Review
                       </h2>
                       <div>
@@ -1120,7 +965,6 @@ export default function Page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
                               />
                               <textarea
                                 placeholder="Write your reviews"

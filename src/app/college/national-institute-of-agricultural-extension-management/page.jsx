@@ -279,11 +279,8 @@ export default function Page() {
                 ))}
               </div>
               <div className="headCarousal_proceedCompareContainer__rekWb">
-                <a href="/colleges">
-                  <button
-                    className="headCarousal_collegeCompare__znhHH"
-                    aria-label="Add to compare"
-                  >
+                <a href="/top-university">
+                  <button className="headCarousal_collegeCompare__znhHH">
                     Add To Compare
                   </button>
                 </a>
@@ -467,10 +464,10 @@ export default function Page() {
                       className="collegeDetails_maxWidth__6vBVL"
                       id="Course Eligibility"
                     >
+                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                        Course Eligibility
+                      </h2>
                       <div className="courseEligibility_wrapper__WDP1x">
-                        <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                          Course Eligibility
-                        </h2>
                         <table className="courseEligibility_eligible_table__ZvMdh">
                           <thead>
                             <tr className="courseEligibility_eligible_head__GsY_a">
@@ -695,7 +692,7 @@ export default function Page() {
                               </div>
                             </div>
                             <div>
-                              <Image
+                              {/* <Image
                                 alt="MANAGE sample certificate"
                                 loading="lazy"
                                 width={300}
@@ -703,7 +700,7 @@ export default function Page() {
                                 decoding="async"
                                 className="Certificates_img__GOe9v"
                                 src="/assets/course/manage-certificate.png"
-                              />
+                              /> */}
                             </div>
                           </div>
                         </div>
@@ -877,7 +874,7 @@ export default function Page() {
                         </div> */}
                       </div>
                     </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
+                    {/* <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
                       <div className="faq_container__qXyX9">
                         <h2 className="faq_heading__i5z0v">FAQ's</h2>
                         <div className="faq_faqDesc__c2z0r">
@@ -904,7 +901,7 @@ export default function Page() {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                       <div className="CollegeReview_college_page_details_review_container__KbbIU">
                         <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">

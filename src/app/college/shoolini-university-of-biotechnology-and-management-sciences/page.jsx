@@ -690,10 +690,10 @@ export default function Page() {
                       className="collegeDetails_maxWidth__6vBVL"
                       id="Course Eligibility"
                     >
+                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                        Courses Eligibility
+                      </h2>
                       <div className="courseEligibility_wrapper__WDP1x">
-                        <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                          Courses Eligibility
-                        </h2>
                         <table className="courseEligibility_eligible_table__ZvMdh">
                           <thead>
                             <tr className="courseEligibility_eligible_head__GsY_a">
@@ -1303,7 +1303,7 @@ export default function Page() {
                             </p>
                           </div>
                         </div>
-                        <h3 className="placement_heading__iEHZj">
+                        {/* <h3 className="placement_heading__iEHZj">
                           Our Students Work At
                         </h3>
                         <div className="partners_container___c9cx">
@@ -1421,18 +1421,18 @@ export default function Page() {
                               />
                             </div>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
+                    {/* <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
                       <div className="faq_container__v2O04">
                         <h2 className="faq_heading__ypOPH">FAQ's</h2>
                         <div className="faq_faqMainContainer__T9i6Q">
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}1{/* */}
-                                {/* */}Is Shoolini University online UGC
+                                Q.1
+                                Is Shoolini University online UGC
                                 approved?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
@@ -1455,8 +1455,8 @@ export default function Page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}2{/* */}
-                                {/* */}Is Shoolini University good for an online
+                                Q.2
+                                Is Shoolini University good for an online
                                 MBA?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
@@ -1479,8 +1479,8 @@ export default function Page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}3{/* */}
-                                {/* */}What is the fee structure for Shoolini
+                                Q.3
+                                What is the fee structure for Shoolini
                                 University Online programmes in 2024?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
@@ -1503,8 +1503,8 @@ export default function Page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}4{/* */}
-                                {/* */}How can I apply for Shoolini University
+                                Q.4
+                                How can I apply for Shoolini University
                                 Online programmes in 2024?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
@@ -1527,8 +1527,8 @@ export default function Page() {
                           <div className="faq_faqMain__ACefH">
                             <div className="faq_questionContainer__zAsad">
                               <div className="faq_ques__Hgq7Z">
-                                Q.{/* */}5{/* */}
-                                {/* */}How are classes conducted for Shoolini
+                                Q.5
+                                How are classes conducted for Shoolini
                                 University Online programmes?
                               </div>
                               <div className="faq_accordionIcon__8lbAd">
@@ -1550,15 +1550,15 @@ export default function Page() {
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                    </div> */}
+                    {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                       <div
                         className="CollegeReview_college_page_details_review_container__KbbIU"
                         id="contact"
                       >
                         <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
                           Shoolini University of Biotechnology and Management
-                          Sciences{/* */}
+                          Sciences
                           Review
                         </h2>
                         <div>
@@ -1566,7 +1566,7 @@ export default function Page() {
                             <div className="CollegeReview_college_page_details_review_form_container__rP5km">
                               <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
                                 <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
-                                  0{/* */}
+                                  0
                                   out of 5
                                 </p>
                                 <div>
@@ -1680,7 +1680,7 @@ export default function Page() {
                         </div>
                         <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

@@ -316,11 +316,8 @@ export default function Page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="/colleges">
-                <button
-                  className="headCarousal_collegeCompare__znhHH"
-                  aria-label="Add to compare"
-                >
+              <a href="/top-university">
+                <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
               </a>
@@ -520,10 +517,10 @@ export default function Page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
+                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                      Course Eligibility
+                    </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
-                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                        Course Eligibility
-                      </h2>
                       <table className="courseEligibility_eligible_table__ZvMdh">
                         <thead>
                           <tr className="courseEligibility_eligible_head__GsY_a">
@@ -792,7 +789,7 @@ export default function Page() {
                             </div>
                           </div>
                           <div>
-                            <Image
+                            {/* <Image
                               alt="VMOU sample certificate"
                               loading="lazy"
                               width={300}
@@ -802,7 +799,7 @@ export default function Page() {
                               className="Certificates_img__GOe9v"
                               style={{ color: "transparent" }}
                               src="/assets/course/DEGREE.jpeg"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>

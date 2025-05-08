@@ -19,10 +19,9 @@ import "../../styles/8c8030bf7e3ee32c.css";
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
-  const [isModalOpen, setIsModalOpen] = useState(false); // For FirstVisitModal
-  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false); // For Courses Enquire Now modal
-  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
-    useState(false); // For Specialization modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,37 +29,34 @@ export default function Page() {
     program: "",
     state: "",
   });
-  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
-    useState([]);
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] = useState([]);
   const [selectedCourseName, setSelectedCourseName] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // For form submission loading state
+  const [isLoading, setIsLoading] = useState(false);
 
   const courseSpecializations = {
-    "Distance BCom": [
+    "Online BCom": [
       { name: "Accounting and Finance", fees: 99000 },
       { name: "Taxation", fees: 99000 },
       { name: "Banking", fees: 99000 },
     ],
-    "Distance BBA": [
+    "Online BBA": [
       { name: "Marketing Management", fees: 141000 },
       { name: "Human Resource Management", fees: 150000 },
       { name: "Entrepreneurship", fees: 169200 },
     ],
-    "Distance MBA": [
+    "Online MBA": [
       { name: "Finance", fees: 315000 },
       { name: "Marketing", fees: 315000 },
       { name: "Operations Management", fees: 315000 },
     ],
-    "Distance EMBA": [
+    "Online EMBA": [
       { name: "Leadership", fees: 400000 },
       { name: "Strategic Management", fees: 400000 },
     ],
   };
 
-  // Calculate fee range dynamically
   const getFeeRange = (courseName) => {
-    const fees =
-      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    const fees = courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
     if (fees.length === 0) return "N/A";
     const min = Math.min(...fees);
     const max = Math.max(...fees);
@@ -79,30 +75,38 @@ export default function Page() {
       "Certification",
       "Admission",
       "Placement",
-      "Review",
     ];
 
     const handleScroll = debounce(() => {
-      let currentSection = "About";
-      for (const section of sections) {
+      const scrollY = window.scrollY + 100; // Offset for better UX
+      let closestSection = "About";
+      let minDistance = Infinity;
+
+      sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section;
-            break;
+          const offsetTop = element.offsetTop;
+          const distance = Math.abs(scrollY - offsetTop);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = section;
           }
+          console.log(`Section: ${section}, OffsetTop: ${offsetTop}, Distance: ${distance}`);
+        } else {
+          console.warn(`Element with id="${section}" not found`);
         }
-      }
-      setActiveSection(currentSection);
-    }, 100);
+      });
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+      console.log(`Active section: ${closestSection}`);
+      setActiveSection(closestSection);
+    }, 10);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial call
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      handleScroll.cancel();
+      handleScroll.cancel(); // Clean up debounced function
     };
   }, []);
 
@@ -138,9 +142,7 @@ export default function Page() {
     }
     setIsLoading(true);
     try {
-      // Placeholder for API call
       console.log("Form submitted:", formData);
-      // Example: await fetch("/api/enquire", { method: "POST", body: JSON.stringify(formData) });
       handleClose();
     } catch (error) {
       alert("Error submitting form");
@@ -165,7 +167,6 @@ export default function Page() {
     }
     setIsLoading(true);
     try {
-      // Placeholder for API call
       console.log("Enquiry submitted:", data);
       form.reset();
     } catch (error) {
@@ -186,6 +187,43 @@ export default function Page() {
     setSelectedCourseSpecializations([]);
     setSelectedCourseName("");
   };
+
+  const states = [
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Lakshadweep",
+    "Delhi",
+    "Puducherry",
+  ];
 
   return (
     <>
@@ -211,20 +249,20 @@ export default function Page() {
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
-            <nav class="Breadcrumb_breadcrumb__j1UHX">
-              <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                <a class="Breadcrumb_link__zmGnw" href="/">
+            <nav className="Breadcrumb_breadcrumb__j1UHX">
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/">
                   Home
                 </a>
-                <span class="Breadcrumb_separator__e7M6o">/</span>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
               </span>
-              <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                <a class="Breadcrumb_link__zmGnw" href="/top-university">
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/top-university">
                   Colleges
                 </a>
-                <span class="Breadcrumb_separator__e7M6o">/</span>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
               </span>
-              <span class="Breadcrumb_breadcrumbItem__lnXIo">
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
                 <span> NMIMS Centre for Distance and Online Education</span>
               </span>
             </nav>
@@ -241,7 +279,7 @@ export default function Page() {
                 width={20}
                 height={20}
               />
-              <Image
+                           <Image
                 src="https://store.learningroutes.in/images/colleges/NMIMS-Centre-for-Distance-and-Online-Education/accreditations/UGC.webp"
                 alt="UGC accreditation"
                 className="headCarousal_accImg__NoM8M"
@@ -272,7 +310,6 @@ export default function Page() {
                     { id: "Certification", text: "Certifications" },
                     { id: "Admission", text: "Admission Procedure" },
                     { id: "Placement", text: "Placement" },
-                    { id: "Review", text: "Review" },
                   ].map((item) => (
                     <a
                       key={item.id}
@@ -283,6 +320,9 @@ export default function Page() {
                       }
                       onClick={
                         item.id === "Enquire Now" ? openModal : undefined
+                      }
+                      aria-current={
+                        activeSection === item.id ? "true" : undefined
                       }
                     >
                       <div
@@ -454,20 +494,20 @@ export default function Page() {
                           <tbody>
                             {[
                               {
-                                name: "Distance BCom",
-                                feeRange: getFeeRange("Distance BCom"),
+                                name: "Online BCom",
+                                feeRange: getFeeRange("Online BCom"),
                               },
                               {
-                                name: "Distance BBA",
-                                feeRange: getFeeRange("Distance BBA"),
+                                name: "Online BBA",
+                                feeRange: getFeeRange("Online BBA"),
                               },
                               {
-                                name: "Distance MBA",
-                                feeRange: getFeeRange("Distance MBA"),
+                                name: "Online MBA",
+                                feeRange: getFeeRange("Online MBA"),
                               },
                               {
-                                name: "Distance EMBA",
-                                feeRange: getFeeRange("Distance EMBA"),
+                                name: "Online EMBA",
+                                feeRange: getFeeRange("Online EMBA"),
                               },
                             ].map((course, index) => (
                               <tr className="courses_tbody__ZPCxV" key={index}>
@@ -538,19 +578,19 @@ export default function Page() {
                         </thead>
                         <tbody>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Distance BCom</td>
+                            <td>Online BCom</td>
                             <td>10+2 with minimum 50% marks</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Distance BBA</td>
+                            <td>Online BBA</td>
                             <td>10+2 with minimum 50% marks</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Distance MBA</td>
+                            <td>Online MBA</td>
                             <td>Bachelor's degree with minimum 50% marks</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Distance EMBA</td>
+                            <td>Online EMBA</td>
                             <td>
                               Bachelor's Degree with minimum 55% marks and 3+
                               years of work experience
@@ -628,36 +668,7 @@ export default function Page() {
                             required
                           >
                             <option value="">State/Province*</option>
-                            {[
-                              "Arunachal Pradesh",
-                              "Assam",
-                              "Bihar",
-                              "Chhattisgarh",
-                              "Delhi",
-                              "Goa",
-                              "Gujarat",
-                              "Haryana",
-                              "Himachal Pradesh",
-                              "Jharkhand",
-                              "Karnataka",
-                              "Kerala",
-                              "Madhya Pradesh",
-                              "Maharashtra",
-                              "Manipur",
-                              "Meghalaya",
-                              "Mizoram",
-                              "Nagaland",
-                              "Odisha",
-                              "Punjab",
-                              "Rajasthan",
-                              "Sikkim",
-                              "Tamil Nadu",
-                              "Telangana",
-                              "Tripura",
-                              "Uttarakhand",
-                              "Uttar Pradesh",
-                              "West Bengal",
-                            ].map((state) => (
+                            {states.map((state) => (
                               <option key={state} value={state}>
                                 {state}
                               </option>
@@ -751,7 +762,7 @@ export default function Page() {
                               data-nimg={1}
                               className="Certificates_img__GOe9v"
                               style={{ color: "transparent" }}
-                              src="/assets/course/nmims-degree.png"
+                              src="/assets/img/others/nmims-mba.jpg"
                             />
                           </div>
                         </div>
@@ -769,6 +780,8 @@ export default function Page() {
                           margin: "20px 0",
                           fontFamily:
                             "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+
+
                           fontStyle: "normal",
                           fontWeight: "700",
                         }}
@@ -897,74 +910,6 @@ export default function Page() {
                       <div className="partners_container___c9cx" />
                     </div>
                   </div>
-                  {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
-                    <div
-                      className="CollegeReview_college_page_details_review_container__KbbIU"
-                      id="contact"
-                    >
-                      <h2
-                        style={{
-                          fontSize: "24px",
-                          margin: "20px 0",
-                          fontFamily:
-                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                          fontStyle: "normal",
-                          fontWeight: "700",
-                        }}
-                      >
-                        NMIMS Centre for Distance and Online Education Review
-                      </h2>
-                      <div>
-                        <form>
-                          <div className="CollegeReview_college_page_details_review_form_container__rP5km">
-                            <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
-                              <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
-                                0 out of 5
-                              </p>
-                              <div>
-                                {Array(5)
-                                  .fill()
-                                  .map((_, index) => (
-                                    <span className="star" key={index}>
-                                      <Image
-                                        alt="Star rating"
-                                        loading="lazy"
-                                        width={20}
-                                        height={20}
-                                        decoding="async"
-                                        data-nimg={1}
-                                        className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                        style={{ color: "transparent" }}
-                                        src="/assets/img/home_6/StarTwo.png"
-                                      />
-                                    </span>
-                                  ))}
-                              </div>
-                            </div>
-                            <div className="CollegeReview_rating_form_container__q_Xvp">
-                              <input
-                                className="CollegeReview_reviewer_name__Fdlnr"
-                                type="text"
-                                placeholder="Enter your name"
-                                required
-                                name="reviewerName"
-                              />
-                              <textarea
-                                placeholder="Write your reviews"
-                                className="CollegeReview_college_page_details_review_form_input__niDf2"
-                                name="comment"
-                                required
-                              />
-                              <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
-                                Send message
-                              </button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -1006,7 +951,7 @@ export default function Page() {
                 <div className="td_form_card_in position-relative">
                   <button
                     type="button"
-                    className="btn-close  "
+                    className="btn-close"
                     onClick={handleClose}
                     aria-label="Close course enquiry modal"
                     style={{
@@ -1068,42 +1013,7 @@ export default function Page() {
                       required
                     >
                       <option value="">States/Province*</option>
-                      {[
-                        "Andhra Pradesh",
-                        "Arunachal Pradesh",
-                        "Assam",
-                        "Bihar",
-                        "Chhattisgarh",
-                        "Goa",
-                        "Gujarat",
-                        "Haryana",
-                        "Himachal Pradesh",
-                        "Jharkhand",
-                        "Karnataka",
-                        "Kerala",
-                        "Madhya Pradesh",
-                        "Maharashtra",
-                        "Manipur",
-                        "Meghalaya",
-                        "Mizoram",
-                        "Nagaland",
-                        "Odisha",
-                        "Punjab",
-                        "Rajasthan",
-                        "Sikkim",
-                        "Tamil Nadu",
-                        "Telangana",
-                        "Tripura",
-                        "Uttar Pradesh",
-                        "Uttarakhand",
-                        "West Bengal",
-                        "Andaman and Nicobar Islands",
-                        "Chandigarh",
-                        "Dadra and Nagar Haveli and Daman and Diu",
-                        "Lakshadweep",
-                        "Delhi",
-                        "Puducherry",
-                      ].map((state) => (
+                      {states.map((state) => (
                         <option key={state} value={state}>
                           {state}
                         </option>
@@ -1130,7 +1040,7 @@ export default function Page() {
           </div>
         </div>
       )}
-      {/* {isSpecializationModalOpen && (
+      {isSpecializationModalOpen && (
         <div
           className="modal fade show d-block"
           id="specializationModal"
@@ -1146,7 +1056,7 @@ export default function Page() {
                 <div className="td_form_card_in position-relative">
                   <button
                     type="button"
-                    className="btn-close "
+                    className="btn-close"
                     onClick={handleCloseSpecializationModal}
                     aria-label="Close specialization modal"
                     style={{
@@ -1192,7 +1102,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-      )} */}
+      )}
       <Footer />
     </>
   );

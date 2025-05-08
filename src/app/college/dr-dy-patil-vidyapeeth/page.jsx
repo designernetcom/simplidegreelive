@@ -212,7 +212,7 @@ export default function Page() {
       </Head>
       <Menu />
       <div>
-        <a
+        {/* <a
           className="float"
           target="_blank"
           href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
@@ -252,7 +252,7 @@ export default function Page() {
             </svg>
             Enquire Now
           </button>
-        </div>
+        </div> */}
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <Image
             src="https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/hero-image/DYpatilvidyapeethbanner.webp"
@@ -331,11 +331,8 @@ export default function Page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="#">
-                <button
-                  className="headCarousal_collegeCompare__znhHH"
-                  aria-label="Add to compare"
-                >
+              <a href="/top-university">
+                <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
               </a>
@@ -832,7 +829,7 @@ export default function Page() {
                           </p>
                         </div>
                       </div>
-                      <h3 className="placement_heading__iEHZj">
+                      {/* <h3 className="placement_heading__iEHZj">
                         Our Students Work At
                       </h3>
                       <div className="partners_container___c9cx">
@@ -874,7 +871,7 @@ export default function Page() {
                             </div>
                           </div>
                         ))}
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">

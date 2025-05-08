@@ -1,12 +1,26 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
 import { debounce } from "lodash";
-import Menu from "../../../../components/Header/Menu/Menu";
-import Footer from "../../../../components/Footer/Footer";
-import FirstVisitModal from "../../../../components/FirstVisitModal";
+
+// Dynamically import components with SSR disabled
+const Menu = dynamic(() => import("../../../../components/Header/Menu/Menu"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("../../../../components/Footer/Footer"), {
+  ssr: false,
+});
+const FirstVisitModal = dynamic(
+  () => import("../../../../components/FirstVisitModal"),
+  {
+    ssr: false,
+  }
+);
+
+// CSS imports
 import "../../styles/5107c2122129e0bb.css";
 import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
@@ -16,7 +30,6 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
-
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
@@ -38,8 +51,8 @@ export default function Page() {
   const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
     useState([]);
   const [selectedCourseName, setSelectedCourseName] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // For form submission loading state
-  const [openFaqIndex, setOpenFaqIndex] = useState(null); // For FAQ accordion
+  const [isLoading, setIsLoading] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const courseSpecializations = {
     "Distance BA (Hons)": [
@@ -68,6 +81,17 @@ export default function Page() {
     ],
   };
 
+  const getFeeRange = (courseName) => {
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    if (fees.length === 0) return "Contact for details";
+    const min = Math.min(...fees);
+    const max = Math.max(...fees);
+    return min === max
+      ? `₹ ${min.toLocaleString()}`
+      : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
+  };
+
   useEffect(() => {
     const sections = [
       "About",
@@ -80,26 +104,30 @@ export default function Page() {
       "EMI Details",
       "Admission",
       "Placement",
-      "FAQ's",
+      "FAQs",
       "Review",
     ];
 
     const handleScroll = debounce(() => {
-      let currentSection = "About";
-      for (const section of sections) {
+      const scrollY = window.scrollY + 100;
+      let closestSection = "About";
+      let minDistance = Infinity;
+
+      sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section;
-            break;
+          const distance = Math.abs(scrollY - element.offsetTop);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = section;
           }
         }
-      }
-      setActiveSection(currentSection);
+      });
+
+      setActiveSection(closestSection);
     }, 100);
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => {
@@ -143,9 +171,12 @@ export default function Page() {
       alert("Invalid email format");
       return;
     }
+    if (!/^[0-9]{10}$/.test(formData.phone)) {
+      alert("Phone number must be 10 digits");
+      return;
+    }
     setIsLoading(true);
     try {
-      // Placeholder for API call
       console.log("Form submitted:", formData);
       handleClose();
     } catch (error) {
@@ -169,12 +200,21 @@ export default function Page() {
       alert("Invalid email format");
       return;
     }
+    if (!/^[0-9]{10}$/.test(data.phone)) {
+      alert("Phone number must be 10 digits");
+      return;
+    }
     setIsLoading(true);
     try {
-      // Placeholder for API call
       console.log("Enquiry submitted:", data);
       form.reset();
-      setFormData({ name: "", email: "", phone: "", program: "", state: "" });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        program: "",
+        state: "",
+      });
     } catch (error) {
       alert("Error submitting form");
     } finally {
@@ -184,13 +224,16 @@ export default function Page() {
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
-    if (!reviewData.reviewerName || !reviewData.comment) {
-      alert("Please fill out all fields");
+    if (!reviewData.reviewerName.trim()) {
+      alert("Name is required");
+      return;
+    }
+    if (!reviewData.comment.trim()) {
+      alert("Review comment is required");
       return;
     }
     setIsLoading(true);
     try {
-      // Placeholder for API call
       console.log("Review submitted:", reviewData);
       setReviewData({ reviewerName: "", comment: "" });
     } catch (error) {
@@ -216,6 +259,43 @@ export default function Page() {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
+  const states = [
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Lakshadweep",
+    "Delhi",
+    "Puducherry",
+  ];
+
   return (
     <>
       <Head>
@@ -223,6 +303,15 @@ export default function Page() {
         <meta
           name="description"
           content="Explore online and distance learning programs at Utkal University, Bhubaneswar, offering BA, BCom, BBA, MBA, MCom, and MA with UGC-DEB and NAAC A+ accreditation."
+        />
+        <meta property="og:title" content="Utkal University" />
+        <meta
+          property="og:description"
+          content="Discover distance education programs at Utkal University."
+        />
+        <meta
+          property="og:image"
+          content="https://store.learningroutes.in/images/colleges/Utkal-University/hero-image/banner.webp"
         />
       </Head>
       <Menu />
@@ -276,36 +365,50 @@ export default function Page() {
             alt="Utkal University campus banner"
             width={240}
             height={240}
+            layout="responsive"
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
+            <nav className="Breadcrumb_breadcrumb__j1UHX">
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/">
+                  Home
+                </a>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/top-university">
+                  Colleges
+                </a>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <span>Utkal University</span>
+              </span>
+            </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
               Utkal University
             </h1>
             <p className="headCarousal_location__7rFlL">Bhubaneswar, Odisha</p>
             <p className="headCarousal_ranking__1yTOY">NIRF Rank: 42</p>
             <div className="headCarousal_accreditation__HUqxZ">
-              <Image
-                src="https://store.learningroutes.in/images/colleges/Utkal-University/accreditations/UGC_DEB.webp"
-                alt="UGC-DEB accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="https://store.learningroutes.in/images/colleges/Utkal-University/accreditations/NAAC A+.webp"
-                alt="NAAC A+ accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
+              {[
+                { src: "NAAC A+.webp", alt: "NAAC A+ accreditation" },
+                { src: "UGC_DEB.webp", alt: "UGC-DEB accreditation" },
+              ].map((acc, index) => (
+                <Image
+                  key={index}
+                  src={`https://store.learningroutes.in/images/colleges/Utkal-University/accreditations/${acc.src}`}
+                  alt={acc.alt}
+                  className="headCarousal_accImg__NoM8M"
+                  width={20}
+                  height={20}
+                />
+              ))}
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="/colleges">
-                <button
-                  className="headCarousal_collegeCompare__znhHH"
-                  aria-label="Add to compare"
-                >
+              <a href="/top-university">
+                <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
               </a>
@@ -328,7 +431,7 @@ export default function Page() {
                     { id: "EMI Details", text: "EMI Details" },
                     { id: "Admission", text: "Admission Procedure" },
                     { id: "Placement", text: "Placement" },
-                    { id: "FAQ's", text: "FAQ's" },
+                    { id: "FAQs", text: "FAQs" },
                     { id: "Review", text: "Review" },
                   ].map((item) => (
                     <a
@@ -342,6 +445,9 @@ export default function Page() {
                         item.id === "Enquire Now"
                           ? () => setIsCourseModalOpen(true)
                           : undefined
+                      }
+                      aria-current={
+                        activeSection === item.id ? "true" : undefined
                       }
                     >
                       <div
@@ -376,19 +482,17 @@ export default function Page() {
                         Utkal University
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
-                        Utkal University, established by the Directorate of
-                        Distance and Continuing Education in 1962, is a premier
-                        institution in Bhubaneswar, Odisha. It offers a diverse
-                        range of UG and PG Degree and Diploma programmes through
-                        regular and distance modes, designed for both full-time
-                        and part-time study. The university provides courses in
-                        streams such as Accounting & Commerce, Humanities &
-                        Social Sciences, Business & Management Studies, IT &
-                        Software, and Teaching & Education, including B.Com,
-                        B.A., BBA, PG Diploma, M.A., MBA/PGDM, MCA, and M.Com.
-                        With UGC-DEB and NAAC A+ accreditation, Utkal University
-                        is recognized for its quality education and strong
-                        industry connections.
+                        Established in 1962 by the Directorate of Distance and
+                        Continuing Education, Utkal University in Bhubaneswar,
+                        Odisha, is a premier institution offering diverse UG and
+                        PG programs through regular and distance modes. Courses
+                        span Accounting & Commerce, Humanities & Social
+                        Sciences, Business & Management Studies, IT & Software,
+                        and Teaching & Education, including BA, BCom, BBA, MBA,
+                        MCom, MA, and PG Diploma. With UGC-DEB approval and NAAC
+                        A+ accreditation, the university is ranked 42 in NIRF
+                        2023, known for quality education and strong industry
+                        connections.
                       </p>
                     </div>
                   </div>
@@ -444,15 +548,30 @@ export default function Page() {
                           </thead>
                           <tbody>
                             {[
-                              { course: "Distance BA (Hons)", fee: "₹ 18,000" },
+                              {
+                                course: "Distance BA (Hons)",
+                                fee: getFeeRange("Distance BA (Hons)"),
+                              },
                               {
                                 course: "Distance BCom (Hons)",
-                                fee: "₹ 18,000",
+                                fee: getFeeRange("Distance BCom (Hons)"),
                               },
-                              { course: "Distance BBA", fee: "₹ 36,000" },
-                              { course: "Distance MBA", fee: "₹ 60,000" },
-                              { course: "Distance MCom", fee: "₹ 16,800" },
-                              { course: "Distance MA", fee: "₹ 16,800" },
+                              {
+                                course: "Distance BBA",
+                                fee: getFeeRange("Distance BBA"),
+                              },
+                              {
+                                course: "Distance MBA",
+                                fee: getFeeRange("Distance MBA"),
+                              },
+                              {
+                                course: "Distance MCom",
+                                fee: getFeeRange("Distance MCom"),
+                              },
+                              {
+                                course: "Distance MA",
+                                fee: getFeeRange("Distance MA"),
+                              },
                             ].map((item, index) => (
                               <tr className="courses_tbody__ZPCxV" key={index}>
                                 <td>{item.course}</td>
@@ -491,10 +610,10 @@ export default function Page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
+                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                      Course Eligibility
+                    </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
-                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                        Course Eligibility
-                      </h2>
                       <table className="courseEligibility_eligible_table__ZvMdh">
                         <thead>
                           <tr className="courseEligibility_eligible_head__GsY_a">
@@ -505,48 +624,61 @@ export default function Page() {
                         <tbody>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance BA (Hons)</td>
-                            <td>Eligibility varies with the specialization</td>
+                            <td>
+                              Higher Secondary (10+2) or equivalent examination
+                              from a recognized board with a minimum of 45%
+                              marks in aggregate. Specific specializations may
+                              require relevant subjects at the 10+2 level;
+                              contact the university for details.
+                            </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance BCom (Hons)</td>
                             <td>
-                              Higher Secondary / +2 / Senior Secondary or any
-                              other equivalent examination passed from any Board
-                              / Council established by the Govt. of India or any
-                              State Govt. or any other equivalent examination
-                              recognized by Central Board of Secondary Education
-                              / Council of Higher Secondary / Dept. of Industry
-                              or any other Dept. of Govt. of Odisha or Utkal
-                              University. Those joining B.Sc. Programme must
-                              have passed the above examination under the
-                              faculty of Science / Technology / Engineering /
-                              Pharmacy etc. There shall be no such restriction
-                              for joining B.A/ B.Com stream.
+                              Higher Secondary (10+2) or equivalent examination
+                              from a recognized board or council established by
+                              the Government of India or any State Government,
+                              with at least 45% marks. Candidates from Science,
+                              Technology, Engineering, or Pharmacy streams are
+                              not eligible unless they meet BA/BCom criteria.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance BBA</td>
-                            <td>10+2 or equivalent</td>
+                            <td>
+                              Higher Secondary (10+2) or equivalent examination
+                              from a recognized board with a minimum of 45%
+                              marks in aggregate.
+                            </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MBA</td>
                             <td>
-                              Bachelor Degree holder in any discipline or
-                              equivalent
+                              Bachelor’s degree in any discipline from a
+                              recognized university with a minimum of 50% marks
+                              or equivalent CGPA. Relevant work experience may
+                              be preferred for certain specializations.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MCom</td>
                             <td>
-                              B.Com, BBA from Utkal University or any other
-                              University recognized by Utkal University,
-                              Chartered Accountants, Company Secretaries, and
-                              Cost Accountants are also eligible for admission.
+                              B.Com, BBA, or equivalent degree from Utkal
+                              University or a recognized institution, or
+                              professional qualifications like Chartered
+                              Accountant, Company Secretary, or Cost Accountant,
+                              with a minimum of 45% marks.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
                             <td>Distance MA</td>
-                            <td>Eligibility varies with the specialization</td>
+                            <td>
+                              Bachelor’s degree in a relevant discipline from a
+                              recognized university with a minimum of 45% marks
+                              or equivalent CGPA. Specific specializations may
+                              have additional subject requirements; contact the
+                              university for details.
+                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -617,42 +749,7 @@ export default function Page() {
                             required
                           >
                             <option value="">State/Province*</option>
-                            {[
-                              "Andhra Pradesh",
-                              "Arunachal Pradesh",
-                              "Assam",
-                              "Bihar",
-                              "Chhattisgarh",
-                              "Goa",
-                              "Gujarat",
-                              "Haryana",
-                              "Himachal Pradesh",
-                              "Jharkhand",
-                              "Karnataka",
-                              "Kerala",
-                              "Madhya Pradesh",
-                              "Maharashtra",
-                              "Manipur",
-                              "Meghalaya",
-                              "Mizoram",
-                              "Nagaland",
-                              "Odisha",
-                              "Punjab",
-                              "Rajasthan",
-                              "Sikkim",
-                              "Tamil Nadu",
-                              "Telangana",
-                              "Tripura",
-                              "Uttar Pradesh",
-                              "Uttarakhand",
-                              "West Bengal",
-                              "Andaman and Nicobar Islands",
-                              "Chandigarh",
-                              "Dadra and Nagar Haveli and Daman and Diu",
-                              "Lakshadweep",
-                              "Delhi",
-                              "Puducherry",
-                            ].map((state) => (
+                            {states.map((state) => (
                               <option key={state} value={state}>
                                 {state}
                               </option>
@@ -721,8 +818,6 @@ export default function Page() {
                                     width={20}
                                     height={20}
                                     decoding="async"
-                                    data-nimg={1}
-                                    style={{ color: "transparent" }}
                                     src="/assets/simpli-images/check.webp"
                                   />
                                   <div className="Certificates_point__XYWLq">
@@ -732,19 +827,18 @@ export default function Page() {
                               ))}
                             </div>
                           </div>
-                          <div>
+                          {/* Uncomment when valid certificate image is available */}
+                          {/* <div>
                             <Image
                               alt="Utkal University sample certificate"
                               loading="lazy"
                               width={300}
                               height={200}
                               decoding="async"
-                              data-nimg={1}
                               className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
                               src="/assets/course/DEGREE.jpeg"
                             />
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -757,73 +851,41 @@ export default function Page() {
                       <h2 className="emi_heading__fOAZV">EMI Details</h2>
                       <div>
                         <div className="emi_emiDesc__GhNMM">
-                          <div>
-                            <p className="emi_para__0BeXd">
-                              <span className="emi_title__UXhF1">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="emi_diamondIcon__XqB7W"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                                Flexible EMI Options:{" "}
-                              </span>
-                              Choose from easy EMI plans available for 6 or 12
-                              months, with monthly payments ranging from ₹3,000
-                              to ₹5,000.
-                            </p>
-                          </div>
-                          <div>
-                            <p className="emi_para__0BeXd">
-                              <span className="emi_title__UXhF1">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="emi_diamondIcon__XqB7W"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c-15.6-15.6-15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                                Special Discount:{" "}
-                              </span>
-                              Pay the total fee in one instalment immediately
-                              and receive a ₹2,000 discount.
-                            </p>
-                          </div>
-                          <div>
-                            <p className="emi_para__0BeXd">
-                              <span className="emi_title__UXhF1">
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth={0}
-                                  viewBox="0 0 512 512"
-                                  className="emi_diamondIcon__XqB7W"
-                                  height="1em"
-                                  width="1em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
-                                </svg>
-                                Payment Schedule:{" "}
-                              </span>
-                              Pay the first instalment or the entire fee
-                              immediately upon admission. The second instalment
-                              is due within 30 days of the first instalment or
-                              by the final due date for full fee payment,
-                              whichever comes first.
-                            </p>
-                          </div>
+                          {[
+                            {
+                              title: "Flexible EMI Options",
+                              desc: "Choose from easy EMI plans available for 6 or 12 months, with monthly payments ranging from ₹3,000 to ₹5,000.",
+                            },
+                            {
+                              title: "Special Discount",
+                              desc: "Pay the total fee in one instalment immediately and receive a ₹2,000 discount.",
+                            },
+                            {
+                              title: "Payment Schedule",
+                              desc: "Pay the first instalment or the entire fee immediately upon admission. The second instalment is due within 30 days of the first instalment or by the final due date for full fee payment, whichever comes first.",
+                            },
+                          ].map((item, index) => (
+                            <div key={index}>
+                              <p className="emi_para__0BeXd">
+                                <span className="emi_title__UXhF1">
+                                  <svg
+                                    stroke="currentColor"
+                                    fill="currentColor"
+                                    strokeWidth={0}
+                                    viewBox="0 0 512 512"
+                                    className="emi_diamondIcon__XqB7W"
+                                    height="1em"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
+                                  </svg>
+                                  {item.title}:{" "}
+                                </span>
+                                {item.desc}
+                              </p>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -870,7 +932,7 @@ export default function Page() {
                           Online Placement Partners
                         </h2>
                         <h3 className="placement_subHeading__1vY2G">
-                          Our students have an opportunity to
+                          Our students have an opportunity to:
                         </h3>
                         {[
                           "Recruitment Drives",
@@ -888,8 +950,6 @@ export default function Page() {
                               width={20}
                               height={20}
                               decoding="async"
-                              data-nimg={1}
-                              style={{ color: "transparent" }}
                               src="/assets/simpli-images/check.webp"
                             />
                             <p>{point}</p>
@@ -920,27 +980,14 @@ export default function Page() {
                           </p>
                         </div>
                       </div>
-                      {/* <h3 className="placement_heading__iEHZj">
-                        Our Students Work At
-                      </h3>
+                      {/* Uncomment when valid placement partner data is available */}
+                      {/* <h3 className="placement_heading__iEHZj">Our Students Work At</h3>
                       <div className="partners_container___c9cx">
                         {[
-                          {
-                            src: "/assets/placement-partners/tcs.webp",
-                            alt: "TCS logo",
-                          },
-                          {
-                            src: "/assets/placement-partners/wipro.webp",
-                            alt: "Wipro logo",
-                          },
-                          {
-                            src: "/assets/placement-partners/infosys.webp",
-                            alt: "Infosys logo",
-                          },
-                          {
-                            src: "/assets/placement-partners/ibm.webp",
-                            alt: "IBM logo",
-                          },
+                          { src: "/assets/placement-partners/tcs.webp", alt: "TCS logo" },
+                          { src: "/assets/placement-partners/wipro.webp", alt: "Wipro logo" },
+                          { src: "/assets/placement-partners/infosys.webp", alt: "Infosys logo" },
+                          { src: "/assets/placement-partners/ibm.webp", alt: "IBM logo" },
                         ].map((partner, index) => (
                           <div key={index}>
                             <div className="partners_imgBox__yD_6o">
@@ -950,9 +997,7 @@ export default function Page() {
                                 width={122}
                                 height={95}
                                 decoding="async"
-                                data-nimg={1}
                                 className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
                                 src={partner.src}
                               />
                             </div>
@@ -961,9 +1006,9 @@ export default function Page() {
                       </div> */}
                     </div>
                   </div>
-                  {/* <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
+                  <div className="collegeDetails_maxWidth__6vBVL" id="FAQs">
                     <div className="faq_container__v2O04">
-                      <h2 className="faq_heading__ypOPH">FAQ's</h2>
+                      <h2 className="faq_heading__ypOPH">FAQs</h2>
                       <div className="faq_faqMainContainer__T9i6Q">
                         {[
                           {
@@ -987,7 +1032,7 @@ export default function Page() {
                             question:
                               "Does Utkal University provide placement assistance?",
                             answer:
-                              "Yes, Utkal University offers placement assistance through recruitment drives, internships, and partnerships with companies like TCS, Wipro, and Infosys.",
+                              "Yes, Utkal University offers placement assistance through recruitment drives, internships, and partnerships with leading companies.",
                           },
                           {
                             question:
@@ -1006,6 +1051,9 @@ export default function Page() {
                             <div
                               className="faq_questionContainer__zAsad"
                               onClick={() => toggleFaq(index)}
+                              role="button"
+                              aria-expanded={openFaqIndex === index}
+                              aria-controls={`faq-answer-${index}`}
                             >
                               <div className="faq_ques__Hgq7Z">
                                 Q.{index + 1} {faq.question}
@@ -1035,7 +1083,10 @@ export default function Page() {
                               </div>
                             </div>
                             {openFaqIndex === index && (
-                              <div className="faq_answer__tXz9Y">
+                              <div
+                                className="faq_answer__tXz9Y"
+                                id={`faq-answer-${index}`}
+                              >
                                 {faq.answer}
                               </div>
                             )}
@@ -1070,9 +1121,7 @@ export default function Page() {
                                         width={20}
                                         height={20}
                                         decoding="async"
-                                        data-nimg={1}
                                         className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                        style={{ color: "transparent" }}
                                         src="/assets/simpli-images/Star-Two.webp"
                                       />
                                     </span>
@@ -1109,7 +1158,7 @@ export default function Page() {
                       </div>
                       <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
@@ -1120,6 +1169,9 @@ export default function Page() {
         <div
           className="modal fade show d-block"
           style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+          role="dialog"
+          aria-labelledby="firstVisitModalLabel"
+          aria-hidden="false"
         >
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
@@ -1151,7 +1203,7 @@ export default function Page() {
                 <div className="td_form_card_in position-relative">
                   <button
                     type="button"
-                    className="btn-close  "
+                    className="btn-close"
                     onClick={handleClose}
                     aria-label="Close course enquiry modal"
                     style={{
@@ -1219,42 +1271,7 @@ export default function Page() {
                       required
                     >
                       <option value="">States/Province*</option>
-                      {[
-                        "Andhra Pradesh",
-                        "Arunachal Pradesh",
-                        "Assam",
-                        "Bihar",
-                        "Chhattisgarh",
-                        "Goa",
-                        "Gujarat",
-                        "Haryana",
-                        "Himachal Pradesh",
-                        "Jharkhand",
-                        "Karnataka",
-                        "Kerala",
-                        "Madhya Pradesh",
-                        "Maharashtra",
-                        "Manipur",
-                        "Meghalaya",
-                        "Mizoram",
-                        "Nagaland",
-                        "Odisha",
-                        "Punjab",
-                        "Rajasthan",
-                        "Sikkim",
-                        "Tamil Nadu",
-                        "Telangana",
-                        "Tripura",
-                        "Uttar Pradesh",
-                        "Uttarakhand",
-                        "West Bengal",
-                        "Andaman and Nicobar Islands",
-                        "Chandigarh",
-                        "Dadra and Nagar Haveli and Daman and Diu",
-                        "Lakshadweep",
-                        "Delhi",
-                        "Puducherry",
-                      ].map((state) => (
+                      {states.map((state) => (
                         <option key={state} value={state}>
                           {state}
                         </option>
@@ -1281,7 +1298,7 @@ export default function Page() {
           </div>
         </div>
       )}
-      {/* {isSpecializationModalOpen && (
+      {isSpecializationModalOpen && (
         <div
           className="modal fade show d-block"
           id="specializationModal"
@@ -1297,9 +1314,15 @@ export default function Page() {
                 <div className="td_form_card_in position-relative">
                   <button
                     type="button"
-                    className="btn-close position-absolute top-0 end-0 m-3"
+                    className="btn-close"
                     onClick={handleCloseSpecializationModal}
                     aria-label="Close specialization modal"
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
                   ></button>
                   <h2 className="td_mb_20">
                     {selectedCourseName} Specializations
@@ -1337,7 +1360,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-      )} */}
+      )}
       <Footer />
     </>
   );

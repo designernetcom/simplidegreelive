@@ -17,6 +17,7 @@ import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 
+
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
   const [isModalOpen, setIsModalOpen] = useState(false); // For FirstVisitModal
@@ -41,31 +42,29 @@ export default function Page() {
   const [openFaqIndex, setOpenFaqIndex] = useState(null); // For FAQ accordion
 
   const courseSpecializations = {
-    Diploma: [
-      { name: "Creative Writing in English", fees: 21000 },
-      { name: "Digital Marketing", fees: 46000 },
+    "Distance BA (Hons)": [
+      { name: "English", fees: 18000 },
+      { name: "History", fees: 18000 },
     ],
-    Certificate: [
-      { name: "Cyber Law", fees: 10000 },
-      { name: "Blockchain Technology", fees: 16000 },
+    "Distance BCom (Hons)": [
+      { name: "Accounting", fees: 18000 },
+      { name: "Finance", fees: 18000 },
     ],
-    "Post Graduate Diploma (PGD)": [
-      { name: "Business Administration", fees: 46000 },
-      { name: "Data Science", fees: 65000 },
+    "Distance BBA": [
+      { name: "Marketing", fees: 36000 },
+      { name: "Human Resource Management", fees: 36000 },
     ],
-    "Single Courses (PG Certificate)": [
-      { name: "Finance Management", fees: 10000 },
+    "Distance MBA": [
+      { name: "Finance", fees: 60000 },
+      { name: "Marketing", fees: 60000 },
     ],
-    "Post Graduate Certificate (PGC)": [
-      { name: "Educational Administration", fees: 29000 },
-      { name: "Management Accounting", fees: 80000 },
+    "Distance MCom": [
+      { name: "Accounting", fees: 16800 },
+      { name: "Business Studies", fees: 16800 },
     ],
-    "Post Graduate Programme": [
-      { name: "International Business", fees: 46000 },
-      { name: "Supply Chain Management", fees: 65000 },
-    ],
-    "Executive Post Graduate Diploma": [
-      { name: "Leadership and Strategy", fees: 80000 },
+    "Distance MA": [
+      { name: "Economics", fees: 16800 },
+      { name: "Sociology", fees: 16800 },
     ],
   };
 
@@ -80,7 +79,6 @@ export default function Page() {
       "Certification",
       "EMI Details",
       "Admission",
-      "Exam",
       "Placement",
       "FAQ's",
       "Review",
@@ -221,67 +219,82 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Symbiosis Centre for Distance Learning - Online Courses</title>
+        <title>Utkal University - Online & Distance Learning Courses</title>
         <meta
           name="description"
-          content="Explore online and distance learning programs at Symbiosis Centre for Distance Learning (SCDL), including Diploma, Certificate, Post Graduate Diploma, and more, with UGC, AICTE, and NAAC A++ accreditation."
+          content="Explore online and distance learning programs at Utkal University, Bhubaneswar, offering BA, BCom, BBA, MBA, MCom, and MA with UGC-DEB and NAAC A+ accreditation."
         />
       </Head>
       <Menu />
       <div>
+        <a
+          className="float"
+          target="_blank"
+          href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
+          aria-label="Contact us on WhatsApp"
+        >
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            strokeWidth={0}
+            viewBox="0 0 448 512"
+            style={{ color: "white" }}
+            className="my_float"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+          </svg>
+        </a>
+        <div>
+          <button
+            className="enquirynow_enquirynow_btn__mRuEZ"
+            style={{ transformOrigin: "bottom right" }}
+            onClick={() => setIsCourseModalOpen(true)}
+            aria-label="Open enquiry form"
+          >
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth={0}
+              viewBox="0 0 512 512"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z" />
+            </svg>
+            Enquire Now
+          </button>
+        </div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <Image
-            src="https://store.learningroutes.in/images/colleges/symbiosis-centre-for-distance-learning/hero-image/SCDLbanner.webp"
+            src="https://store.learningroutes.in/images/colleges/Utkal-University/hero-image/banner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
-            alt="Symbiosis Centre for Distance Learning campus banner"
+            alt="Utkal University campus banner"
             width={240}
             height={240}
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
-            <nav class="Breadcrumb_breadcrumb__j1UHX">
-              <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                <a class="Breadcrumb_link__zmGnw" href="/">
-                  Home
-                </a>
-                <span class="Breadcrumb_separator__e7M6o">/</span>
-              </span>
-              <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                <a class="Breadcrumb_link__zmGnw" href="/top-university">
-                  Colleges
-                </a>
-                <span class="Breadcrumb_separator__e7M6o">/</span>
-              </span>
-              <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                <span>Symbiosis Centre for Distance Learning</span>
-              </span>
-            </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
-              Symbiosis Centre for Distance Learning
+              Utkal University
             </h1>
-            <p className="headCarousal_location__7rFlL">Pune, Maharashtra</p>
-            <p className="headCarousal_ranking__1yTOY">
-              NIRF Rank: 32 (University Category)
-            </p>
+            <p className="headCarousal_location__7rFlL">Bhubaneswar, Odisha</p>
+            <p className="headCarousal_ranking__1yTOY">NIRF Rank: 42</p>
             <div className="headCarousal_accreditation__HUqxZ">
               <Image
-                src="https://store.learningroutes.in/images/colleges/symbiosis-centre-for-distance-learning/accrediations/AICTE.webp"
-                alt="AICTE accreditation"
+                src="https://store.learningroutes.in/images/colleges/Utkal-University/accreditations/UGC_DEB.webp"
+                alt="UGC-DEB accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
               />
               <Image
-                src="https://store.learningroutes.in/images/colleges/symbiosis-centre-for-distance-learning/accrediations/UGC.webp"
-                alt="UGC accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="https://store.learningroutes.in/images/colleges/symbiosis-centre-for-distance-learning/accrediations/NAACA++.webp"
-                alt="NAAC A++ accreditation"
+                src="https://store.learningroutes.in/images/colleges/Utkal-University/accreditations/NAAC A+.webp"
+                alt="NAAC A+ accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
@@ -289,10 +302,7 @@ export default function Page() {
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
               <a href="/top-university">
-                <button
-                  className="headCarousal_collegeCompare__znhHH"
-                  aria-label="Add to compare"
-                >
+                <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
               </a>
@@ -314,7 +324,6 @@ export default function Page() {
                     { id: "Certification", text: "Certifications" },
                     { id: "EMI Details", text: "EMI Details" },
                     { id: "Admission", text: "Admission Procedure" },
-                    { id: "Exam", text: "Examination Pattern" },
                     { id: "Placement", text: "Placement" },
                     { id: "FAQ's", text: "FAQ's" },
                     { id: "Review", text: "Review" },
@@ -327,7 +336,9 @@ export default function Page() {
                         item.id !== "Enquire Now" ? `#${item.id}` : undefined
                       }
                       onClick={
-                        item.id === "Enquire Now" ? openModal : undefined
+                        item.id === "Enquire Now"
+                          ? () => setIsCourseModalOpen(true)
+                          : undefined
                       }
                     >
                       <div
@@ -359,21 +370,22 @@ export default function Page() {
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
                     <div className="about_collegeDetails__67FzM">
                       <h2 className="about_collegeDetailsHeading__AA_dr">
-                        Symbiosis Centre for Distance Learning
+                        Utkal University
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
-                        Symbiosis Centre for Distance Learning (SCDL), founded
-                        in 2001, is one of India's leading distance learning
-                        institutions. SCDL offers a wide range of Postgraduate
-                        Diploma, Diploma, and Certificate programmes in fields
-                        such as business management, international business,
-                        information technology, banking and finance, supply
-                        chain management, and more. With a robust curriculum
-                        designed by experienced faculty and industry experts,
-                        SCDL ensures high-quality education. The institute has
-                        strong industry partnerships with companies like IBM,
-                        Cognizant, Infosys, and Wipro, enhancing career
-                        opportunities for students.
+                        Utkal University, established by the Directorate of
+                        Distance and Continuing Education in 1962, is a premier
+                        institution in Bhubaneswar, Odisha. It offers a diverse
+                        range of UG and PG Degree and Diploma programmes through
+                        regular and distance modes, designed for both full-time
+                        and part-time study. The university provides courses in
+                        streams such as Accounting & Commerce, Humanities &
+                        Social Sciences, Business & Management Studies, IT &
+                        Software, and Teaching & Education, including B.Com,
+                        B.A., BBA, PG Diploma, M.A., MBA/PGDM, MCA, and M.Com.
+                        With UGC-DEB and NAAC A+ accreditation, Utkal University
+                        is recognized for its quality education and strong
+                        industry connections.
                       </p>
                     </div>
                   </div>
@@ -382,13 +394,13 @@ export default function Page() {
                       <h2 className="Highlights_heading__QnGK2">Highlights</h2>
                       <div className="Highlights_grid__zFaon">
                         {[
-                          "80,000+ Students",
-                          "1.2M Alumni",
-                          "47+ Nationalities",
-                          "1,600+ Faculty",
-                          "100+ Programmes",
-                          "Career Support",
-                          "Top-Ranked Distance Learning",
+                          "Employability Assessment",
+                          "Special Guest Lectures",
+                          "E-learning Support",
+                          "Highly Qualified Teaching Faculty",
+                          "Career Counselling",
+                          "Flexible Study Modes",
+                          "Industry Partnerships",
                         ].map((highlight, index) => (
                           <div
                             className="Highlights_pointContainer__5_snP"
@@ -417,8 +429,7 @@ export default function Page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses at Symbiosis Centre
-                          for Distance Learning
+                          Explore online learning courses at Utkal University
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -430,31 +441,15 @@ export default function Page() {
                           </thead>
                           <tbody>
                             {[
-                              { course: "Diploma", fee: "₹ 21,000 - ₹ 46,000" },
+                              { course: "Distance BA (Hons)", fee: "₹ 18,000" },
                               {
-                                course: "Certificate",
-                                fee: "₹ 10,000 - ₹ 16,000",
+                                course: "Distance BCom (Hons)",
+                                fee: "₹ 18,000",
                               },
-                              {
-                                course: "Post Graduate Diploma (PGD)",
-                                fee: "₹ 46,000 - ₹ 65,000",
-                              },
-                              {
-                                course: "Single Courses (PG Certificate)",
-                                fee: "₹ 10,000",
-                              },
-                              {
-                                course: "Post Graduate Certificate (PGC)",
-                                fee: "₹ 29,000 - ₹ 80,000",
-                              },
-                              {
-                                course: "Post Graduate Programme",
-                                fee: "₹ 46,000 - ₹ 65,000",
-                              },
-                              {
-                                course: "Executive Post Graduate Diploma",
-                                fee: "₹ 80,000",
-                              },
+                              { course: "Distance BBA", fee: "₹ 36,000" },
+                              { course: "Distance MBA", fee: "₹ 60,000" },
+                              { course: "Distance MCom", fee: "₹ 16,800" },
+                              { course: "Distance MA", fee: "₹ 16,800" },
                             ].map((item, index) => (
                               <tr className="courses_tbody__ZPCxV" key={index}>
                                 <td>{item.course}</td>
@@ -505,51 +500,51 @@ export default function Page() {
                           </tr>
                         </thead>
                         <tbody>
-                          {[
-                            {
-                              course: "Diploma",
-                              eligibility:
-                                "XII Standard pass-out with minimum 50% marks in English Subject. Diploma holder / Bachelor's Degree Holder / Graduate in any discipline from a recognised University with 50% marks in English subject. Completed Diploma / Bachelor's Degree / Graduation in English medium. International / SAARC Graduate from a recognised/accredited University / Institution. Students awaiting final year results can apply, subject to completing their bachelor's degree within the period specified by SCDL.",
-                            },
-                            {
-                              course: "Certificate",
-                              eligibility:
-                                "Graduate in any field from a recognised university.",
-                            },
-                            {
-                              course: "Post Graduate Diploma (PGD)",
-                              eligibility:
-                                "Bachelor's degree holder / Graduate in any discipline from a recognised University. International / SAARC Graduate from a recognised/accredited University / Institution. Students awaiting final year results can apply, subject to completing their bachelor's degree within the period specified by SCDL.",
-                            },
-                            {
-                              course: "Single Courses (PG Certificate)",
-                              eligibility:
-                                "Graduate in any field from a recognised university.",
-                            },
-                            {
-                              course: "Post Graduate Certificate (PGC)",
-                              eligibility:
-                                "Graduate in any field from a recognised university.",
-                            },
-                            {
-                              course: "Post Graduate Programme",
-                              eligibility:
-                                "Graduate in any field from a recognised university.",
-                            },
-                            {
-                              course: "Executive Post Graduate Diploma",
-                              eligibility:
-                                "Graduate in any field from a recognised university with relevant work experience.",
-                            },
-                          ].map((item, index) => (
-                            <tr
-                              className="courseEligibility_eligible_tbody__q_tOM"
-                              key={index}
-                            >
-                              <td>{item.course}</td>
-                              <td>{item.eligibility}</td>
-                            </tr>
-                          ))}
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance BA (Hons)</td>
+                            <td>Eligibility varies with the specialization</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance BCom (Hons)</td>
+                            <td>
+                              Higher Secondary / +2 / Senior Secondary or any
+                              other equivalent examination passed from any Board
+                              / Council established by the Govt. of India or any
+                              State Govt. or any other equivalent examination
+                              recognized by Central Board of Secondary Education
+                              / Council of Higher Secondary / Dept. of Industry
+                              or any other Dept. of Govt. of Odisha or Utkal
+                              University. Those joining B.Sc. Programme must
+                              have passed the above examination under the
+                              faculty of Science / Technology / Engineering /
+                              Pharmacy etc. There shall be no such restriction
+                              for joining B.A/ B.Com stream.
+                            </td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance BBA</td>
+                            <td>10+2 or equivalent</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance MBA</td>
+                            <td>
+                              Bachelor Degree holder in any discipline or
+                              equivalent
+                            </td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance MCom</td>
+                            <td>
+                              B.Com, BBA from Utkal University or any other
+                              University recognized by Utkal University,
+                              Chartered Accountants, Company Secretaries, and
+                              Cost Accountants are also eligible for admission.
+                            </td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance MA</td>
+                            <td>Eligibility varies with the specialization</td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -598,23 +593,16 @@ export default function Page() {
                             required
                           >
                             <option value="">Choose a Program*</option>
-                            <option value="Diploma">Diploma</option>
-                            <option value="Certificate">Certificate</option>
-                            <option value="Post Graduate Diploma (PGD)">
-                              Post Graduate Diploma (PGD)
+                            <option value="Distance BA (Hons)">
+                              Distance BA (Hons)
                             </option>
-                            <option value="Single Courses (PG Certificate)">
-                              Single Courses (PG Certificate)
+                            <option value="Distance BCom (Hons)">
+                              Distance BCom (Hons)
                             </option>
-                            <option value="Post Graduate Certificate (PGC)">
-                              Post Graduate Certificate (PGC)
-                            </option>
-                            <option value="Post Graduate Programme">
-                              Post Graduate Programme
-                            </option>
-                            <option value="Executive Post Graduate Diploma">
-                              Executive Post Graduate Diploma
-                            </option>
+                            <option value="Distance BBA">Distance BBA</option>
+                            <option value="Distance MBA">Distance MBA</option>
+                            <option value="Distance MCom">Distance MCom</option>
+                            <option value="Distance MA">Distance MA</option>
                             <option value="Help Me Decide">
                               Help Me Decide
                             </option>
@@ -689,7 +677,7 @@ export default function Page() {
                       <div>
                         <div>
                           <p className="scholarshop_scholarshipDetail__m_Jhr">
-                            SCDL offers merit-based scholarships for
+                            Utkal University offers merit-based scholarships for
                             top-performing students and need-based financial aid
                             for eligible candidates. Contact the admissions
                             office for detailed eligibility criteria and
@@ -715,9 +703,10 @@ export default function Page() {
                             </div>
                             <div>
                               {[
-                                "UGC Recognised",
-                                "NAAC A++ Approved",
-                                "AICTE Approved",
+                                "Career counselling services",
+                                "Affordable UG and PG courses",
+                                "Blend of theoretical and practical knowledge",
+                                "Research and creation promotion",
                               ].map((point, index) => (
                                 <div
                                   className="Certificates_pointBox__xwwq4"
@@ -742,7 +731,7 @@ export default function Page() {
                           </div>
                           <div>
                             {/* <Image
-                              alt="SCDL sample certificate"
+                              alt="Utkal University sample certificate"
                               loading="lazy"
                               width={300}
                               height={200}
@@ -782,9 +771,9 @@ export default function Page() {
                                 </svg>
                                 Flexible EMI Options:{" "}
                               </span>
-                              Choose from easy EMI plans available for 9 or 12
-                              months, with monthly payments ranging from ₹6,000
-                              to ₹8,000.
+                              Choose from easy EMI plans available for 6 or 12
+                              months, with monthly payments ranging from ₹3,000
+                              to ₹5,000.
                             </p>
                           </div>
                           <div>
@@ -800,12 +789,12 @@ export default function Page() {
                                   width="1em"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c15.6-15.6 15.6-40.9 0-56.6l-216-216z" />
+                                  <path d="M284.3 11.7c-15.6-15.6-40.9-15.6-56.6 0l-216 216c-15.6 15.6-15.6 40.9 0 56.6l216 216c15.6 15.6 40.9 15.6 56.6 0l216-216c-15.6-15.6-15.6-40.9 0-56.6l-216-216z" />
                                 </svg>
                                 Special Discount:{" "}
                               </span>
                               Pay the total fee in one instalment immediately
-                              and receive a ₹5,000 discount.
+                              and receive a ₹2,000 discount.
                             </p>
                           </div>
                           <div>
@@ -827,7 +816,7 @@ export default function Page() {
                               </span>
                               Pay the first instalment or the entire fee
                               immediately upon admission. The second instalment
-                              is due within 45 days of the first instalment or
+                              is due within 30 days of the first instalment or
                               by the final due date for full fee payment,
                               whichever comes first.
                             </p>
@@ -848,14 +837,13 @@ export default function Page() {
                         The admission process is conducted online, with fresh
                         admissions starting in January each year. No entrance
                         exam is required. The admission procedure for 2025 at
-                        Symbiosis Centre for Distance Learning is as follows:
+                        Utkal University is as follows:
                       </p>
                       {[
-                        "Sign up on the Apply Online portal.",
-                        "Purchase the application form.",
-                        "Fill in the details online.",
-                        "Upload all necessary documents.",
-                        "Make the programme fee payment.",
+                        "Visit the official website of DDCE Utkal University.",
+                        "Click on the 'Apply Online' button.",
+                        "Fill in the required details and upload photographs, signatures, and necessary documents.",
+                        "Pay the fees for the desired course, upon verification of which you shall be admitted to the course.",
                       ].map((step, index) => (
                         <div className="Admissions_step__4mDzm" key={index}>
                           <div className="Admissions_stepCount__f9yhl">
@@ -867,36 +855,6 @@ export default function Page() {
                         </div>
                       ))}
                       <div className="Admissions_stepHide__nIt_6" />
-                    </div>
-                  </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Exam">
-                    <div className="Exam_container__muz_Z">
-                      <h2 className="Exam_heading__jCWCC">
-                        Examination Pattern
-                      </h2>
-                      <div>
-                        <div className="Exam_examDesc___HPjs">
-                          <p className="Exam_text__iZpVR">
-                            Symbiosis Centre for Distance Learning conducts
-                            classes and exams in On-Demand Computer Examination
-                            mode, remotely proctored through its enhanced
-                            digital learning platform.
-                          </p>
-                          {[
-                            "Symbiosis University distance education offers computer-based online exams at authorised exam centres.",
-                            "You can schedule computer-based exams at your convenience, on a preferred day and time, at an SCDL-approved local exam centre.",
-                            "You can reserve a period using your personal student login. SCDL offers computer-based exams at more than 75 exam centres in India.",
-                            "Official results are released within fifteen working days after the exam date.",
-                          ].map((point, index) => (
-                            <div key={index}>
-                              <p className="Exam_paragraph__CFH4S">
-                                <span className="Exam_title__zgD3N" />
-                                {point}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
                     </div>
                   </div>
                   <div
@@ -912,8 +870,10 @@ export default function Page() {
                           Our students have an opportunity to
                         </h3>
                         {[
-                          "Learn employability skills through assessments and tests",
-                          "Secure jobs that suitably fit their profile",
+                          "Recruitment Drives",
+                          "Internships",
+                          "High placement records",
+                          "Career assistance",
                         ].map((point, index) => (
                           <div
                             className="placementSubpoint_subHeadingPoints__uE7MR"
@@ -944,7 +904,7 @@ export default function Page() {
                         </div>
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ 43 LPA
+                            ₹ 12 LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Highest Salary
@@ -963,20 +923,20 @@ export default function Page() {
                       <div className="partners_container___c9cx">
                         {[
                           {
-                            src: "/assets/placement-partners/ibm.webp",
-                            alt: "IBM logo",
+                            src: "/assets/placement-partners/tcs.webp",
+                            alt: "TCS logo",
                           },
                           {
-                            src: "/assets/placement-partners/cognizant.webp",
-                            alt: "Cognizant logo",
+                            src: "/assets/placement-partners/wipro.webp",
+                            alt: "Wipro logo",
                           },
                           {
                             src: "/assets/placement-partners/infosys.webp",
                             alt: "Infosys logo",
                           },
                           {
-                            src: "/assets/placement-partners/wipro.webp",
-                            alt: "Wipro logo",
+                            src: "/assets/placement-partners/ibm.webp",
+                            alt: "IBM logo",
                           },
                         ].map((partner, index) => (
                           <div key={index}>
@@ -1004,37 +964,39 @@ export default function Page() {
                       <div className="faq_faqMainContainer__T9i6Q">
                         {[
                           {
-                            question: "Is an SCDL degree valid?",
+                            question:
+                              "Is a degree from Utkal University valid?",
                             answer:
-                              "Yes, SCDL degrees are recognised by UGC and valid for employment and further studies in India and abroad.",
+                              "Yes, degrees from Utkal University are recognized by UGC-DEB and valid for employment and further studies in India and abroad.",
+                          },
+                          {
+                            question: "Is Utkal University approved by UGC?",
+                            answer:
+                              "Yes, Utkal University is approved by the University Grants Commission (UGC-DEB) and accredited by NAAC A+.",
                           },
                           {
                             question:
-                              "Is the Symbiosis Centre for Distance Learning approved by UGC?",
+                              "Is Utkal University's distance learning program worth it?",
                             answer:
-                              "Yes, SCDL is approved by the University Grants Commission (UGC) and accredited by AICTE and NAAC A++.",
+                              "Utkal University's distance learning programs offer quality education with flexible study modes, e-learning support, and career assistance, making them valuable for working professionals and students.",
                           },
                           {
                             question:
-                              "Is Symbiosis distance learning worth it?",
+                              "Does Utkal University provide placement assistance?",
                             answer:
-                              "SCDL offers high-quality education with a robust curriculum, industry partnerships, and career support, making it a valuable option for distance learners.",
-                          },
-                          {
-                            question: "Does SCDL provide placement?",
-                            answer:
-                              "SCDL offers placement assistance through partnerships with companies like IBM, Cognizant, Infosys, and Wipro, helping students secure suitable job opportunities.",
-                          },
-                          {
-                            question: "What is the ranking of SCDL in India?",
-                            answer:
-                              "SCDL is ranked 32 in the NIRF University category, reflecting its reputation as a leading distance learning institute.",
+                              "Yes, Utkal University offers placement assistance through recruitment drives, internships, and partnerships with companies like TCS, Wipro, and Infosys.",
                           },
                           {
                             question:
-                              "What are the fees for a distance learning MBA from Symbiosis?",
+                              "What is the ranking of Utkal University in India?",
                             answer:
-                              "SCDL does not offer a traditional MBA but provides Post Graduate Diploma (PGD) in Business Administration, with fees ranging from ₹46,000 to ₹65,000.",
+                              "Utkal University is ranked 42 in the NIRF University category, reflecting its academic excellence.",
+                          },
+                          {
+                            question:
+                              "What are the fees for a distance MBA at Utkal University?",
+                            answer:
+                              "The fee for the Distance MBA program at Utkal University is ₹60,000.",
                           },
                         ].map((faq, index) => (
                           <div className="faq_faqMain__ACefH" key={index}>
@@ -1085,7 +1047,7 @@ export default function Page() {
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        Symbiosis Centre for Distance Learning Review
+                        Utkal University Review
                       </h2>
                       <div>
                         <form onSubmit={handleReviewSubmit}>
@@ -1186,7 +1148,7 @@ export default function Page() {
                 <div className="td_form_card_in position-relative">
                   <button
                     type="button"
-                    className="btn-close "
+                    className="btn-close  "
                     onClick={handleClose}
                     aria-label="Close course enquiry modal"
                     style={{
@@ -1197,7 +1159,7 @@ export default function Page() {
                     }}
                   ></button>
                   <h6>Struggling with Career Growth?</h6>
-                  <h6 className="td_mb_20">Get Free Career Consultation</h6>
+                  <h6>Get Free Career Consultation</h6>
                   <form onSubmit={handleSubmit}>
                     <input
                       type="text"
@@ -1234,23 +1196,16 @@ export default function Page() {
                       required
                     >
                       <option value="">Choose a program*</option>
-                      <option value="Diploma">Diploma</option>
-                      <option value="Certificate">Certificate</option>
-                      <option value="Post Graduate Diploma (PGD)">
-                        Post Graduate Diploma (PGD)
+                      <option value="Distance BA (Hons)">
+                        Distance BA (Hons)
                       </option>
-                      <option value="Single Courses (PG Certificate)">
-                        Single Courses (PG Certificate)
+                      <option value="Distance BCom (Hons)">
+                        Distance BCom (Hons)
                       </option>
-                      <option value="Post Graduate Certificate (PGC)">
-                        Post Graduate Certificate (PGC)
-                      </option>
-                      <option value="Post Graduate Programme">
-                        Post Graduate Programme
-                      </option>
-                      <option value="Executive Post Graduate Diploma">
-                        Executive Post Graduate Diploma
-                      </option>
+                      <option value="Distance BBA">Distance BBA</option>
+                      <option value="Distance MBA">Distance MBA</option>
+                      <option value="Distance MCom">Distance MCom</option>
+                      <option value="Distance MA">Distance MA</option>
                       <option value="Help Me Decide">Help Me Decide</option>
                     </select>
                     <select

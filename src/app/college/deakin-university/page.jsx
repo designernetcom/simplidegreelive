@@ -108,7 +108,7 @@ export default function Page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="/colleges">
+              <a href="/top-university">
                 <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
@@ -1471,7 +1471,7 @@ export default function Page() {
                             </div>
                           </div>
                           <div>
-                            <img
+                            {/* <img
                               alt="certificate_url"
                               loading="lazy"
                               width={300}
@@ -1485,7 +1485,7 @@ export default function Page() {
                         image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FDeakin-University%2Fcertification%2Fno-img.webp&w=640&q=75 2x
                       "
                               src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FDeakin-University%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            />
+                            /> */}
                           </div>
                         </div>
                       </div>

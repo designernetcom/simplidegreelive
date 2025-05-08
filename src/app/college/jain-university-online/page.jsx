@@ -124,7 +124,7 @@ export default function Page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="/colleges">
+              <a href="/top-university">
                 <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
@@ -708,9 +708,11 @@ export default function Page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
+                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                      Courses Eligibility
+                    </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
                       <div className="courseEligibility_container__fIu_K">
-                        <h2>Courses Eligibility</h2>
                         <table className="courseEligibility_course_table__Sr9wq">
                           <thead style={{ background: "var(--dark-blue)" }}>
                             <tr className="courseEligibility_eligible_head__GsY_a">

@@ -2,8 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import Head from "next/head";
+import Image from "next/image";
+import { debounce } from "lodash";
 
-// Dynamically import components with SSR disabled to prevent window access during SSR
+// Dynamically import components with SSR disabled
 const Menu = dynamic(() => import("../../../../components/Header/Menu/Menu"), {
   ssr: false,
 });
@@ -15,7 +18,7 @@ const EnquiryModel = dynamic(
   { ssr: false }
 );
 
-// CSS imports remain unchanged
+// CSS imports
 import "../../styles/5107c2122129e0bb.css";
 import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
@@ -27,62 +30,294 @@ import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 
 export default function Page() {
-  const [showModal, setShowModal] = useState(false); // Manage modal visibility
-  const [fixedHeader, setFixedHeader] = useState(false); // Manage header state
+  const [activeSection, setActiveSection] = useState("About");
+  const [showModal, setShowModal] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false);
+  const [fixedHeader, setFixedHeader] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: "",
+    state: "",
+  });
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
+  const [selectedCourseName, setSelectedCourseName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const courseSpecializations = {
+    "Distance BA": [
+      { name: "History", fees: 11700 },
+      { name: "Political Science", fees: 11700 },
+      { name: "English", fees: 11700 },
+    ],
+    "Distance BBA": [{ name: "General Management", fees: 11700 }],
+    "Distance BCom": [{ name: "Accountancy", fees: 11800 }],
+    "Distance MA": [
+      { name: "History", fees: 10000 },
+      { name: "Economics", fees: 13800 },
+    ],
+    "Distance MCom": [{ name: "Commerce", fees: 21800 }],
+    "Distance MSc": [{ name: "Cyber Security", fees: 9000 }],
+    "Distance PG Diploma": [
+      { name: "Computer Applications", fees: 4000 },
+      { name: "Rural Development", fees: 9000 },
+    ],
+    "Distance Diploma": [
+      { name: "Journalism", fees: 2000 },
+      { name: "Multimedia", fees: 10000 },
+    ],
+    "Distance Certificate": [
+      { name: "Digital Marketing", fees: 2000 },
+      { name: "Soft Skills", fees: 2900 },
+    ],
+    "Distance PG Certificate": [{ name: "Management", fees: 2500 }],
+  };
+
+  const getFeeRange = (courseName) => {
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    if (fees.length === 0) return "N/A";
+    const min = Math.min(...fees);
+    const max = Math.max(...fees);
+    return min === max
+      ? `₹ ${min.toLocaleString()}`
+      : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
+  };
+
+  useEffect(() => {
+    const sections = [
+      "About",
+      "High",
+      "Courses",
+      "Course Eligibility",
+      "Enquire Now",
+      "Certification",
+      "Admission",
+      "Placement",
+    ];
+
+    const handleScroll = debounce(() => {
+      const scrollY = window.scrollY + 100;
+      let closestSection = "About";
+      let minDistance = Infinity;
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const distance = Math.abs(scrollY - element.offsetTop);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = section;
+          }
+        }
+      });
+
+      setActiveSection(closestSection);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    const handleHeaderScroll = () => {
+      setFixedHeader(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleHeaderScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleHeaderScroll);
+      handleScroll.cancel();
+    };
+  }, []);
 
   const handleOpenModal = () => {
     setShowModal(true);
   };
 
-  // Uncommented and ensured window access is safe
-  useEffect(() => {
-    const handleScroll = () => {
-      setFixedHeader(window.scrollY > 50);
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: "",
+      state: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      alert("Invalid email format");
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(formData.phone)) {
+      alert("Phone number must be 10 digits");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      console.log("Form submitted:", formData);
+      handleCloseModal();
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEnquirySubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      program: form.program.value,
+      state: form.state.value,
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+      alert("Invalid email format");
+      return;
+    }
+    if (!/^[0-9]{10}$/.test(data.phone)) {
+      alert("Phone number must be 10 digits");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      console.log("Enquiry submitted:", data);
+      form.reset();
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleViewSpecialization = (courseName) => {
+    setSelectedCourseName(courseName);
+    setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
+    setIsSpecializationModalOpen(true);
+  };
+
+  const handleCloseSpecializationModal = () => {
+    setIsSpecializationModalOpen(false);
+    setSelectedCourseSpecializations([]);
+    setSelectedCourseName("");
+  };
+
+  const states = [
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttarakhand",
+    "Uttar Pradesh",
+    "West Bengal",
+  ];
 
   return (
     <>
+      <Head>
+        <title>Odisha State Open University - Courses & Admissions</title>
+        <meta
+          name="description"
+          content="Explore distance learning programs at Odisha State Open University, including BA, BBA, BCom, MA, MCom, MSc, and more."
+        />
+        <meta property="og:title" content="Odisha State Open University" />
+        <meta
+          property="og:description"
+          content="Explore distance learning programs at Odisha State Open University."
+        />
+        <meta
+          property="og:image"
+          content="https://store.learningroutes.in/images/colleges/Odisha-State-Open-University/hero-image/banner.webp"
+        />
+      </Head>
       <Menu />
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
-          <img
+          <Image
             src="https://store.learningroutes.in/images/colleges/Odisha-State-Open-University/hero-image/banner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
-            alt="hero-image"
+            alt="Odisha State Open University campus banner"
             width={240}
             height={240}
+            layout="responsive"
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
+            <nav className="Breadcrumb_breadcrumb__j1UHX">
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/">
+                  Home
+                </a>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <a className="Breadcrumb_link__zmGnw" href="/top-university">
+                  Colleges
+                </a>
+                <span className="Breadcrumb_separator__e7M6o">/</span>
+              </span>
+              <span className="Breadcrumb_breadcrumbItem__lnXIo">
+                <span>Odisha State Open University</span>
+              </span>
+            </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
               Odisha State Open University
             </h1>
-            <p className="headCarousal_location__7rFlL">
-              Sambalpur{/* */},{/* */}Odisha
-            </p>
+            <p className="headCarousal_location__7rFlL">Sambalpur, Odisha</p>
             <p className="headCarousal_ranking__1yTOY">NIRF Rank: ---</p>
             <div className="headCarousal_accreditation__HUqxZ">
-              <img
+              <Image
                 src="https://store.learningroutes.in/images/colleges/Odisha-State-Open-University/accreditations/UGC-DEB.webp"
-                alt="accreditation"
+                alt="UGC-DEB accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
               />
-              <img
+              <Image
                 src="https://store.learningroutes.in/images/colleges/Odisha-State-Open-University/accreditations/AICTE.webp"
-                alt="accreditation"
+                alt="AICTE accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
               />
-              <img
+              <Image
                 src="https://store.learningroutes.in/images/colleges/Odisha-State-Open-University/accreditations/ncte.webp"
-                alt="accreditation"
+                alt="NCTE accreditation [accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
@@ -102,96 +337,52 @@ export default function Page() {
             <div className="college_dataSection__0M4eV">
               <div className="collegeDetails_detailsPage__0qlWI">
                 <div className="collegeDetails_scroller__kwBjm">
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-About"
-                    href="#About"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV">
-                      About
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-High"
-                    href="#High"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Highlights
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Courses"
-                    href="#Courses"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Courses
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Course Eligibility"
-                    href="#Course Eligibility"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Course Eligibility
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Enquire Now"
-                    href="#Enquire Now"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
+                  {[
+                    { id: "About", text: "About" },
+                    { id: "High", text: "Highlights" },
+                    { id: "Courses", text: "Courses" },
+                    { id: "Course Eligibility", text: "Course Eligibility" },
+                    { id: "Enquire Now", text: "Enquire Now" },
+                    { id: "Certification", text: "Certifications" },
+                    { id: "Admission", text: "Admission Procedure" },
+                    { id: "Placement", text: "Placement" },
+                  ].map((item) => (
+                    <a
+                      key={item.id}
+                      className="collegeDetails_scrollerElement__iuUFa"
+                      id={`link-${item.id}`}
+                      href={`#${item.id}`}
+                      onClick={
+                        item.id === "Enquire Now" ? handleOpenModal : undefined
+                      }
+                      aria-current={
+                        activeSection === item.id ? "true" : undefined
+                      }
+                    >
                       <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 5,
-                        }}
+                        className={`collegeDetails_sectionBox__ZGGBm ${
+                          activeSection === item.id
+                            ? "collegeDetails_selectedBox___Y1P_ collegeDetails_textWhite__q6ndV"
+                            : "collegeDetails_textBlack__LRxI5"
+                        }`}
                       >
-                        <div>Enquire Now</div>
-                        <div className="college_blink__yxq74" />
+                        {item.id === "Enquire Now" ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 5,
+                            }}
+                          >
+                            <div>{item.text}</div>
+                            <div className="college_blink__yxq74" />
+                          </div>
+                        ) : (
+                          item.text
+                        )}
                       </div>
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Certification"
-                    href="#Certification"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Certifications
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Admission"
-                    href="#Admission"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Admission Procedure
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Placement"
-                    href="#Placement"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Placement
-                    </div>
-                  </a>
-                  <a
-                    className="collegeDetails_scrollerElement__iuUFa"
-                    id="link-Review"
-                    href="#Review"
-                  >
-                    <div className="collegeDetails_sectionBox__ZGGBm collegeDetails_textBlack__LRxI5">
-                      Review
-                    </div>
-                  </a>
+                    </a>
+                  ))}
                 </div>
                 <div className="collegeDetails_detailsContainer__6A8oL">
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
@@ -215,69 +406,31 @@ export default function Page() {
                     <div className="Highlights_container__yqw8t">
                       <h2 className="Highlights_heading__QnGK2">Highlights</h2>
                       <div className="Highlights_grid__zFaon">
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
+                        {[
+                          "Recognised & approved courses from renowned governing bodies.",
+                          "Affordable fees for all the courses.",
+                          "Great quality study material is provided.",
+                          "Expert Faculty in their respective fields.",
+                        ].map((highlight, index) => (
+                          <div
+                            className="Highlights_pointContainer__5_snP"
+                            key={index}
                           >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            Recognised &amp; approved courses from renowned
-                            governing bodies.
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              strokeWidth={0}
+                              viewBox="0 0 16 16"
+                              className="Highlights_pointIcon__m_iYg"
+                              height="1em"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
+                            </svg>
+                            <div>{highlight}</div>
                           </div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Affordable fees for all the courses.</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Great quality study material is provided.</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Expert Faculty in their respective fields.</div>
-                        </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -286,8 +439,8 @@ export default function Page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}Odisha State Open University
+                          Explore online learning courses in Odisha State Open
+                          University
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -298,266 +451,89 @@ export default function Page() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance BA</td>
-                              <td style={{ textAlign: "center" }}>₹ 11700</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
+                            {[
+                              {
+                                name: "Distance BA",
+                                feeRange: getFeeRange("Distance BA"),
+                              },
+                              {
+                                name: "Distance BBA",
+                                feeRange: getFeeRange("Distance BBA"),
+                              },
+                              {
+                                name: "Distance BCom",
+                                feeRange: getFeeRange("Distance BCom"),
+                              },
+                              {
+                                name: "Distance MA",
+                                feeRange: getFeeRange("Distance MA"),
+                              },
+                              {
+                                name: "Distance MCom",
+                                feeRange: getFeeRange("Distance MCom"),
+                              },
+                              {
+                                name: "Distance MSc",
+                                feeRange: getFeeRange("Distance MSc"),
+                              },
+                              {
+                                name: "Distance PG Diploma",
+                                feeRange: getFeeRange("Distance PG Diploma"),
+                              },
+                              {
+                                name: "Distance Diploma",
+                                feeRange: getFeeRange("Distance Diploma"),
+                              },
+                              {
+                                name: "Distance Certificate",
+                                feeRange: getFeeRange("Distance Certificate"),
+                              },
+                              {
+                                name: "Distance PG Certificate",
+                                feeRange: getFeeRange(
+                                  "Distance PG Certificate"
+                                ),
+                              },
+                            ].map((course, index) => (
+                              <tr className="courses_tbody__ZPCxV" key={index}>
+                                <td>{course.name}</td>
+                                <td style={{ textAlign: "center" }}>
+                                  {course.feeRange}
+                                </td>
+                                <td
+                                  style={{ textAlign: "center" }}
+                                  className="group_btn"
                                 >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance BBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 11700</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance BCom</td>
-                              <td style={{ textAlign: "center" }}>₹ 11800</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance MA</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 10000-₹ 13800
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance MCom</td>
-                              <td style={{ textAlign: "center" }}>₹ 21800</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance MSc</td>
-                              <td style={{ textAlign: "center" }}>₹ 9000</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance PG Diploma</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 4000-₹ 9000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance Diploma</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 2000-₹ 10000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance Certificate</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 2000-₹ 2900
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Distance PG Certificate</td>
-                              <td style={{ textAlign: "center" }}>₹ 2500</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={handleOpenModal}
-                                >
-                                  Enquire Now
-                                </button>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                                <button className="courses_viewSpsl__lrjH5">
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
+                                  <button
+                                    className="courses_enqnow__8Vb3P"
+                                    onClick={handleOpenModal}
+                                    aria-label={`Enquire about ${course.name}`}
+                                  >
+                                    Enquire Now
+                                  </button>
+                                  <button
+                                    className="courses_viewSpsl__lrjH5"
+                                    onClick={() =>
+                                      handleViewSpecialization(course.name)
+                                    }
+                                    aria-label={`View specializations for ${course.name}`}
+                                  >
+                                    View Specialization
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
                     </div>
                   </div>
-
                   <div
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
                     <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                      Courses Eligibility
+                      Course Eligibility
                     </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
                       <table className="courseEligibility_eligible_table__ZvMdh">
@@ -589,7 +565,7 @@ export default function Page() {
                             <td>
                               Candidates who have cleared their 12th Standard or
                               equivalent examinations from a recognized
-                              Council/Board can apply for the course
+                              Council/Board can apply for the course.
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
@@ -645,7 +621,7 @@ export default function Page() {
                             <td>
                               Candidates must have a Bachelor’s Degree/Master’s
                               degree in any discipline/stream from a recognized
-                              Indian/Foreign University.
+                              Indian/Foreign University
                             </td>
                           </tr>
                         </tbody>
@@ -661,29 +637,41 @@ export default function Page() {
                         Get Free Career Consultation
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
-                        <form className="collegenquiry_form__uF7mS">
+                        <form
+                          className="collegenquiry_form__uF7mS"
+                          onSubmit={handleEnquirySubmit}
+                        >
                           <input
                             type="text"
                             placeholder="Name*"
                             name="name"
-                            defaultValue
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
                           />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
                           />
-                          <select name="program">
-                            <option value selected>
-                              Choose a Program*
-                            </option>
+                          <select
+                            name="program"
+                            value={formData.program}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">Choose a Program*</option>
                             <option value="Online MBA">Online MBA</option>
                             <option value="Executive MBA">Executive MBA</option>
                             <option value="Online MCA">Online MCA</option>
@@ -706,50 +694,25 @@ export default function Page() {
                               Help Me Decide
                             </option>
                           </select>
-                          <select name="state">
-                            <option value selected>
-                              State/Province
-                            </option>
-                            <option value="Arunachal Pradesh">
-                              Arunachal Pradesh
-                            </option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">
-                              Himachal Pradesh
-                            </option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">
-                              Madhya Pradesh
-                            </option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="West Bengal">West Bengal</option>
+                          <select
+                            name="state"
+                            value={formData.state}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="">State/Province*</option>
+                            {states.map((state) => (
+                              <option key={state} value={state}>
+                                {state}
+                              </option>
+                            ))}
                           </select>
                           <button
                             type="submit"
                             className="collegenquiry_submit_btn__cjBuo"
+                            disabled={isLoading}
                           >
-                            Submit
+                            {isLoading ? "Submitting..." : "Submit"}
                           </button>
                         </form>
                       </div>
@@ -770,62 +733,28 @@ export default function Page() {
                               Earn a degree that is recognized around the globe
                             </div>
                             <div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  Has its own LMS, named e-Gyanjyoti.
+                              {[
+                                "Has its own LMS, named e-Gyanjyoti.",
+                                "Has a dedicated student's grievance cell.",
+                              ].map((point, index) => (
+                                <div
+                                  className="Certificates_pointBox__xwwq4"
+                                  key={index}
+                                >
+                                  <Image
+                                    alt="Check icon"
+                                    loading="lazy"
+                                    width={20}
+                                    height={20}
+                                    decoding="async"
+                                    src="/assets/simpli-images/check.webp"
+                                  />
+                                  <div className="Certificates_point__XYWLq">
+                                    {point}
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="Certificates_pointBox__xwwq4">
-                                <img
-                                  alt="check-image"
-                                  loading="lazy"
-                                  width={20}
-                                  height={20}
-                                  decoding="async"
-                                  data-nimg={1}
-                                  style={{ color: "transparent" }}
-                                  srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
-                                  src="/assets/simpli-images/check.webp"
-                                />
-                                <div className="Certificates_point__XYWLq">
-                                  Has a dedicated student's greivance cell.
-                                </div>
-                              </div>
+                              ))}
                             </div>
-                          </div>
-                          <div>
-                            {/* <img
-                              alt="certificate_url"
-                              loading="lazy"
-                              width={300}
-                              height={200}
-                              decoding="async"
-                              data-nimg={1}
-                              className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOdisha-State-Open-University%2Fcertification%2Fno-img.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOdisha-State-Open-University%2Fcertification%2Fno-img.webp&w=640&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOdisha-State-Open-University%2Fcertification%2Fno-img.webp&w=640&q=75"
-                            /> */}
                           </div>
                         </div>
                       </div>
@@ -843,51 +772,25 @@ export default function Page() {
                         The admissions process takes place in online mode. Fresh
                         admission starts from the month of January of every
                         year. There are direct admissions, no entrance exam is
-                        conducted for the admission process.The addmission
-                        procedure
-                        {/* */}2025{/* */}
-                        for the online course at
-                        {/* */}Odisha State Open University{/* */}
-                        is as follow:
+                        conducted for the admission process. The admission
+                        procedure for 2025 for the online course at Odisha State
+                        Open University is as follows:
                       </p>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}1
+                      {[
+                        "Visit the official website of the university",
+                        "Complete the application process, upload the requisite documents and select the desired courses.",
+                        "Complete the payment process for the chosen course.",
+                        "Wait for profile verification, payment confirmation after which your admission shall be validated.",
+                      ].map((step, index) => (
+                        <div className="Admissions_step__4mDzm" key={index}>
+                          <div className="Admissions_stepCount__f9yhl">
+                            STEP {index + 1}
+                          </div>
+                          <div className="Admissions_stepText___L_GT">
+                            {step}
+                          </div>
                         </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Visit the official website of the university
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}2
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Complete the application process, upload the requisite
-                          documents and select the desired courses.
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}3
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Complete the payment process for the chosen course.
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}4
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Wait for profile verification, payment confirmation
-                          after which your admission shall be validated.
-                        </div>
-                      </div>
+                      ))}
                       <div className="Admissions_stepHide__nIt_6" />
                     </div>
                   </div>
@@ -901,67 +804,33 @@ export default function Page() {
                           Online Placement Partners
                         </h2>
                         <h3 className="placement_subHeading__1vY2G">
-                          Our students have an opportunity of
+                          Our students have an opportunity to:
                         </h3>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>
-                            Learn employability skills through assessments and
-                            tests
-                          </p>
-                        </div>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>Top recruiters from leading Companies</p>
-                        </div>
-                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
-                          <img
-                            alt="img"
-                            loading="lazy"
-                            width={20}
-                            height={20}
-                            decoding="async"
-                            data-nimg={1}
-                            style={{ color: "transparent" }}
-                            srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
-                            src="/assets/simpli-images/check.webp"
-                          />
-                          <p>Job that suitably fits the student profile</p>
-                        </div>
+                        {[
+                          "Learn employability skills through assessments and tests",
+                          "Connect with top recruiters from leading companies",
+                          "Find jobs that suit their profile",
+                        ].map((point, index) => (
+                          <div
+                            className="placementSubpoint_subHeadingPoints__uE7MR"
+                            key={index}
+                          >
+                            <Image
+                              alt="Check icon"
+                              loading="lazy"
+                              width={20}
+                              height={20}
+                              decoding="async"
+                              src="/assets/simpli-images/check.webp"
+                            />
+                            <p>{point}</p>
+                          </div>
+                        ))}
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ NaN LPA
+                            ₹ 5 LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Average Salary
@@ -969,7 +838,7 @@ export default function Page() {
                         </div>
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ NaN LPA
+                            ₹ 10 LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Highest Salary
@@ -985,143 +854,86 @@ export default function Page() {
                       <div className="partners_container___c9cx" />
                     </div>
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Review">
-                    <div
-                      className="CollegeReview_college_page_details_review_container__KbbIU"
-                      id="contact"
-                    >
-                      <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        Odisha State Open University{/* */}
-                        Review
-                      </h2>
-                      <div>
-                        <form>
-                          <div className="CollegeReview_college_page_details_review_form_container__rP5km">
-                            <div className="CollegeReview_college_page_details_review_form_rating_count_img_container__SDJGd">
-                              <p className="CollegeReview_college_page_details_review_form_rating_count__oLqL0">
-                                0 out of 5
-                              </p>
-                              <div>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                                <span className="star">
-                                  <img
-                                    alt="rating"
-                                    loading="lazy"
-                                    width={400}
-                                    height={400}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
-                                    src="/assets/simpli-images/Star-Two.webp"
-                                  />
-                                </span>
-                              </div>
-                            </div>
-                            <div className="CollegeReview_rating_form_container__q_Xvp">
-                              <input
-                                className="CollegeReview_reviewer_name__Fdlnr"
-                                type="text"
-                                placeholder="Enter your name"
-                                required
-                                name="reviewerName"
-                                defaultValue
-                              />
-                              <textarea
-                                placeholder="Write your reviews"
-                                className="CollegeReview_college_page_details_review_form_input__niDf2"
-                                name="comment"
-                                required
-                                defaultValue={""}
-                              />
-                              <button className="CollegeReview_college_page_details_review_form_btn__xh_Sn">
-                                Send message
-                              </button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
+      {showModal && (
+        <EnquiryModel
+          showModal={showModal}
+          setShowModal={setShowModal}
+          formData={formData}
+          setFormData={setFormData}
+          handleSubmit={handleSubmit}
+          isLoading={isLoading}
+          states={states}
+        />
+      )}
+      {isSpecializationModalOpen && (
+        <div
+          className="modal fade show d-block"
+          id="specializationModal"
+          tabIndex="-1"
+          role="dialog"
+          aria-labelledby="specializationModalLabel"
+          aria-hidden="false"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
+                <div className="td_form_card_in position-relative">
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={handleCloseSpecializationModal}
+                    aria-label="Close specialization modal"
+                    style={{
+                      right: "-10px",
+                      height: "5em",
+                      width: "3em",
+                      top: "-20px",
+                    }}
+                  ></button>
+                  <h2 className="td_mb_20">
+                    {selectedCourseName} Specializations
+                  </h2>
+                  <table className="table table-bordered">
+                    <thead
+                      style={{ background: "var(--dark-blue)", color: "white" }}
+                    >
+                      <tr>
+                        <th>Specialization Name</th>
+                        <th style={{ textAlign: "center" }}>Fees</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedCourseSpecializations.length > 0 ? (
+                        selectedCourseSpecializations.map((spec, index) => (
+                          <tr key={index}>
+                            <td>{spec.name}</td>
+                            <td style={{ textAlign: "center" }}>
+                              ₹ {spec.fees.toLocaleString()}
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" style={{ textAlign: "center" }}>
+                            No specializations available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <Footer />
     </>
   );

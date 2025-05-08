@@ -479,10 +479,10 @@ export default function Page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
+                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                      Course Eligibility
+                    </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
-                      <h2 className="courseEligibility_eligible_heading__5Qd_3">
-                        Course Eligibility
-                      </h2>
                       <table className="courseEligibility_eligible_table__ZvMdh">
                         <thead>
                           <tr className="courseEligibility_eligible_head__GsY_a">
@@ -957,7 +957,7 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
+                  {/* <div className="collegeDetails_maxWidth__6vBVL" id="FAQ's">
                     <div className="faq_container__v2O04">
                       <h2 className="faq_heading__ypOPH">FAQ's</h2>
                       <div className="faq_faqMainContainer__T9i6Q">
@@ -1051,7 +1051,7 @@ export default function Page() {
                       </div>
                       <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

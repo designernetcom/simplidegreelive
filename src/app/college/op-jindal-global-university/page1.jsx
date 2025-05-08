@@ -47,10 +47,50 @@ export default function Page() {
     <>
       <Menu />
       <div>
+        <a
+          className="float"
+          target="_blank"
+          href="https://api.whatsapp.com/send?phone=918806099993&text=I%27m%20looking%20for"
+        >
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            strokeWidth={0}
+            viewBox="0 0 448 512"
+            style={{ color: "white" }}
+            className="my_float"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+          </svg>
+        </a>
+        {/*$*/}
+        <div>
+          <button
+            className="enquirynow_enquirynow_btn__mRuEZ"
+            style={{ transformOrigin: "bottom right" }}
+          >
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth={0}
+              viewBox="0 0 512 512"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z" />
+            </svg>
+            Enquire Now
+          </button>
+        </div>
+        {/*/$*/}
         <div>
           <div className="headCarousal_collegeCarousal__4a5Bq">
             <img
-              src="https://store.learningroutes.in/images/colleges/chitkara-university-centre-for-continuing-education/hero-image/chitkarabanner.webp"
+              src="https://store.learningroutes.in/images/colleges/OP-jindal-global-university/hero-image/op-jindal-Banner.webp"
               fetchPriority="high"
               className="headCarousal_clg_banner__CXazi"
               alt="hero-image"
@@ -59,50 +99,26 @@ export default function Page() {
             />
             <div className="headCarousal_gradientOverlayStyle__DEkSg" />
             <div className="headCarousal_collegeHeadingContainer__E4uDz">
-              <nav class="Breadcrumb_breadcrumb__j1UHX">
-                <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                  <a class="Breadcrumb_link__zmGnw" href="/">
-                    Home
-                  </a>
-                  <span class="Breadcrumb_separator__e7M6o">/</span>
-                </span>
-                <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                  <a class="Breadcrumb_link__zmGnw" href="/top-university">
-                    Colleges
-                  </a>
-                  <span class="Breadcrumb_separator__e7M6o">/</span>
-                </span>
-                <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                  <span>
-                    {" "}
-                    Chitkara University Centre for Continuing Education
-                  </span>
-                </span>
-              </nav>
               <h1 className="headCarousal_collegeHeading__KBbuL">
-                Chitkara University Centre for Continuing Education
+                O.P. Jindal Global University
               </h1>
               <p className="headCarousal_location__7rFlL">
-                Rajpura{/* */},{/* */}Punjab
+                Sonipat{/* */},{/* */}Haryana
               </p>
-              <p className="headCarousal_ranking__1yTOY">NIRF Rank: 90</p>
+              <p className="headCarousal_ranking__1yTOY">
+                No. 1 Private University in India- QS World University Rankings
+                2023
+              </p>
               <div className="headCarousal_accreditation__HUqxZ">
                 <img
-                  src="https://store.learningroutes.in/images/colleges/chitkara-university-centre-for-continuing-education/accreditations/UGC.webp"
+                  src="https://store.learningroutes.in/images/colleges/OP-jindal-global-university/accreditations/UGC.webp"
                   alt="accreditation"
                   className="headCarousal_accImg__NoM8M"
                   width={20}
                   height={20}
                 />
                 <img
-                  src="https://store.learningroutes.in/images/colleges/chitkara-university-centre-for-continuing-education/accreditations/NAAC A+.webp"
-                  alt="accreditation"
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-                <img
-                  src="https://store.learningroutes.in/images/colleges/chitkara-university-centre-for-continuing-education/accreditations/AICTE.webp"
+                  src="https://store.learningroutes.in/images/colleges/OP-jindal-global-university/accreditations/NAAC A.webp"
                   alt="accreditation"
                   className="headCarousal_accImg__NoM8M"
                   width={20}
@@ -218,26 +234,25 @@ export default function Page() {
                     <div className="collegeDetails_maxWidth__6vBVL" id="About">
                       <div className="about_collegeDetails__67FzM">
                         <h2 className="about_collegeDetailsHeading__AA_dr">
-                          Chitkara University Centre for Continuing Education
+                          O.P. Jindal Global University
                         </h2>
                         <p className="about_collegeDetailsDescription__7Swyd">
-                          Established by the Chitkara Educational Trust in 2002,
-                          Chitkara University is now regarded as one of the best
-                          private universities in the North India region. With a
-                          student-centric approach, the university offers
-                          various multi-disciplinary programmes. The university
-                          is ranked in the prestigious QS University Rankings,
-                          which makes their degrees extremely credible in the
-                          global sector. Keeping in mind the current needs of
-                          the students and expanding the scope of higher
-                          education, the university initiated online programmes
-                          entitled by UGC for MBA aspirants. The online MBA
-                          programmes from Chitkara University Centre for
-                          Continuing Education offer a diverse range of
-                          specialisations that are highly in demand. Its MBA
-                          programmes are designed with the motto to boost
-                          entrepreneurship and develop cutting-edge leadership
-                          qualities in the students.
+                          Founded by Mr. Naveen Jindal in 2009, O.P. Jindal
+                          Global University is a non-profit, multidisciplinary
+                          university bestowed with prestigious national and
+                          international rankings. The institution is counted
+                          among the top 150 universities globally aged under 50
+                          years by the QS Young Universities ranking and the #1
+                          private university by QS World University Ranking
+                          2023. The university hosts 1000+ experienced faculty
+                          members, with which it has maintained a 1:9
+                          faculty-student ratio. To facilitate flexible
+                          industry-relevant academics to a larger section of
+                          society, OP Jindal Global University has forged
+                          collaborations with upGrad and Coursera to provide
+                          various online programmes. Its online programmes are
+                          based on the project-based learning pattern, which
+                          enhances the quality of education.
                         </p>
                       </div>
                     </div>
@@ -260,7 +275,7 @@ export default function Page() {
                             >
                               <path d="M8 3l5 5-5 5-5-5 5-5z" />
                             </svg>
-                            <div>Extensive Alumni Network</div>
+                            <div>Personalized Industry Session</div>
                           </div>
                           <div className="Highlights_pointContainer__5_snP">
                             <svg
@@ -275,7 +290,7 @@ export default function Page() {
                             >
                               <path d="M8 3l5 5-5 5-5-5 5-5z" />
                             </svg>
-                            <div>Industry-Endorsed Curriculum</div>
+                            <div>Career Mentorship Session</div>
                           </div>
                           <div className="Highlights_pointContainer__5_snP">
                             <svg
@@ -290,7 +305,7 @@ export default function Page() {
                             >
                               <path d="M8 3l5 5-5 5-5-5 5-5z" />
                             </svg>
-                            <div>500+ Hiring Partners</div>
+                            <div>Easy and Flexible EMI Options Available</div>
                           </div>
                           <div className="Highlights_pointContainer__5_snP">
                             <svg
@@ -305,7 +320,7 @@ export default function Page() {
                             >
                               <path d="M8 3l5 5-5 5-5-5 5-5z" />
                             </svg>
-                            <div>Live &amp; Recorded Lectures</div>
+                            <div>Peer-to-Peer Networking</div>
                           </div>
                           <div className="Highlights_pointContainer__5_snP">
                             <svg
@@ -320,10 +335,7 @@ export default function Page() {
                             >
                               <path d="M8 3l5 5-5 5-5-5 5-5z" />
                             </svg>
-                            <div>
-                              Learn from Industry Stalwarts and World-Renowned
-                              Academicians
-                            </div>
+                            <div>Learning via Capstone Projects</div>
                           </div>
                           <div className="Highlights_pointContainer__5_snP">
                             <svg
@@ -338,7 +350,7 @@ export default function Page() {
                             >
                               <path d="M8 3l5 5-5 5-5-5 5-5z" />
                             </svg>
-                            <div>Engaging Course Content</div>
+                            <div>Placement Support</div>
                           </div>
                           <div className="Highlights_pointContainer__5_snP">
                             <svg
@@ -353,69 +365,7 @@ export default function Page() {
                             >
                               <path d="M8 3l5 5-5 5-5-5 5-5z" />
                             </svg>
-                            <div>Global Summits &amp; Exchange Programmes</div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>Access to Courses from LinkedIn Learning</div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>
-                              Case Studies from Harvard Business Publishing
-                            </div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>Start-Up Assistance</div>
-                          </div>
-                          <div className="Highlights_pointContainer__5_snP">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth={0}
-                              viewBox="0 0 16 16"
-                              className="Highlights_pointIcon__m_iYg"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                            </svg>
-                            <div>MasterClass Library</div>
+                            <div>Interview Guidance</div>
                           </div>
                         </div>
                       </div>
@@ -429,8 +379,7 @@ export default function Page() {
                           <h2 className="courses_heading__nCyjm">Courses</h2>
                           <p className="courses_course_college_name__Reg2z">
                             Explore online learning courses in
-                            {/* */}Chitkara University Centre for Continuing
-                            Education
+                            {/* */}O.P. Jindal Global University
                           </p>
                           <table className="courses_course_table__llAtE">
                             <thead style={{ background: "var(--dark-blue)" }}>
@@ -446,7 +395,7 @@ export default function Page() {
                               <tr className="courses_tbody__ZPCxV">
                                 <td>Online MBA</td>
                                 <td style={{ textAlign: "center" }}>
-                                  ₹ 205000-₹ 305000
+                                  ₹ 175000
                                 </td>
                                 <td
                                   style={{ textAlign: "center" }}
@@ -494,9 +443,8 @@ export default function Page() {
                             <tr className="courseEligibility_eligible_tbody__q_tOM">
                               <td>Online MBA</td>
                               <td>
-                                Graduate in any field from a recognised
-                                university (Must have completed graduation 2
-                                years prior to the date of application)
+                                Graduate in any field with a minimum of 50%
+                                marks in aggregate from a recognized university
                               </td>
                             </tr>
                           </tbody>
@@ -632,14 +580,27 @@ export default function Page() {
                                     decoding="async"
                                     data-nimg={1}
                                     style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          "
+                                   
                                     src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
                                   /> */}
                                   <div className="Certificates_point__XYWLq">
-                                    NAAC A+ Recognised
+                                    NAAC A Recognised
+                                  </div>
+                                </div>
+                                <div className="Certificates_pointBox__xwwq4">
+                                  {/* <img
+                                    alt="check-image"
+                                    loading="lazy"
+                                    width={20}
+                                    height={20}
+                                    decoding="async"
+                                    data-nimg={1}
+                                    style={{ color: "transparent" }}
+                                   
+                                    src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
+                                  /> */}
+                                  <div className="Certificates_point__XYWLq">
+                                    UGC Entitled
                                   </div>
                                 </div>
                                 <div className="Certificates_pointBox__xwwq4">
@@ -658,26 +619,8 @@ export default function Page() {
                                     src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
                                   /> */}
                                   <div className="Certificates_point__XYWLq">
-                                    AICTE Approved
-                                  </div>
-                                </div>
-                                <div className="Certificates_pointBox__xwwq4">
-                                  {/* <img
-                                    alt="check-image"
-                                    loading="lazy"
-                                    width={20}
-                                    height={20}
-                                    decoding="async"
-                                    data-nimg={1}
-                                    style={{ color: "transparent" }}
-                                    srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            image?url=%2Fimages%2Fcheck.png&w=48&q=75 2x
-                          "
-                                    src="image?url=%2Fimages%2Fcheck.png&w=48&q=75"
-                                  /> */}
-                                  <div className="Certificates_point__XYWLq">
-                                    NIRF- 151-200 (Overall Category)
+                                    No. 1 Private University in India- QS World
+                                    University Rankings 2023
                                   </div>
                                 </div>
                               </div>
@@ -693,10 +636,10 @@ export default function Page() {
                                 className="Certificates_img__GOe9v"
                                 style={{ color: "transparent" }}
                                 srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fcertification%2Fchitkara-university-sample-certificate.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fcertification%2Fchitkara-university-sample-certificate.webp&w=640&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fcertification%2Fsample-certificate.webp&w=384&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75 2x
                       "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fcertification%2Fchitkara-university-sample-certificate.webp&w=640&q=75"
+                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75"
                               /> */}
                             </div>
                           </div>
@@ -716,30 +659,49 @@ export default function Page() {
                           Fresh admission starts from the month of January of
                           every year. There are direct admissions, no entrance
                           exam is conducted for the admission process.The
-                          addmission procedure
-                          {/* */}2025{/* */}
-                          for the online course at
-                          {/* */}Chitkara University Centre for Continuing
-                          Education{/* */}
-                          is as follow:
+                          addmission procedure 2025 for the online course at
+                          O.P. Jindal Global University is as follow:
                         </p>
                         <div className="Admissions_step__4mDzm">
                           <div className="Admissions_stepCount__f9yhl">
-                            STEP
-                            {/* */}1
+                            STEP 1
                           </div>
                           <div className="Admissions_stepText___L_GT">
-                            Visit the online application portal
+                            Register on the official website
+                          </div>
+                        </div>
+                        <div className="Admissions_step__4mDzm">
+                          <div className="Admissions_stepCount__f9yhl">
+                            STEP 2
+                          </div>
+                          <div className="Admissions_stepText___L_GT">
+                            Fill and submit the online application form
+                          </div>
+                        </div>
+                        <div className="Admissions_step__4mDzm">
+                          <div className="Admissions_stepCount__f9yhl">
+                            STEP 3
+                          </div>
+                          <div className="Admissions_stepText___L_GT">
+                            Appear for the JMAT exam (Exempted for those who
+                            qualified CAT/MAT/CMAT/GMAT/XAT/ATMA/GRE)
                           </div>
                         </div>
                         <div className="Admissions_step__4mDzm">
                           <div className="Admissions_stepCount__f9yhl">
                             STEP
-                            {/* */}2
+                            {/* */}4
                           </div>
                           <div className="Admissions_stepText___L_GT">
-                            Fill out the online application form on the official
-                            website
+                            Undergo document verification process
+                          </div>
+                        </div>
+                        <div className="Admissions_step__4mDzm">
+                          <div className="Admissions_stepCount__f9yhl">
+                            STEP 5
+                          </div>
+                          <div className="Admissions_stepText___L_GT">
+                            Submit the fee
                           </div>
                         </div>
                         <div className="Admissions_stepHide__nIt_6" />
@@ -798,7 +760,7 @@ export default function Page() {
                         <div className="placement_placementBanner__ACCRS">
                           <div className="placementBanner_container__upl7e">
                             <p className="placementBanner_heading__yGlah">
-                              ₹ 6 LPA
+                              ₹ 5 LPA
                             </p>
                             <p className="placementBanner_description__O3FqH">
                               Average Salary
@@ -806,7 +768,7 @@ export default function Page() {
                           </div>
                           <div className="placementBanner_container__upl7e">
                             <p className="placementBanner_heading__yGlah">
-                              ₹ 37 LPA
+                              ₹ 23 LPA
                             </p>
                             <p className="placementBanner_description__O3FqH">
                               Highest Salary
@@ -835,10 +797,10 @@ export default function Page() {
                                 className="partners_plac_img__htNsk"
                                 style={{ color: "transparent" }}
                                 srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2Famazon.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2Famazon.webp&w=256&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Ficici-bank.webp&w=128&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Ficici-bank.webp&w=256&q=75 2x
                       "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2Famazon.webp&w=256&q=75"
+                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Ficici-bank.webp&w=256&q=75"
                               />
                             </div>
                           </div>
@@ -854,10 +816,10 @@ export default function Page() {
                                 className="partners_plac_img__htNsk"
                                 style={{ color: "transparent" }}
                                 srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FDeloitte.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FDeloitte.webp&w=256&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Findus-law.webp&w=128&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Findus-law.webp&w=256&q=75 2x
                       "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FDeloitte.webp&w=256&q=75"
+                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Findus-law.webp&w=256&q=75"
                               />
                             </div>
                           </div>
@@ -873,10 +835,10 @@ export default function Page() {
                                 className="partners_plac_img__htNsk"
                                 style={{ color: "transparent" }}
                                 srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FAdani.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FAdani.webp&w=256&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Fkpmg.webp&w=128&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Fkpmg.webp&w=256&q=75 2x
                       "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FAdani.webp&w=256&q=75"
+                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Fkpmg.webp&w=256&q=75"
                               />
                             </div>
                           </div>
@@ -892,10 +854,10 @@ export default function Page() {
                                 className="partners_plac_img__htNsk"
                                 style={{ color: "transparent" }}
                                 srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FJP-Morgan_.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FJP-Morgan_.webp&w=256&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Famazon.webp&w=128&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Famazon.webp&w=256&q=75 2x
                       "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FJP-Morgan_.webp&w=256&q=75"
+                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Famazon.webp&w=256&q=75"
                               />
                             </div>
                           </div>
@@ -911,10 +873,10 @@ export default function Page() {
                                 className="partners_plac_img__htNsk"
                                 style={{ color: "transparent" }}
                                 srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FLT.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FLT.webp&w=256&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Freliance.webp&w=128&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Freliance.webp&w=256&q=75 2x
                       "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FLT.webp&w=256&q=75"
+                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Freliance.webp&w=256&q=75"
                               />
                             </div>
                           </div>
@@ -930,67 +892,10 @@ export default function Page() {
                                 className="partners_plac_img__htNsk"
                                 style={{ color: "transparent" }}
                                 srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FNestle%CC%81.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FNestle%CC%81.webp&w=256&q=75 2x
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Ffaber.webp&w=128&q=75 1x,
+                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Ffaber.webp&w=256&q=75 2x
                       "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FNestle%CC%81.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2Fabott.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2Fabott.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2Fabott.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FReliance-Industries-Limited.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FReliance-Industries-Limited.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FReliance-Industries-Limited.webp&w=256&q=75"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="partners_imgBox__yD_6o">
-                              <img
-                                alt="placement-logo"
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                data-nimg={1}
-                                className="partners_plac_img__htNsk"
-                                style={{ color: "transparent" }}
-                                srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FGSK.webp&w=128&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FGSK.webp&w=256&q=75 2x
-                      "
-                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fchitkara-university-centre-for-continuing-education%2Fplacement-partners%2FGSK.webp&w=256&q=75"
+                                src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2FOP-jindal-global-university%2Fplacement-partners%2Ffaber.webp&w=256&q=75"
                               />
                             </div>
                           </div>
@@ -1003,8 +908,7 @@ export default function Page() {
                         id="contact"
                       >
                         <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                          Chitkara University Centre for Continuing Education
-                         
+                          O.P. Jindal Global University
                           Review
                         </h2>
                         <div>
@@ -1110,7 +1014,7 @@ export default function Page() {
                                   placeholder="Enter your name"
                                   required
                                   name="reviewerName"
-                                  
+                                  defaultValue
                                 />
                                 <textarea
                                   placeholder="Write your reviews"

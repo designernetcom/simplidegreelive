@@ -49,7 +49,7 @@ export default function Page() {
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <img
-            src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/hero-image/banner.webp"
+            src="https://store.learningroutes.in/images/colleges/Sri-Venkateswara-University-Tirupati/hero-image/Banner.webp"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="hero-image"
@@ -59,23 +59,24 @@ export default function Page() {
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
             <h1 className="headCarousal_collegeHeading__KBbuL">
-              School of Distance Education, Online Learning Programmes,
-              Bharathiar University
+              Sri Venkateswara University, Tirupati
             </h1>
             <p className="headCarousal_location__7rFlL">
-              Coimbatore{/* */},{/* */}Tamil Nadu
+              Tirupati, Andhra Pradesh
             </p>
-            <p className="headCarousal_ranking__1yTOY">NIRF Rank: 26</p>
+            <p className="headCarousal_ranking__1yTOY">
+              NIRF Rank: 87 (Top 100 Universities)
+            </p>
             <div className="headCarousal_accreditation__HUqxZ">
               <img
-                src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/accreditations/UGC.webp"
+                src="https://store.learningroutes.in/images/colleges/Sri-Venkateswara-University-Tirupati/accreditations/NAAC A+.webp"
                 alt="accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
                 height={20}
               />
               <img
-                src="https://store.learningroutes.in/images/colleges/school-of-distance-education-online-learning-programmes-bharathiar-university/accreditations/NAAC A++.webp"
+                src="https://store.learningroutes.in/images/colleges/Sri-Venkateswara-University-Tirupati/accreditations/UGC-DEB.webp"
                 alt="accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={20}
@@ -191,24 +192,14 @@ export default function Page() {
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
                     <div className="about_collegeDetails__67FzM">
                       <h2 className="about_collegeDetailsHeading__AA_dr">
-                        School of Distance Education, Online Learning
-                        Programmes, Bharathiar University
+                        Sri Venkateswara University, Tirupati
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
-                        Established in 1982 by the Government of Tamil Nadu in
-                        Coimbatore, the university provides a wide range of
-                        graduate, post-graduate, MPhil, and PhD programmes. The
-                        university ranks 21st among the top 100 institutions in
-                        the NIRF ranking. Built on the thought of Educate and
-                        Elevate, the university seeks to realise the vision of
-                        India in making education accessible to everyone. Over
-                        the years, the university has successfully enhanced its
-                        education quality and expanded its scope through its
-                        School of Distance Education (SDE). It offers both
-                        graduate and post-graduate programmes in areas including
-                        business, arts, and commerce. Its online programmes are
-                        UGC accredited and at par with the regular offline mode
-                        classes.
+                        Sri Venkateshwara University’s Directorate of Distance
+                        Education was established in 1972 to deliver education
+                        even to the underprivileged section of society. They are
+                        offering a wide range of courses with very affordable
+                        fees.
                       </p>
                     </div>
                   </div>
@@ -229,7 +220,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Highly Accredited Programs</div>
+                          <div>Wide Range of Courses</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -244,7 +235,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Affordable and Flexible Learning Experience</div>
+                          <div>Enhanced opportunities for learners</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -259,7 +250,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>Placement Guidance and Support</div>
+                          <div>Approved by renowned governing bodies.</div>
                         </div>
                         <div className="Highlights_pointContainer__5_snP">
                           <svg
@@ -274,85 +265,7 @@ export default function Page() {
                           >
                             <path d="M8 3l5 5-5 5-5-5 5-5z" />
                           </svg>
-                          <div>E-Content</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Virtual Classroom</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Discussion Forum</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>e-Tutorials</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>Project-Based Learning</div>
-                        </div>
-                        <div className="Highlights_pointContainer__5_snP">
-                          <svg
-                            stroke="currentColor"
-                            fill="currentColor"
-                            strokeWidth={0}
-                            viewBox="0 0 16 16"
-                            className="Highlights_pointIcon__m_iYg"
-                            height="1em"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M8 3l5 5-5 5-5-5 5-5z" />
-                          </svg>
-                          <div>
-                            Industry-Institute Partnership Facilitating Enhanced
-                            Learning
-                          </div>
+                          <div>E-Learning resources.</div>
                         </div>
                       </div>
                     </div>
@@ -362,9 +275,8 @@ export default function Page() {
                       <div className="courses_container__c_BRe">
                         <h2 className="courses_heading__nCyjm">Courses</h2>
                         <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in
-                          {/* */}School of Distance Education, Online Learning
-                          Programmes, Bharathiar University
+                          Explore online learning courses in Sri Venkateswara
+                          University, Tirupati
                         </p>
                         <table className="courses_course_table__llAtE">
                           <thead style={{ background: "var(--dark-blue)" }}>
@@ -376,8 +288,25 @@ export default function Page() {
                           </thead>
                           <tbody>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance BA</td>
+                              <td style={{ textAlign: "center" }}>₹ 7000</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button className="courses_enqnow__8Vb3P">
+                                  Enquire Now
+                                </button>
+                                <button className="courses_viewSpsl__lrjH5">
+                                  View Specialization
+                                </button>
+                              </td>
+                            </tr>
+                            <tr className="courses_tbody__ZPCxV">
+                              <td>Distance BCom</td>
+                              <td style={{ textAlign: "center" }}>
+                                ₹ 7000-₹ 16000
+                              </td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -388,8 +317,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -400,8 +327,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50880</td>
+                              <td>Distance BLIS</td>
+                              <td style={{ textAlign: "center" }}>₹ 5000</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -412,8 +339,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -424,8 +349,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online BA</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance BSc</td>
+                              <td style={{ textAlign: "center" }}>₹ 19000</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -436,8 +361,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -448,8 +371,10 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 70880</td>
+                              <td>Distance MA</td>
+                              <td style={{ textAlign: "center" }}>
+                                ₹ 7000-₹ 8000
+                              </td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -460,8 +385,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -472,8 +395,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA</td>
-                              <td style={{ textAlign: "center" }}>₹ 44880</td>
+                              <td>Distance MCom</td>
+                              <td style={{ textAlign: "center" }}>₹ 7000</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -484,8 +407,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -496,8 +417,10 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online M.Com</td>
-                              <td style={{ textAlign: "center" }}>₹ 44880</td>
+                              <td>Distance MSc</td>
+                              <td style={{ textAlign: "center" }}>
+                                ₹ 8000-₹ 30500
+                              </td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -508,8 +431,6 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -520,8 +441,8 @@ export default function Page() {
                               </td>
                             </tr>
                             <tr className="courses_tbody__ZPCxV">
-                              <td>Online B.Com</td>
-                              <td style={{ textAlign: "center" }}>₹ 50580</td>
+                              <td>Distance MLIS</td>
+                              <td style={{ textAlign: "center" }}>₹ 7500</td>
                               <td
                                 style={{ textAlign: "center" }}
                                 className="group_btn"
@@ -532,8 +453,52 @@ export default function Page() {
                                 >
                                   Enquire Now
                                 </button>
-
-                                {/* Render Modal */}
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
+                                  View Specialization
+                                </button>
+                              </td>
+                            </tr>
+                            <tr className="courses_tbody__ZPCxV">
+                              <td>Distance MSW</td>
+                              <td style={{ textAlign: "center" }}>₹ 12000</td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
+                                <EnquiryModel
+                                  showModal={showModal}
+                                  setShowModal={setShowModal}
+                                />
+                                <button className="courses_viewSpsl__lrjH5">
+                                  View Specialization
+                                </button>
+                              </td>
+                            </tr>
+                            <tr className="courses_tbody__ZPCxV">
+                              <td>Distance PG Diploma</td>
+                              <td style={{ textAlign: "center" }}>
+                                ₹ 4000-₹ 10000
+                              </td>
+                              <td
+                                style={{ textAlign: "center" }}
+                                className="group_btn"
+                              >
+                                <button
+                                  className="courses_enqnow__8Vb3P"
+                                  onClick={handleOpenModal}
+                                >
+                                  Enquire Now
+                                </button>
                                 <EnquiryModel
                                   showModal={showModal}
                                   setShowModal={setShowModal}
@@ -548,7 +513,6 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-
                   <div
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
@@ -566,68 +530,53 @@ export default function Page() {
                         </thead>
                         <tbody>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BBA</td>
+                            <td>Distance BA</td>
+                            <td>10+2 With relevant subjects</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance BCom</td>
+                            <td>10+2 With relevant subjects</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance BLIS</td>
+                            <td>10+2 With relevant subjects</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance BSc</td>
+                            <td>10+2 With relevant subjects</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Distance MA</td>
                             <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
+                              Eligibility will vary according to the
+                              specialization
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MCA</td>
+                            <td>Distance MCom</td>
                             <td>
-                              Graduate in Computer Science/ Computer Systems
-                              &amp; Design/ Computer Technology/ Information
-                              Systems/ Information Technology/ Computer
-                              Applications from a recognised university OR
-                              Graduate in any field with Mathematics as a
-                              compulsory subject at 10+2/Graduation level from a
-                              recognised university OR Graduate in
-                              Commerce-Computer Applications with Business
-                              Mathematics &amp; Business Statistics as one of
-                              the subjects from a recognised university
+                              Eligibility will vary according to the
+                              specialization
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BA</td>
+                            <td>Distance MSc</td>
                             <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
+                              Eligibility will vary according to the
+                              specialization
                             </td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MBA</td>
-                            <td>
-                              Graduate in any field from a recognised university
-                            </td>
+                            <td>Distance MLIS</td>
+                            <td>BLIS Degree</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MA</td>
-                            <td>
-                              Graduate in any field with
-                              Economics/Econometrics/Business Mathematics &amp;
-                              Engineering/Managerial
-                              Economics/Mathematics/Statistics/Business
-                              Statistics as one of the subjects from a
-                              recognized university
-                            </td>
+                            <td>Distance MSW</td>
+                            <td>Any Bachelor’s Degree</td>
                           </tr>
                           <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online M.Com</td>
-                            <td>
-                              Graduate in Commerce/Business
-                              Administration/Business Management/Corporate
-                              Secretaryship from a recognized university
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online B.Com</td>
-                            <td>
-                              10+2 in any stream or its equivalent examination
-                              from a recognized board OR Diploma in any field
-                              from a recognized institute
-                            </td>
+                            <td>Distance PG Diploma</td>
+                            <td>Any Bachelor’s Degree</td>
                           </tr>
                         </tbody>
                       </table>
@@ -643,23 +592,16 @@ export default function Page() {
                       </h2>
                       <div className="collegenquiry_form_div__RSaaQ">
                         <form className="collegenquiry_form__uF7mS">
-                          <input
-                            type="text"
-                            placeholder="Name*"
-                            name="name"
-                            defaultValue
-                          />
+                          <input type="text" placeholder="Name*" name="name" />
                           <input
                             type="email"
                             placeholder="Email*"
                             name="email"
-                            defaultValue
                           />
                           <input
                             type="number"
                             placeholder="Phone*"
                             name="phone"
-                            defaultValue
                           />
                           <select name="program">
                             <option value selected>
@@ -748,8 +690,7 @@ export default function Page() {
                               Sample Certificate
                             </h2>
                             <div className="Certificates_subHeading__CKwq6">
-                              Earn an UGC entitled degree, recognized around the
-                              globe
+                              Earn a degree that is recognized around the globe
                             </div>
                             <div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -762,13 +703,13 @@ export default function Page() {
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
                                   srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                    image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                                    /assets/simpli-images/check.webp 2x
+                                  "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  NAAC A++ Recognised
+                                  Video & Audio lessons
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -781,13 +722,13 @@ export default function Page() {
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
                                   srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                    image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                                    /assets/simpli-images/check.webp 2x
+                                  "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  NIRF- 36 (Overall Category)
+                                  Dedicated student grievance cell.
                                 </div>
                               </div>
                               <div className="Certificates_pointBox__xwwq4">
@@ -800,34 +741,37 @@ export default function Page() {
                                   data-nimg={1}
                                   style={{ color: "transparent" }}
                                   srcSet="
-                            image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                            /assets/simpli-images/check.webp 2x
-                          "
+                                    image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                                    /assets/simpli-images/check.webp 2x
+                                  "
                                   src="/assets/simpli-images/check.webp"
                                 />
                                 <div className="Certificates_point__XYWLq">
-                                  One of the leading Distance University in
-                                  India
+                                  Promotion of professional efficiency for the
+                                  in-service candidates
+                                </div>
+                              </div>
+                              <div className="Certificates_pointBox__xwwq4">
+                                <img
+                                  alt="check-image"
+                                  loading="lazy"
+                                  width={20}
+                                  height={20}
+                                  decoding="async"
+                                  data-nimg={1}
+                                  style={{ color: "transparent" }}
+                                  srcSet="
+                                    image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                                    /assets/simpli-images/check.webp 2x
+                                  "
+                                  src="/assets/simpli-images/check.webp"
+                                />
+                                <div className="Certificates_point__XYWLq">
+                                  High quality of education with minimum
+                                  expenditure
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <div>
-                            <img
-                              alt="certificate_url"
-                              loading="lazy"
-                              width={300}
-                              height={200}
-                              decoding="async"
-                              data-nimg={1}
-                              className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
-                              srcSet="
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=384&q=75 1x,
-                        image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75 2x
-                      "
-                              src="image?url=https%3A%2F%2Fstore.learningroutes.in%2Fimages%2Fcolleges%2Fschool-of-distance-education-online-learning-programmes-bharathiar-university%2Fcertification%2Fsample-certificate.webp&w=640&q=75"
-                            />
                           </div>
                         </div>
                       </div>
@@ -845,87 +789,42 @@ export default function Page() {
                         The admissions process takes place in online mode. Fresh
                         admission starts from the month of January of every
                         year. There are direct admissions, no entrance exam is
-                        conducted for the admission process.The addmission
-                        procedure
-                        {/* */}2025{/* */}
-                        for the online course at
-                        {/* */}School of Distance Education, Online Learning
-                        Programmes, Bharathiar University{/* */}
-                        is as follow:
+                        conducted for the admission process. The admission
+                        procedure 2025 for the online course at Sri Venkateswara
+                        University, Tirupati is as follows:
                       </p>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}1
+                          STEP 1
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Select your course and register at the online
-                          application portal
+                          Open the official website of the college.
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}2
+                          STEP 2
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Add your qualification, address, and other details
+                          Click on the application form and fill out the
+                          personal details correctly.
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}3
+                          STEP 3
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Upload all the necessary documents
+                          Select the course you want to pursue.
                         </div>
                       </div>
                       <div className="Admissions_step__4mDzm">
                         <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}4
+                          STEP 4
                         </div>
                         <div className="Admissions_stepText___L_GT">
-                          Preview and Submit the application
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}5
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Pay the registration fee through GPAY, PayTM, UPI, Net
-                          banking, Credit/Debit(ATM) card, etc.
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}6
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          After this, your application will be validated by the
-                          university
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}7
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Upon validation, pay the course fee
-                        </div>
-                      </div>
-                      <div className="Admissions_step__4mDzm">
-                        <div className="Admissions_stepCount__f9yhl">
-                          STEP
-                          {/* */}8
-                        </div>
-                        <div className="Admissions_stepText___L_GT">
-                          Login and Download the Admission cum ID card
+                          Pay the fees for the course and you shall be admitted
+                          to the course once the admission is confirmed.
                         </div>
                       </div>
                       <div className="Admissions_stepHide__nIt_6" />
@@ -953,9 +852,9 @@ export default function Page() {
                             data-nimg={1}
                             style={{ color: "transparent" }}
                             srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
+                              image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                              /assets/simpli-images/check.webp 2x
+                            "
                             src="/assets/simpli-images/check.webp"
                           />
                           <p>
@@ -973,9 +872,26 @@ export default function Page() {
                             data-nimg={1}
                             style={{ color: "transparent" }}
                             srcSet="
-                      image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
-                      /assets/simpli-images/check.webp 2x
-                    "
+                              image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                              /assets/simpli-images/check.webp 2x
+                            "
+                            src="/assets/simpli-images/check.webp"
+                          />
+                          <p>Top recruiters from leading Companies</p>
+                        </div>
+                        <div className="placementSubpoint_subHeadingPoints__uE7MR">
+                          <img
+                            alt="img"
+                            loading="lazy"
+                            width={20}
+                            height={20}
+                            decoding="async"
+                            data-nimg={1}
+                            style={{ color: "transparent" }}
+                            srcSet="
+                              image?url=%2Fimages%2Fcheck.png&w=32&q=75 1x,
+                              /assets/simpli-images/check.webp 2x
+                            "
                             src="/assets/simpli-images/check.webp"
                           />
                           <p>Job that suitably fits the student profile</p>
@@ -984,7 +900,7 @@ export default function Page() {
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ 3 LPA
+                            ₹ NaN LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Average Salary
@@ -992,7 +908,7 @@ export default function Page() {
                         </div>
                         <div className="placementBanner_container__upl7e">
                           <p className="placementBanner_heading__yGlah">
-                            ₹ 52 LPA
+                            ₹ NaN LPA
                           </p>
                           <p className="placementBanner_description__O3FqH">
                             Highest Salary
@@ -1014,9 +930,7 @@ export default function Page() {
                       id="contact"
                     >
                       <h2 className="CollegeReview_college_page_details_review_heading__7gRVc">
-                        School of Distance Education, Online Learning
-                        Programmes, Bharathiar University{/* */}
-                        Review
+                        Sri Venkateswara University, Tirupati Review
                       </h2>
                       <div>
                         <form>
@@ -1037,9 +951,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1054,9 +968,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1071,9 +985,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1088,9 +1002,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1105,9 +1019,9 @@ export default function Page() {
                                     className="CollegeReview_college_page_details_review_form_rating_img__h_Yj7"
                                     style={{ color: "transparent" }}
                                     srcSet="
-                              image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
-                              /assets/simpli-images/Star-Two.webp 2x
-                            "
+                                      image?url=%2Fimages%2FStarTwo.png&w=640&q=75 1x,
+                                      /assets/simpli-images/Star-Two.webp 2x
+                                    "
                                     src="/assets/simpli-images/Star-Two.webp"
                                   />
                                 </span>
@@ -1120,7 +1034,6 @@ export default function Page() {
                                 placeholder="Enter your name"
                                 required
                                 name="reviewerName"
-                                defaultValue
                               />
                               <textarea
                                 placeholder="Write your reviews"
@@ -1145,7 +1058,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-
       <Footer />
     </>
   );

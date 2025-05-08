@@ -290,11 +290,8 @@ export default function Page() {
                 />
               </div>
               <div className="headCarousal_proceedCompareContainer__rekWb">
-                <a href="#">
-                  <button
-                    className="headCarousal_collegeCompare__znhHH"
-                    aria-label="Add to compare"
-                  >
+                <a href="/top-university">
+                  <button className="headCarousal_collegeCompare__znhHH">
                     Add To Compare
                   </button>
                 </a>
@@ -686,7 +683,7 @@ export default function Page() {
                               </div>
                             </div>
                             <div>
-                              <Image
+                              {/* <Image
                                 alt="Dibrugarh University sample degree certificate"
                                 loading="lazy"
                                 width={300}
@@ -696,7 +693,7 @@ export default function Page() {
                                 className="Certificates_img__GOe9v"
                                 style={{ color: "transparent" }}
                                 src="/assets/course/du-degree.png"
-                              />
+                              /> */}
                             </div>
                           </div>
                         </div>
@@ -797,7 +794,7 @@ export default function Page() {
                         </div>
                       </div>
                     </div>
-                    <div className="collegeDetails_maxWidth__6vBVL" id="Review">
+                    {/* <div className="collegeDetails_maxWidth__6vBVL" id="Review">
                       <div
                         className="CollegeReview_college_page_details_review_container__KbbIU"
                         id="contact"
@@ -862,7 +859,7 @@ export default function Page() {
                         </div>
                         <div className="CollegeReview_college_page_details_verified_review_container__m7rGG" />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

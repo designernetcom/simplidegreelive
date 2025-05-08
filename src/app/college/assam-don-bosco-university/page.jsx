@@ -106,7 +106,7 @@ export default function Page() {
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href>
+              <a href="/top-university">
                 <button className="headCarousal_collegeCompare__znhHH">
                   Add To Compare
                 </button>
