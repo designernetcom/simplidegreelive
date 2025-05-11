@@ -16,6 +16,519 @@ import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
 
+
+import RollingLine from "../../../../components/RollingLine";
+
+// SpecializationModal Component
+const courseSpecializations = {
+  "Online MBA": {
+    specializations: [],
+    brochure: "/assets/brochure/MANIPAL-UNIVERSITY/MBA-MUJ-Brochure.pdf",
+  },
+  "Online BBA": {
+    specializations: [],
+    brochure: "/assets/brochure/MANIPAL-UNIVERSITY/BBA-MUJ-Brochure.pdf",
+  },
+  "Online B.COM": {
+    specializations: [],
+    brochure: "/assets/brochure/MANIPAL-UNIVERSITY/BCom-MUJ-Brochure.pdf",
+  },
+  "Online M.COM": {
+    specializations: [],
+    brochure: "/assets/brochure/MANIPAL-UNIVERSITY/MCom-MUJ-Brochure.pdf",
+  },
+  "Online BCA": {
+    specializations: [],
+    brochure: "/assets/brochure/MANIPAL-UNIVERSITY/BCA-MUJ-Brochure.pdf",
+  },
+  "Online MCA": {
+    specializations: [],
+    brochure: "/assets/brochure/MANIPAL-UNIVERSITY/MCA-MUJ-Brochure.pdf",
+  },
+  "Online MA-J&MC": {
+    specializations: [],
+    brochure: "/assets/brochure/MANIPAL-UNIVERSITY/MA-JMC-Brochure-MUJ.pdf",
+  },
+};
+
+function SpecializationModal({
+  isSpecializationModalOpen,
+  selectedCourseName,
+  selectedCourseSpecializations,
+  handleCloseSpecializationModal,
+}) {
+  const [isFormModalOpen, setIsFormModalOpen] = React.useState(false);
+  const [formData, setFormData] = React.useState({ name: "", email: "" });
+
+  if (!isSpecializationModalOpen) return null;
+
+  const handleDownloadBrochure = () => {
+    setIsFormModalOpen(true);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+
+    const brochurePath =
+      courseSpecializations[selectedCourseName]?.brochure ||
+      "/assets/brochure/default-brochure.pdf";
+    const link = document.createElement("a");
+    link.href = brochurePath;
+    link.download = brochurePath.split("/").pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setIsFormModalOpen(false);
+    setFormData({ name: "", email: "" });
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCloseFormModal = () => {
+    setIsFormModalOpen(false);
+    setFormData({ name: "", email: "" });
+  };
+
+  return (
+    <>
+      {/* Main Specialization Modal */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex: 1000,
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "#f8f9fa",
+            padding: "20px",
+            borderRadius: "20px",
+            width: "80%",
+            maxWidth: "1500px",
+            maxHeight: "80vh",
+            overflowY: "auto",
+            position: "relative",
+            border: "none",
+          }}
+        >
+          <button
+            onClick={handleCloseSpecializationModal}
+            style={{
+              position: "absolute",
+              top: "15px",
+              right: "15px",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "16px",
+            }}
+            aria-label="Close specialization modal"
+          >
+            <span className="btn-close" />
+          </button>
+          <h2
+            style={{
+              fontSize: "24px",
+              fontFamily:
+                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+              fontWeight: "700",
+              color: "#151419",
+              textAlign: "center",
+              marginBottom: "20px",
+            }}
+          >
+            {selectedCourseName} Specializations
+          </h2>
+
+          {/* Course Fee Details Section */}
+          <div
+            style={{
+              paddingTop: "20px",
+              paddingBottom: "20px",
+              marginTop: "20px",
+            }}
+          >
+            <div
+              className="placement_placementBanner__ACCRS"
+              style={{
+                paddingBottom: "70px",
+                paddingTop: "40px",
+                marginBottom: "30px",
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "20px",
+              }}
+            >
+              {selectedCourseSpecializations.length > 0 ? (
+                selectedCourseSpecializations.map((spec, index) => (
+                  <div
+                    key={index}
+                    className="pricing-card"
+                    style={{
+                      background: "#ffffff",
+                      padding: "20px",
+                      borderRadius: "15px",
+                      width: "300px",
+                      textAlign: "center",
+                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                      animation: `fadeIn 0.5s ease forwards ${index * 0.2}s`,
+                      opacity: 0,
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.05)";
+                      e.currentTarget.style.boxShadow =
+                        "0 8px 20px rgba(0, 0, 0, 0.2)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.boxShadow =
+                        "0 4px 12px rgba(0, 0, 0, 0.1)";
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600",
+                        color: "#151419",
+                        marginBottom: "10px",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                      }}
+                    >
+                      {spec.name}
+                    </p>
+                    <p
+                      style={{
+                        color: "#ff5c35",
+                        fontSize: "32px",
+                        fontWeight: "700",
+                        margin: "10px 0",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                      }}
+                    >
+                      ₹ {spec.fees.toLocaleString()}
+                    </p>
+                    <span
+                      style={{
+                        color: "#555",
+                        fontSize: "14px",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                      }}
+                    >
+                      Inclusive of all taxes
+                    </span>
+                    <style>
+                      {`
+                        @keyframes fadeIn {
+                          from {
+                            opacity: 0;
+                            transform: translateY(20px);
+                          }
+                          to {
+                            opacity: 1;
+                            transform: translateY(0);
+                          }
+                        }
+                        @media (max-width: 768px) {
+                          .placement_placementBanner__ACCRS {
+                            flex-direction: column !important;
+                            align-items: center;
+                            padding-bottom: 40px !important;
+                            padding-top: 30px !important;
+                            margin-bottom: 20px !important;
+                            gap: 15px !important;
+                          }
+                          .pricing-card {
+                            width: 100% !important;
+                            max-width: 400px !important;
+                            padding: 15px !important;
+                            border-radius: 12px !important;
+                            animation: fadeIn 0.4s ease forwards ${
+                              index * 0.15
+                            }s !important;
+                          }
+                          .pricing-card p:first-child {
+                            font-size: 18px !important;
+                          }
+                          .pricing-card p:nth-child(2) {
+                            font-size: 28px !important;
+                          }
+                          .pricing-card span {
+                            font-size: 13px !important;
+                          }
+                        }
+                        @media (max-width: 480px) {
+                          .placement_placementBanner__ACCRS {
+                            padding-bottom: 30px !important;
+                            padding-top: 20px !important;
+                            margin-bottom: 15px !important;
+                            gap: 12px !important;
+                          }
+                          .pricing-card {
+                            padding: 12px !important;
+                            border-radius: 10px !important;
+                          }
+                          .pricing-card p:first-child {
+                            font-size: 16px !important;
+                          }
+                          .pricing-card p:nth-child(2) {
+                            font-size: 24px !important;
+                          }
+                          .pricing-card span {
+                            font-size: 12px !important;
+                          }
+                        }
+                        @media (max-width: 360px) {
+                          .placement_placementBanner__ACCRS {
+                            padding-bottom: 20px !important;
+                            padding-top: 15px !important;
+                            margin-bottom: 10px !important;
+                            gap: 10px !important;
+                          }
+                          .pricing-card {
+                            padding: 10px !important;
+                            border-radius: 8px !important;
+                          }
+                          .pricing-card p:first-child {
+                            font-size: 14px !important;
+                          }
+                          .pricing-card p:nth-child(2) {
+                            font-size: 22px !important;
+                          }
+                          .pricing-card span {
+                            font-size: 11px !important;
+                          }
+                        }
+                      `}
+                    </style>
+                  </div>
+                ))
+              ) : (
+                <div
+                  style={{
+                    textAlign: "center",
+                    padding: "20px",
+                    color: "#000",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontSize: "18px",
+                  }}
+                >
+                  No specializations available
+                </div>
+              )}
+            </div>
+
+            {/* Buttons Section */}
+            <div
+              style={{
+                textAlign: "center",
+                marginTop: "20px",
+                display: "flex",
+                justifyContent: "center",
+                gap: "20px",
+              }}
+            >
+              <button
+                onClick={handleDownloadBrochure}
+                style={{
+                  backgroundColor: "#28a745",
+                  color: "#fff",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  fontFamily:
+                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  fontWeight: "600",
+                }}
+                aria-label="Download course brochure"
+              >
+                Download Brochure
+              </button>
+              <button
+                onClick={handleCloseSpecializationModal}
+                style={{
+                  backgroundColor: "#dc3545",
+                  color: "#fff",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  fontFamily:
+                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  fontWeight: "600",
+                }}
+                aria-label="Close specialization modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Form Modal */}
+      {isFormModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1100,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#fff",
+              padding: "20px",
+              borderRadius: "10px",
+              width: "90%",
+              maxWidth: "500px",
+              position: "relative",
+            }}
+          >
+            <button
+              onClick={handleCloseFormModal}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "16px",
+              }}
+              aria-label="Close form modal"
+            >
+              <span className="btn-close" />
+            </button>
+            <h6
+              style={{
+                fontSize: "20px",
+                fontFamily:
+                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                fontWeight: "600",
+                color: "#151419",
+                textAlign: "center",
+                marginBottom: "20px",
+              }}
+            >
+              Download Brochure
+            </h6>
+            <form onSubmit={handleFormSubmit}>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="name"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="email"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "#28a745",
+                    color: "#fff",
+                    padding: "10px 20px",
+                    borderRadius: "10px",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "16px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "600",
+                  }}
+                >
+                  Submit & Download
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
   const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
@@ -35,25 +548,41 @@ export default function Page() {
 
   const courseSpecializations = {
     "Online MBA": [
-      { name: "Finance", fees: 110000 },
-      { name: "Marketing", fees: 150000 },
-      { name: "Data Analytics", fees: 280000 },
+      { name: "Full Fee", fees: 175000 },
+      { name: "Semester Fee", fees: 43750 },
+      { name: "EMI", fees: 7291 },
     ],
-    "Online MCom": [{ name: "Accounting", fees: 75000 }],
-    "Online BBA": [{ name: "Management", fees: 135000 }],
-    "Online BCom": [{ name: "Commerce", fees: 75000 }],
-    "Online MA": [
-      { name: "Journalism", fees: 75000 },
-      { name: "Public Policy", fees: 140000 },
+    "Online MCom": [
+      { name: "Full Fee", fees: 108000 },
+      { name: "Semester Fee", fees: 27000 },
+      { name: "EMI", fees: 4500 },
     ],
-    "Online MCA": [{ name: "Computer Applications", fees: 98000 }],
-    "Online BCA": [{ name: "Computer Applications", fees: 135000 }],
-    "Online BA": [{ name: "Arts", fees: 75000 }],
-    "Online MSc": [{ name: "Data Science", fees: 280000 }],
-    "Online PGCP": [
-      { name: "General Management", fees: 110000 },
-      { name: "Advanced Management", fees: 140000 },
+    "Online BBA": [
+      { name: "Full Fee", fees: 135000 },
+      { name: "Semester Fee", fees: 22500 },
+      { name: "EMI", fees: 5625 },
     ],
+    "Online BCom": [
+      { name: "Full Fee", fees: 99000 },
+      { name: "Semester Fee", fees: 16500 },
+      { name: "EMI", fees: 4125 },
+    ],
+    "Online MA-J&MC": [
+      { name: "Full Fee", fees: 140000 },
+      { name: "Semester Fee", fees: 35000 },
+      { name: "EMI", fees: 5833 },
+    ],
+    "Online MCA": [
+      { name: "Full Fee", fees: 158000 },
+      { name: "Semester Fee", fees: 39500 },
+      { name: "EMI", fees: 6583 },
+    ],
+    "Online BCA": [
+      { name: "Full Fee", fees: 135000 },
+      { name: "Semester Fee", fees: 22500 },
+      { name: "EMI", fees: 5625 },
+    ],
+
   };
 
   // Calculate fee range dynamically
@@ -293,38 +822,196 @@ export default function Page() {
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
                     <div className="about_collegeDetails__67FzM">
                       <h2 className="about_collegeDetailsHeading__AA_dr">
-                        Online Manipal
+                        Manipal University Jaipur
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
-                        Manipal University Online, founded in 2021, offers a
-                        top-tier online learning experience. With over 50,000
-                        students and 15+ online courses, it is ideal for those
-                        who want to upskill. Moreover, Manipal University Online
-                        is NAAC accredited and recognised by UGC, guaranteeing
-                        high-quality education. Additionally, Online Manipal is
-                        the digital home for all universities, offering
-                        UGC-approved online degrees that are equal to on-campus
-                        ones. Since its start, Manipal University Online has
-                        empowered over 50,000 learners by providing accessible,
-                        affordable, and industry-relevant degrees. The
-                        university’s commitment to academic excellence is
-                        reflected in its 70+ years of success and its reach
-                        across 1500+ towns in India. Moreover, Manipal
-                        University Online would ensure students receive full
-                        placement support, from training to job placement
-                        drives. Additionally, the university has over 3000
-                        expert faculty members and 100+ recruiters, including
-                        Fortune 500 companies, all dedicated to helping you
-                        achieve your career goals. Manipal University Online
-                        focuses more on making education accessible and flexible
-                        for everyone. With courses available in a 100% online
-                        format, students can learn at their own pace from
-                        anywhere in the world. Additionally, the university
-                        offers a range of new-age certifications and
-                        industry-relevant degrees, with the latest skills for
-                        your CV.
+                        Manipal University Jaipur (MUJ) is a NAAC A+ accredited,
+                        UGC approved university known for academic excellence
+                        and industry-focused learning. As a part of the
+                        prestigious Manipal Group, MUJ brings innovation and
+                        quality to online education, empowering learners with
+                        globally recognized degrees. Recognizing the growing
+                        need for flexible and accessible learning, MUJ
+                        introduced UGC-entitled online degree programs, allowing
+                        students and working professionals to earn globally
+                        recognized qualifications from anywhere. The
+                        comprehensive curriculum, experienced faculty, and
+                        advanced digital learning platform ensure students
+                        receive a well-rounded education aligned with industry
+                        standards.
                       </p>
                     </div>
+                    <div
+                      className="placement_placementBanner__ACCRS"
+                      style={{
+                        paddingBottom: "70px",
+                        paddingTop: "40px",
+                        marginBottom: "30px",
+                      }}
+                    >
+                      <div className="placementBanner_container__upl7e">
+                        <p
+                          className="placementBanner_description__O3FqH"
+                          style={{ color: "#000" }}
+                        >
+                          Full course fee (Four semesters)
+                        </p>
+                        <p
+                          className="placementBanner_heading__yGlah"
+                          style={{ color: "#ff5c35" }}
+                        >
+                          INR 2,20,000
+                        </p>
+                        <span style={{ color: "#000" }}>
+                          Inclusive of all taxes
+                        </span>
+                      </div>
+                      <div
+                        className="placementBanner_container__upl7e"
+                        style={{
+                          background: "#fff",
+                          padding: "10px",
+                          borderRadius: "20px",
+                        }}
+                      >
+                        <span style={{ color: "#000" }}>Each semester fee</span>
+                        <p
+                          className="placementBanner_heading__yGlah"
+                          style={{
+                            color: "#151419",
+                            fontSize: "48px",
+                            lineHeight: 1.4,
+                            fontWeight: 450,
+                            margin: 0,
+                          }}
+                        >
+                          INR 55,000
+                        </p>
+                        <p
+                          className="placementBanner_description__O3FqH"
+                          style={{ color: "#000" }}
+                        >
+                          Inclusive of all taxes
+                        </p>
+                      </div>
+                      <div
+                        className="placementBanner_container__upl7e"
+                        style={{
+                          background: "#fff",
+                          padding: "15px 30px 23px 15px",
+                          borderRadius: "20px",
+                        }}
+                      >
+                        <span style={{ color: "#000" }}>EMI starting at</span>
+                        <p
+                          className="placementBanner_heading__yGlah"
+                          style={{
+                            color: "#151419",
+                            fontSize: "48px",
+                            lineHeight: 1.4,
+                            fontWeight: 500,
+                            margin: 0,
+                            fontFamily: "Queens",
+                          }}
+                        >
+                          INR 8,750 /{" "}
+                          <span style={{ fontSize: "20px" }}>Month</span>
+                        </p>
+                        <p
+                          className="placementBanner_description__O3FqH"
+                          style={{ color: "#000" }}
+                        >
+                          Terms & conditions apply
+                        </p>
+                      </div>
+                      <style>
+                        {`
+      @media (max-width: 768px) {
+        .placement_placementBanner__ACCRS {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 40px !important;
+          padding-top: 30px !important;
+          margin-bottom: 20px !important;
+          gap: 15px !important;
+        }
+        .placementBanner_container__upl7e {
+          background: #fff !important;
+          padding: 15px !important;
+          border-radius: 15px !important;
+          width: 100% !important;
+          max-width: 400px !important;
+          text-align: center;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 32px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 18px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 14px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 14px !important;
+          display: block;
+          margin-bottom: 8px;
+        }
+      }
+      @media (max-width: 480px) {
+        .placement_placementBanner__ACCRS {
+          padding-bottom: 30px !important;
+          padding-top: 20px !important;
+          margin-bottom: 15px !important;
+          gap: 12px !important;
+        }
+        .placementBanner_container__upl7e {
+          padding: 12px !important;
+          border-radius: 12px !important;
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 28px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 16px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 13px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 13px !important;
+        }
+      }
+      @media (max-width: 360px) {
+        .placement_placementBanner__ACCRS {
+          padding-bottom: 20px !important;
+          padding-top: 15px !important;
+          margin-bottom: 10px !important;
+          gap: 10px !important;
+        }
+        .placementBanner_container__upl7e {
+          padding: 10px !important;
+          border-radius: 10px !important;
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 24px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 14px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 12px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 12px !important;
+        }
+      }
+    `}
+                      </style>
+                    </div>
+                    <RollingLine />
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="High">
                     <div className="Highlights_container__yqw8t">
@@ -365,93 +1052,279 @@ export default function Page() {
                     </div>
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
-                    <div className="courses_wrapper__5pXR3">
-                      <div className="courses_container__c_BRe">
-                        <h2 className="courses_heading__nCyjm">Courses</h2>
-                        <p className="courses_course_college_name__Reg2z">
+                    <div
+                      className="courses_wrapper__5pXR3"
+                      style={{
+                        padding: "60px 5%",
+                        background:
+                          "linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2))",
+                        backdropFilter: "blur(10px)",
+                        borderRadius: "20px",
+                        margin: "20px",
+                        boxSizing: "border-box",
+                      }}
+                    >
+                      <div
+                        className="courses_container__c_BRe"
+                        style={{
+                          maxWidth: "1200px",
+                          margin: "0 auto",
+                          width: "100%",
+                          boxSizing: "border-box",
+                        }}
+                      >
+                        <h2
+                          className="courses_heading__nCyjm"
+                          style={{
+                            fontSize: "calc(1rem + 0.8vw)",
+                            fontWeight: "800",
+                            color: "#0c2d50",
+                            // textAlign: "center",
+                            marginBottom: "15px",
+                            textTransform: "uppercase",
+                            letterSpacing: "1px",
+                          }}
+                        >
+                          Courses
+                        </h2>
+                        <p
+                          className="courses_course_college_name__Reg2z"
+                          style={{
+                            fontSize: "calc(1rem + 0.2vw)",
+                            color: "#4a5a77",
+                            // textAlign: "center",
+                            marginBottom: "40px",
+                            fontStyle: "italic",
+                          }}
+                        >
                           Explore online learning courses in Online Manipal
                         </p>
-                        <table className="courses_course_table__llAtE">
-                          <thead style={{ background: "var(--dark-blue)" }}>
-                            <tr className="courses_course_head__M4Cun">
-                              <th>Courses</th>
-                              <th style={{ textAlign: "center" }}>Fee Range</th>
-                              <th />
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {[
-                              {
-                                name: "Online MBA",
-                                feeRange: getFeeRange("Online MBA"),
-                              },
-                              {
-                                name: "Online MCom",
-                                feeRange: getFeeRange("Online MCom"),
-                              },
-                              {
-                                name: "Online BBA",
-                                feeRange: getFeeRange("Online BBA"),
-                              },
-                              {
-                                name: "Online BCom",
-                                feeRange: getFeeRange("Online BCom"),
-                              },
-                              {
-                                name: "Online MA",
-                                feeRange: getFeeRange("Online MA"),
-                              },
-                              {
-                                name: "Online MCA",
-                                feeRange: getFeeRange("Online MCA"),
-                              },
-                              {
-                                name: "Online BCA",
-                                feeRange: getFeeRange("Online BCA"),
-                              },
-                              {
-                                name: "Online BA",
-                                feeRange: getFeeRange("Online BA"),
-                              },
-                              {
-                                name: "Online MSc",
-                                feeRange: getFeeRange("Online MSc"),
-                              },
-                              {
-                                name: "Online PGCP",
-                                feeRange: getFeeRange("Online PGCP"),
-                              },
-                            ].map((course, index) => (
-                              <tr className="courses_tbody__ZPCxV" key={index}>
-                                <td>{course.name}</td>
-                                <td style={{ textAlign: "center" }}>
-                                  {course.feeRange}
-                                </td>
-                                <td
-                                  style={{ textAlign: "center" }}
-                                  className="group_btn"
+                        <div
+                          className="courses_table_wrapper"
+                          style={{
+                            overflowX: "auto",
+                            width: "100%",
+                          }}
+                        >
+                          <table
+                            className="courses_course_table__llAtE"
+                            style={{
+                              width: "100%",
+                              borderCollapse: "separate",
+                              borderSpacing: "0",
+                              background: "#ffffff",
+                              borderRadius: "15px",
+                              overflow: "hidden",
+                              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
+                              minWidth: "600px",
+                            }}
+                          >
+                            <thead>
+                              <tr
+                                className="courses_course_head__M4Cun"
+                                style={{
+                                  background:
+                                    "linear-gradient(90deg, #0c2d50, #1a3a6b)",
+                                  color: "#fff",
+                                  fontSize: "calc(0.9rem + 0.1vw)",
+                                  fontWeight: "600",
+                                  textTransform: "uppercase",
+                                  letterSpacing: "0.1em",
+                                }}
+                              >
+                                <th
+                                  style={{
+                                    padding: "20px",
+                                    textAlign: "left",
+                                    boxSizing: "border-box",
+                                  }}
                                 >
-                                  <button
-                                    className="courses_enqnow__8Vb3P"
-                                    onClick={() => setIsCourseModalOpen(true)}
-                                    aria-label={`Enquire about ${course.name}`}
-                                  >
-                                    Enquire Now
-                                  </button>
-                                  <button
-                                    className="courses_viewSpsl__lrjH5"
-                                    onClick={() =>
-                                      handleViewSpecialization(course.name)
-                                    }
-                                    aria-label={`View specializations for ${course.name}`}
-                                  >
-                                    View Specialization
-                                  </button>
-                                </td>
+                                  Courses
+                                </th>
+                                <th
+                                  style={{
+                                    padding: "20px",
+                                    textAlign: "center",
+                                    boxSizing: "border-box",
+                                  }}
+                                >
+                                  Fee Range
+                                </th>
+                                <th
+                                  style={{
+                                    padding: "20px",
+                                    textAlign: "center",
+                                    boxSizing: "border-box",
+                                  }}
+                                >
+                                  Actions
+                                </th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                            </thead>
+                            <tbody>
+                              {[
+                                {
+                                  name: "Online MBA",
+                                  feeRange: getFeeRange("Online MBA"),
+                                },
+                                {
+                                  name: "Online MCom",
+                                  feeRange: getFeeRange("Online MCom"),
+                                },
+                                {
+                                  name: "Online BBA",
+                                  feeRange: getFeeRange("Online BBA"),
+                                },
+                                {
+                                  name: "Online BCom",
+                                  feeRange: getFeeRange("Online BCom"),
+                                },
+                                {
+                                  name: "Online MA",
+                                  feeRange: getFeeRange("Online MA-J&MC"),
+                                },
+                                {
+                                  name: "Online MCA",
+                                  feeRange: getFeeRange("Online MCA"),
+                                },
+                                {
+                                  name: "Online BCA",
+                                  feeRange: getFeeRange("Online BCA"),
+                                },
+                    
+                              ].map((course, index) => (
+                                <tr
+                                  className="courses_tbody__ZPCxV"
+                                  key={index}
+                                  style={{
+                                    background:
+                                      index % 2 === 0 ? "#fafafa" : "#fff",
+                                  }}
+                                  onMouseEnter={(e) =>
+                                    Object.assign(e.currentTarget.style, {
+                                      background: "rgba(232, 158, 38, 0.1)",
+                                    })
+                                  }
+                                  onMouseLeave={(e) =>
+                                    Object.assign(e.currentTarget.style, {
+                                      background:
+                                        index % 2 === 0 ? "#fafafa" : "#fff",
+                                    })
+                                  }
+                                >
+                                  <td
+                                    style={{
+                                      padding: "20px",
+                                      fontSize: "calc(0.9rem + 0.1vw)",
+                                      color: "#0c2d50",
+                                      fontWeight: "500",
+                                      borderBottom:
+                                        "1px solid rgba(0, 0, 0, 0.05)",
+                                      boxSizing: "border-box",
+                                    }}
+                                  >
+                                    {course.name}
+                                  </td>
+                                  <td
+                                    style={{
+                                      padding: "20px",
+                                      fontSize: "calc(0.9rem + 0.1vw)",
+                                      color: "#0c2d50",
+                                      fontWeight: "500",
+                                      textAlign: "center",
+                                      borderBottom:
+                                        "1px solid rgba(0, 0, 0, 0.05)",
+                                      boxSizing: "border-box",
+                                    }}
+                                  >
+                                    {course.feeRange}
+                                  </td>
+                                  <td
+                                    style={{
+                                      padding: "20px",
+                                      textAlign: "center",
+                                      display: "flex",
+                                      gap: "10px",
+                                      justifyContent: "center",
+                                      borderBottom:
+                                        "1px solid rgba(0, 0, 0, 0.05)",
+                                      boxSizing: "border-box",
+                                      flexWrap: "wrap",
+                                    }}
+                                  >
+                                    <button
+                                      className="courses_enqnow__8Vb3P"
+                                      onClick={() => setIsCourseModalOpen(true)}
+                                      aria-label={`Enquire about ${course.name}`}
+                                      style={{
+                                        padding: "12px 24px",
+                                        background:
+                                          "linear-gradient(90deg, #e89e26, #c47b1e)",
+                                        color: "#fff",
+                                        border: "none",
+                                        borderRadius: "50px",
+                                        fontSize: "calc(0.8rem + 0.1vw)",
+                                        fontWeight: "600",
+                                        cursor: "pointer",
+                                        boxShadow:
+                                          "0 4px 15px rgba(232, 158, 38, 0.3)",
+                                        minWidth: "120px",
+                                      }}
+                                      onMouseEnter={(e) =>
+                                        Object.assign(e.currentTarget.style, {
+                                          boxShadow:
+                                            "0 6px 20px rgba(232, 158, 38, 0.5)",
+                                        })
+                                      }
+                                      onMouseLeave={(e) =>
+                                        Object.assign(e.currentTarget.style, {
+                                          boxShadow:
+                                            "0 4px 15px rgba(232, 158, 38, 0.3)",
+                                        })
+                                      }
+                                    >
+                                      Enquire Now
+                                    </button>
+                                    <button
+                                      className="courses_viewSpsl__lrjH5"
+                                      onClick={() =>
+                                        handleViewSpecialization(course.name)
+                                      }
+                                      aria-label={`View specializations for ${course.name}`}
+                                      style={{
+                                        padding: "12px 24px",
+                                        background: "transparent",
+                                        color: "#0c2d50",
+                                        border: "2px solid #0c2d50",
+                                        borderRadius: "50px",
+                                        fontSize: "calc(0.8rem + 0.1vw)",
+                                        fontWeight: "600",
+                                        cursor: "pointer",
+                                        boxShadow:
+                                          "0 4px 15px rgba(12, 45, 80, 0.1)",
+                                        minWidth: "120px",
+                                      }}
+                                      onMouseEnter={(e) =>
+                                        Object.assign(e.currentTarget.style, {
+                                          background: "#0c2d50",
+                                          color: "#fff",
+                                        })
+                                      }
+                                      onMouseLeave={(e) =>
+                                        Object.assign(e.currentTarget.style, {
+                                          background: "transparent",
+                                          color: "#0c2d50",
+                                        })
+                                      }
+                                    >
+                                      View Specialization
+                                    </button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -459,90 +1332,189 @@ export default function Page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
-                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                    <h2
+                      className="courseEligibility_eligible_heading__5Qd_3"
+                      style={{
+                        fontSize: "calc(1rem + 0.8vw)",
+                        fontWeight: "800",
+                        color: "#0c2d50",
+
+                        marginBottom: "20px",
+                        textTransform: "uppercase",
+                        letterSpacing: "1px",
+                      }}
+                    >
                       Course Eligibility
                     </h2>
-                    <div className="courseEligibility_wrapper__WDP1x">
-                      <table className="courseEligibility_eligible_table__ZvMdh">
-                        <thead>
-                          <tr className="courseEligibility_eligible_head__GsY_a">
-                            <th>Courses</th>
-                            <th>Eligibility</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {/* Unchanged eligibility table */}
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MBA</td>
-                            <td>
-                              Bachelor’s degree (10+2+3) from a recognised
-                              university. 50% marks (45% for reserved).
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MCom</td>
-                            <td>
-                              Bachelor’s degree (10+2+3) from a recognised
-                              university.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BBA</td>
-                            <td>
-                              Completed 10+2 from a recognised board or 10+3
-                              diploma. 45% marks (40% for reserved).
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BCom</td>
-                            <td>
-                              Completed 10+2 from a recognised board or 10+3
-                              diploma. 45% marks (40% for reserved).
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MA</td>
-                            <td>
-                              Bachelor’s degree (10+2+3) from a recognised
-                              university.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MCA</td>
-                            <td>
-                              Bachelor’s degree (10+2+3) in Computer
-                              Science/Applications/IT or any stream. 50% marks
-                              (45% for reserved). Compulsory bridge course if
-                              from non-IT background
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BCA</td>
-                            <td>
-                              Completed 10+2 from a recognised board or 10+3
-                              diploma. 45% marks (40% for reserved).
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online BA</td>
-                            <td>
-                              Completed 10+2 from a recognised board or 10+3
-                              diploma.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online MSc</td>
-                            <td>
-                              Bachelor’s degree (10+2+3) with Maths/Statistics.
-                              50% marks.
-                            </td>
-                          </tr>
-                          <tr className="courseEligibility_eligible_tbody__q_tOM">
-                            <td>Online PGCP</td>
-                            <td>Graduation in any discipline. 50% marks.</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <div
+                      className="courseEligibility_wrapper__WDP1x"
+                      style={{
+                        padding: "60px 5%",
+                        background:
+                          "linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2))",
+                        backdropFilter: "blur(10px)",
+                        borderRadius: "20px",
+                        margin: "20px",
+                        boxSizing: "border-box",
+                      }}
+                    >
+                      <div
+                        style={{
+                          overflowX: "auto",
+                          width: "100%",
+                        }}
+                      >
+                        <table
+                          className="course eligibility_eligible_table__ZvMdh"
+                          style={{
+                            width: "100%",
+                            borderCollapse: "separate",
+                            borderSpacing: "0",
+                            background: "#ffffff",
+                            borderRadius: "15px",
+                            overflow: "hidden",
+                            boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
+                            minWidth: "600px",
+                          }}
+                        >
+                          <thead>
+                            <tr
+                              className="courseEligibility_eligible_head__GsY_a"
+                              style={{
+                                background:
+                                  "linear-gradient(90deg, #0c2d50, #1a3a6b)",
+                                color: "#fff",
+                                fontSize: "calc(0.9rem + 0.1vw)",
+                                fontWeight: "600",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.1em",
+                              }}
+                            >
+                              <th
+                                style={{
+                                  padding: "20px",
+                                  textAlign: "left",
+                                  boxSizing: "border-box",
+                                }}
+                              >
+                                Courses
+                              </th>
+                              <th
+                                style={{
+                                  padding: "20px",
+                                  textAlign: "left",
+                                  boxSizing: "border-box",
+                                }}
+                              >
+                                Eligibility
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {[
+                              {
+                                name: "Online MBA",
+                                eligibility:
+                                  "Bachelor’s degree (10+2+3) from a recognised university. 50% marks (45% for reserved).",
+                              },
+                              {
+                                name: "Online MCom",
+                                eligibility:
+                                  "Bachelor’s degree (10+2+3) from a recognised university.",
+                              },
+                              {
+                                name: "Online BBA",
+                                eligibility:
+                                  "Completed 10+2 from a recognised board or 10+3 diploma. 45% marks (40% for reserved).",
+                              },
+                              {
+                                name: "Online BCom",
+                                eligibility:
+                                  "Completed 10+2 from a recognised board or 10+3 diploma. 45% marks (40% for reserved).",
+                              },
+                              {
+                                name: "Online MA",
+                                eligibility:
+                                  "Bachelor’s degree (10+2+3) from a recognised university.",
+                              },
+                              {
+                                name: "Online MCA",
+                                eligibility:
+                                  "Bachelor’s degree (10+2+3) in Computer Science/Applications/IT or any stream. 50% marks (45% for reserved). Compulsory bridge course if from non-IT background.",
+                              },
+                              {
+                                name: "Online BCA",
+                                eligibility:
+                                  "Completed 10+2 from a recognised board or 10+3 diploma. 45% marks (40% for reserved).",
+                              },
+                              {
+                                name: "Online BA",
+                                eligibility:
+                                  "Completed 10+2 from a recognised board or 10+3 diploma.",
+                              },
+                              {
+                                name: "Online MSc",
+                                eligibility:
+                                  "Bachelor’s degree (10+2+3) with Maths/Statistics. 50% marks.",
+                              },
+                              {
+                                name: "Online PGCP",
+                                eligibility:
+                                  "Graduation in any discipline. 50% marks.",
+                              },
+                            ].map((course, index) => (
+                              <tr
+                                className="courseEligibility_eligible_tbody__q_tOM"
+                                key={index}
+                                style={{
+                                  background:
+                                    index % 2 === 0 ? "#fafafa" : "#fff",
+                                }}
+                                onMouseEnter={(e) =>
+                                  Object.assign(e.currentTarget.style, {
+                                    background: "rgba(232, 158, 38, 0.1)",
+                                  })
+                                }
+                                onMouseLeave={(e) =>
+                                  Object.assign(e.currentTarget.style, {
+                                    background:
+                                      index % 2 === 0 ? "#fafafa" : "#fff",
+                                  })
+                                }
+                              >
+                                <td
+                                  style={{
+                                    padding: "20px",
+                                    fontSize: "calc(0.9rem + 0.1vw)",
+                                    color: "#0c2d50",
+                                    fontWeight: "500",
+                                    borderBottom:
+                                      "1px solid rgba(0, 0, 0, 0.05)",
+                                    boxSizing: "border-box",
+                                    verticalAlign: "top",
+                                  }}
+                                >
+                                  {course.name}
+                                </td>
+                                <td
+                                  style={{
+                                    padding: "20px",
+                                    fontSize: "calc(0.9rem + 0.1vw)",
+                                    color: "#0c2d50",
+                                    fontWeight: "400",
+                                    borderBottom:
+                                      "1px solid rgba(0, 0, 0, 0.05)",
+                                    boxSizing: "border-box",
+                                    verticalAlign: "top",
+                                  }}
+                                >
+                                  {course.eligibility}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -674,12 +1646,15 @@ export default function Page() {
                   >
                     {/* Unchanged Certification section, but update images to use Next.js Image */}
                     <div className="Certificates_wrapper__hjNB4">
+                      <h2
+                        className="Certificates_heading__Jr9Js"
+                        style={{ textAlign: "center" }}
+                      >
+                        Sample Certificate
+                      </h2>
                       <div className="Certificates_container__X9Jsj">
                         <div className="Certificates_detail_img_container__jHvTy">
                           <div>
-                            <h2 className="Certificates_heading__Jr9Js">
-                              Sample Certificate
-                            </h2>
                             <div className="Certificates_subHeading__CKwq6">
                               Earn an UGC recognized degree, acknowledged around
                               the globe
@@ -713,11 +1688,16 @@ export default function Page() {
                             <Image
                               alt="Manipal sample degree certificate"
                               loading="lazy"
-                              width={300}
-                              height={200}
+                              width={500}
+                              height={500}
                               decoding="async"
-                              className="Certificates_img__GOe9v"
                               src="/assets/course/Manipal-degree.jpeg"
+                              className="Certificates_img__GOe9v"
+                              style={{
+                                color: "transparent",
+                                border: "1px solid ",
+                                borderRadius: "20px",
+                              }}
                             />
                           </div>
                         </div>
@@ -956,63 +1936,12 @@ export default function Page() {
           </div>
         </div>
       )}
-      {/* {isSpecializationModalOpen && (
-        <div
-          className="modal fade show d-block"
-          id="specializationModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="specializationModalLabel"
-          aria-hidden="false"
-          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
-                <div className="td_form_card_in position-relative">
-                  <button
-                    type="button"
-                    className="btn-close position-absolute top-0 end-0 m-3"
-                    onClick={handleCloseSpecializationModal}
-                    aria-label="Close specialization modal"
-                  ></button>
-                  <h2 className="td_mb_20">
-                    {selectedCourseName} Specializations
-                  </h2>
-                  <table className="table table-bordered">
-                    <thead
-                      style={{ background: "var(--dark-blue)", color: "white" }}
-                    >
-                      <tr>
-                        <th>Specialization Name</th>
-                        <th style={{ textAlign: "center" }}>Fees</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {selectedCourseSpecializations.length > 0 ? (
-                        selectedCourseSpecializations.map((spec, index) => (
-                          <tr key={index}>
-                            <td>{spec.name}</td>
-                            <td style={{ textAlign: "center" }}>
-                              ₹ {spec.fees.toLocaleString()}
-                            </td>
-                          </tr>
-                        ))
-                      ) : (
-                        <tr>
-                          <td colSpan="2" style={{ textAlign: "center" }}>
-                            No specializations available
-                          </td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )} */}
+      <SpecializationModal
+        isSpecializationModalOpen={isSpecializationModalOpen}
+        selectedCourseName={selectedCourseName}
+        selectedCourseSpecializations={selectedCourseSpecializations}
+        handleCloseSpecializationModal={handleCloseSpecializationModal}
+      />
       <Footer />
     </>
   );

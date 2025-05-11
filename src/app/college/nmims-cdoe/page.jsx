@@ -16,12 +16,529 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
+import RollingLine from "../../../../components/RollingLine";
+
+// SpecializationModal Component
+const courseSpecializations = {
+  "Online MBA": {
+    specializations: [
+      { name: "Full Fee", fees: 222000 },
+      { name: "Semester Fee", fees: 55000 },
+      { name: "EMI", fees: 8750 },
+    ],
+    brochure: "/assets/brochure/NMIMS-Online-MBA-Brochure.pdf",
+  },
+  "Online BBA": {
+    specializations: [
+      { name: "Full Fee", fees: 150000 },
+      { name: "Semester Fee", fees: 25000 },
+      { name: "EMI", fees: 6250 },
+    ],
+    brochure: "/assets/brochure/UG-Brochure_A224.pdf",
+  },
+  "Online B.COM": {
+    specializations: [
+      { name: "Full Fee", fees: 10800 },
+      { name: "Semester Fee", fees: 18000 },
+      { name: "EMI", fees: 4500 },
+    ],
+    brochure: "/assets/brochure/NMIMS-Online-MBA-Brochure.pdf",
+  },
+  "Online DIPLOMA": {
+    specializations: [
+      { name: "Full Fee", fees: 110000 },
+      { name: "Semester Fee", fees: 55000 },
+      { name: "EMI", fees: 9160 },
+    ],
+    brochure: "/assets/brochure/Diploma-and-Certificate-Program_V1.pdf",
+  },
+};
+
+function SpecializationModal({
+  isSpecializationModalOpen,
+  selectedCourseName,
+  selectedCourseSpecializations,
+  handleCloseSpecializationModal,
+}) {
+  const [isFormModalOpen, setIsFormModalOpen] = React.useState(false);
+  const [formData, setFormData] = React.useState({ name: "", email: "" });
+
+  if (!isSpecializationModalOpen) return null;
+
+  const handleDownloadBrochure = () => {
+    setIsFormModalOpen(true);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+
+    const brochurePath =
+      courseSpecializations[selectedCourseName]?.brochure ||
+      "/assets/brochure/default-brochure.pdf";
+    const link = document.createElement("a");
+    link.href = brochurePath;
+    link.download = brochurePath.split("/").pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setIsFormModalOpen(false);
+    setFormData({ name: "", email: "" });
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCloseFormModal = () => {
+    setIsFormModalOpen(false);
+    setFormData({ name: "", email: "" });
+  };
+
+  return (
+    <>
+      {/* Main Specialization Modal */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          zIndex: 1000,
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "#f8f9fa",
+            padding: "20px",
+            borderRadius: "20px",
+            width: "80%",
+            maxWidth: "1500px",
+            maxHeight: "80vh",
+            overflowY: "auto",
+            position: "relative",
+            border: "none",
+          }}
+        >
+          <button
+            onClick={handleCloseSpecializationModal}
+            style={{
+              position: "absolute",
+              top: "15px",
+              right: "15px",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "16px",
+            }}
+            aria-label="Close specialization modal"
+          >
+            <span className="btn-close" />
+          </button>
+          <h2
+            style={{
+              fontSize: "24px",
+              fontFamily:
+                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+              fontWeight: "700",
+              color: "#151419",
+              textAlign: "center",
+              marginBottom: "20px",
+            }}
+          >
+            {selectedCourseName} Specializations
+          </h2>
+
+          {/* Course Fee Details Section */}
+          <div
+            style={{
+              paddingTop: "20px",
+              paddingBottom: "20px",
+              marginTop: "20px",
+            }}
+          >
+            <div
+              className="placement_placementBanner__ACCRS"
+              style={{
+                paddingBottom: "70px",
+                paddingTop: "40px",
+                marginBottom: "30px",
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "20px",
+              }}
+            >
+              {selectedCourseSpecializations.length > 0 ? (
+                selectedCourseSpecializations.map((spec, index) => (
+                  <div
+                    key={index}
+                    className="pricing-card"
+                    style={{
+                      background: "#ffffff",
+                      padding: "20px",
+                      borderRadius: "15px",
+                      width: "300px",
+                      textAlign: "center",
+                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                      animation: `fadeIn 0.5s ease forwards ${index * 0.2}s`,
+                      opacity: 0,
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.05)";
+                      e.currentTarget.style.boxShadow =
+                        "0 8px 20px rgba(0, 0, 0, 0.2)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.boxShadow =
+                        "0 4px 12px rgba(0, 0, 0, 0.1)";
+                    }}
+                  >
+                    <p
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600",
+                        color: "#151419",
+                        marginBottom: "10px",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                      }}
+                    >
+                      {spec.name}
+                    </p>
+                    <p
+                      style={{
+                        color: "#ff5c35",
+                        fontSize: "32px",
+                        fontWeight: "700",
+                        margin: "10px 0",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                      }}
+                    >
+                      ₹ {spec.fees.toLocaleString()}
+                    </p>
+                    <span
+                      style={{
+                        color: "#555",
+                        fontSize: "14px",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                      }}
+                    >
+                      Inclusive of all taxes
+                    </span>
+                    <style>
+                      {`
+                        @keyframes fadeIn {
+                          from {
+                            opacity: 0;
+                            transform: translateY(20px);
+                          }
+                          to {
+                            opacity: 1;
+                            transform: translateY(0);
+                          }
+                        }
+                        @media (max-width: 768px) {
+                          .placement_placementBanner__ACCRS {
+                            flex-direction: column !important;
+                            align-items: center;
+                            padding-bottom: 40px !important;
+                            padding-top: 30px !important;
+                            margin-bottom: 20px !important;
+                            gap: 15px !important;
+                          }
+                          .pricing-card {
+                            width: 100% !important;
+                            max-width: 400px !important;
+                            padding: 15px !important;
+                            border-radius: 12px !important;
+                            animation: fadeIn 0.4s ease forwards ${
+                              index * 0.15
+                            }s !important;
+                          }
+                          .pricing-card p:first-child {
+                            font-size: 18px !important;
+                          }
+                          .pricing-card p:nth-child(2) {
+                            font-size: 28px !important;
+                          }
+                          .pricing-card span {
+                            font-size: 13px !important;
+                          }
+                        }
+                        @media (max-width: 480px) {
+                          .placement_placementBanner__ACCRS {
+                            padding-bottom: 30px !important;
+                            padding-top: 20px !important;
+                            margin-bottom: 15px !important;
+                            gap: 12px !important;
+                          }
+                          .pricing-card {
+                            padding: 12px !important;
+                            border-radius: 10px !important;
+                          }
+                          .pricing-card p:first-child {
+                            font-size: 16px !important;
+                          }
+                          .pricing-card p:nth-child(2) {
+                            font-size: 24px !important;
+                          }
+                          .pricing-card span {
+                            font-size: 12px !important;
+                          }
+                        }
+                        @media (max-width: 360px) {
+                          .placement_placementBanner__ACCRS {
+                            padding-bottom: 20px !important;
+                            padding-top: 15px !important;
+                            margin-bottom: 10px !important;
+                            gap: 10px !important;
+                          }
+                          .pricing-card {
+                            padding: 10px !important;
+                            border-radius: 8px !important;
+                          }
+                          .pricing-card p:first-child {
+                            font-size: 14px !important;
+                          }
+                          .pricing-card p:nth-child(2) {
+                            font-size: 22px !important;
+                          }
+                          .pricing-card span {
+                            font-size: 11px !important;
+                          }
+                        }
+                      `}
+                    </style>
+                  </div>
+                ))
+              ) : (
+                <div
+                  style={{
+                    textAlign: "center",
+                    padding: "20px",
+                    color: "#000",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontSize: "18px",
+                  }}
+                >
+                  No specializations available
+                </div>
+              )}
+            </div>
+
+            {/* Buttons Section */}
+            <div
+              style={{
+                textAlign: "center",
+                marginTop: "20px",
+                display: "flex",
+                justifyContent: "center",
+                gap: "20px",
+              }}
+            >
+              <button
+                onClick={handleDownloadBrochure}
+                style={{
+                  backgroundColor: "#28a745",
+                  color: "#fff",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  fontFamily:
+                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  fontWeight: "600",
+                }}
+                aria-label="Download course brochure"
+              >
+                Download Brochure
+              </button>
+              <button
+                onClick={handleCloseSpecializationModal}
+                style={{
+                  backgroundColor: "#dc3545",
+                  color: "#fff",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                  border: "none",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  fontFamily:
+                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  fontWeight: "600",
+                }}
+                aria-label="Close specialization modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Form Modal */}
+      {isFormModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1100,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#fff",
+              padding: "20px",
+              borderRadius: "10px",
+              width: "90%",
+              maxWidth: "500px",
+              position: "relative",
+            }}
+          >
+            <button
+              onClick={handleCloseFormModal}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "16px",
+              }}
+              aria-label="Close form modal"
+            >
+              <span className="btn-close" />
+            </button>
+            <h6
+              style={{
+                fontSize: "20px",
+                fontFamily:
+                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                fontWeight: "600",
+                color: "#151419",
+                textAlign: "center",
+                marginBottom: "20px",
+              }}
+            >
+              Download Brochure
+            </h6>
+            <form onSubmit={handleFormSubmit}>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="name"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="email"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "#28a745",
+                    color: "#fff",
+                    padding: "10px 20px",
+                    borderRadius: "10px",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "16px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "600",
+                  }}
+                >
+                  Submit & Download
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
-  const [isSpecializationModalOpen, setIsSpecializationModalOpen] = useState(false);
+  const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
+    useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,34 +546,37 @@ export default function Page() {
     program: "",
     state: "",
   });
-  const [selectedCourseSpecializations, setSelectedCourseSpecializations] = useState([]);
+  const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
+    useState([]);
   const [selectedCourseName, setSelectedCourseName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const courseSpecializations = {
     "Online BCom": [
-      { name: "Accounting and Finance", fees: 99000 },
-      { name: "Taxation", fees: 99000 },
-      { name: "Banking", fees: 99000 },
+      { name: "Full Fee", fees: 222000 },
+      { name: "Semester Fee", fees: 99000 },
+      { name: "EMI", fees: 99000 },
     ],
     "Online BBA": [
-      { name: "Marketing Management", fees: 141000 },
-      { name: "Human Resource Management", fees: 150000 },
-      { name: "Entrepreneurship", fees: 169200 },
+      { name: "Full Fee", fees: 222000 },
+      { name: "Semester Fee", fees: 99000 },
+      { name: "EMI", fees: 99000 },
     ],
     "Online MBA": [
-      { name: "Finance", fees: 315000 },
-      { name: "Marketing", fees: 315000 },
-      { name: "Operations Management", fees: 315000 },
+      { name: "Full Fee", fees: 222000 },
+      { name: "Semester Fee", fees: 99000 },
+      { name: "EMI", fees: 99000 },
     ],
     "Online EMBA": [
-      { name: "Leadership", fees: 400000 },
-      { name: "Strategic Management", fees: 400000 },
+      { name: "Full Fee", fees: 2672000 },
+      { name: "Semester Fee", fees: 99000 },
+      { name: "EMI", fees: 99000 },
     ],
   };
 
   const getFeeRange = (courseName) => {
-    const fees = courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
+    const fees =
+      courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
     if (fees.length === 0) return "N/A";
     const min = Math.min(...fees);
     const max = Math.max(...fees);
@@ -78,12 +598,12 @@ export default function Page() {
     ];
 
     const handleScroll = debounce(() => {
-      const scrollY = window.scrollY + 100; // Offset for better UX
+      const scrollY = window.scrollY + 100;
       let closestSection = "About";
       let minDistance = Infinity;
 
       sections.forEach((section) => {
-        const element = document.getElementById(section);
+        const element = document.getElementById(section); // Fixed typo
         if (element) {
           const offsetTop = element.offsetTop;
           const distance = Math.abs(scrollY - offsetTop);
@@ -91,22 +611,18 @@ export default function Page() {
             minDistance = distance;
             closestSection = section;
           }
-          console.log(`Section: ${section}, OffsetTop: ${offsetTop}, Distance: ${distance}`);
-        } else {
-          console.warn(`Element with id="${section}" not found`);
         }
       });
 
-      console.log(`Active section: ${closestSection}`);
       setActiveSection(closestSection);
     }, 10);
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial call
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      handleScroll.cancel(); // Clean up debounced function
+      handleScroll.cancel();
     };
   }, []);
 
@@ -273,26 +789,224 @@ export default function Page() {
             <p className="headCarousal_ranking__1yTOY">NIRF Rank: Top 100</p>
             <div className="headCarousal_accreditation__HUqxZ">
               <Image
-                src="https://store.learningroutes.in/images/colleges/NMIMS-Centre-for-Distance-and-Online-Education/accreditations/NAAC A+.webp"
+                src="/assets/img/icon/naac.png"
                 alt="NAAC A+ accreditation"
                 className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
+                width={130}
+                height={130}
               />
-                           <Image
+              <Image
                 src="https://store.learningroutes.in/images/colleges/NMIMS-Centre-for-Distance-and-Online-Education/accreditations/UGC.webp"
                 alt="UGC accreditation"
                 className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
+                width={130}
+                height={130}
               />
             </div>
-            <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="/top-university">
-                <button className="headCarousal_collegeCompare__znhHH">
-                  Add To Compare
+            <div
+              className="headCarousal_proceedCompareContainer__rekWb"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "20px",
+                padding: "20px",
+                // background: "#f8f9fa",
+                borderRadius: "10px",
+                margin: "0 auto",
+                maxWidth: "1200px",
+              }}
+            >
+              <a style={{ flex: "1", minWidth: "220px", maxWidth: "280px" }}>
+                <button
+                  className="headCarousal_collegeCompare__znhHH"
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #e9ecef 100%)",
+                    border: "none",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    fontFamily:
+                      "'__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif'",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 15px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 10px rgba(0, 0, 0, 0.1)";
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "700",
+                      color: "#ff5c35",
+                    }}
+                  >
+                    82000+
+                  </span>
+                  <br />
+                  <span style={{ fontSize: "16px", color: "#151419" }}>
+                    Alumni across the world
+                  </span>
                 </button>
               </a>
+              <a
+                href="/top-university"
+                style={{ flex: "1", minWidth: "220px", maxWidth: "280px" }}
+              >
+                <button
+                  className="headCarousal_collegeCompare__znhHH"
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #e9ecef 100%)",
+                    border: "none",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    fontFamily:
+                      "'__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif'",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 15px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 10px rgba(0, 0, 0, 0.1)";
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "700",
+                      color: "#ff5c35",
+                    }}
+                  >
+                    40+
+                  </span>
+                  <br />
+                  <span style={{ fontSize: "16px", color: "#151419" }}>
+                    Years of legacy
+                  </span>
+                </button>
+              </a>
+              <a
+                href="/top-university"
+                style={{ flex: "1", minWidth: "220px", maxWidth: "280px" }}
+              >
+                <button
+                  className="headCarousal_collegeCompare__znhHH"
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #e9ecef 100%)",
+                    border: "none",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    fontFamily:
+                      "'__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif'",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 15px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 10px rgba(0, 0, 0, 0.1)";
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "700",
+                      color: "#ff5c35",
+                    }}
+                  >
+                    157000+
+                  </span>
+                  <br />
+                  <span style={{ fontSize: "16px", color: "#151419" }}>
+                    Lives transformed
+                  </span>
+                </button>
+              </a>
+              <a
+                href="/top-university"
+                style={{ flex: "1", minWidth: "220px", maxWidth: "280px" }}
+              >
+                <button
+                  className="headCarousal_collegeCompare__znhHH"
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #e9ecef 100%)",
+                    border: "none",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    fontFamily:
+                      "'__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif'",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 15px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 10px rgba(0, 0, 0, 0.1)";
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "700",
+                      color: "#ff5c35",
+                    }}
+                  >
+                    8000+
+                  </span>
+                  <br />
+                  <span style={{ fontSize: "16px", color: "#151419" }}>
+                    Corporate firms our alumni work for
+                  </span>
+                </button>
+              </a>
+              <style>
+                {`
+      @media (max-width: 768px) {
+        .headCarousal_proceedCompareContainer__rekWb {
+          display: none !important;
+        }
+      }
+    `}
+              </style>
             </div>
           </div>
         </div>
@@ -318,9 +1032,7 @@ export default function Page() {
                       href={
                         item.id !== "Enquire Now" ? `#${item.id}` : undefined
                       }
-                      onClick={
-                        item.id === "Enquire Now" ? openModal : undefined
-                      }
+               
                       aria-current={
                         activeSection === item.id ? "true" : undefined
                       }
@@ -352,45 +1064,220 @@ export default function Page() {
                 </div>
                 <div className="collegeDetails_detailsContainer__6A8oL">
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
-                    <div className="about_collegeDetails__67FzM">
-                      <h2
-                        style={{
-                          fontSize: "24px",
-                          margin: "20px 0",
-                          fontFamily:
-                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                          fontStyle: "normal",
-                          fontWeight: "700",
-                        }}
-                      >
-                        NMIMS Centre for Distance and Online Education
-                      </h2>
-                      <p
-                        style={{
-                          fontSize: "16px",
-                          fontFamily:
-                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                          fontStyle: "normal",
-                        }}
-                      >
-                        The NMIMS Centre for Distance and Online Education is
-                        India’s leading institution for providing
-                        career-oriented quality education. All courses are UGC
-                        certified with accreditation from NAAC Grade A+. The
-                        institute has been assisting thousands of students for
-                        more than four decades to get quality education. It was
-                        founded in 1981 and was awarded
-                        “Deemed-to-be-University” status in 2003. The Indian
-                        youth living in urban and rural areas were looking for
-                        quality education programs that could be completed
-                        without attending the classroom setting, so it
-                        established distance and open learning centers to offer
-                        easily accessible quality education to students around
-                        the nation. The courses here are designed to help
-                        working professionals who want to upgrade their careers
-                        without compromising their job scenarios.
-                      </p>
+                    <h2
+                      style={{
+                        fontSize: "24px",
+                        margin: "20px 0",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                        fontStyle: "normal",
+                        fontWeight: "700",
+                      }}
+                    >
+                      NMIMS Centre for Distance and Online Education
+                    </h2>
+                    <div className="CourseAbout_course_about_container__xEAH5">
+                      <div className="CourseAbout_course_about_left_col__KRo_I">
+                        <p>
+                          The institute was founded in 1994 as a distance
+                          education arm of SVKM's NMIMS. Over the last several
+                          years, NMIMS CDOE has developed and delivered quality
+                          education programs, curriculum, and services to
+                          democratise education with equal opportunity for
+                          everyone to excel at their desired skills. By building
+                          a thriving ecosystem for a community of learners,
+                          NMIMS CDOE has helped them nurture their aspiration to
+                          achieve their goals and thrive in a competitive and
+                          dynamically evolving corporate marketplace.
+                        </p>
+                      </div>
+                      <div className="CourseAbout_course_about_right_col__q4drQ">
+                        <a href="">
+                          <img
+                            alt="about_img"
+                            loading="lazy"
+                            width={800}
+                            height={500}
+                            decoding="async"
+                            data-nimg={1}
+                            className="CourseAbout_course_about_img__6V0u_"
+                            style={{ color: "transparent" }}
+                            src="/assets/img/universities/media_1733210710057.png"
+                          />
+                        </a>
+                      </div>
                     </div>
+                    <div
+                      className="placement_placementBanner__ACCRS"
+                      style={{
+                        paddingBottom: "30px",
+                        paddingTop: "30px",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      <div className="placementBanner_container__upl7e">
+                        <p
+                          className="placementBanner_description__O3FqH"
+                          style={{ color: "#000" }}
+                        >
+                          Full course fee (Four semesters)
+                        </p>
+                        <p
+                          className="placementBanner_heading__yGlah"
+                          style={{ color: "#ff5c35" }}
+                        >
+                          INR 2,20,000
+                        </p>
+                        <span style={{ color: "#000" }}>
+                          Inclusive of all taxes
+                        </span>
+                      </div>
+                      <div
+                        className="placementBanner_container__upl7e"
+                        style={{
+                          background: "#fff",
+                          padding: "10px",
+                          borderRadius: "20px",
+                        }}
+                      >
+                        <span style={{ color: "#000" }}>Each semester fee</span>
+                        <p
+                          className="placementBanner_heading__yGlah"
+                          style={{
+                            color: "#151419",
+                            fontSize: "48px",
+                            lineHeight: 1.4,
+                            fontWeight: 450,
+                            margin: 0,
+                          }}
+                        >
+                          INR 55,000
+                        </p>
+                        <p
+                          className="placementBanner_description__O3FqH"
+                          style={{ color: "#000" }}
+                        >
+                          Inclusive of all taxes
+                        </p>
+                      </div>
+                      <div
+                        className="placementBanner_container__upl7e"
+                        style={{
+                          background: "#fff",
+                          padding: "15px 30px 23px 15px",
+                          borderRadius: "20px",
+                        }}
+                      >
+                        <span style={{ color: "#000" }}>EMI starting at</span>
+                        <p
+                          className="placementBanner_heading__yGlah"
+                          style={{
+                            color: "#151419",
+                            fontSize: "48px",
+                            lineHeight: 1.4,
+                            fontWeight: 500,
+                            margin: 0,
+                            fontFamily: "Queens",
+                          }}
+                        >
+                          INR 8,750 /{" "}
+                          <span style={{ fontSize: "20px" }}>Month</span>
+                        </p>
+                        <p
+                          className="placementBanner_description__O3FqH"
+                          style={{ color: "#000" }}
+                        >
+                          Terms & conditions apply
+                        </p>
+                      </div>
+                      <style>
+                        {`
+      @media (max-width: 768px) {
+        .placement_placementBanner__ACCRS {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 40px !important;
+          padding-top: 30px !important;
+          margin-bottom: 20px !important;
+          gap: 15px !important;
+        }
+        .placementBanner_container__upl7e {
+          background: #fff !important;
+          padding: 15px !important;
+          border-radius: 15px !important;
+          width: 100% !important;
+          max-width: 400px !important;
+          text-align: center;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 32px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 18px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 14px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 14px !important;
+          display: block;
+          margin-bottom: 8px;
+        }
+      }
+      @media (max-width: 480px) {
+        .placement_placementBanner__ACCRS {
+          padding-bottom: 30px !important;
+          padding-top: 20px !important;
+          margin-bottom: 15px !important;
+          gap: 12px !important;
+        }
+        .placementBanner_container__upl7e {
+          padding: 12px !important;
+          border-radius: 12px !important;
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 28px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 16px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 13px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 13px !important;
+        }
+      }
+      @media (max-width: 360px) {
+        .placement_placementBanner__ACCRS {
+          padding-bottom: 20px !important;
+          padding-top: 15px !important;
+          margin-bottom: 10px !important;
+          gap: 10px !important;
+        }
+        .placementBanner_container__upl7e {
+          padding: 10px !important;
+          border-radius: 10px !important;
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 24px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 14px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 12px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 12px !important;
+        }
+      }
+    `}
+                      </style>
+                    </div>
+                    <RollingLine />
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="High">
                     <div className="Highlights_container__yqw8t">
@@ -605,19 +1492,26 @@ export default function Page() {
                     id="Enquire Now"
                   >
                     <div className="collegenquiry_collegeform__wTRAT">
-                      <h2
+                      <div
                         style={{
-                          fontSize: "24px",
-                          margin: "20px 0",
-                          fontFamily:
-                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                          fontStyle: "normal",
-                          fontWeight: "700",
+                          background: "#fff",
+                          border: "1px solid",
+                          padding: "5px 10px 15px 10px",
+                          borderRadius: "20px",
                         }}
                       >
-                        Get Free Career Consultation
-                      </h2>
-                      <div className="collegenquiry_form_div__RSaaQ">
+                        <h2
+                          style={{
+                            fontSize: "24px",
+                            margin: "20px 0",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                            fontWeight: "700",
+                          }}
+                        >
+                          Get Free Career Consultation
+                        </h2>
                         <form
                           className="collegenquiry_form__uF7mS"
                           onSubmit={handleEnquirySubmit}
@@ -653,10 +1547,10 @@ export default function Page() {
                             required
                           >
                             <option value="">Choose a Program*</option>
-                            <option value="Distance MBA">Distance MBA</option>
-                            <option value="Distance EMBA">Distance EMBA</option>
-                            <option value="Distance BBA">Distance BBA</option>
-                            <option value="Distance BCom">Distance BCom</option>
+                            <option value="Online MBA">Online MBA</option>
+                            <option value="Online EMBA">Online EMBA</option>
+                            <option value="Online BBA">Online BBA</option>
+                            <option value="Online BCom">Online BCom</option>
                             <option value="Help Me Decide">
                               Help Me Decide
                             </option>
@@ -756,12 +1650,16 @@ export default function Page() {
                             <Image
                               alt="NMIMS sample degree certificate"
                               loading="lazy"
-                              width={300}
-                              height={200}
+                              width={500}
+                              height={500}
                               decoding="async"
                               data-nimg={1}
                               className="Certificates_img__GOe9v"
-                              style={{ color: "transparent" }}
+                              style={{
+                                color: "transparent",
+                                border: "1px solid ",
+                                borderRadius: "20px",
+                              }}
                               src="/assets/img/others/nmims-mba.jpg"
                             />
                           </div>
@@ -780,8 +1678,6 @@ export default function Page() {
                           margin: "20px 0",
                           fontFamily:
                             "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-
-
                           fontStyle: "normal",
                           fontWeight: "700",
                         }}
@@ -943,7 +1839,7 @@ export default function Page() {
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="false"
-          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+          style={{ backgroundColor: "rgba(21, 0, 0, 0.6)" }}
         >
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
@@ -971,6 +1867,7 @@ export default function Page() {
                       value={formData.name}
                       onChange={handleChange}
                       required
+                      class
                       className="td_form_field td_mb_30 td_medium td_white_bg w-100"
                     />
                     <input
@@ -1040,69 +1937,12 @@ export default function Page() {
           </div>
         </div>
       )}
-      {isSpecializationModalOpen && (
-        <div
-          className="modal fade show d-block"
-          id="specializationModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="specializationModalLabel"
-          aria-hidden="false"
-          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="td_form_card td_style_1 td_radius_10 td_gray_bg_5 p-4">
-                <div className="td_form_card_in position-relative">
-                  <button
-                    type="button"
-                    className="btn-close"
-                    onClick={handleCloseSpecializationModal}
-                    aria-label="Close specialization modal"
-                    style={{
-                      right: "-10px",
-                      height: "5em",
-                      width: "3em",
-                      top: "-20px",
-                    }}
-                  ></button>
-                  <h2 className="td_mb_20">
-                    {selectedCourseName} Specializations
-                  </h2>
-                  <table className="table table-bordered">
-                    <thead
-                      style={{ background: "var(--dark-blue)", color: "white" }}
-                    >
-                      <tr>
-                        <th>Specialization Name</th>
-                        <th style={{ textAlign: "center" }}>Fees</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {selectedCourseSpecializations.length > 0 ? (
-                        selectedCourseSpecializations.map((spec, index) => (
-                          <tr key={index}>
-                            <td>{spec.name}</td>
-                            <td style={{ textAlign: "center" }}>
-                              ₹ {spec.fees.toLocaleString()}
-                            </td>
-                          </tr>
-                        ))
-                      ) : (
-                        <tr>
-                          <td colSpan="2" style={{ textAlign: "center" }}>
-                            No specializations available
-                          </td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <SpecializationModal
+        isSpecializationModalOpen={isSpecializationModalOpen}
+        selectedCourseName={selectedCourseName}
+        selectedCourseSpecializations={selectedCourseSpecializations}
+        handleCloseSpecializationModal={handleCloseSpecializationModal}
+      />
       <Footer />
     </>
   );

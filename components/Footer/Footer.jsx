@@ -299,7 +299,8 @@ return (
             Healthcare Service Mgmt
           </a>
         </div>
-        <div className="footer_footer__col__4F7Mb">
+
+        {/* <div className="footer_footer__col__4F7Mb">
           <div className="footer_Footer_section_heading__fsEMx">
             Get Right Career Guidance
           </div>
@@ -564,8 +565,41 @@ return (
           <a className="footer_Footer_section_link__pMXOf" href>
             Retail Management
           </a>
+        </div> */}
+        <div className="footer_footer__col__4F7Mb">
+          <div className="footer_Footer_section_heading__fsEMx">
+            Toll free numbers
+          </div>
+          {/* <a className="footer_ctaboxlinks__5WueN" href>
+            <div className="footer_ctabox__61Q43">
+              <div className="footer_leftsec__voM1P">Toll free numbers</div>
+              <div />
+            </div>
+          </a> */}
+        </div>
+        <div className="footer_footer__col__4F7Mb">
+          <a className="footer_ctaboxlinks__5WueN" href>
+            <div className="footer_ctabox__61Q43">
+              <div className="footer_leftsec__voM1P">
+                Admission support team <br /> 1800-102-3434
+              </div>
+              <div />
+            </div>
+          </a>
+        </div>
+        <div className="footer_footer__col__4F7Mb">
+          <a className="footer_ctaboxlinks__5WueN" href>
+            <div className="footer_ctabox__61Q43">
+              <div className="footer_leftsec__voM1P">
+                Student support team <br />
+                +91-88-263-34455
+              </div>
+              <div />
+            </div>
+          </a>
         </div>
       </div>
+
       <div className="footer_Footer__bottomSectionContainer__L8VoB">
         <div className="footer_Footer__bottomSection_left__Q1LwX">
           <text className="footer_Footer__bottomSection_links__DUZG7">

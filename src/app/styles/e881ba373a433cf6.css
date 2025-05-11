@@ -120,14 +120,14 @@
 .footer_footer__Container__brMaJ {
   max-width: 100%;
   background: #000e23;
-  padding: 50px 6%;
+  padding: 5px 6%;
 }
 .footer_footer__row__kgs5H {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, auto);
-  gap: 20px;
-  padding: 20px;
+  gap: 0px;
+  padding: 10px;
   color: #fff;
 }
 .footer_footer__col__4F7Mb {
@@ -135,10 +135,10 @@
   flex-direction: column;
   min-width: 180px;
   color: #fff;
-  gap: 18px;
-  margin-bottom: 40px;
+  gap: 13px;
+  margin-bottom: 7px;
   padding: 10px;
-  margin-top: 30px;
+  margin-top: 7px;
 }
 .footer_Footer__logo__xeANo {
   margin-right: auto;

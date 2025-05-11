@@ -3806,11 +3806,12 @@
 .placement_placementBanner__ACCRS {
     display: flex;
     justify-content: space-between;
-    background: var(--dark-blue);
+    background: #d2cff1;
     padding: 20px;
     border-radius: 12px;
     margin-top: 40px;
-    max-width: 100%
+    max-width: 100%;
+    opacity: 0.9;
 }
 
 @media screen and (max-width: 1024px) {
