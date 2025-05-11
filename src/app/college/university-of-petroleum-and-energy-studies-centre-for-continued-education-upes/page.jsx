@@ -235,21 +235,21 @@ export default function Page() {
                 NIRF Rank: 59 (Overall)
               </p>
               <div className="headCarousal_accreditation__HUqxZ">
-                <Image
-                  src="https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/accreditations/UGC-DEB.webp"
-                  alt="UGC-DEB accreditation"
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-                <Image
-                  src="https://store.learningroutes.in/images/colleges/university-of-petroleum-and-energy-studies-centre-for-continued-education/accreditations/NAAC A.webp"
-                  alt="NAAC A accreditation"
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-              </div>
+              <Image
+                src="/assets/img/icon/naac.png"
+                alt="NAAC A+ accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
+              <Image
+                src="/assets/img/icon/UGC.png"
+                alt="UGC accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
+            </div>
               <div className="headCarousal_proceedCompareContainer__rekWb">
                 <a href="/top-university">
                   <button className="headCarousal_collegeCompare__znhHH">

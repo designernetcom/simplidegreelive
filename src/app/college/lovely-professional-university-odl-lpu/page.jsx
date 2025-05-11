@@ -213,21 +213,20 @@ export default function Page() {
               NIRF Rank: 45 (Overall)
             </p>
             <div className="headCarousal_accreditation__HUqxZ">
-              {[
-                { src: "UGC_DEB.webp", alt: "UGC-DEB accreditation" },
-                { src: "AICTE.webp", alt: "AICTE accreditation" },
-                { src: "NAAC A++.webp", alt: "NAAC A++ accreditation" },
-                { src: "WES.webp", alt: "WES accreditation" },
-              ].map((acc, index) => (
-                <Image
-                  key={index}
-                  src={`https://store.learningroutes.in/images/colleges/LPU-Online/accreditations/${acc.src}`}
-                  alt={acc.alt}
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-              ))}
+              <Image
+                src="/assets/img/icon/naac.png"
+                alt="NAAC A+ accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
+              <Image
+                src="/assets/img/icon/UGC.png"
+                alt="UGC accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
               <a href="/top-university">

@@ -288,46 +288,18 @@ export default function Page() {
             <p className="headCarousal_ranking__1yTOY">NIRF Rank: 44</p>
             <div className="headCarousal_accreditation__HUqxZ">
               <Image
-                src="https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/accreditations/NAACA++.webp"
-                alt="NAAC A++ accreditation"
+                src="/assets/img/icon/naac.png"
+                alt="NAAC A+ accreditation"
                 className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
+                width={130}
+                height={130}
               />
               <Image
-                src="https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/accreditations/UGC.webp"
+                src="/assets/img/icon/UGC.png"
                 alt="UGC accreditation"
                 className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/accreditations/WES.webp"
-                alt="WES accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/accreditations/AICTE.webp"
-                alt="AICTE accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/accreditations/AIU.webp"
-                alt="AIU accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
-              />
-              <Image
-                src="https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/accreditations/ASSOCHAM.webp"
-                alt="ASSOCHAM accreditation"
-                className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
+                width={130}
+                height={130}
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">

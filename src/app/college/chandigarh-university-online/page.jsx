@@ -208,23 +208,20 @@ export default function Page() {
               NIRF Rank: 32 (Overall)
             </p>
             <div className="headCarousal_accreditation__HUqxZ">
-              {[
-                { src: "ugc.webp", alt: "UGC accreditation" },
-                { src: "naac-a+.webp", alt: "NAAC A+ accreditation" },
-                { src: "aiu.webp", alt: "AIU accreditation" },
-                { src: "acu.webp", alt: "ACU accreditation" },
-                { src: "iau.webp", alt: "IAU accreditation" },
-                { src: "nchmct.webp", alt: "NCHMCT accreditation" },
-              ].map((acc, index) => (
-                <Image
-                  key={index}
-                  src={`https://store.learningroutes.in/images/colleges/chandigarh-university/accreditations/${acc.src}`}
-                  alt={acc.alt}
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-              ))}
+              <Image
+                src="/assets/img/icon/naac.png"
+                alt="NAAC A+ accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
+              <Image
+                src="/assets/img/icon/UGC.png"
+                alt="UGC accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
               <a href="/top-university">

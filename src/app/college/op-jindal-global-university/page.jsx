@@ -377,19 +377,20 @@ export default function Page() {
               2023
             </p>
             <div className="headCarousal_accreditation__HUqxZ">
-              {[
-                { src: "UGC.webp", alt: "UGC accreditation" },
-                { src: "NAAC A.webp", alt: "NAAC A accreditation" },
-              ].map((acc, index) => (
-                <Image
-                  key={index}
-                  src={`https://store.learningroutes.in/images/colleges/OP-jindal-global-university/accreditations/${acc.src}`}
-                  alt={acc.alt}
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-              ))}
+              <Image
+                src="/assets/img/icon/naac.png"
+                alt="NAAC A+ accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
+              <Image
+                src="/assets/img/icon/UGC.png"
+                alt="UGC accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
               <a href="/top-university">

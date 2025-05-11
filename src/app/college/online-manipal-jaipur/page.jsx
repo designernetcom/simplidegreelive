@@ -741,22 +741,20 @@ export default function Page() {
             <p className="headCarousal_location__7rFlL">Jaipur, Rajasthan</p>
             <p className="headCarousal_ranking__1yTOY">NIRF Rank: 14</p>
             <div className="headCarousal_accreditation__HUqxZ">
-              {[
-                { src: "NAACA+.webp", alt: "NAAC A+ accreditation" },
-                { src: "UGC.webp", alt: "UGC accreditation" },
-                { src: "WES.webp", alt: "WES accreditation" },
-                { src: "ACU.webp", alt: "ACU accreditation" },
-                { src: "AICTE.webp", alt: "AICTE accreditation" },
-              ].map((acc, index) => (
-                <Image
-                  key={index}
-                  src={`https://store.learningroutes.in/images/colleges/online-manipal-jaipur/accreditation/${acc.src}`}
-                  alt={acc.alt}
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-              ))}
+              <Image
+                src="/assets/img/icon/naac.png"
+                alt="NAAC A+ accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
+              <Image
+                src="/assets/img/icon/UGC.png"
+                alt="UGC accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
               <a href="/top-university">
@@ -860,7 +858,7 @@ export default function Page() {
                           className="placementBanner_heading__yGlah"
                           style={{ color: "#ff5c35" }}
                         >
-                          INR 2,20,000
+                          INR 1,75,000
                         </p>
                         <span style={{ color: "#000" }}>
                           Inclusive of all taxes
@@ -885,7 +883,7 @@ export default function Page() {
                             margin: 0,
                           }}
                         >
-                          INR 55,000
+                          INR 43750
                         </p>
                         <p
                           className="placementBanner_description__O3FqH"
@@ -914,7 +912,7 @@ export default function Page() {
                             fontFamily: "Queens",
                           }}
                         >
-                          INR 8,750 /{" "}
+                          INR 7291 /{" "}
                           <span style={{ fontSize: "20px" }}>Month</span>
                         </p>
                         <p

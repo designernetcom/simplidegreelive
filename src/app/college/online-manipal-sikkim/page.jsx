@@ -748,22 +748,20 @@ export default function Page() {
             <p className="headCarousal_location__7rFlL">Sikkim, Assam</p>
             <p className="headCarousal_ranking__1yTOY">NIRF Rank: 14</p>
             <div className="headCarousal_accreditation__HUqxZ">
-              {[
-                { src: "NAACA+.webp", alt: "NAAC A+ accreditation" },
-                { src: "UGC.webp", alt: "UGC accreditation" },
-                { src: "WES.webp", alt: "WES accreditation" },
-                { src: "ACU.webp", alt: "ACU accreditation" },
-                { src: "AICTE.webp", alt: "AICTE accreditation" },
-              ].map((acc, index) => (
-                <Image
-                  key={index}
-                  src={`https://store.learningroutes.in/images/colleges/online-manipal-jaipur/accreditation/${acc.src}`}
-                  alt={acc.alt}
-                  className="headCarousal_accImg__NoM8M"
-                  width={20}
-                  height={20}
-                />
-              ))}
+              <Image
+                src="/assets/img/icon/naac.png"
+                alt="NAAC A+ accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
+              <Image
+                src="/assets/img/icon/UGC.png"
+                alt="UGC accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
+              />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">
               <a href="/top-university">

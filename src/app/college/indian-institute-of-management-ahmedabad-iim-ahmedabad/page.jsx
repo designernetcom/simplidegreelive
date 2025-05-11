@@ -221,11 +221,18 @@ export default function Page() {
             </p>
             <div className="headCarousal_accreditation__HUqxZ">
               <Image
-                src="https://store.learningroutes.in/images/colleges/indian-institute-of-management-ahmedabad/accreditations/EQUIS.webp"
-                alt="EQUIS accreditation"
+                src="/assets/img/icon/naac.png"
+                alt="NAAC A+ accreditation"
                 className="headCarousal_accImg__NoM8M"
-                width={20}
-                height={20}
+                width={130}
+                height={130}
+              />
+              <Image
+                src="/assets/img/icon/UGC.png"
+                alt="UGC accreditation"
+                className="headCarousal_accImg__NoM8M"
+                width={130}
+                height={130}
               />
             </div>
             <div className="headCarousal_proceedCompareContainer__rekWb">

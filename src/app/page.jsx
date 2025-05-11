@@ -28,10 +28,14 @@ import Footer from "../../components/Footer/Footer";
 import TrustpilotRating from "../../components/TrustpilotRating";
 import ExploreUniversities from "../../components/ExploreUniversities";
 import EnquiryModel from "../../components/EnquiryModel";
+import BrochureDownloadModal from '../../components/BrochureDownloadModal'; // Adjust path as needed
 // Dynamically import the modal with SSR disabled
 const ComparisonModal = dynamic(() => import("./ComparisonModal"), {
   ssr: false,
 });
+
+
+
 
 
 
@@ -44,7 +48,25 @@ export default function Page() {
   const handleTabClick = (tabId) => {
     setActiveTab(tabId); // Update active tab state
   };
+  const [showBrochureModal, setShowBrochureModal] = useState(false);
+  const [selectedBrochure, setSelectedBrochure] = useState({
+    url: "",
+    university: "",
+  });
 
+  const handleOpenBrochureModal = (url, university) => {
+    setSelectedBrochure({ url, university });
+    setShowBrochureModal(true);
+  };
+
+  const handleCloseBrochureModal = () => {
+    setShowBrochureModal(false);
+    setSelectedBrochure({ url: "", university: "" });
+  };
+
+  // Assuming EnquiryModel is defined elsewhere
+  const [showModal, setShowModal] = useState(false);
+  const handleOpenModal = () => setShowModal(true);
   const universities = [
     {
       id: 1,
@@ -464,11 +486,11 @@ const categories = [
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   const [activeCategory, setActiveCategory] = useState("Online PG Programmes");
-  const [showModal, setShowModal] = useState(false); // Manage modal visibility
 
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
+
+  // const handleOpenModal = () => {
+  //   setShowModal(true);
+  // };
   useEffect(() => {
     const handleScroll = () => {
       setFixedHeader(window.scrollY > 50);
@@ -888,11 +910,7 @@ const categories = [
                   <div className="row td_gap_y_30 td_row_gap_30">
                     <div className="col-lg-4 col-md-6">
                       <div className="td_card td_style_5 td_type_1">
-                        <Link
-                          href="/college/nmims-cdoe"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                        >
+                        <Link href="/college/nmims-cdoe">
                           <span className="td_card_thumb_in">
                             <img
                               src="/assets/img/universities/college-images-and-logo-05.jpg"
@@ -906,62 +924,52 @@ const categories = [
                           </span>
                         </Link>
                         <div className="td_card_content">
-                          <a
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                          >
-                            <ul className="td_card_meta td_mp_0 td_fs_16 td_heading_color">
-                              <li>
-                                <img
-                                  src="/assets/img/icons/book.svg"
-                                  alt="Book Icon"
-                                  style={{
-                                    border: "0",
-                                    maxWidth: "100%",
-                                    height: "auto",
-                                  }}
-                                />
-                                <span className="td_opacity_7">
-                                  4 Semesters
-                                </span>
-                              </li>
-                            </ul>
-                          </a>
+                          <ul className="td_card_meta td_mp_0 td_fs_16 td_heading_color">
+                            <li>
+                              <img
+                                src="/assets/img/icons/book.svg"
+                                alt="Book Icon"
+                                style={{
+                                  border: "0",
+                                  maxWidth: "100%",
+                                  height: "auto",
+                                }}
+                              />
+                              <span className="td_opacity_7">4 Semesters</span>
+                            </li>
+                          </ul>
                           <h2 className="td_card_title td_fs_24 td_semibold td_mb_12">
                             <Link href="/college/nmims-cdoe">
                               2 years Online MBA – NMIMS Online
                             </Link>
                           </h2>
-                          <br />
                           <p>
                             2,20,000/- For 2 Years <br />
                             Approved By: UGC / DEB
                           </p>
                           <div className="td_card_btns_wrap">
                             <a
-                              data-bs-toggle="modal"
-                              data-bs-target="#exampleModal"
+                              href="#"
                               className="spnm"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleOpenModal();
+                              }}
                             >
-                              <span>
-                                <span
-                                  onClick={handleOpenModal}
-                                  style={{ cursor: "pointer" }}
-                                >
-                                  Enquire Now
-                                </span>
-
-                                {/* Render Modal */}
-                                <EnquiryModel
-                                  showModal={showModal}
-                                  setShowModal={setShowModal}
-                                />
-                              </span>
+                              <span>Enquire Now</span>
                             </a>
-                            <a href="" download className="btnw">
-                              <span>
-                                <span>Download Brochure</span>
-                              </span>
+                            <a
+                              href="#"
+                              className="btnw"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleOpenBrochureModal(
+                                  "/assets/brochure/NMIMS-Online-MBA-Brochure.pdf", // Replace with actual brochure URL
+                                  "NMIMS"
+                                );
+                              }}
+                            >
+                              <span>Download Brochure</span>
                             </a>
                           </div>
                         </div>
@@ -1002,7 +1010,7 @@ const categories = [
                             </Link>
                           </h2>
                           <p>
-                            Rs.1,99,000/- For 2 Years <br />
+                            Rs.1,83,080/- For 2 Years <br />
                             Approved By: UGC
                           </p>
                           <div className="td_card_btns_wrap">
@@ -1027,10 +1035,15 @@ const categories = [
                               </span>
                             </a>
                             <a
-                              href="/assets/brochure/Amity-MBA-BusinessAnalytics.pdf"
-                              target="_blank"
-                              download
+                              href="#"
                               className="btnw"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleOpenBrochureModal(
+                                  "/assets/brochure/AMITY/MBA/MBA Brochure.pdf", // Replace with actual brochure URL
+                                  "NMIMS"
+                                );
+                              }}
                             >
                               <span>
                                 <span>Download Brochure</span>
@@ -1106,8 +1119,15 @@ const categories = [
                               </span>
                             </a>
                             <a
-                              data-bs-toggle="modal"
-                              data-bs-target="#exampleModal"
+                              href="#"
+                              className="btnw"
+                              // onClick={(e) => {
+                              //   e.preventDefault();
+                              //   handleOpenBrochureModal(
+                              //     "/assets/brochure/NMIMS-MBA.pdf", // Replace with actual brochure URL
+                              //     "NMIMS"
+                              //   );
+                              // }}
                             >
                               <span className="btnw">
                                 <span>Download Brochure</span>
@@ -1182,8 +1202,15 @@ const categories = [
                               </span>
                             </a>
                             <a
-                              data-bs-toggle="modal"
-                              data-bs-target="#exampleModal"
+                              href="#"
+                              className="btnw"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleOpenBrochureModal(
+                                  "/assets/brochure/MANIPAL-UNIVERSITY/MBA-MUJ-Brochure.pdf", // Replace with actual brochure URL
+                                  "NMIMS"
+                                );
+                              }}
                             >
                               <span className="btnw">
                                 <span>Download Brochure</span>
@@ -1253,8 +1280,15 @@ const categories = [
                               </span>
                             </a>
                             <a
-                              data-bs-toggle="modal"
-                              data-bs-target="#exampleModal"
+                              href="#"
+                              className="btnw"
+                              // onClick={(e) => {
+                              //   e.preventDefault();
+                              //   handleOpenBrochureModal(
+                              //     "/assets/brochure/NMIMS-MBA.pdf", // Replace with actual brochure URL
+                              //     "NMIMS"
+                              //   );
+                              // }}
                             >
                               <span className="btnw">
                                 <span>Download Brochure</span>
@@ -1324,8 +1358,15 @@ const categories = [
                               </span>
                             </a>
                             <a
-                              data-bs-toggle="modal"
-                              data-bs-target="#exampleModal"
+                              href="#"
+                              className="btnw"
+                              // onClick={(e) => {
+                              //   e.preventDefault();
+                              //   handleOpenBrochureModal(
+                              //     "/assets/brochure/NMIMS-MBA.pdf", // Replace with actual brochure URL
+                              //     "NMIMS"
+                              //   );
+                              // }}
                             >
                               <span className="btnw">
                                 <span>Download Brochure</span>
@@ -1373,6 +1414,17 @@ const categories = [
               </div>
             </div>
           </div>
+
+          {/* Brochure Download Modal */}
+          <BrochureDownloadModal
+            show={showBrochureModal}
+            handleClose={handleCloseBrochureModal}
+            brochureUrl={selectedBrochure.url}
+            universityName={selectedBrochure.university}
+          />
+
+          {/* Enquiry Modal (assuming it’s defined elsewhere) */}
+          <EnquiryModel showModal={showModal} setShowModal={setShowModal} />
         </section>
         <div className="ImageSlider_sliderContainer__mlhoZ">
           <div className="ImageSlider_sliderWrapper__nAFir">

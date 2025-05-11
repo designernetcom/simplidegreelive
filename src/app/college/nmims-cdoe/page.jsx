@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { debounce } from "lodash";
@@ -8,7 +9,9 @@ import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import FirstVisitModal from "../../../../components/FirstVisitModal";
 import "../../styles/5107c2122129e0bb.css";
-import "../../styles/style.css";
+// import "../../styles/style.css";
+//  import "../../styles/global.css";
+
 import "../../styles/3a6b4218bb14b3ef.css";
 import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
@@ -16,41 +19,28 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
+
+
+
+
+
+
+
 import RollingLine from "../../../../components/RollingLine";
 
 // SpecializationModal Component
 const courseSpecializations = {
   "Online MBA": {
-    specializations: [
-      { name: "Full Fee", fees: 222000 },
-      { name: "Semester Fee", fees: 55000 },
-      { name: "EMI", fees: 8750 },
-    ],
-    brochure: "/assets/brochure/NMIMS-Online-MBA-Brochure.pdf",
+    brochure: "/assets/brochure/NMIMS-MBA/NMIMS-Online-MBA-Brochure.pdf",
   },
   "Online BBA": {
-    specializations: [
-      { name: "Full Fee", fees: 150000 },
-      { name: "Semester Fee", fees: 25000 },
-      { name: "EMI", fees: 6250 },
-    ],
-    brochure: "/assets/brochure/UG-Brochure_A224.pdf",
+    brochure: "/assets/brochure/NMIMS-BBA/UG_Brochure_A224.pdf",
   },
   "Online B.COM": {
-    specializations: [
-      { name: "Full Fee", fees: 10800 },
-      { name: "Semester Fee", fees: 18000 },
-      { name: "EMI", fees: 4500 },
-    ],
-    brochure: "/assets/brochure/NMIMS-Online-MBA-Brochure.pdf",
+    brochure: "/assets/brochure/NMIMS-B.COM/NMIMS-Online-MBA-Brochure.pdf",
   },
   "Online DIPLOMA": {
-    specializations: [
-      { name: "Full Fee", fees: 110000 },
-      { name: "Semester Fee", fees: 55000 },
-      { name: "EMI", fees: 9160 },
-    ],
-    brochure: "/assets/brochure/Diploma-and-Certificate-Program_V1.pdf",
+    brochure: "/assets/brochure/Diploma/Diploma-and-Certificate-Program_V1.pdf",
   },
 };
 
@@ -552,26 +542,27 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
 
   const courseSpecializations = {
-    "Online BCom": [
-      { name: "Full Fee", fees: 222000 },
-      { name: "Semester Fee", fees: 99000 },
-      { name: "EMI", fees: 99000 },
+    "Online BCOM": [
+      { name: "Full Fee", fees: 108000 },
+      { name: "Semester Fee", fees: 18000 },
+      { name: "EMI", fees: 4500 },
     ],
     "Online BBA": [
-      { name: "Full Fee", fees: 222000 },
-      { name: "Semester Fee", fees: 99000 },
-      { name: "EMI", fees: 99000 },
+      { name: "Full Fee", fees: 150000 },
+      { name: "Semester Fee", fees: 25000 },
+      { name: "EMI", fees: 6250 },
     ],
     "Online MBA": [
       { name: "Full Fee", fees: 222000 },
-      { name: "Semester Fee", fees: 99000 },
-      { name: "EMI", fees: 99000 },
+      { name: "Semester Fee", fees: 55000 },
+      { name: "EMI", fees: 8750 },
     ],
-    "Online EMBA": [
-      { name: "Full Fee", fees: 2672000 },
-      { name: "Semester Fee", fees: 99000 },
-      { name: "EMI", fees: 99000 },
+    "Online DIPLOMA": [
+      { name: "Full Fee", fees: 110000 },
+      { name: "Semester Fee", fees: 55000 },
+      { name: "EMI", fees: 9160 },
     ],
+   
   };
 
   const getFeeRange = (courseName) => {
@@ -741,6 +732,8 @@ export default function Page() {
     "Puducherry",
   ];
 
+ 
+
   return (
     <>
       <Head>
@@ -796,7 +789,7 @@ export default function Page() {
                 height={130}
               />
               <Image
-                src="https://store.learningroutes.in/images/colleges/NMIMS-Centre-for-Distance-and-Online-Education/accreditations/UGC.webp"
+                src="/assets/img/icon/UGC.png"
                 alt="UGC accreditation"
                 className="headCarousal_accImg__NoM8M"
                 width={130}
@@ -1014,7 +1007,7 @@ export default function Page() {
           <div className="college_collegeContainer__nqZS1">
             <div className="college_dataSection__0M4eV">
               <div className="collegeDetails_detailsPage__0qlWI">
-                <div className="collegeDetails_scroller__kwBjm">
+                <div className="collegeDetails_scroller__kwBjm" >
                   {[
                     { id: "About", text: "About" },
                     { id: "High", text: "Highlights" },
@@ -1032,7 +1025,6 @@ export default function Page() {
                       href={
                         item.id !== "Enquire Now" ? `#${item.id}` : undefined
                       }
-               
                       aria-current={
                         activeSection === item.id ? "true" : undefined
                       }
@@ -1332,110 +1324,103 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
+                   
                   <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
                     <div className="courses_wrapper__5pXR3">
-                      <div className="courses_container__c_BRe">
-                        <h2
-                          style={{
-                            fontSize: "24px",
-                            margin: "20px 0",
-                            fontFamily:
-                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                            fontStyle: "normal",
-                            fontWeight: "700",
-                          }}
+                      <div>
+                        <div
+                          className="Expert_Expert__Container__f2HSI"
+                          style={{ background: "#f4eceb" }}
                         >
-                          Courses
-                        </h2>
-                        <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in NMIMS Centre for
-                          Distance and Online Education
-                        </p>
-                        <table className="courses_course_table__llAtE">
-                          <thead style={{ background: "var(--dark-blue)" }}>
-                            <tr className="courses_course_head__M4Cun">
-                              <th
-                                style={{
-                                  fontSize: "16px",
-                                  fontFamily:
-                                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                                  fontStyle: "normal",
-                                }}
-                              >
-                                Courses
-                              </th>
-                              <th
-                                style={{
-                                  fontSize: "16px",
-                                  textAlign: "center",
-                                  fontFamily:
-                                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                                  fontStyle: "normal",
-                                }}
-                              >
-                                Fee Range
-                              </th>
-                              <th />
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {[
-                              {
-                                name: "Online BCom",
-                                feeRange: getFeeRange("Online BCom"),
-                              },
-                              {
-                                name: "Online BBA",
-                                feeRange: getFeeRange("Online BBA"),
-                              },
-                              {
-                                name: "Online MBA",
-                                feeRange: getFeeRange("Online MBA"),
-                              },
-                              {
-                                name: "Online EMBA",
-                                feeRange: getFeeRange("Online EMBA"),
-                              },
-                            ].map((course, index) => (
-                              <tr className="courses_tbody__ZPCxV" key={index}>
-                                <td
-                                  style={{
-                                    fontSize: "16px",
-                                    fontFamily:
-                                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                                    fontStyle: "normal",
-                                  }}
-                                >
-                                  {course.name}
-                                </td>
-                                <td style={{ textAlign: "center" }}>
-                                  {course.feeRange}
-                                </td>
-                                <td
-                                  style={{ textAlign: "center" }}
-                                  className="group_btn"
-                                >
-                                  <button
-                                    className="courses_enqnow__8Vb3P"
-                                    onClick={() => setIsCourseModalOpen(true)}
-                                    aria-label={`Enquire about ${course.name}`}
-                                  >
-                                    Enquire Now
-                                  </button>
-                                  <button
-                                    className="courses_viewSpsl__lrjH5"
-                                    onClick={() =>
-                                      handleViewSpecialization(course.name)
-                                    }
-                                    aria-label={`View specializations for ${course.name}`}
-                                  >
-                                    View Specialization
-                                  </button>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                          <div className="Expert_Expert__CardsContainer__DDdzT">
+                            <h2
+                              style={{
+                                fontSize: "24px",
+                                margin: "20px 0",
+                                fontFamily:
+                                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                fontStyle: "normal",
+                                fontWeight: "700",
+                              }}
+                            >
+                              Courses
+                            </h2>
+                            <p className="courses_course_college_name__Reg2z">
+                              Explore online learning courses in NMIMS Centre
+                              for Distance and Online Education
+                            </p>
+                            <div className="Expert_Expert__allCardsContainer__kKnmL">
+                              {[
+                                {
+                                  name: "Online MBA",
+                                  feeRange: 222000,
+                                },
+                                {
+                                  name: "Online BBA",
+                                  feeRange: 150000,
+                                },
+                                {
+                                  name: "Online BCOM",
+                                  feeRange: 108000,
+                                },
+                                {
+                                  name: "Online DIPLOMA",
+                                  feeRange: 110000,
+                                },
+                              ].map((course, index) => (
+                                <div key={index}>
+                                  <div className="Expert_Expert__cardContainer__2y7vz">
+                                    <div className="Expert_Expert__cardData__ocQ6N">
+                                      <div className="Expert_Expert__flexContainer__iCU0T">
+                                        <div className="Expert_Expert__imageContainer__zoZB6">
+                                          <img
+                                            alt={`Course Image - ${course.name}`}
+                                            loading="lazy"
+                                            width={600}
+                                            height={573}
+                                            decoding="async"
+                                            className="Expert_Expert__image__8wv_Z"
+                                            src="/assets/img/universities/MBA.webp"
+                                          />
+                                        </div>
+                                        <p>{course.name}</p>
+                                        <p>
+                                          <span
+                                            style={{
+                                              fontSize: "12px",
+                                              color: "#ee3620",
+                                            }}
+                                          >
+                                            24 Month
+                                          </span>{" "}
+                                          {course.feeRange}
+                                        </p>
+                                        <button
+                                          className="courses_viewSpsl__lrjH5"
+                                          onClick={() =>
+                                            setIsCourseModalOpen(true)
+                                          }
+                                          aria-label={`Enquire about ${course.name}`}
+                                        >
+                                          Enquire Now
+                                        </button>
+                                      </div>
+                                    </div>
+                                    <button
+                                      className="Expert_Expert__cardButton__cRBRJ"
+                                      onClick={() =>
+                                        handleViewSpecialization(course.name)
+                                      }
+                                      aria-label={`View specializations for ${course.name}`}
+                                    >
+                                      View Specialization
+                                    </button>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
