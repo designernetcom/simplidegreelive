@@ -13,6 +13,7 @@ import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/ecbb68b163419596.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
+import "./amitypage.css"
 import RollingLine from "../../../../components/RollingLine";
 
 import Image from "next/image";
@@ -805,7 +806,6 @@ export default function Page() {
                       href={
                         item.id !== "Enquire Now" ? `#${item.id}` : undefined
                       }
-                
                     >
                       <div
                         className={`collegeDetails_sectionBox__ZGGBm ${
@@ -1252,6 +1252,8 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
+                
+
                   <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
                     <div className="courses_wrapper__5pXR3">
                       <div className="courses_container__c_BRe">

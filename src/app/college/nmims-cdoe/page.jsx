@@ -753,8 +753,8 @@ export default function Page() {
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="NMIMS Centre for Distance and Online Education campus banner"
-            width={240}
-            height={240}
+            width={1667}
+            height={833}
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
@@ -1007,7 +1007,7 @@ export default function Page() {
           <div className="college_collegeContainer__nqZS1">
             <div className="college_dataSection__0M4eV">
               <div className="collegeDetails_detailsPage__0qlWI">
-                <div className="collegeDetails_scroller__kwBjm" >
+                <div className="collegeDetails_scroller__kwBjm">
                   {[
                     { id: "About", text: "About" },
                     { id: "High", text: "Highlights" },
@@ -1324,19 +1324,26 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-                   
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
+
+                  <div
+                    className="collegeDetails_maxWidth__6vBVL"
+                    id="Courses"
+                    style={{}}
+                  >
                     <div className="courses_wrapper__5pXR3">
                       <div>
                         <div
                           className="Expert_Expert__Container__f2HSI"
-                          style={{ background: "#f4eceb" }}
+                          style={{
+                            background: "#f4eceb",
+                            borderRadius: "25px",
+                          }}
                         >
                           <div className="Expert_Expert__CardsContainer__DDdzT">
                             <h2
                               style={{
                                 fontSize: "24px",
-                                margin: "20px 0",
+                                margin: "0px 0",
                                 fontFamily:
                                   "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
                                 fontStyle: "normal",

@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for course cards */
+.BrowseCourse_browse_course_card__6O_U1 {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.BrowseCourse_browse_course_card__6O_U1:hover {
+  transform: translateY(-5px);
+}
+.BrowseCourse_browse_course_card_img__UCBw8 {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.BrowseCourse_browse_course_card_heading__7Cx3L {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  margin: 10px 0;
+  font-family: "__Work_Sans_8a48d8", sans-serif;
+}
+.BrowseCourse_browse_course_card_duration__mSOzf,
+.BrowseCourse_browse_course_card_fee__new {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 5px 0;
+  font-family: "__Work_Sans_8a48d8", sans-serif;
+}
+.BrowseCourse_browse_course_card_view__wBC_X.group_btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+}
+.courses_enqnow__8Vb3P {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.courses_enqnow__8Vb3P:hover {
+  background-color: #1e40af;
+}
+.courses_viewSpsl__lrjH5 {
+  background-color: transparent;
+  color: #1e3a8a;
+  border: 1px solid #1e3a8a;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.courses_viewSpsl__lrjH5:hover {
+  background-color: #f0f4ff;
+}
+/* Slider custom styles */
+.slick-slide {
+  padding: 0 10px;
+}
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background: #1e3a8a;
+  border-radius: 50%;
+}
+.slick-prev:hover,
+.slick-next:hover {
+  background: #1e40af;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-size: 20px;
+  color: white;
+}
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #1e3a8a;
+}
+.slick-dots li.slick-active button:before {
+  color: #1e40af;
+}
