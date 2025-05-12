@@ -45,7 +45,7 @@ export default function Page() {
     {
       id: 1,
       name: "NMIMS CDOE",
-      fee: 110000,
+      fee: 220000,
       image: "/assets/img/colleges/nmims.webp",
       logo: "/assets/img/colleges/nmns-logo.webp",
       accreditations: ["NAAC Grade A+", "UGC"],
@@ -57,7 +57,7 @@ export default function Page() {
     {
       id: 2,
       name: "Amity University Online",
-      fee: 99000,
+      fee: 183080,
       image: "/assets/img/colleges/amity.jpg",
       logo: "/assets/img/colleges/amity-logo.webp",
       accreditations: ["NAAC", "UGC", "AICTE", "AIU", "ACU"],
@@ -70,7 +70,7 @@ export default function Page() {
     {
       id: 3,
       name: "Dr. D.Y. Patil Vidyapeeth",
-      fee: 94000,
+      fee: 189050,
       image: "/assets/img/colleges/dy-patil-vidyapeeth.webp",
       logo: "/assets/img/colleges/icon-dy-patil-vidyapeeth.webp",
       accreditations: ["NAAC A++", "UGC", "WES", "AICTE", "AIU", "ASSOCHAM"],
@@ -82,7 +82,7 @@ export default function Page() {
     {
       id: 4,
       name: "Online Manipal Jaipur",
-      fee: 87000,
+      fee: 175000,
       image: "/assets/img/colleges/manipal-online.webp",
       logo: "/assets/img/colleges/icon-manipal.webp",
       accreditations: ["NAAC A+", "UGC Entitled", "WES", "ACU", "AICTE"],
@@ -94,7 +94,7 @@ export default function Page() {
     {
       id: 5,
       name: "Lovely Professional University ODL (LPU)",
-      fee: 90000,
+      fee: 180000,
       image: "/assets/img/colleges/lpu-online.webp",
       logo: "/assets/img/colleges/lpu-online-logo.webp",
       accreditations: ["UGC-DEB", "NAAC A++", "AICTE", "WES"],
@@ -131,7 +131,7 @@ export default function Page() {
     {
       id: 8,
       name: "Chandigarh University Online",
-      fee: 100000,
+      fee: 210668,
       image: "/assets/img/colleges/chandigarh-online.webp",
       logo: "/assets/img/colleges/icon-chandigarh.webp",
       accreditations: ["UGC", "NAAC A+", "AIU", "ACU", "IAU", "NCHMCT"],

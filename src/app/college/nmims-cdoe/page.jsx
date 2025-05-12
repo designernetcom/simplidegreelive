@@ -1398,7 +1398,7 @@ export default function Page() {
                                               color: "#ee3620",
                                             }}
                                           >
-                                            24 Month
+                                            {/* 24 Month */}
                                           </span>{" "}
                                           {course.feeRange}
                                         </p>
