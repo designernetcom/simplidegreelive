@@ -698,6 +698,77 @@ export default function Page() {
     setSelectedCourseName("");
   };
 
+
+  const courses = [
+    {
+      name: "Online BCom",
+      feeRange: "₹ 99000-₹ 250000",
+      imageSrc: "/assets/img/universities/MBA-SMU.png",
+    },
+    {
+      name: "Online MA",
+      feeRange: "₹ 130000-₹ 250000",
+      imageSrc: "/assets/img/universities/MSC-DS.png",
+    },
+    {
+      name: "Online BBA",
+      feeRange: "₹ 165000-₹ 225000",
+      imageSrc: "/assets/img/universities/BBA.png",
+    },
+    {
+      name: "Online MCA",
+      feeRange: "₹ 170000-₹ 250000",
+      imageSrc: "/assets/img/universities/MCA.png",
+    },
+    {
+      name: "Online MBA",
+      feeRange: "₹ 199000-₹ 299000",
+      imageSrc: "/assets/img/universities/BBA.png",
+    },
+    {
+      name: "Online MBA with Dual Specialisation",
+      feeRange: "₹ 299000",
+      imageSrc: "/assets/img/universities/MBA.png",
+    },
+    {
+      name: "Online BA",
+      feeRange: "₹ 99000-₹ 170000",
+      imageSrc: "/assets/img/universities/DIPLOMA.png",
+    },
+    {
+      name: "Online MAJMC",
+      feeRange: "₹ 170000",
+      imageSrc: "/assets/img/universities/BBA.png",
+    },
+    {
+      name: "Online MCOM FM",
+      feeRange: "₹ 120000",
+      imageSrc:
+        "/assets/img/universities/Masters-of-Computer-Applications-.png",
+    },
+    {
+      name: "Online BCA",
+      feeRange: "₹ 132000",
+      imageSrc: "/assets/img/universities/BBA.png",
+    },
+    {
+      name: "Online BBA-MBA",
+      feeRange: "₹ 318136",
+      imageSrc: "/assets/img/universities/BBA-MUJ.png",
+    },
+    {
+      name: "Online BCOM-MBA",
+      feeRange: "₹ 260452",
+      imageSrc: "/assets/img/universities/MCOM-MUJ.png",
+    },
+  ];
+
+  const groupedCourses = [];
+  const coursesPerSlide = 3; // Adjust based on design needs
+  for (let i = 0; i < courses.length; i += coursesPerSlide) {
+    groupedCourses.push(courses.slice(i, i + coursesPerSlide));
+  }
+
   return (
     <>
       <SecondMenu />
@@ -847,41 +918,24 @@ export default function Page() {
                       Amity University Online
                     </h2>
                     <div className="CourseAbout_course_about_container__xEAH5">
-                      <div className="CourseAbout_course_about_left_col__KRo_I">
-                        <p>
-                          The Amity Education Group is a not-for-profit
-                          organization that was started in 1986 by the Chauhan
-                          family. Today, the University has a presence in more
-                          than 11 countries with over 1,75,000 students. To
-                          cater to the educational needs of a larger segment of
-                          individuals, Amity took the initiative to offer
-                          education through the online mode. Thus, Amity
-                          University became the first university in India to
-                          gain approval from the UGC to offer online degrees in
-                          2009. To ensure that students make the most out of
-                          their online learning experience, the university has
-                          set up a one-of-its-kind platform, AMIGO, that takes
-                          care of all the study-related needs of students. With
-                          its innovative thinking and futuristic approach, Amity
-                          University is closing the gaps in education by making
-                          quality higher education accessible to all.
-                        </p>
-                      </div>
-                      <div className="CourseAbout_course_about_right_col__q4drQ">
-                        <a href="">
-                          <img
-                            alt="about_img"
-                            loading="lazy"
-                            width={800}
-                            height={500}
-                            decoding="async"
-                            data-nimg={1}
-                            className="CourseAbout_course_about_img__6V0u_"
-                            style={{ color: "transparent" }}
-                            src="/assets/img/universities/media_1733210710057.png"
-                          />
-                        </a>
-                      </div>
+                      <p>
+                        The Amity Education Group is a not-for-profit
+                        organization that was started in 1986 by the Chauhan
+                        family. Today, the University has a presence in more
+                        than 11 countries with over 1,75,000 students. To cater
+                        to the educational needs of a larger segment of
+                        individuals, Amity took the initiative to offer
+                        education through the online mode. Thus, Amity
+                        University became the first university in India to gain
+                        approval from the UGC to offer online degrees in 2009.
+                        To ensure that students make the most out of their
+                        online learning experience, the university has set up a
+                        one-of-its-kind platform, AMIGO, that takes care of all
+                        the study-related needs of students. With its innovative
+                        thinking and futuristic approach, Amity University is
+                        closing the gaps in education by making quality higher
+                        education accessible to all.
+                      </p>
                     </div>
                     {/* <div className="about_collegeDetails__67FzM">
                       <p
@@ -989,6 +1043,92 @@ export default function Page() {
                           Terms & conditions apply
                         </p>
                       </div>
+                      <style>
+                        {`
+      @media (max-width: 768px) {
+        .placement_placementBanner__ACCRS {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 40px !important;
+          padding-top: 30px !important;
+          margin-bottom: 20px !important;
+          gap: 15px !important;
+        }
+        .placementBanner_container__upl7e {
+          background: #fff !important;
+          padding: 15px !important;
+          border-radius: 15px !important;
+          width: 100% !important;
+          max-width: 400px !important;
+          text-align: center;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 32px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 18px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 14px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 14px !important;
+          display: block;
+          margin-bottom: 8px;
+        }
+      }
+      @media (max-width: 480px) {
+        .placement_placementBanner__ACCRS {
+          padding-bottom: 30px !important;
+          padding-top: 20px !important;
+          margin-bottom: 15px !important;
+          gap: 12px !important;
+        }
+        .placementBanner_container__upl7e {
+          padding: 12px !important;
+          border-radius: 12px !important;
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 28px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 16px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 13px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 13px !important;
+        }
+      }
+      @media (max-width: 360px) {
+        .placement_placementBanner__ACCRS {
+          padding-bottom: 20px !important;
+          padding-top: 15px !important;
+          margin-bottom: 10px !important;
+          gap: 10px !important;
+        }
+        .placementBanner_container__upl7e {
+          padding: 10px !important;
+          border-radius: 10px !important;
+        }
+        .placementBanner_heading__yGlah {
+          font-size: 24px !important;
+        }
+        .placementBanner_heading__yGlah span {
+          font-size: 14px !important;
+        }
+        .placementBanner_description__O3FqH {
+          font-size: 12px !important;
+        }
+        .placementBanner_container__upl7e span:not(.placementBanner_heading__yGlah span) {
+          font-size: 12px !important;
+        }
+      }
+    `}
+                      </style>
                     </div>
 
                     <RollingLine />
@@ -1252,379 +1392,233 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-                
 
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
-                    <div className="courses_wrapper__5pXR3">
-                      <div className="courses_container__c_BRe">
-                        <h4
-                          style={{
-                            fontSize: "24px",
-                            margin: "20px 0",
-                            fontFamily:
-                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                            fontStyle: "normal",
-                            fontWeight: "700",
-                          }}
-                        >
-                          Courses
-                        </h4>
-                        <p className="courses_course_college_name__Reg2z">
-                          Explore online learning courses in Amity University
-                          Online
-                        </p>
-                        <table className="courses_course_table__llAtE">
-                          <thead style={{ background: "var(--dark-blue)" }}>
-                            <tr className="courses_course_head__M4Cun">
-                              <th
-                                style={{
-                                  fontSize: "16px",
-                                  fontFamily:
-                                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                                  fontStyle: "normal",
-                                }}
-                              >
-                                Courses
-                              </th>
-                              <th
-                                style={{
-                                  fontSize: "16px",
-                                  textAlign: "center",
-                                  fontFamily:
-                                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                                  fontStyle: "normal",
-                                }}
-                              >
-                                Fee Range
-                              </th>
-                              <th />
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td
-                                style={{
-                                  fontSize: "16px",
-                                  fontFamily:
-                                    "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
-                                  fontStyle: "normal",
-                                }}
-                              >
-                                Online BCom
-                              </td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 99000-₹ 250000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
+                  <div className="collegeDetails_maxWidth" id="Courses">
+                    <div className="courses_wrapper">
+                      <div
+                        className="expert_container"
+                        style={{
+                          background: "#f4eceb",
+                          borderRadius: "25px",
+                          padding: "40px",
+                        }}
+                      >
+                        <div className="expert_cards_container">
+                          <h2
+                            className="work-sans"
+                            style={{
+                              fontSize: "24px",
+                              margin: "0 0 15px 0",
+                              fontWeight: "700",
+                            }}
+                          >
+                            Courses
+                          </h2>
+                          <p
+                            className="courses_course_college_name work-sans"
+                            style={{
+                              fontSize: "16px",
+                              color: "#4a5a77",
+                              marginBottom: "30px",
+                            }}
+                          >
+                            Explore online learning courses in Amity University
+                            Online
+                          </p>
+                          <div
+                            id="carouselExampleControls"
+                            className="carousel slide"
+                            data-bs-ride="carousel"
+                          >
+                            <div className="carousel-inner">
+                              {groupedCourses.map((group, index) => (
+                                <div
+                                  key={index}
+                                  className={`carousel-item ${
+                                    index === 0 ? "active" : ""
+                                  }`}
                                 >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online BCOM")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MA</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 130000-₹ 250000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online MA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 165000-₹ 225000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online BBA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCA</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 170000-₹ 250000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online MCA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 199000-₹ 299000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online MBA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MBA with Dual Specialisation</td>
-                              <td style={{ textAlign: "center" }}>₹ 299000</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization(
-                                      "Online MBA with Dual Specialisation"
-                                    )
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BA</td>
-                              <td style={{ textAlign: "center" }}>
-                                ₹ 99000-₹ 170000
-                              </td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online BA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MAJMC</td>
-                              <td style={{ textAlign: "center" }}>₹ 170000</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online MA-JMC")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online MCOM FM</td>
-                              <td style={{ textAlign: "center" }}>₹ 120000</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online MCOM FM")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BCA</td>
-                              <td style={{ textAlign: "center" }}>₹ 132000</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online BCA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BCA</td>
-                              <td style={{ textAlign: "center" }}>₹ 132000</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online BCA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BBA-MBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 318136</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online BBA-MBA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                            <tr className="courses_tbody__ZPCxV">
-                              <td>Online BCOM-MBA</td>
-                              <td style={{ textAlign: "center" }}>₹ 260452</td>
-                              <td
-                                style={{ textAlign: "center" }}
-                                className="group_btn"
-                              >
-                                <button
-                                  className="courses_enqnow__8Vb3P"
-                                  onClick={() => setIsCourseModalOpen(true)}
-                                >
-                                  Enquire Now
-                                </button>
-                                <button
-                                  className="courses_viewSpsl__lrjH5"
-                                  onClick={() =>
-                                    handleViewSpecialization("Online BCOM-MBA")
-                                  }
-                                >
-                                  View Specialization
-                                </button>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                                  <div className="d-flex justify-content-center gap-3">
+                                    {group.map((course, cardIndex) => (
+                                      <div
+                                        key={cardIndex}
+                                        className="card expert_card"
+                                        style={{
+                                          maxWidth: "18rem",
+                                          border: "none",
+                                          borderRadius: "15px",
+                                          background: "#fff",
+                                          boxShadow:
+                                            "0 4px 15px rgba(0, 0, 0, 0.1)",
+                                        }}
+                                      >
+                                        <div
+                                          className="card-body"
+                                          style={{ padding: "20px" }}
+                                        >
+                                          <div className="d-flex flex-column align-items-center">
+                                            <div
+                                              style={{
+                                                width: "100%",
+                                                height: "150px",
+                                                overflow: "hidden",
+                                                borderRadius: "10px",
+                                                marginBottom: "15px",
+                                              }}
+                                            >
+                                              <img
+                                                alt={`Course Image - ${course.name}`}
+                                                loading="lazy"
+                                                width={600}
+                                                height={573}
+                                                decoding="async"
+                                                src={
+                                                  course.imageSrc ||
+                                                  "https://via.placeholder.com/600x573"
+                                                }
+                                                style={{
+                                                  width: "100%",
+                                                  height: "100%",
+                                                  objectFit: "cover",
+                                                }}
+                                              />
+                                            </div>
+                                            <p
+                                              className="work-sans"
+                                              style={{
+                                                fontSize: "16px",
+                                                fontWeight: "600",
+                                                color: "#0c2d50",
+                                                margin: "0 0 10px 0",
+                                                textAlign: "center",
+                                              }}
+                                            >
+                                              {course.name}
+                                            </p>
+                                            <p
+                                              className="work-sans"
+                                              style={{
+                                                fontSize: "14px",
+                                                color: "#ee3620",
+                                                margin: "0 0 15px 0",
+                                                textAlign: "center",
+                                              }}
+                                            >
+                                              {course.feeRange}
+                                            </p>
+                                            <button
+                                              className="enquire-now work-sans"
+                                              onClick={() =>
+                                                setIsCourseModalOpen(true)
+                                              }
+                                              aria-label={`Enquire about ${course.name}`}
+                                              style={{
+                                                padding: "10px 20px",
+                                                background:
+                                                  "linear-gradient(90deg, #e89e26, #c47b1e)",
+                                                color: "#fff",
+                                                border: "none",
+                                                borderRadius: "50px",
+                                                fontSize: "14px",
+                                                fontWeight: "600",
+                                                cursor: "pointer",
+                                                width: "100%",
+                                                marginBottom: "10px",
+                                              }}
+                                              onMouseEnter={(e) =>
+                                                Object.assign(
+                                                  e.currentTarget.style,
+                                                  {
+                                                    boxShadow:
+                                                      "0 6px 20px rgba(232, 158, 38, 0.5)",
+                                                  }
+                                                )
+                                              }
+                                              onMouseLeave={(e) =>
+                                                Object.assign(
+                                                  e.currentTarget.style,
+                                                  {
+                                                    boxShadow: "none",
+                                                  }
+                                                )
+                                              }
+                                            >
+                                              Enquire Now
+                                            </button>
+                                            <button
+                                              className="view-specialization work-sans"
+                                              onClick={() =>
+                                                handleViewSpecialization(
+                                                  course.name
+                                                )
+                                              }
+                                              aria-label={`View specializations for ${course.name}`}
+                                              style={{
+                                                padding: "10px 20px",
+                                                background: "transparent",
+                                                color: "#0c2d50",
+                                                border: "2px solid #0c2d50",
+                                                borderRadius: "50px",
+                                                fontSize: "14px",
+                                                fontWeight: "600",
+                                                cursor: "pointer",
+                                                width: "100%",
+                                              }}
+                                              onMouseEnter={(e) =>
+                                                Object.assign(
+                                                  e.currentTarget.style,
+                                                  {
+                                                    background: "#0c2d50",
+                                                    color: "#fff",
+                                                  }
+                                                )
+                                              }
+                                              onMouseLeave={(e) =>
+                                                Object.assign(
+                                                  e.currentTarget.style,
+                                                  {
+                                                    background: "transparent",
+                                                    color: "#0c2d50",
+                                                  }
+                                                )
+                                              }
+                                            >
+                                              View Specialization
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                            <button
+                              className="carousel-control-prev"
+                              type="button"
+                              data-bs-target="#carouselExampleControls"
+                              data-bs-slide="prev"
+                            >
+                              <span
+                                className="carousel-control-prev-icon"
+                                aria-hidden="true"
+                              ></span>
+                              <span className="visually-hidden">Previous</span>
+                            </button>
+                            <button
+                              className="carousel-control-next"
+                              type="button"
+                              data-bs-target="#carouselExampleControls"
+                              data-bs-slide="next"
+                            >
+                              <span
+                                className="carousel-control-next-icon"
+                                aria-hidden="true"
+                              ></span>
+                              <span className="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2110,7 +2104,10 @@ export default function Page() {
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah">
+                          <p
+                            className="placementBanner_heading__yGlah"
+                            style={{ color: "#000" }}
+                          >
                             ₹ 18 LPA
                           </p>
                           <p
@@ -2120,22 +2117,37 @@ export default function Page() {
                               fontFamily:
                                 "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
                               fontStyle: "normal",
+                              color: "#000",
                             }}
                           >
                             Average Salary
                           </p>
                         </div>
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah">
+                          <p
+                            className="placementBanner_heading__yGlah"
+                            style={{ color: "#000" }}
+                          >
                             ₹ 25 LPA
                           </p>
-                          <p className="placementBanner_description__O3FqH">
+                          <p
+                            className="placementBanner_description__O3FqH"
+                            style={{ color: "#000" }}
+                          >
                             Highest Salary
                           </p>
                         </div>
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah">3x</p>
-                          <p className="placementBanner_description__O3FqH">
+                          <p
+                            className="placementBanner_heading__yGlah"
+                            style={{ color: "#000" }}
+                          >
+                            3x
+                          </p>
+                          <p
+                            className="placementBanner_description__O3FqH"
+                            style={{ color: "#000" }}
+                          >
                             Interview Opportunities
                           </p>
                         </div>

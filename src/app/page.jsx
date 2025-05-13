@@ -588,6 +588,25 @@ const categories = [
               ONLINE MANIPAL
             </p>
           </a>
+          <a
+            className="AllCollegeCards_college_indi_card__d9m_r"
+            href="/college/online-manipal-sikkim"
+          >
+            <img
+              alt="ONLINE MANIPAL"
+              loading="lazy"
+              width={145}
+              height={45}
+              decoding="async"
+              data-nimg={1}
+              className="AllCollegeCards_college_indi_card_img__8_YF2"
+              style={{ color: "transparent" }}
+              src="/assets/img/universities/SMU-logo.png"
+            />
+            <p className="AllCollegeCards_college_indi_card_name__25zbO">
+               SIKKIM UNIVERSITY
+            </p>
+          </a>
 
           <a
             className="AllCollegeCards_college_indi_card__d9m_r"
@@ -763,7 +782,7 @@ const categories = [
               Delhi Degree College
             </p>
           </a>
-          <a
+          {/* <a
             className="AllCollegeCards_college_indi_card__d9m_r"
             href="/college/gla-university-online"
           >
@@ -781,7 +800,7 @@ const categories = [
             <p className="AllCollegeCards_college_indi_card_name__25zbO">
               GLA University Online
             </p>
-          </a>
+          </a> */}
         </div>
         <div className="AllCollegeCards_viewallcontainer__yIVAn">
           <a className="AllCollegeCards_viewAll__AEokp" href="/top-university">

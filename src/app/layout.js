@@ -1,3 +1,5 @@
+"use client";
+import { useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./globals.css";
@@ -21,13 +23,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Simpli degree",
-  description:
-    "SimpliDegree is an innovative online learning platform that provides industry-relevant certification and degree programs in collaboration with top universities",
-};
+// export const metadata = {
+//   title: "Simpli degree",
+//   description:
+//     "SimpliDegree is an innovative online learning platform that provides industry-relevant certification and degree programs in collaboration with top universities",
+// };
 
 export default function RootLayout({ children }) {
+  useEffect(() => {
+    // Dynamically import Bootstrap JS on the client side
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>

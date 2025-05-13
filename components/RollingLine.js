@@ -25,39 +25,39 @@ const RollingLine = () => {
     },
     {
       //   icon: "/assets/img/home_2/cs_rate_feature_icon_2.svg",
-      title: "Last date admission 10 may",
+      title: "Last date admission 17 may",
       //   description: "Learn from industry leaders and experienced professionals.",
     },
     {
       title: "82 % seats are filled",
     },
     {
-      title: "Last date admission 10 may",
+      title: "Last date admission 17 may",
     },
     {
       title: "82 % seats are filled",
     },
     {
-      title: "Last date admission 10 may",
+      title: "Last date admission 17 may",
     },
     {
       title: "82 % seats are filled",
     },
     {
-      title: "Last date admission 10 may",
+      title: "Last date admission 17 may",
     },
     {
       title: "82 % seats are filled",
     },
     {
-      title: "Last date admission 10 may",
+      title: "Last date admission 17 may",
     },
     {
       title: "82 % seats are filled",
     },
 
     {
-      title: "Last date of admission: 10 may",
+      title: "Last date of admission: 17 may",
     },
   ];
 

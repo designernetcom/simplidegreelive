@@ -15,7 +15,11 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
+import "./slider.css"
 import RollingLine from "../../../../components/RollingLine";
+
+
+
 
 // SpecializationModal Component
 const courseSpecializations = {
@@ -703,6 +707,73 @@ export default function Page() {
     setSelectedCourseName("");
   };
 
+
+  // const courses = [
+  //   { name: "Online MBA", feeRange: getFeeRange("Online MBA") },
+  //   { name: "Online MCom", feeRange: getFeeRange("Online MCom") },
+  //   { name: "Online BA", feeRange: getFeeRange("Online BA") },
+  //   { name: "Online BCom", feeRange: getFeeRange("Online BCom") },
+  //   { name: "Online MA-ENGLISH", feeRange: getFeeRange("Online MA-ENGLISH") },
+  //   { name: "Online MA-POL-SCI", feeRange: getFeeRange("Online MA-POL-SCI") },
+  //   { name: "Online MA-SOCIOLOGY", feeRange: getFeeRange("Online MA-SOCIOLOGY") },
+  // ];
+
+
+  const courses = [
+    {
+      name: "Online MBA",
+      feeRange: "INR 1,10,000",
+      imageSrc: "/assets/img/universities/MBA.png",
+    },
+    {
+      name: "Online MCA",
+      feeRange: "INR 98,000",
+      imageSrc: "/assets/img/universities/BBA.png",
+    },
+    {
+      name: "Online MA-ENGLISH",
+      feeRange: "INR 75,000",
+      imageSrc: "/assets/img/universities/BBA-MUJ.png",
+    },
+    {
+      name: "Online MA-POL-SCI",
+      feeRange: "INR 75,000",
+      imageSrc: "/assets/img/universities/MSC-DS.png",
+    },
+    {
+      name: "Online MA-SOCIOLOGY",
+      feeRange: "INR 75,000",
+      imageSrc: "/assets/img/universities/DIPLOMA.png",
+    },
+    {
+      name: "Online BCOM",
+      feeRange: "INR 75,000",
+      imageSrc: "/assets/img/universities/BCOM.png",
+    },
+
+    {
+      name: "Online MCom",
+      feeRange: "INR 75,000",
+      imageSrc:
+        "/assets/img/universities/Masters-of-Computer-Applications-.png",
+    },
+    {
+      name: "Online BA",
+      feeRange: "INR 75,000",
+      imageSrc: "/assets/img/universities/MBA.png",
+    },
+    {
+      name: "Online MA",
+      feeRange: "INR 65,000",
+      imageSrc: "/assets/img/universities/MCOM-MUJ.png",
+    },
+  ];
+
+  // Group courses into sets of three
+  const groupedCourses = [];
+  for (let i = 0; i < courses.length; i += 3) {
+    groupedCourses.push(courses.slice(i, i + 3));
+  }
   return (
     <>
       <Head>
@@ -716,12 +787,12 @@ export default function Page() {
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <Image
-            src="https://store.learningroutes.in/images/colleges/online-manipal-jaipur/hero-image/onlinemanipaljaipurbanner.webp"
+            src="/assets/img/university-main/SMU-1.png"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="Online Manipal campus banner"
-            width={240}
-            height={240}
+            width={1940}
+            height={940}
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
@@ -1054,279 +1125,230 @@ export default function Page() {
                         ))}
                       </div>
                     </div>
+                 
                   </div>
-                  <div className="collegeDetails_maxWidth__6vBVL" id="Courses">
-                    <div
-                      className="courses_wrapper__5pXR3"
-                      style={{
-                        padding: "60px 5%",
-                        background:
-                          "linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2))",
-                        backdropFilter: "blur(10px)",
-                        borderRadius: "20px",
-                        margin: "20px",
-                        boxSizing: "border-box",
-                      }}
-                    >
+                  <div className="collegeDetails_maxWidth" id="Courses">
+                    <div className="courses_wrapper">
                       <div
-                        className="courses_container__c_BRe"
+                        className="expert_container"
                         style={{
-                          maxWidth: "1200px",
-                          margin: "0 auto",
-                          width: "100%",
-                          boxSizing: "border-box",
+                          background: "#f4eceb",
+                          borderRadius: "25px",
+                          padding: "40px",
                         }}
                       >
-                        <h2
-                          className="courses_heading__nCyjm"
-                          style={{
-                            fontSize: "calc(1rem + 0.8vw)",
-                            fontWeight: "800",
-                            color: "#0c2d50",
-                            // textAlign: "center",
-                            marginBottom: "15px",
-                            textTransform: "uppercase",
-                            letterSpacing: "1px",
-                          }}
-                        >
-                          Courses
-                        </h2>
-                        <p
-                          className="courses_course_college_name__Reg2z"
-                          style={{
-                            fontSize: "calc(1rem + 0.2vw)",
-                            color: "#4a5a77",
-                            // textAlign: "center",
-                            marginBottom: "40px",
-                            fontStyle: "italic",
-                          }}
-                        >
-                          Explore online learning courses in Online Manipal
-                        </p>
-                        <div
-                          className="courses_table_wrapper"
-                          style={{
-                            overflowX: "auto",
-                            width: "100%",
-                          }}
-                        >
-                          <table
-                            className="courses_course_table__llAtE"
+                        <div className="expert_cards_container">
+                          <h2
+                            className="work-sans"
                             style={{
-                              width: "100%",
-                              borderCollapse: "separate",
-                              borderSpacing: "0",
-                              background: "#ffffff",
-                              borderRadius: "15px",
-                              overflow: "hidden",
-                              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
-                              minWidth: "600px",
+                              fontSize: "24px",
+                              margin: "0 0 15px 0",
+                              fontWeight: "700",
                             }}
                           >
-                            <thead>
-                              <tr
-                                className="courses_course_head__M4Cun"
-                                style={{
-                                  background:
-                                    "linear-gradient(90deg, #0c2d50, #1a3a6b)",
-                                  color: "#fff",
-                                  fontSize: "calc(0.9rem + 0.1vw)",
-                                  fontWeight: "600",
-                                  textTransform: "uppercase",
-                                  letterSpacing: "0.1em",
-                                }}
-                              >
-                                <th
-                                  style={{
-                                    padding: "20px",
-                                    textAlign: "left",
-                                    boxSizing: "border-box",
-                                  }}
-                                >
-                                  Courses
-                                </th>
-                                <th
-                                  style={{
-                                    padding: "20px",
-                                    textAlign: "center",
-                                    boxSizing: "border-box",
-                                  }}
-                                >
-                                  Fee Range
-                                </th>
-                                <th
-                                  style={{
-                                    padding: "20px",
-                                    textAlign: "center",
-                                    boxSizing: "border-box",
-                                  }}
-                                >
-                                  Actions
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {[
-                                {
-                                  name: "Online MBA",
-                                  feeRange: getFeeRange("Online MBA"),
-                                },
-                                {
-                                  name: "Online MCom",
-                                  feeRange: getFeeRange("Online MCom"),
-                                },
-                                {
-                                  name: "Online BA",
-                                  feeRange: getFeeRange("Online BA"),
-                                },
-                                {
-                                  name: "Online BCom",
-                                  feeRange: getFeeRange("Online BCom"),
-                                },
-                                {
-                                  name: "Online MA-ENGLISH",
-                                  feeRange: getFeeRange("Online MA-ENGLISH"),
-                                },
-                                {
-                                  name: "Online MA-POL-SCI",
-                                  feeRange: getFeeRange("Online MA-POL-SCI"),
-                                },
-                                {
-                                  name: "Online MA-SOCIOLOGY",
-                                  feeRange: getFeeRange("Online MA-SOCIOLOGY"),
-                                },
-                              ].map((course, index) => (
-                                <tr
-                                  className="courses_tbody__ZPCxV"
+                            Courses
+                          </h2>
+                          <p
+                            className="courses_course_college_name work-sans"
+                            style={{
+                              fontSize: "16px",
+                              color: "#4a5a77",
+                              marginBottom: "30px",
+                            }}
+                          >
+                            Explore online learning courses in NMIMS Centre for
+                            Distance and Online Education
+                          </p>
+                          <div
+                            id="carouselExampleControls"
+                            className="carousel slide"
+                            data-bs-ride="carousel"
+                          >
+                            <div className="carousel-inner">
+                              {groupedCourses.map((group, index) => (
+                                <div
                                   key={index}
-                                  style={{
-                                    background:
-                                      index % 2 === 0 ? "#fafafa" : "#fff",
-                                  }}
-                                  onMouseEnter={(e) =>
-                                    Object.assign(e.currentTarget.style, {
-                                      background: "rgba(232, 158, 38, 0.1)",
-                                    })
-                                  }
-                                  onMouseLeave={(e) =>
-                                    Object.assign(e.currentTarget.style, {
-                                      background:
-                                        index % 2 === 0 ? "#fafafa" : "#fff",
-                                    })
-                                  }
+                                  className={`carousel-item ${
+                                    index === 0 ? "active" : ""
+                                  }`}
                                 >
-                                  <td
-                                    style={{
-                                      padding: "20px",
-                                      fontSize: "calc(0.9rem + 0.1vw)",
-                                      color: "#0c2d50",
-                                      fontWeight: "500",
-                                      borderBottom:
-                                        "1px solid rgba(0, 0, 0, 0.05)",
-                                      boxSizing: "border-box",
-                                    }}
-                                  >
-                                    {course.name}
-                                  </td>
-                                  <td
-                                    style={{
-                                      padding: "20px",
-                                      fontSize: "calc(0.9rem + 0.1vw)",
-                                      color: "#0c2d50",
-                                      fontWeight: "500",
-                                      textAlign: "center",
-                                      borderBottom:
-                                        "1px solid rgba(0, 0, 0, 0.05)",
-                                      boxSizing: "border-box",
-                                    }}
-                                  >
-                                    {course.feeRange}
-                                  </td>
-                                  <td
-                                    style={{
-                                      padding: "20px",
-                                      textAlign: "center",
-                                      display: "flex",
-                                      gap: "10px",
-                                      justifyContent: "center",
-                                      borderBottom:
-                                        "1px solid rgba(0, 0, 0, 0.05)",
-                                      boxSizing: "border-box",
-                                      flexWrap: "wrap",
-                                    }}
-                                  >
-                                    <button
-                                      className="courses_enqnow__8Vb3P"
-                                      onClick={() => setIsCourseModalOpen(true)}
-                                      aria-label={`Enquire about ${course.name}`}
-                                      style={{
-                                        padding: "12px 24px",
-                                        background:
-                                          "linear-gradient(90deg, #e89e26, #c47b1e)",
-                                        color: "#fff",
-                                        border: "none",
-                                        borderRadius: "50px",
-                                        fontSize: "calc(0.8rem + 0.1vw)",
-                                        fontWeight: "600",
-                                        cursor: "pointer",
-                                        boxShadow:
-                                          "0 4px 15px rgba(232, 158, 38, 0.3)",
-                                        minWidth: "120px",
-                                      }}
-                                      onMouseEnter={(e) =>
-                                        Object.assign(e.currentTarget.style, {
+                                  <div className="d-flex justify-content-center gap-3">
+                                    {group.map((course, cardIndex) => (
+                                      <div
+                                        key={cardIndex}
+                                        className="card expert_card"
+                                        style={{
+                                          maxWidth: "18rem",
+                                          border: "none",
+                                          borderRadius: "15px",
+                                          background: "#fff",
                                           boxShadow:
-                                            "0 6px 20px rgba(232, 158, 38, 0.5)",
-                                        })
-                                      }
-                                      onMouseLeave={(e) =>
-                                        Object.assign(e.currentTarget.style, {
-                                          boxShadow:
-                                            "0 4px 15px rgba(232, 158, 38, 0.3)",
-                                        })
-                                      }
-                                    >
-                                      Enquire Now
-                                    </button>
-                                    <button
-                                      className="courses_viewSpsl__lrjH5"
-                                      onClick={() =>
-                                        handleViewSpecialization(course.name)
-                                      }
-                                      aria-label={`View specializations for ${course.name}`}
-                                      style={{
-                                        padding: "12px 24px",
-                                        background: "transparent",
-                                        color: "#0c2d50",
-                                        border: "2px solid #0c2d50",
-                                        borderRadius: "50px",
-                                        fontSize: "calc(0.8rem + 0.1vw)",
-                                        fontWeight: "600",
-                                        cursor: "pointer",
-                                        boxShadow:
-                                          "0 4px 15px rgba(12, 45, 80, 0.1)",
-                                        minWidth: "120px",
-                                      }}
-                                      onMouseEnter={(e) =>
-                                        Object.assign(e.currentTarget.style, {
-                                          background: "#0c2d50",
-                                          color: "#fff",
-                                        })
-                                      }
-                                      onMouseLeave={(e) =>
-                                        Object.assign(e.currentTarget.style, {
-                                          background: "transparent",
-                                          color: "#0c2d50",
-                                        })
-                                      }
-                                    >
-                                      View Specialization
-                                    </button>
-                                  </td>
-                                </tr>
+                                            "0 4px 15px rgba(0, 0, 0, 0.1)",
+                                        }}
+                                      >
+                                        <div
+                                          className="card-body"
+                                          style={{ padding: "20px" }}
+                                        >
+                                          <div className="d-flex flex-column align-items-center">
+                                            <div
+                                              style={{
+                                                width: "100%",
+                                                height: "150px",
+                                                overflow: "hidden",
+                                                borderRadius: "10px",
+                                                marginBottom: "15px",
+                                              }}
+                                            >
+                                              <img
+                                                alt={`Course Image - ${course.name}`}
+                                                loading="lazy"
+                                                width={600}
+                                                height={573}
+                                                decoding="async"
+                                                src={course.imageSrc}
+                                                style={{
+                                                  width: "100%",
+                                                  height: "100%",
+                                                  objectFit: "cover",
+                                                }}
+                                              />
+                                            </div>
+                                            <p
+                                              className="work-sans"
+                                              style={{
+                                                fontSize: "16px",
+                                                fontWeight: "600",
+                                                color: "#0c2d50",
+                                                margin: "0 0 10px 0",
+                                                textAlign: "center",
+                                              }}
+                                            >
+                                              {course.name}
+                                            </p>
+                                            <p
+                                              className="work-sans"
+                                              style={{
+                                                fontSize: "14px",
+                                                color: "#ee3620",
+                                                margin: "0 0 15px 0",
+                                                textAlign: "center",
+                                              }}
+                                            >
+                                              {course.feeRange}
+                                            </p>
+                                            <button
+                                              className="enquire-now work-sans"
+                                              onClick={() =>
+                                                setIsCourseModalOpen(true)
+                                              }
+                                              aria-label={`Enquire about ${course.name}`}
+                                              style={{
+                                                padding: "10px 20px",
+                                                background:
+                                                  "linear-gradient(90deg, #e89e26, #c47b1e)",
+                                                color: "#fff",
+                                                border: "none",
+                                                borderRadius: "50px",
+                                                fontSize: "14px",
+                                                fontWeight: "600",
+                                                cursor: "pointer",
+                                                width: "100%",
+                                                marginBottom: "10px",
+                                              }}
+                                              onMouseEnter={(e) =>
+                                                Object.assign(
+                                                  e.currentTarget.style,
+                                                  {
+                                                    boxShadow:
+                                                      "0 6px 20px rgba(232, 158, 38, 0.5)",
+                                                  }
+                                                )
+                                              }
+                                              onMouseLeave={(e) =>
+                                                Object.assign(
+                                                  e.currentTarget.style,
+                                                  {
+                                                    boxShadow: "none",
+                                                  }
+                                                )
+                                              }
+                                            >
+                                              Enquire Now
+                                            </button>
+                                            <button
+                                              className="view-specialization work-sans"
+                                              onClick={() =>
+                                                handleViewSpecialization(
+                                                  course.name
+                                                )
+                                              }
+                                              aria-label={`View specializations for ${course.name}`}
+                                              style={{
+                                                padding: "10px 20px",
+                                                background: "transparent",
+                                                color: "#0c2d50",
+                                                border: "2px solid #0c2d50",
+                                                borderRadius: "50px",
+                                                fontSize: "14px",
+                                                fontWeight: "600",
+                                                cursor: "pointer",
+                                                width: "100%",
+                                              }}
+                                              onMouseEnter={(e) =>
+                                                Object.assign(
+                                                  e.currentTarget.style,
+                                                  {
+                                                    background: "#0c2d50",
+                                                    color: "#fff",
+                                                  }
+                                                )
+                                              }
+                                              onMouseLeave={(e) =>
+                                                Object.assign(
+                                                  e.currentTarget.style,
+                                                  {
+                                                    background: "transparent",
+                                                    color: "#0c2d50",
+                                                  }
+                                                )
+                                              }
+                                            >
+                                              View Specialization
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
                               ))}
-                            </tbody>
-                          </table>
+                            </div>
+                            <button
+                              className="carousel-control-prev"
+                              type="button"
+                              data-bs-target="#carouselExampleControls"
+                              data-bs-slide="prev"
+                            >
+                              <span
+                                className="carousel-control-prev-icon"
+                                aria-hidden="true"
+                              ></span>
+                              <span className="visually-hidden">Previous</span>
+                            </button>
+                            <button
+                              className="carousel-control-next"
+                              type="button"
+                              data-bs-target="#carouselExampleControls"
+                              data-bs-slide="next"
+                            >
+                              <span
+                                className="carousel-control-next-icon"
+                                aria-hidden="true"
+                              ></span>
+                              <span className="visually-hidden">Next</span>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1655,24 +1677,24 @@ export default function Page() {
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah">
+                          <p className="placementBanner_heading__yGlah" style={{ color:"#000" }}>
                             ₹ 9 LPA
                           </p>
-                          <p className="placementBanner_description__O3FqH">
+                          <p className="placementBanner_description__O3FqH" style={{ color:"#000" }}>
                             Average Salary
                           </p>
                         </div>
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah">
+                          <p className="placementBanner_heading__yGlah" style={{ color:"#000" }}>
                             ₹ 12 LPA
                           </p>
-                          <p className="placementBanner_description__O3FqH">
+                          <p className="placementBanner_description__O3FqH" style={{color:"#000" }}>
                             Highest Salary
                           </p>
                         </div>
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah">3x</p>
-                          <p className="placementBanner_description__O3FqH">
+                          <p className="placementBanner_heading__yGlah" style={{ color:"#000" }}>3x</p>
+                          <p className="placementBanner_description__O3FqH" style={{ color:"#000" }}>
                             Interview Opportunities
                           </p>
                         </div>
