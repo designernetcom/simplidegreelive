@@ -416,11 +416,18 @@ function SpecializationModal({
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                fontSize: "16px",
+                fontSize: "20px",
+                color: "#151419",
+                fontWeight: "600",
+                fontFamily:
+                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                transition: "color 0.2s",
               }}
+              onMouseOver={(e) => (e.currentTarget.style.color = "#28a745")}
+              onMouseOut={(e) => (e.currentTarget.style.color = "#151419")}
               aria-label="Close form modal"
             >
-              <span className="btn-close" />
+              ×
             </button>
             <h6
               style={{
@@ -496,6 +503,36 @@ function SpecializationModal({
                   }}
                 />
               </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="phone"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
               <div style={{ textAlign: "center" }}>
                 <button
                   type="submit"
@@ -542,27 +579,24 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
 
   const courseSpecializations = {
-    "Online BCOM": [
-      { name: "Full Fee", fees: 108000 },
-      { name: "Semester Fee", fees: 18000 },
-      { name: "EMI", fees: 4500 },
-    ],
+    "Online BCOM": [{ name: "Commerce", fees: 108000 }],
     "Online BBA": [
-      { name: "Full Fee", fees: 150000 },
-      { name: "Semester Fee", fees: 25000 },
-      { name: "EMI", fees: 6250 },
+      { name: "Marketing", fees: 141000 },
+      { name: "Finance", fees: 141000 },
+      { name: "Business Analytics", fees: 169200 },
     ],
     "Online MBA": [
-      { name: "Full Fee", fees: 222000 },
-      { name: "Semester Fee", fees: 55000 },
-      { name: "EMI", fees: 8750 },
+      { name: "Business Management", fees: 220000 },
+      { name: "Marketing", fees: 220000 },
+      { name: "Operations & Data Sciences", fees: 220000 }, 
+      { name: "Human Resources", fees: 220000 }, 
+      { name: "Finance", fees: 220000 }, 
     ],
     "Online DIPLOMA": [
       { name: "Full Fee", fees: 110000 },
       { name: "Semester Fee", fees: 55000 },
       { name: "EMI", fees: 9160 },
     ],
-   
   };
 
   const getFeeRange = (courseName) => {
@@ -1360,7 +1394,7 @@ export default function Page() {
                               {[
                                 {
                                   name: "Online MBA",
-                                  feeRange: "INR 2,22,000",
+                                  feeRange: "INR 2,20,000",
                                   imageSrc: "/assets/img/universities/MBA.png",
                                 },
                                 {

@@ -91,7 +91,7 @@ export default function page() {
               </div>
             </div>
           </div>
-          <CourseSlider />
+          {/* <CourseSlider /> */}
           <div className="CourseAbout_course_about_container__xEAH5">
             <div className="CourseAbout_course_about_left_col__KRo_I">
               <h2 className="CourseAbout_course_about_heading__n0jzu">

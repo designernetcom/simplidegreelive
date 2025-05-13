@@ -429,11 +429,18 @@ function SpecializationModal({
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                fontSize: "16px",
+                fontSize: "20px",
+                color: "#151419",
+                fontWeight: "600",
+                fontFamily:
+                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                transition: "color 0.2s",
               }}
+              onMouseOver={(e) => (e.currentTarget.style.color = "#28a745")}
+              onMouseOut={(e) => (e.currentTarget.style.color = "#151419")}
               aria-label="Close form modal"
             >
-              <span className="btn-close" />
+              ×
             </button>
             <h6
               style={{
@@ -497,6 +504,36 @@ function SpecializationModal({
                   id="email"
                   name="email"
                   value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="phone"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
                   onChange={handleFormChange}
                   required
                   style={{
@@ -762,25 +799,21 @@ export default function Page() {
       feeRange: "INR 75,000",
       imageSrc: "/assets/img/universities/MBA.png",
     },
-    {
-      name: "Online MA",
-      feeRange: "INR 65,000",
-      imageSrc: "/assets/img/universities/MCOM-MUJ.png",
-    },
+
   ];
 
   // Group courses into sets of three
   const groupedCourses = [];
-  for (let i = 0; i < courses.length; i += 3) {
-    groupedCourses.push(courses.slice(i, i + 3));
+  for (let i = 0; i < courses.length; i += 4) {
+    groupedCourses.push(courses.slice(i, i + 4));
   }
   return (
     <>
       <Head>
-        <title>Online Manipal - Courses & Admissions</title>
+        <title>Sikkim Manipal University - Courses & Admissions</title>
         <meta
           name="description"
-          content="Explore online degree programs at Online Manipal, including MBA, MCom, BBA, BCom, MA, MCA, BCA, BA, MSc, and PGCP."
+          content="Explore online degree programs at Sikkim Manipal University, including MBA, MCom, BBA, BCom, MA, MCA, BCA, BA, MSc, and PGCP."
         />
       </Head>
       <Menu />
@@ -790,7 +823,7 @@ export default function Page() {
             src="/assets/img/university-main/SMU-1.png"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
-            alt="Online Manipal campus banner"
+            alt="Sikkim Manipal University campus banner"
             width={1940}
             height={940}
           />
@@ -810,11 +843,11 @@ export default function Page() {
                 <span class="Breadcrumb_separator__e7M6o">/</span>
               </span>
               <span class="Breadcrumb_breadcrumbItem__lnXIo">
-                <span>Online Manipal</span>
+                <span>Sikkim Manipal University</span>
               </span>
             </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
-              Online Manipal
+              Sikkim Manipal University
             </h1>
             <p className="headCarousal_location__7rFlL">Sikkim, Assam</p>
             <p className="headCarousal_ranking__1yTOY">NIRF Rank: 14</p>
@@ -898,7 +931,7 @@ export default function Page() {
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
                     <div className="about_collegeDetails__67FzM">
                       <h2 className="about_collegeDetailsHeading__AA_dr">
-                        Online Manipal
+                        Sikkim Manipal University
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
                         Sikkim Manipal University (SMU), established in 1995, is
@@ -1125,16 +1158,16 @@ export default function Page() {
                         ))}
                       </div>
                     </div>
-                 
                   </div>
                   <div className="collegeDetails_maxWidth" id="Courses">
                     <div className="courses_wrapper">
                       <div
                         className="expert_container"
                         style={{
+                          padding: "20px 0%",
                           background: "#f4eceb",
-                          borderRadius: "25px",
                           padding: "40px",
+                          borderRadius: "20px",
                         }}
                       >
                         <div className="expert_cards_container">
@@ -1156,8 +1189,7 @@ export default function Page() {
                               marginBottom: "30px",
                             }}
                           >
-                            Explore online learning courses in NMIMS Centre for
-                            Distance and Online Education
+                            Explore online learning courses
                           </p>
                           <div
                             id="carouselExampleControls"
@@ -1244,12 +1276,12 @@ export default function Page() {
                                               }
                                               aria-label={`Enquire about ${course.name}`}
                                               style={{
-                                                padding: "10px 20px",
+                                                padding: "5px 5px",
                                                 background:
                                                   "linear-gradient(90deg, #e89e26, #c47b1e)",
                                                 color: "#fff",
                                                 border: "none",
-                                                borderRadius: "50px",
+                                                borderRadius: "5px",
                                                 fontSize: "14px",
                                                 fontWeight: "600",
                                                 cursor: "pointer",
@@ -1285,11 +1317,11 @@ export default function Page() {
                                               }
                                               aria-label={`View specializations for ${course.name}`}
                                               style={{
-                                                padding: "10px 20px",
+                                                padding: "5px 5px",
                                                 background: "transparent",
                                                 color: "#0c2d50",
                                                 border: "2px solid #0c2d50",
-                                                borderRadius: "50px",
+                                                borderRadius: "5px",
                                                 fontSize: "14px",
                                                 fontWeight: "600",
                                                 cursor: "pointer",
@@ -1677,24 +1709,44 @@ export default function Page() {
                       </div>
                       <div className="placement_placementBanner__ACCRS">
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah" style={{ color:"#000" }}>
+                          <p
+                            className="placementBanner_heading__yGlah"
+                            style={{ color: "#000" }}
+                          >
                             ₹ 9 LPA
                           </p>
-                          <p className="placementBanner_description__O3FqH" style={{ color:"#000" }}>
+                          <p
+                            className="placementBanner_description__O3FqH"
+                            style={{ color: "#000" }}
+                          >
                             Average Salary
                           </p>
                         </div>
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah" style={{ color:"#000" }}>
+                          <p
+                            className="placementBanner_heading__yGlah"
+                            style={{ color: "#000" }}
+                          >
                             ₹ 12 LPA
                           </p>
-                          <p className="placementBanner_description__O3FqH" style={{color:"#000" }}>
+                          <p
+                            className="placementBanner_description__O3FqH"
+                            style={{ color: "#000" }}
+                          >
                             Highest Salary
                           </p>
                         </div>
                         <div className="placementBanner_container__upl7e">
-                          <p className="placementBanner_heading__yGlah" style={{ color:"#000" }}>3x</p>
-                          <p className="placementBanner_description__O3FqH" style={{ color:"#000" }}>
+                          <p
+                            className="placementBanner_heading__yGlah"
+                            style={{ color: "#000" }}
+                          >
+                            3x
+                          </p>
+                          <p
+                            className="placementBanner_description__O3FqH"
+                            style={{ color: "#000" }}
+                          >
                             Interview Opportunities
                           </p>
                         </div>

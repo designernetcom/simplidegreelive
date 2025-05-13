@@ -1,5 +1,5 @@
 "use client";
-import React ,{useEffect}from "react";
+import React, { useEffect } from "react";
 
 import SecondMenu from "../../../../components/Header/Menu/SecondMenu";
 import Footer from "../../../../components/Footer/Footer";
@@ -24,7 +24,6 @@ import "../../styles/e74b165e0d429359.css";
 import "../../styles/885f0dd8048415c9.css";
 
 import CourseSlider from "../../../../components/CourseSlider";
-
 
 export default function page() {
   // useEffect(() => {
@@ -101,7 +100,7 @@ export default function page() {
               </div>
             </div>
           </div>
-          <CourseSlider />
+          {/* <CourseSlider /> */}
           <div className="CourseAbout_course_about_container__xEAH5">
             <div className="CourseAbout_course_about_left_col__KRo_I">
               <h2 className="CourseAbout_course_about_heading__n0jzu">

@@ -27,7 +27,7 @@ const CourseSlider = () => {
                   </div>
                 </div>
                 <p className="CourseSlider_slider_bottom_row__woIB2">
-                  Total Fee ₹179000*
+                  Total Fee ₹220000*
                 </p>
               </div>
             </Link>
@@ -54,7 +54,7 @@ const CourseSlider = () => {
                   </div>
                 </div>
                 <p className="CourseSlider_slider_bottom_row__woIB2">
-                  Total Fee ₹150000*
+                  Total Fee ₹183080*
                 </p>
               </div>
             </Link>

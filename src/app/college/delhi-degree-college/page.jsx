@@ -1225,7 +1225,7 @@ Sn"
           </div>
         </div>
       )}
-      {/* {isSpecializationModalOpen && (
+      {isSpecializationModalOpen && (
         <div
           className="modal fade show d-block"
           id="specializationModal"
@@ -1281,7 +1281,7 @@ Sn"
             </div>
           </div>
         </div>
-      )} */}
+      )}
       <Footer />
     </>
   );

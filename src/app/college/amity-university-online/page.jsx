@@ -20,7 +20,7 @@ import Image from "next/image";
 
 // SpecializationModal Component
 const courseSpecializations = {
-  "Online BCom": {
+  "Online MBA": {
     specializations: [
       { name: "Full Fee", fees: 222000 },
       { name: "Semester Fee", fees: 55000 },
@@ -38,7 +38,7 @@ const courseSpecializations = {
   },
   "Online B.COM": {
     specializations: [
-      { name: "Full Fee", fees: 10800 },
+      { name: "Full Fee", fees: 108000 },
       { name: "Semester Fee", fees: 18000 },
       { name: "EMI", fees: 4500 },
     ],
@@ -426,11 +426,18 @@ function SpecializationModal({
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                fontSize: "16px",
+                fontSize: "20px",
+                color: "#151419",
+                fontWeight: "600",
+                fontFamily:
+                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                transition: "color 0.2s",
               }}
+              onMouseOver={(e) => (e.currentTarget.style.color = "#28a745")}
+              onMouseOut={(e) => (e.currentTarget.style.color = "#151419")}
               aria-label="Close form modal"
             >
-              <span className="btn-close" />
+              ×
             </button>
             <h6
               style={{
@@ -506,6 +513,36 @@ function SpecializationModal({
                   }}
                 />
               </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="phone"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
               <div style={{ textAlign: "center" }}>
                 <button
                   type="submit"
@@ -552,9 +589,11 @@ export default function Page() {
 
   const courseSpecializations = {
     "Online BA": [
-      { name: "Full Fee", fees: 87120 },
-      { name: "Semester Fee", fees: 16500 },
-      { name: "EMI", fees: 3630 },
+      { name: "Sociology", fees: 99000 },
+      { name: "Journalism and Mass Communication", fees: 170000 },
+      { name: "Political Science", fees: 99000 },
+      { name: "English", fees: 99000 },
+      { name: "Economics", fees: 99000 },
     ],
     "Online BA-JMC": [
       { name: "Full Fee", fees: 149600 },
@@ -562,46 +601,58 @@ export default function Page() {
       { name: "EMI", fees: 6233 },
     ],
     "Online BBA": [
-      { name: "Full Fee", fees: 145200 },
-      { name: "Semester Fee", fees: 27500 },
-      { name: "EMI", fees: 6050 },
+      { name: "General", fees: 165000 },
+      { name: "Data Analytics", fees: 225000 },
     ],
     "Online BCA": [
-      { name: "Full Fee", fees: 132000 },
-      { name: "Cloud", fees: 25000 },
-      { name: "EMI", fees: 5500 },
+      { name: "General", fees: 150000 },
+      { name: "Cloud & Security", fees: 225000 },
+      { name: "Data Analytics", fees: 225000 },
+      { name: "Software Engineering", fees: 255000 }, // Corrected fees (25500 seemed unusually low, assuming typo for 255000)
+      { name: "Data Engineering", fees: 255000 }, // Corrected fees (25500 seemed unusually low, assuming typo for 255000)
     ],
     "Online BCOM": [
-      { name: "Full Fee", fees: 87120 },
-      { name: "Semester Fee", fees: 16500 },
-      { name: "EMI", fees: 5500 },
+      { name: "General", fees: 99000 },
+      {
+        name: "International Finance and Accounting (ACCA Accredited)",
+        fees: 250000,
+      },
     ],
     "Online MA-JMC": [
-      { name: "Full Fee", fees: 156400 },
-      { name: "Semester Fee", fees: 42500 },
-      { name: "EMI", fees: 6233 },
+      { name: "Journalism & Mass Communication", fees: 170000 },
     ],
-
     "Online MBA": [
-      { name: "Full Fee", fees: 183000 },
-      { name: "Semester Fee", fees: 49750 },
-      { name: "EMI", fees: 7628 },
+      { name: "International Finance (accredited by ACCA)", fees: 299000 },
+      { name: "Digital Marketing Management", fees: 199000 },
+      { name: "Digital Entrepreneurship", fees: 199000 },
+      { name: "Human Resource Management", fees: 99000 },
+      { name: "Business Analytics", fees: 199000 },
+      { name: "Data Science", fees: 199000 },
+      { name: "HR Analytics", fees: 199000 },
+      {
+        name: "General Management (with optional specialisation)",
+        fees: 199000,
+      },
     ],
     "Online MBA with Dual Specialisation": [
-      { name: "Full Fee", fees: 275080 },
-      { name: "Semester Fee", fees: 74750 },
-      { name: "EMI", fees: 11461 },
+      { name: "Finance and Accounting Management", fees: 299000 },
+      { name: "Marketing and Sales Management", fees: 299000 },
+      { name: "Business Analytics", fees: 299000 },
+      { name: "Human Resource Management", fees: 299000 },
+      { name: "Production and Operations Management", fees: 299000 },
+      { name: "Digital Marketing Management", fees: 299000 },
     ],
     "Online MCA": [
-      { name: "Full Fee", fees: 156400 },
-      { name: "Cloud", fees: 42500 },
-      { name: "Artificial Intelligence", fees: 6516 },
+      { name: "Blockchain Technology and Management", fees: 170000 },
+      { name: "ML & AI", fees: 170000 },
+      { name: "ML & AI (with TCS iON)", fees: 250000 },
+      { name: "AR & VR", fees: 250000 },
+      { name: "Cyber Security", fees: 250000 },
+      { name: "Software Engineering", fees: 250000 },
     ],
-
     "Online MCOM FM": [
-      { name: "Full Fee", fees: 110400 },
-      { name: "Semester Fee", fees: 30000 },
-      { name: "EMI", fees: 4600 },
+      { name: "Financial Management", fees: 110400 },
+      { name: "Financial Technology", fees: 110400 },
     ],
     "Online BBA-MBA": [
       { name: "Full Fee", fees: 318136 },
@@ -702,69 +753,69 @@ export default function Page() {
   const courses = [
     {
       name: "Online BCom",
-      feeRange: "₹ 99000-₹ 250000",
+      feeRange: "₹ 75,000",
       imageSrc: "/assets/img/universities/MBA-SMU.png",
     },
     {
       name: "Online MA",
-      feeRange: "₹ 130000-₹ 250000",
+      feeRange: "₹ 1,56,000",
       imageSrc: "/assets/img/universities/MSC-DS.png",
     },
     {
       name: "Online BBA",
-      feeRange: "₹ 165000-₹ 225000",
+      feeRange: "₹ 1,45,000",
       imageSrc: "/assets/img/universities/BBA.png",
     },
     {
       name: "Online MCA",
-      feeRange: "₹ 170000-₹ 250000",
+      feeRange: "₹ 1,56,000",
       imageSrc: "/assets/img/universities/MCA.png",
     },
     {
       name: "Online MBA",
-      feeRange: "₹ 199000-₹ 299000",
+      feeRange: "₹ 1,83,080",
       imageSrc: "/assets/img/universities/BBA.png",
     },
     {
       name: "Online MBA with Dual Specialisation",
-      feeRange: "₹ 299000",
+      feeRange: "₹ 2,75,080",
       imageSrc: "/assets/img/universities/MBA.png",
     },
     {
       name: "Online BA",
-      feeRange: "₹ 99000-₹ 170000",
+      feeRange: "₹ 87,120",
       imageSrc: "/assets/img/universities/DIPLOMA.png",
     },
     {
       name: "Online MAJMC",
-      feeRange: "₹ 170000",
+      feeRange: "₹ 1,56,400",
       imageSrc: "/assets/img/universities/BBA.png",
     },
     {
       name: "Online MCOM FM",
-      feeRange: "₹ 120000",
+      feeRange: "₹ 1,10,000",
       imageSrc:
         "/assets/img/universities/Masters-of-Computer-Applications-.png",
     },
     {
       name: "Online BCA",
-      feeRange: "₹ 132000",
+      feeRange: "₹ 1,32,000",
       imageSrc: "/assets/img/universities/BBA.png",
     },
     {
       name: "Online BBA-MBA",
-      feeRange: "₹ 318136",
+      feeRange: "₹ 3,18,136",
       imageSrc: "/assets/img/universities/BBA-MUJ.png",
     },
     {
       name: "Online BCOM-MBA",
-      feeRange: "₹ 260452",
+      feeRange: "₹ 2,60,452",
       imageSrc: "/assets/img/universities/MCOM-MUJ.png",
     },
   ];
 
   const groupedCourses = [];
-  const coursesPerSlide = 3; // Adjust based on design needs
+  const coursesPerSlide = 4; // Adjust based on design needs
   for (let i = 0; i < courses.length; i += coursesPerSlide) {
     groupedCourses.push(courses.slice(i, i + coursesPerSlide));
   }
@@ -1513,12 +1564,12 @@ export default function Page() {
                                               }
                                               aria-label={`Enquire about ${course.name}`}
                                               style={{
-                                                padding: "10px 20px",
+                                                padding: "5px 5px",
                                                 background:
                                                   "linear-gradient(90deg, #e89e26, #c47b1e)",
                                                 color: "#fff",
                                                 border: "none",
-                                                borderRadius: "50px",
+                                                borderRadius: "5px",
                                                 fontSize: "14px",
                                                 fontWeight: "600",
                                                 cursor: "pointer",
@@ -1554,11 +1605,11 @@ export default function Page() {
                                               }
                                               aria-label={`View specializations for ${course.name}`}
                                               style={{
-                                                padding: "10px 20px",
+                                                padding: "5px 5px",
                                                 background: "transparent",
                                                 color: "#0c2d50",
                                                 border: "2px solid #0c2d50",
-                                                borderRadius: "50px",
+                                                borderRadius: "5px",
                                                 fontSize: "14px",
                                                 fontWeight: "600",
                                                 cursor: "pointer",
@@ -2356,6 +2407,7 @@ export default function Page() {
           </div>
         </div>
       )}
+  
       <SpecializationModal
         isSpecializationModalOpen={isSpecializationModalOpen}
         selectedCourseName={selectedCourseName}
