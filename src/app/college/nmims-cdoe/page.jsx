@@ -581,21 +581,25 @@ export default function Page() {
   const courseSpecializations = {
     "Online BCOM": [{ name: "Commerce", fees: 108000 }],
     "Online BBA": [
-      { name: "Marketing", fees: 141000 },
-      { name: "Finance", fees: 141000 },
-      { name: "Business Analytics", fees: 169200 },
+      // { name: "Marketing", fees: 141000 },
+      // { name: "Finance", fees: 141000 },
+      // { name: "Business Analytics", fees: 169200 },
+      { name: "Business Administration", fees: 150000 },
     ],
     "Online MBA": [
-      { name: "Business Management", fees: 220000 },
-      { name: "Marketing", fees: 220000 },
-      { name: "Operations & Data Sciences", fees: 220000 }, 
-      { name: "Human Resources", fees: 220000 }, 
-      { name: "Finance", fees: 220000 }, 
+      { name: "Business Management", fees: 210000 },
+      { name: "Marketing Management", fees: 210000 },
+      { name: "Operations & Supply Chain Management", fees: 210000 },
+      {name:"Operations and Data Sciences Management",fees:210000},
+      { name: "Human Resources Management", fees: 210000 },
+      { name: "Finance Management", fees: 210000 },
     ],
     "Online DIPLOMA": [
-      { name: "Full Fee", fees: 110000 },
-      { name: "Semester Fee", fees: 55000 },
-      { name: "EMI", fees: 9160 },
+      { name: "Diploma in Operations Management", fees: 105000 },
+      { name: "Diploma in Marketing Management", fees: 105000 },
+      { name: "Diploma in Human Resource Management", fees: 105000 },
+      { name: "Diploma in Financial Management", fees: 105000 },
+      { name: "Diploma in Business Management", fees: 105000 },
     ],
   };
 

@@ -586,19 +586,35 @@ export default function Page() {
 
   const courseSpecializations = {
     "Online MBA": [
-      { name: "Business Administration", fees: 175000 },
-      { name: "Entrepreneurship & Innovation", fees: 280000 },
+      { name: "Marketing", fees: 175000 },
+      { name: "Digital Marketing", fees: 175000 },
+      { name: "Analytics and Data Science", fees: 175000 },
+      { name: "IT & FinTech", fees: 175000 },
     ],
     "Online MCom": [{ name: "Commerce", fees: 108000 }],
-    "Online BBA": [{ name: "Business Administration", fees: 135000 }],
+    "Online BBA": [
+      { name: "HR Management", fees: 135000 },
+      { name: "Marketing", fees: 135000 },
+      { name: "Finance & Accounting", fees: 135000 },
+      { name: "Entrepreneurship Management & Family Business",fees:135000 },
+    ],
     "Online BCom": [{ name: "Commerce", fees: 99000 }],
     "Online MA-J&MC": [
       { name: "Full Fee", fees: 140000 },
       { name: "Semester Fee", fees: 35000 },
       { name: "EMI", fees: 5833 },
     ],
-    "Online MCA": [{ name: "Computer Applications", fees: 158000 }],
-    "Online BCA": [{ name: "Computer Applications", fees: 135000 }],
+    "Online MCA": [
+      { name: "AI & Data Science", fees: 158000 },
+      { name: "Cloud Computing ", fees: 158000 },
+      { name: "Cybersecurity", fees: 158000 },
+      { name: "Comprehensive Emerging Technologies", fees: 158000 },
+    ],
+    "Online BCA": [
+      { name: "Data Science & Analytics", fees: 135000 },
+      { name: "Cloud Computing", fees: 135000 },
+      { name: "Cybersecurity", fees: 135000 },
+    ],
   };
 
   // Calculate fee range dynamically

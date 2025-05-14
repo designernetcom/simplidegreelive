@@ -591,35 +591,27 @@ export default function Page() {
 
   const courseSpecializations = {
     "Online MBA": [
-      { name: "Full Fee", fees: 110000 },
-      { name: "Semester Fee", fees: 27500 },
-      { name: "EMI", fees: 4583 },
+      { name: "Marketing", fees: 110000 },
+      { name: "Finance", fees: 110000 },
+      { name: "Human Resource", fees: 110000 },
+      { name: "Systems", fees: 110000 },
     ],
     "Online MCom": [
-      { name: "Full Fee", fees: 75000 },
-      { name: "Semester Fee", fees: 18750 },
-      { name: "EMI", fees: 3125 },
+      { name: "Commerce", fees: 75000 },
+    
     ],
     "Online BA": [
-      { name: "Full Fee", fees: 75000 },
-      { name: "Semester Fee", fees: 18750 },
-      { name: "EMI", fees: 3125 },
+      { name: "English", fees: 75000 },
+      { name: "Sociology", fees: 75000 },
+      { name: "Political Science", fees: 75000 },
     ],
-    "Online BCom": [
-      { name: "Full Fee", fees: 75000 },
-      { name: "Semester Fee", fees: 18750 },
-      { name: "EMI", fees: 3125 },
-    ],
+    "Online BCom": [{ name: "Commerce", fees: 75000 }],
 
-    "Online MCA": [
-      { name: "Full Fee", fees: 98000 },
-      { name: "Semester Fee", fees: 24500 },
-      { name: "EMI", fees: 4083 },
-    ],
+    "Online MCA": [{ name: "Master of Computer Applications", fees: 98000 }],
     "Online MA-ENGLISH": [
-      { name: "Full Fee", fees: 75000 },
-      { name: "Semester Fee", fees: 18750 },
-      { name: "EMI", fees: 3125 },
+      { name: "English", fees: 75000 },
+      { name: "Sociology", fees: 75000 },
+      { name: "Political Science", fees: 75000 },
     ],
     "Online MA-POL-SCI": [
       { name: "Full Fee", fees: 75000 },
