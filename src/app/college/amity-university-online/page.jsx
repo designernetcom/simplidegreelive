@@ -815,7 +815,7 @@ export default function Page() {
   ];
 
   const groupedCourses = [];
-  const coursesPerSlide = 4; // Adjust based on design needs
+  const coursesPerSlide = 3; // Adjust based on design needs
   for (let i = 0; i < courses.length; i += coursesPerSlide) {
     groupedCourses.push(courses.slice(i, i + coursesPerSlide));
   }
@@ -830,8 +830,8 @@ export default function Page() {
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="hero-image"
-            width={240}
-            height={240}
+            width={1900}
+            height={840}
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
@@ -2407,7 +2407,7 @@ export default function Page() {
           </div>
         </div>
       )}
-  
+
       <SpecializationModal
         isSpecializationModalOpen={isSpecializationModalOpen}
         selectedCourseName={selectedCourseName}

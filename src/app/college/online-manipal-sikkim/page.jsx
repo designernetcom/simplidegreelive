@@ -791,13 +791,18 @@ export default function Page() {
       feeRange: "INR 75,000",
       imageSrc: "/assets/img/universities/MBA.png",
     },
+    {
+      name: "Online MBA",
+      feeRange: "INR 1,10,000",
+      imageSrc: "/assets/img/universities/MBA.png",
+    },
 
   ];
 
   // Group courses into sets of three
   const groupedCourses = [];
-  for (let i = 0; i < courses.length; i += 4) {
-    groupedCourses.push(courses.slice(i, i + 4));
+  for (let i = 0; i < courses.length; i += 3) {
+    groupedCourses.push(courses.slice(i, i + 3));
   }
   return (
     <>

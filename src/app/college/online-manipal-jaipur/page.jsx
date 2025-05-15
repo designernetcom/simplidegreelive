@@ -763,10 +763,20 @@ export default function Page() {
       feeRange: "₹ 1,35,000",
       imageSrc: "/assets/img/universities/BCOM.png",
     },
+    {
+      name: "Online MBA",
+      feeRange: "₹ 1,75,000",
+      imageSrc: "/assets/img/universities/MBA.png",
+    },
+    {
+      name: "Online MCom",
+      feeRange: "₹ 1,08,000",
+      imageSrc: "/assets/img/universities/BBA.png",
+    },
   ];
 
   const groupedCourses = [];
-  const coursesPerSlide = 4; // Adjust based on design needs
+  const coursesPerSlide = 3; // Adjust based on design needs
   for (let i = 0; i < courses.length; i += coursesPerSlide) {
     groupedCourses.push(courses.slice(i, i + coursesPerSlide));
   }
@@ -787,8 +797,8 @@ export default function Page() {
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
             alt="Online Manipal campus banner"
-            width={240}
-            height={240}
+            width={1900}
+            height={840}
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">

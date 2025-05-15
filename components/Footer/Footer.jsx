@@ -592,7 +592,7 @@ return (
             <div className="footer_ctabox__61Q43">
               <div className="footer_leftsec__voM1P">
                 Student support team <br />
-                +91-88-263-34455
+                +91-8806099993
               </div>
               <div />
             </div>

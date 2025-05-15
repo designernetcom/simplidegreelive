@@ -587,12 +587,12 @@ export default function Page() {
       { name: "Business Administration", fees: 150000 },
     ],
     "Online MBA": [
-      { name: "Business Management", fees: 210000 },
-      { name: "Marketing Management", fees: 210000 },
-      { name: "Operations & Supply Chain Management", fees: 210000 },
-      {name:"Operations and Data Sciences Management",fees:210000},
-      { name: "Human Resources Management", fees: 210000 },
-      { name: "Finance Management", fees: 210000 },
+      { name: "Business Management", fees: 220000 },
+      { name: "Marketing Management", fees: 220000 },
+  
+      {name:"Operations and Data Sciences Management",fees:220000},
+      { name: "Human Resources Management", fees: 220000 },
+      { name: "Finance Management", fees: 220000 },
     ],
     "Online DIPLOMA": [
       { name: "Diploma in Operations Management", fees: 105000 },
