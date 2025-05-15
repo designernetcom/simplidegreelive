@@ -62,9 +62,17 @@ function SpecializationModal({
   selectedCourseName,
   selectedCourseSpecializations,
   handleCloseSpecializationModal,
+  brochurePath,
 }) {
   const [isFormModalOpen, setIsFormModalOpen] = React.useState(false);
-  const [formData, setFormData] = React.useState({ name: "", email: "" });
+  const [isEnquiryModalOpen, setIsEnquiryModalOpen] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    program: selectedCourseName || "",
+    state: "",
+  });
 
   if (!isSpecializationModalOpen) return null;
 
@@ -72,22 +80,64 @@ function SpecializationModal({
     setIsFormModalOpen(true);
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
+  const handleOpenEnquiryModal = () => {
+    setIsEnquiryModalOpen(true);
+  };
 
-    const brochurePath =
-      courseSpecializations[selectedCourseName]?.brochure ||
-      "/assets/brochure/default-brochure.pdf";
-    const link = document.createElement("a");
-    link.href = brochurePath;
-    link.download = brochurePath.split("/").pop();
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleCloseEnquiryModal = () => {
+    setIsEnquiryModalOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: selectedCourseName || "",
+      state: "",
+    });
+  };
+
+  const handleFormSubmit = (e, isBrochureDownload = false) => {
+    e.preventDefault();
+    const { name, email, phone } = formData;
+
+    // Enhanced validation
+    if (!name.trim()) {
+      alert("Name is required");
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      alert("Invalid email format");
+      return;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      alert("Phone number must be 10 digits");
+      return;
+    }
+
+    console.log(
+      isBrochureDownload
+        ? "Brochure form submitted:"
+        : "Enquiry form submitted:",
+      formData
+    );
+
+    if (isBrochureDownload) {
+      const link = document.createElement("a");
+      link.href = brochurePath || "/assets/brochure/default-brochure.pdf";
+      link.download = brochurePath.split("/").pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
 
     setIsFormModalOpen(false);
-    setFormData({ name: "", email: "" });
+    setIsEnquiryModalOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: selectedCourseName || "",
+      state: "",
+    });
   };
 
   const handleFormChange = (e) => {
@@ -97,7 +147,13 @@ function SpecializationModal({
 
   const handleCloseFormModal = () => {
     setIsFormModalOpen(false);
-    setFormData({ name: "", email: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      program: selectedCourseName || "",
+      state: "",
+    });
   };
 
   return (
@@ -219,6 +275,7 @@ function SpecializationModal({
                     >
                       {spec.name}
                     </p>
+
                     <p
                       style={{
                         color: "#ff5c35",
@@ -231,7 +288,7 @@ function SpecializationModal({
                     >
                       ₹ {spec.fees.toLocaleString()}
                     </p>
-                    <span
+                    <p
                       style={{
                         color: "#555",
                         fontSize: "14px",
@@ -240,91 +297,96 @@ function SpecializationModal({
                       }}
                     >
                       Inclusive of all taxes
-                    </span>
-                    <style>
-                      {`
-                        @keyframes fadeIn {
-                          from {
-                            opacity: 0;
-                            transform: translateY(20px);
-                          }
-                          to {
-                            opacity: 1;
-                            transform: translateY(0);
-                          }
+                    </p>
+                    <button
+                      onClick={handleOpenEnquiryModal}
+                      style={{
+                        padding: "5px 5px",
+                        background:
+                          "linear-gradient(90deg,rgb(11, 9, 5),rgb(21, 20, 19))",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: "5px",
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        cursor: "pointer",
+                        width: "100%",
+                        marginBottom: "10px",
+                      }}
+                      onMouseEnter={(e) =>
+                        Object.assign(e.currentTarget.style, {
+                          boxShadow: "0 6px 20px rgba(21, 21, 20, 0.5)",
+                        })
+                      }
+                      onMouseLeave={(e) =>
+                        Object.assign(e.currentTarget.style, {
+                          boxShadow: "none",
+                        })
+                      }
+                      aria-label="Enquire about course"
+                    >
+                      Enquire Now
+                    </button>
+
+                    <style jsx>{`
+                      @keyframes fadeIn {
+                        from {
+                          opacity: 0;
+                          transform: translateY(20px);
                         }
-                        @media (max-width: 768px) {
-                          .placement_placementBanner__ACCRS {
-                            flex-direction: column !important;
-                            align-items: center;
-                            padding-bottom: 40px !important;
-                            padding-top: 30px !important;
-                            margin-bottom: 20px !important;
-                            gap: 15px !important;
-                          }
-                          .pricing-card {
-                            width: 100% !important;
-                            max-width: 400px !important;
-                            padding: 15px !important;
-                            border-radius: 12px !important;
-                            animation: fadeIn 0.4s ease forwards ${
-                              index * 0.15
-                            }s !important;
-                          }
-                          .pricing-card p:first-child {
-                            font-size: 18px !important;
-                          }
-                          .pricing-card p:nth-child(2) {
-                            font-size: 28px !important;
-                          }
-                          .pricing-card span {
-                            font-size: 13px !important;
-                          }
+                        to {
+                          opacity: 1;
+                          transform: translateY(0);
                         }
-                        @media (max-width: 480px) {
-                          .placement_placementBanner__ACCRS {
-                            padding-bottom: 30px !important;
-                            padding-top: 20px !important;
-                            margin-bottom: 15px !important;
-                            gap: 12px !important;
-                          }
-                          .pricing-card {
-                            padding: 12px !important;
-                            border-radius: 10px !important;
-                          }
-                          .pricing-card p:first-child {
-                            font-size: 16px !important;
-                          }
-                          .pricing-card p:nth-child(2) {
-                            font-size: 24px !important;
-                          }
-                          .pricing-card span {
-                            font-size: 12px !important;
-                          }
+                      }
+                      @media (max-width: 768px) {
+                        .placement_placementBanner__ACCRS {
+                          flex-direction: column !important;
+                          align-items: center;
+                          padding-bottom: 40px !important;
+                          padding-top: 30px !important;
+                          margin-bottom: 20px !important;
+                          gap: 15px !important;
                         }
-                        @media (max-width: 360px) {
-                          .placement_placementBanner__ACCRS {
-                            padding-bottom: 20px !important;
-                            padding-top: 15px !important;
-                            margin-bottom: 10px !important;
-                            gap: 10px !important;
-                          }
-                          .pricing-card {
-                            padding: 10px !important;
-                            border-radius: 8px !important;
-                          }
-                          .pricing-card p:first-child {
-                            font-size: 14px !important;
-                          }
-                          .pricing-card p:nth-child(2) {
-                            font-size: 22px !important;
-                          }
-                          .pricing-card span {
-                            font-size: 11px !important;
-                          }
+                        .pricing-card {
+                          width: 100% !important;
+                          max-width: 400px !important;
+                          padding: 15px !important;
+                          border-radius: 12px !important;
+                          animation: fadeIn 0.4s ease forwards ${index * 0.15}s !important;
                         }
-                      `}
-                    </style>
+                        .pricing-card p:first-child {
+                          font-size: 18px !important;
+                        }
+                        .pricing-card p:nth-child(2) {
+                          font-size: 28px !important;
+                        }
+                        .pricing-card span {
+                          font-size: 13px !important;
+                        }
+                      }
+                      @media (max-width: 480px) {
+                        .placement_placementBanner__ACCRS {
+                          padding-bottom: 30px !important;
+                          padding-top: 20px !important;
+                          margin-bottom: 15px !important;
+                          gap: 12px !important;
+                        }
+                        .pricing-card {
+                          padding: 12px !important;
+                          border-radius: 10px !important;
+                        }
+                        .pricing-card p:first-child {
+                          font-size: 16px !important;
+                        }
+                        .pricing-card p:nth-child(2) {
+                          font-size: 24px !important;
+                        }
+                        .pricing-card span {
+                          font-size: 12px !important;
+                        }
+                      }
+                    `}</style>
                   </div>
                 ))
               ) : (
@@ -371,6 +433,7 @@ function SpecializationModal({
               >
                 Download Brochure
               </button>
+
               <button
                 onClick={handleCloseSpecializationModal}
                 style={{
@@ -394,7 +457,7 @@ function SpecializationModal({
         </div>
       </div>
 
-      {/* Form Modal */}
+      {/* Brochure Form Modal */}
       {isFormModalOpen && (
         <div
           style={{
@@ -455,7 +518,7 @@ function SpecializationModal({
             >
               Download Brochure
             </h6>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={(e) => handleFormSubmit(e, true)}>
               <div style={{ marginBottom: "15px" }}>
                 <label
                   htmlFor="name"
@@ -566,6 +629,303 @@ function SpecializationModal({
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Enquiry Modal */}
+      {isEnquiryModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1100,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#fff",
+              padding: "20px",
+              borderRadius: "10px",
+              width: "90%",
+              maxWidth: "500px",
+              position: "relative",
+            }}
+          >
+            <button
+              onClick={handleCloseEnquiryModal}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "20px",
+                color: "#151419",
+                fontWeight: "600",
+                fontFamily:
+                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                transition: "color 0.2s",
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.color = "#007bff")}
+              onMouseOut={(e) => (e.currentTarget.style.color = "#151419")}
+              aria-label="Close enquiry modal"
+            >
+              ×
+            </button>
+
+            <p
+              style={{
+                fontSize: "16px",
+                fontFamily:
+                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                color: "#555",
+                textAlign: "center",
+                marginBottom: "20px",
+              }}
+            >
+              Get personalized career consultation
+            </p>
+            <form onSubmit={(e) => handleFormSubmit(e, false)}>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="enquiry-name"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="enquiry-name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="enquiry-email"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="enquiry-email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="enquiry-phone"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="enquiry-phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="enquiry-program"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  Program
+                </label>
+                <select
+                  id="enquiry-program"
+                  name="program"
+                  value={formData.program}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                >
+                  <option value="">Choose a program</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="Online BBA">Online BBA</option>
+                  <option value="Executive MBA">Executive MBA</option>
+                  <option value="Online BCS">Online BCS</option>
+                  <option value="Online MBA">Online MBA</option>
+                  <option value="Online BHS">Online BHS</option>
+                  <option value="Help Me Decide">Help Me Decide</option>
+                </select>
+              </div>
+              <div style={{ marginBottom: "15px" }}>
+                <label
+                  htmlFor="enquiry-state"
+                  style={{
+                    display: "block",
+                    marginBottom: "5px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "500",
+                  }}
+                >
+                  State/Province
+                </label>
+                <select
+                  id="enquiry-state"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                  }}
+                >
+                  <option value="">Select State/Province</option>
+                  {[
+                    "Andhra Pradesh",
+                    "Arunachal Pradesh",
+                    "Assam",
+                    "Bihar",
+                    "Chhattisgarh",
+                    "Goa",
+                    "Gujarat",
+                    "Haryana",
+                    "Himachal Pradesh",
+                    "Jharkhand",
+                    "Karnataka",
+                    "Kerala",
+                    "Madhya Pradesh",
+                    "Maharashtra",
+                    "Manipur",
+                    "Meghalaya",
+                    "Mizoram",
+                    "Nagaland",
+                    "Odisha",
+                    "Punjab",
+                    "Rajasthan",
+                    "Sikkim",
+                    "Tamil Nadu",
+                    "Telangana",
+                    "Tripura",
+                    "Uttar Pradesh",
+                    "Uttarakhand",
+                    "West Bengal",
+                    "Andaman and Nicobar Islands",
+                    "Chandigarh",
+                    "Dadra and Nagar Haveli and Daman and Diu",
+                    "Lakshadweep",
+                    "Delhi",
+                    "Puducherry",
+                  ].map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "#0d2638",
+                    color: "#fff",
+                    padding: "10px 20px",
+                    borderRadius: "10px",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "16px",
+                    fontFamily:
+                      "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                    fontWeight: "600",
+                  }}
+                >
+                  Submit Enquiry
+                </button>
+              </div>
+            </form>
+            <p
+              style={{
+                fontSize: "14px",
+                fontFamily:
+                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
+                color: "#555",
+                textAlign: "center",
+                marginTop: "15px",
+              }}
+            >
+              Your personal information is secure with us.
+            </p>
           </div>
         </div>
       )}
