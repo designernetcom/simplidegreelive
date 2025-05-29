@@ -5,13 +5,12 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { debounce } from "lodash";
+import axios from "axios";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import FirstVisitModal from "../../../../components/FirstVisitModal";
+import EnquiryModel from "../../../../components/EnquiryModel";
 import "../../styles/5107c2122129e0bb.css";
-// import "../../styles/style.css";
-//  import "../../styles/global.css";
-
 import "../../styles/3a6b4218bb14b3ef.css";
 import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
@@ -19,13 +18,7 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
-
-
-
-
-
-
-
+import "./styles.module.css";
 import RollingLine from "../../../../components/RollingLine";
 
 // SpecializationModal Component
@@ -51,15 +44,17 @@ function SpecializationModal({
   handleCloseSpecializationModal,
   brochurePath,
 }) {
+  const [selectedCourse, setSelectedCourse] = useState("");
+
   const [isFormModalOpen, setIsFormModalOpen] = React.useState(false);
   const [isEnquiryModalOpen, setIsEnquiryModalOpen] = React.useState(false);
-  const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    phone: "",
-    program: selectedCourseName || "",
-    state: "",
-  });
+  // const [formData, setFormData] = React.useState({
+  //   name: "",
+  //   email: "",
+  //   phone: "",
+  //   program: selectedCourseName || "",
+  //   state: "",
+  // });
 
   if (!isSpecializationModalOpen) return null;
 
@@ -285,7 +280,7 @@ function SpecializationModal({
                     >
                       Inclusive of all taxes
                     </p>
-                    <button
+                    {/* <button
                       onClick={handleOpenEnquiryModal}
                       style={{
                         padding: "5px 5px",
@@ -313,7 +308,7 @@ function SpecializationModal({
                       aria-label="Enquire about course"
                     >
                       Enquire Now
-                    </button>
+                    </button> */}
 
                     <style jsx>{`
                       @keyframes fadeIn {
@@ -926,6 +921,50 @@ export default function Page() {
   const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
   const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
     useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("");
+
+  const [error, setError] = useState(null); // Added for error handling
+  const [success, setSuccess] = useState(null); // Added for success handling
+  const [showModal, setShowModal] = useState(false);
+  const handleOpenModal = () => setShowModal(true);
+
+  const [universityData, setUniversityData] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const maxRetries = 3;
+
+  // Fetch data from the Laravel API
+  useEffect(() => {
+    const fetchUniversityData = async () => {
+      setIsFetching(true);
+      try {
+        const response = await axios.get("https://netcomindia.xyz/api/nmims");
+        const data = Array.isArray(response.data)
+          ? response.data[0]
+          : response.data;
+        setUniversityData(data);
+        setError(null);
+        setIsFetching(false);
+      } catch (err) {
+        console.error("Error fetching university data:", err);
+        if (retryCount < maxRetries) {
+          setTimeout(() => {
+            setRetryCount((prev) => prev + 1);
+          }, 2000);
+        } else {
+          setError({
+            general: "Failed to fetch university data. Please try again later.",
+            details: err.message,
+          });
+          setIsFetching(false);
+        }
+      }
+    };
+
+    fetchUniversityData();
+  }, [retryCount]);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -949,8 +988,8 @@ export default function Page() {
     "Online MBA": [
       { name: "Business Management", fees: 220000 },
       { name: "Marketing Management", fees: 220000 },
-  
-      {name:"Operations and Data Sciences Management",fees:220000},
+
+      { name: "Operations and Data Sciences Management", fees: 220000 },
       { name: "Human Resources Management", fees: 220000 },
       { name: "Finance Management", fees: 220000 },
     ],
@@ -1039,48 +1078,123 @@ export default function Page() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      alert("Invalid email format");
-      return;
-    }
-    setIsLoading(true);
-    try {
-      console.log("Form submitted:", formData);
-      handleClose();
-    } catch (error) {
-      alert("Error submitting form");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const handleEnquirySubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
-    const data = {
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value,
-      program: form.program.value,
-      state: form.state.value,
-    };
-    if (!/^\S+@\S+\.\S+$/.test(data.email)) {
-      alert("Invalid email format");
+    setError(null);
+    setSuccess(null);
+    setIsLoading(true);
+
+    // Client-side validation
+    if (!formData.name.trim()) {
+      setError({ general: "Name is required" });
+      setIsLoading(false);
       return;
     }
-    setIsLoading(true);
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setError({ general: "Invalid email format" });
+      setIsLoading(false);
+      return;
+    }
+    if (!/^\d{10}$/.test(formData.phone)) {
+      setError({ general: "Phone number must be 10 digits" });
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      console.log("Enquiry submitted:", data);
-      form.reset();
-    } catch (error) {
-      alert("Error submitting form");
+      const response = await axios.post(
+        "https://netcomindia.xyz/api/enquiries",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      setSuccess(response.data.message || "Enquiry submitted successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        program: "",
+        state: "",
+      });
+    } catch (err) {
+      console.error("Submission Error:", err);
+      if (err.response) {
+        setError({
+          general: err.response.data.message || "Server error occurred",
+          details: err.response.data.errors || null,
+        });
+      } else if (err.request) {
+        setError({ general: "Network error: Unable to reach the server" });
+      } else {
+        setError({ general: "An unexpected error occurred: " + err.message });
+      }
     } finally {
       setIsLoading(false);
     }
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setSuccess(null);
+    setIsLoading(true);
 
+    // Client-side validation
+    if (!formData.name.trim()) {
+      setError({ general: "Name is required" });
+      setIsLoading(false);
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setError({ general: "Invalid email format" });
+      setIsLoading(false);
+      return;
+    }
+    if (!/^\d{10}$/.test(formData.phone)) {
+      setError({ general: "Phone number must be 10 digits" });
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://netcomindia.xyz/api/enquiries",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      setSuccess(response.data.message || "Enquiry submitted successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        program: "",
+        state: "",
+      });
+      setIsCourseModalOpen(false);
+    } catch (err) {
+      console.error("Submission Error:", err);
+      if (err.response) {
+        setError({
+          general: err.response.data.message || "Server error occurred",
+          details: err.response.data.errors || null,
+        });
+      } else if (err.request) {
+        setError({ general: "Network error: Unable to reach the server" });
+      } else {
+        setError({ general: "An unexpected error occurred: " + err.message });
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const handleViewSpecialization = (courseName) => {
     setSelectedCourseName(courseName);
     setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
@@ -1129,9 +1243,49 @@ export default function Page() {
     "Delhi",
     "Puducherry",
   ];
+  if (isFetching) {
+    return (
+      <div style={{ textAlign: "center", padding: "50px" }}>
+        <div
+          style={{
+            border: "4px solid #f3f3f3",
+            borderTop: "4px solid #3498db",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            animation: "spin 1s linear infinite",
+            margin: "0 auto 20px",
+          }}
+        ></div>
+        <p>Loading university data...</p>
+      </div>
+    );
+  }
 
- 
-
+  if (error && !universityData) {
+    return (
+      <div style={{ textAlign: "center", padding: "50px", color: "red" }}>
+        <p>{error.general}</p>
+        <button
+          onClick={() => {
+            setRetryCount(0);
+            setError(null);
+            setIsFetching(true);
+          }}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#28a745",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
   return (
     <>
       <Head>
@@ -1174,7 +1328,8 @@ export default function Page() {
               </span>
             </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
-              NMIMS Centre for Distance and Online Education
+              {universityData?.name ||
+                "NMIMS Centre for Distance and Online Education"}
             </h1>
             <p className="headCarousal_location__7rFlL">Mumbai, Maharashtra</p>
             <p className="headCarousal_ranking__1yTOY">NIRF Rank: Top 100</p>
@@ -1464,21 +1619,14 @@ export default function Page() {
                         fontWeight: "700",
                       }}
                     >
-                      NMIMS Centre for Distance and Online Education
+                      {universityData?.name ||
+                        "NMIMS Centre for Distance and Online Education"}
                     </h2>
                     <div className="CourseAbout_course_about_container__xEAH5">
                       <div className="CourseAbout_course_about_left_col__KRo_I">
                         <p>
-                          The institute was founded in 1994 as a distance
-                          education arm of SVKM's NMIMS. Over the last several
-                          years, NMIMS CDOE has developed and delivered quality
-                          education programs, curriculum, and services to
-                          democratise education with equal opportunity for
-                          everyone to excel at their desired skills. By building
-                          a thriving ecosystem for a community of learners,
-                          NMIMS CDOE has helped them nurture their aspiration to
-                          achieve their goals and thrive in a competitive and
-                          dynamically evolving corporate marketplace.
+                          {universityData?.about ||
+                            "NMIMS Centre for Distance and Online Education"}
                         </p>
                       </div>
                       <div className="CourseAbout_course_about_right_col__q4drQ">
@@ -1516,7 +1664,7 @@ export default function Page() {
                           className="placementBanner_heading__yGlah"
                           style={{ color: "#ff5c35" }}
                         >
-                          INR 2,20,000
+                          INR {universityData?.full_courses_fees || "2,20,000"}
                         </p>
                         <span style={{ color: "#000" }}>
                           Inclusive of all taxes
@@ -1541,7 +1689,7 @@ export default function Page() {
                             margin: 0,
                           }}
                         >
-                          INR 55,000
+                          INR {universityData?.each_semester_fees || "55,000"}
                         </p>
                         <p
                           className="placementBanner_description__O3FqH"
@@ -1570,7 +1718,7 @@ export default function Page() {
                             fontFamily: "Queens",
                           }}
                         >
-                          INR 8,750 /{" "}
+                          INR {universityData?.emi_starting_at || "8750"} /{" "}
                           <span style={{ fontSize: "20px" }}>Month</span>
                         </p>
                         <p
@@ -1758,28 +1906,32 @@ export default function Page() {
                               {[
                                 {
                                   name: "Online MBA",
-                                  feeRange: "INR 2,20,000",
+                                  feeRange:
+                                    universityData?.online_mba_fees || 108000,
                                   imageSrc: "/assets/img/universities/MBA.png",
                                 },
                                 {
                                   name: "Online BBA",
-                                  feeRange: "INR 1,50,000",
+                                  feeRange:
+                                    universityData?.online_bba_fees || 108000,
                                   imageSrc: "/assets/img/universities/BBA.png",
                                 },
                                 {
                                   name: "Online BCOM",
-                                  feeRange: "INR 1,08,000",
-                                  imageSrc:
-                                    "/assets/img/universities/BCOM.png",
+                                  feeRange:
+                                    universityData?.online_bcom_fees || 108000,
+                                  imageSrc: "/assets/img/universities/BCOM.png",
                                 },
                                 {
                                   name: "Online DIPLOMA",
-                                  feeRange: "INR 1,10,000",
+                                  feeRange:
+                                    universityData?.online_diploma_fees ||
+                                    108000,
                                   imageSrc:
                                     "/assets/img/universities/DIPLOMA.png",
                                 },
-                              ].map((course, index) => (
-                                <div key={index}>
+                              ].map((course) => (
+                                <div key={course.name}>
                                   <div className="Expert_Expert__cardContainer__2y7vz">
                                     <div className="Expert_Expert__cardData__ocQ6N">
                                       <div className="Expert_Expert__flexContainer__iCU0T">
@@ -1802,33 +1954,103 @@ export default function Page() {
                                               color: "#ee3620",
                                             }}
                                           >
-                                            {/* 24 Month */}
-                                          </span>{" "}
-                                          {course.feeRange}
+                                            INR{" "}
+                                            {course.feeRange.toLocaleString()}
+                                          </span>
                                         </p>
-                                        <button
-                                          className="courses_viewSpsl__lrjH5"
-                                          onClick={() =>
-                                            setIsCourseModalOpen(true)
-                                          }
+                                        <a
+                                          href="#"
+                                          role="button"
+                                          data-bs-toggle="modal"
+                                          data-bs-target="#exampleModal"
+                                          className="enquire-now work-sans"
+                                          onClick={handleOpenModal}
                                           aria-label={`Enquire about ${course.name}`}
+                                          style={{
+                                            padding: "5px 5px",
+                                            background:
+                                              "linear-gradient(90deg, #e89e26, #c47b1e)",
+                                            color: "#fff",
+                                            border: "none",
+                                            borderRadius: "5px",
+                                            fontSize: "14px",
+                                            fontWeight: "600",
+                                            cursor: "pointer",
+                                            width: "100%",
+                                            marginBottom: "10px",
+                                            textAlign: "center",
+                                            display: "inline-block",
+                                          }}
+                                          onMouseEnter={(e) =>
+                                            Object.assign(
+                                              e.currentTarget.style,
+                                              {
+                                                boxShadow:
+                                                  "0 6px 20px rgba(232, 158, 38, 0.5)",
+                                              }
+                                            )
+                                          }
+                                          onMouseLeave={(e) =>
+                                            Object.assign(
+                                              e.currentTarget.style,
+                                              {
+                                                boxShadow: "none",
+                                              }
+                                            )
+                                          }
                                         >
                                           Enquire Now
+                                        </a>
+                                        <button
+                                          className="view-specialization work-sans"
+                                          onClick={() =>
+                                            handleViewSpecialization(
+                                              course.name
+                                            )
+                                          }
+                                          aria-label={`View specializations for ${course.name}`}
+                                          style={{
+                                            padding: "5px 5px",
+                                            background: "transparent",
+                                            color: "#0c2d50",
+                                            border: "2px solid #0c2d50",
+                                            borderRadius: "5px",
+                                            fontSize: "14px",
+                                            fontWeight: "600",
+                                            cursor: "pointer",
+                                            width: "100%",
+                                          }}
+                                          onMouseEnter={(e) =>
+                                            Object.assign(
+                                              e.currentTarget.style,
+                                              {
+                                                background: "#0c2d50",
+                                                color: "#fff",
+                                              }
+                                            )
+                                          }
+                                          onMouseLeave={(e) =>
+                                            Object.assign(
+                                              e.currentTarget.style,
+                                              {
+                                                background: "transparent",
+                                                color: "#0c2d50",
+                                              }
+                                            )
+                                          }
+                                        >
+                                          View Specialization
                                         </button>
                                       </div>
                                     </div>
-                                    <button
-                                      className="Expert_Expert__cardButton__cRBRJ"
-                                      onClick={() =>
-                                        handleViewSpecialization(course.name)
-                                      }
-                                      aria-label={`View specializations for ${course.name}`}
-                                    >
-                                      View Specialization
-                                    </button>
                                   </div>
                                 </div>
                               ))}
+                              {/* Render Modal Outside Loop */}
+                              <EnquiryModel
+                                showModal={showModal}
+                                setShowModal={setShowModal}
+                              />
                             </div>
                           </div>
                         </div>

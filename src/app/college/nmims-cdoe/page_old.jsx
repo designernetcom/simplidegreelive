@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { debounce } from "lodash";
-import axios from "axios";
 import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import FirstVisitModal from "../../../../components/FirstVisitModal";
-import EnquiryModel from "../../../../components/EnquiryModel";
 import "../../styles/5107c2122129e0bb.css";
+// import "../../styles/style.css";
+//  import "../../styles/global.css";
+
 import "../../styles/3a6b4218bb14b3ef.css";
 import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
@@ -18,44 +19,24 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
+
 import RollingLine from "../../../../components/RollingLine";
 
 // SpecializationModal Component
-const courseBrochures = {
-  Diploma: "/assets/brochure/DY-PATIL/Diploma-Brochure.pdf",
-  "Online BBA": "/assets/brochure/DY-PATIL/BBA-Brochure.pdf",
-  "Executive MBA": "/assets/brochure/DY-PATIL/Executive-MBA-Brochure.pdf",
-  "Online BCS": "/assets/brochure/DY-PATIL/BCS-Brochure.pdf",
-  "Online MBA": "/assets/brochure/DY-PATIL/MBA-Brochure.pdf",
-  "Online BHS": "/assets/brochure/DY-PATIL/BHS-Brochure.pdf",
-};
 const courseSpecializations = {
   "Online MBA": {
-    specializations: [
-      { name: "Full Fee", fees: 222000 },
-      { name: "Semester Fee", fees: 55000 },
-      { name: "EMI", fees: 8750 },
-    ],
-    brochure: "/assets/brochure/DR-DYPATIL/Prospectus-2025-DPUCOL-Online.pdf",
+    brochure: "/assets/brochure/NMIMS-MBA/NMIMS-Online-MBA-Brochure.pdf",
   },
   "Online BBA": {
-    specializations: [
-      { name: "Full Fee", fees: 150000 },
-      { name: "Semester Fee", fees: 25000 },
-      { name: "EMI", fees: 6250 },
-    ],
-    brochure: "/assets/brochure/DR-DYPATIL/Prospectus-2025-DPUCOL-Online.pdf",
+    brochure: "/assets/brochure/NMIMS-BBA/UG_Brochure_A224.pdf",
+  },
+  "Online B.COM": {
+    brochure: "/assets/brochure/NMIMS-B.COM/NMIMS-Online-MBA-Brochure.pdf",
+  },
+  "Online DIPLOMA": {
+    brochure: "/assets/brochure/Diploma/Diploma-and-Certificate-Program_V1.pdf",
   },
 };
-
-// const courseBrochures = {
-//   Diploma: "/assets/brochure/DY-PATIL/Diploma-Brochure.pdf",
-//   "Online BBA": "/assets/brochure/DY-PATIL/BBA-Brochure.pdf",
-//   "Executive MBA": "/assets/brochure/DY-PATIL/Executive-MBA-Brochure.pdf",
-//   "Online BCS": "/assets/brochure/DY-PATIL/BCS-Brochure.pdf",
-//   "Online MBA": "/assets/brochure/DY-PATIL/MBA-Brochure.pdf",
-//   "Online BHS": "/assets/brochure/DY-PATIL/BHS-Brochure.pdf",
-// };
 
 function SpecializationModal({
   isSpecializationModalOpen,
@@ -63,7 +44,6 @@ function SpecializationModal({
   selectedCourseSpecializations,
   handleCloseSpecializationModal,
   brochurePath,
-  handleOpenModal, // Add this prop
 }) {
   const [isFormModalOpen, setIsFormModalOpen] = React.useState(false);
   const [isEnquiryModalOpen, setIsEnquiryModalOpen] = React.useState(false);
@@ -276,6 +256,7 @@ function SpecializationModal({
                     >
                       {spec.name}
                     </p>
+
                     <p
                       style={{
                         color: "#ff5c35",
@@ -298,17 +279,12 @@ function SpecializationModal({
                     >
                       Inclusive of all taxes
                     </p>
-                    {/* <a
-                      href="#"
-                      role="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      className="spnm"
-                      onClick={handleOpenModal}
+                    <button
+                      onClick={handleOpenEnquiryModal}
                       style={{
                         padding: "5px 5px",
                         background:
-                          "linear-gradient(90deg, rgb(11, 9, 5), rgb(21, 20, 19))",
+                          "linear-gradient(90deg,rgb(11, 9, 5),rgb(21, 20, 19))",
                         color: "#fff",
                         border: "none",
                         borderRadius: "5px",
@@ -317,11 +293,6 @@ function SpecializationModal({
                         cursor: "pointer",
                         width: "100%",
                         marginBottom: "10px",
-                        display: "inline-block",
-                        textAlign: "center",
-                        textDecoration: "none",
-                        fontFamily:
-                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif",
                       }}
                       onMouseEnter={(e) =>
                         Object.assign(e.currentTarget.style, {
@@ -333,10 +304,10 @@ function SpecializationModal({
                           boxShadow: "none",
                         })
                       }
-                      aria-label={`Enquire about ${spec.name}`}
+                      aria-label="Enquire about course"
                     >
                       Enquire Now
-                    </a> */}
+                    </button>
 
                     <style jsx>{`
                       @keyframes fadeIn {
@@ -949,66 +920,7 @@ export default function Page() {
   const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
   const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
     useState(false);
-  const [error, setError] = useState(null); // Added for error handling
-  const [success, setSuccess] = useState(null); // Added for success handling
-  const [showModal, setShowModal] = useState(false);
-  const handleOpenModal = () => setShowModal(true);
 
-  const [universityData, setUniversityData] = useState(null);
-  const [isFetching, setIsFetching] = useState(true);
-  const [retryCount, setRetryCount] = useState(0);
-
-  const maxRetries = 3;
-
-  // Fetch data from the Laravel API
-  useEffect(() => {
-    const fetchUniversityData = async () => {
-      setIsFetching(true);
-      try {
-        const response = await axios.get("https://netcomindia.xyz/api/nmims", {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        });
-
-        // Log response to debug
-        console.log("API Response:", {
-          status: response.status,
-          headers: response.headers,
-          data: response.data,
-        });
-
-        // Ensure response is JSON
-        if (!response.headers["content-type"]?.includes("application/json")) {
-          throw new Error("Expected JSON, received HTML or other content");
-        }
-
-        const data = Array.isArray(response.data)
-          ? response.data[0]
-          : response.data;
-        setUniversityData(data);
-        setError(null);
-        setIsFetching(false);
-      } catch (err) {
-        console.error("Error fetching university data:", err);
-        if (retryCount < maxRetries) {
-          console.log(`Retrying... Attempt ${retryCount + 1} of ${maxRetries}`);
-          setTimeout(() => {
-            setRetryCount((prev) => prev + 1);
-          }, 2000);
-        } else {
-          setError({
-            general: "Failed to fetch university data. Please try again later.",
-            details: err.message,
-          });
-          setIsFetching(false);
-        }
-      }
-    };
-
-    fetchUniversityData();
-  }, [retryCount]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -1016,33 +928,36 @@ export default function Page() {
     program: "",
     state: "",
   });
-  const [reviewData, setReviewData] = useState({
-    reviewerName: "",
-    comment: "",
-  });
   const [selectedCourseSpecializations, setSelectedCourseSpecializations] =
     useState([]);
   const [selectedCourseName, setSelectedCourseName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const sectionRefs = useRef({});
 
   const courseSpecializations = {
+    "Online BCOM": [{ name: "Commerce", fees: 108000 }],
     "Online BBA": [
-      { name: "Marketing Management", fees: 145000 },
-      { name: "Human Resource Management", fees: 145000 },
-      { name: "Finance Management", fees: 145000 },
-      { name: "IT Management", fees: 145000 },
+      // { name: "Marketing", fees: 141000 },
+      // { name: "Finance", fees: 141000 },
+      // { name: "Business Analytics", fees: 169200 },
+      { name: "Business Administration", fees: 150000 },
     ],
-
     "Online MBA": [
-      { name: "Marketing Management", fees: 189400 },
-      { name: "Human Resource Management", fees: 189400 },
-      { name: "Finance Management", fees: 189400 },
-      { name: "IT Management", fees: 189400 },
+      { name: "Business Management", fees: 220000 },
+      { name: "Marketing Management", fees: 220000 },
+
+      { name: "Operations and Data Sciences Management", fees: 220000 },
+      { name: "Human Resources Management", fees: 220000 },
+      { name: "Finance Management", fees: 220000 },
+    ],
+    "Online DIPLOMA": [
+      { name: "Diploma in Operations Management", fees: 105000 },
+      { name: "Diploma in Marketing Management", fees: 105000 },
+      { name: "Diploma in Human Resource Management", fees: 105000 },
+      { name: "Diploma in Financial Management", fees: 105000 },
+      { name: "Diploma in Business Management", fees: 105000 },
     ],
   };
 
-  // Calculate fee range dynamically
   const getFeeRange = (courseName) => {
     const fees =
       courseSpecializations[courseName]?.map((spec) => spec.fees) || [];
@@ -1054,7 +969,6 @@ export default function Page() {
       : `₹ ${min.toLocaleString()}-₹ ${max.toLocaleString()}`;
   };
 
-  // IntersectionObserver for scroll-based navigation
   useEffect(() => {
     const sections = [
       "About",
@@ -1065,34 +979,34 @@ export default function Page() {
       "Certification",
       "Admission",
       "Placement",
-      "Review",
     ];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-100px 0px 0px 0px", threshold: 0.1 }
-    );
+    const handleScroll = debounce(() => {
+      const scrollY = window.scrollY + 100;
+      let closestSection = "About";
+      let minDistance = Infinity;
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section);
-      if (element) {
-        sectionRefs.current[section] = element;
-        observer.observe(element);
-      }
-    });
-
-    return () => {
       sections.forEach((section) => {
-        if (sectionRefs.current[section]) {
-          observer.unobserve(sectionRefs.current[section]);
+        const element = document.getElementById(section); // Fixed typo
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const distance = Math.abs(scrollY - offsetTop);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = section;
+          }
         }
       });
+
+      setActiveSection(closestSection);
+    }, 10);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      handleScroll.cancel();
     };
   }, []);
 
@@ -1113,6 +1027,8 @@ export default function Page() {
       program: "",
       state: "",
     });
+    setError(null);
+    setSuccess(null);
   };
 
   const handleChange = (e) => {
@@ -1120,9 +1036,21 @@ export default function Page() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleReviewChange = (e) => {
-    const { name, value } = e.target;
-    setReviewData((prev) => ({ ...prev, [name]: value }));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      alert("Invalid email format");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      console.log("Form submitted:", formData);
+      handleClose();
+    } catch (error) {
+      alert("Error submitting form");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleEnquirySubmit = async (e) => {
@@ -1131,23 +1059,6 @@ export default function Page() {
     setSuccess(null);
     setIsLoading(true);
 
-    // Client-side validation
-    if (!formData.name.trim()) {
-      setError({ general: "Name is required" });
-      setIsLoading(false);
-      return;
-    }
-    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      setError({ general: "Invalid email format" });
-      setIsLoading(false);
-      return;
-    }
-    if (!/^\d{10}$/.test(formData.phone)) {
-      setError({ general: "Phone number must be 10 digits" });
-      setIsLoading(false);
-      return;
-    }
-
     try {
       const response = await axios.post(
         "https://netcomindia.xyz/api/enquiries",
@@ -1159,7 +1070,7 @@ export default function Page() {
           },
         }
       );
-      setSuccess(response.data.message || "Enquiry submitted successfully!");
+      setSuccess(response.data.message);
       setFormData({
         name: "",
         email: "",
@@ -1167,6 +1078,8 @@ export default function Page() {
         program: "",
         state: "",
       });
+      // Optionally close the form after success
+      // setIsCourseModalOpen(false);
     } catch (err) {
       console.error("Submission Error:", err);
       if (err.response) {
@@ -1179,81 +1092,6 @@ export default function Page() {
       } else {
         setError({ general: "An unexpected error occurred: " + err.message });
       }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError(null);
-    setSuccess(null);
-    setIsLoading(true);
-
-    // Client-side validation
-    if (!formData.name.trim()) {
-      setError({ general: "Name is required" });
-      setIsLoading(false);
-      return;
-    }
-    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      setError({ general: "Invalid email format" });
-      setIsLoading(false);
-      return;
-    }
-    if (!/^\d{10}$/.test(formData.phone)) {
-      setError({ general: "Phone number must be 10 digits" });
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const response = await axios.post(
-        "https://netcomindia.xyz/api/enquiries",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
-      setSuccess(response.data.message || "Enquiry submitted successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        program: "",
-        state: "",
-      });
-      setIsCourseModalOpen(false);
-    } catch (err) {
-      console.error("Submission Error:", err);
-      if (err.response) {
-        setError({
-          general: err.response.data.message || "Server error occurred",
-          details: err.response.data.errors || null,
-        });
-      } else if (err.request) {
-        setError({ general: "Network error: Unable to reach the server" });
-      } else {
-        setError({ general: "An unexpected error occurred: " + err.message });
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  const handleReviewSubmit = async (e) => {
-    e.preventDefault();
-    if (!reviewData.reviewerName || !reviewData.comment) {
-      alert("Please fill out all fields");
-      return;
-    }
-    setIsLoading(true);
-    try {
-      console.log("Review submitted:", reviewData);
-      setReviewData({ reviewerName: "", comment: "" });
-    } catch (error) {
-      alert("Error submitting review");
     } finally {
       setIsLoading(false);
     }
@@ -1271,95 +1109,64 @@ export default function Page() {
     setSelectedCourseName("");
   };
 
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Updated courses array with dynamic feeRange
-  const courses = [
-    {
-      name: "Online MBA",
-      feeRange: "INR 1,89,400",
-      imageSrc: "/assets/img/universities/MBA.png",
-    },
-    {
-      name: "Online BBA",
-      feeRange: "INR 1,45,000",
-      imageSrc: "/assets/img/universities/BBA.png",
-    },
+  const states = [
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Lakshadweep",
+    "Delhi",
+    "Puducherry",
   ];
 
-  const groupedCourses = [];
-  const coursesPerSlide = 3;
-  for (let i = 0; i < courses.length; i += coursesPerSlide) {
-    groupedCourses.push(courses.slice(i, i + coursesPerSlide));
-  }
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
-  if (isFetching) {
-    return (
-      <div style={{ textAlign: "center", padding: "50px" }}>
-        <div
-          style={{
-            border: "4px solid #f3f3f3",
-            borderTop: "4px solid #3498db",
-            borderRadius: "50%",
-            width: "40px",
-            height: "40px",
-            animation: "spin 1s linear infinite",
-            margin: "0 auto 20px",
-          }}
-        ></div>
-        <p>Loading university data...</p>
-      </div>
-    );
-  }
-
-  if (error && !universityData) {
-    return (
-      <div style={{ textAlign: "center", padding: "50px", color: "red" }}>
-        <p>{error.general}</p>
-        <button
-          onClick={() => {
-            setRetryCount(0);
-            setError(null);
-            setIsFetching(true);
-          }}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#28a745",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Retry
-        </button>
-      </div>
-    );
-  }
   return (
     <>
       <Head>
-        <title>Dr. D.Y. Patil Vidyapeeth - Online Education Courses</title>
+        <title>
+          NMIMS Centre for Distance and Online Education - Courses & Admissions
+        </title>
         <meta
           name="description"
-          content="Explore online learning programs at Dr. D.Y. Patil Vidyapeeth, including Diploma, Online BBA, Executive MBA, Online BCS, Online MBA, and Online BHS courses."
+          content="Explore distance and online degree programs at NMIMS Centre for Distance and Online Education, including BCom, BBA, MBA, and EMBA."
         />
       </Head>
       <Menu />
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <Image
-            src="https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/hero-image/DYpatilvidyapeethbanner.webp"
+            src="/assets/img/mba-distance/nmns-code.jpg"
             fetchPriority="high"
             className="headCarousal_clg_banner__CXazi"
-            alt="Dr. D.Y. Patil Vidyapeeth campus banner"
-            width={1900}
-            height={840}
+            alt="NMIMS Centre for Distance and Online Education campus banner"
+            width={1667}
+            height={833}
           />
           <div className="headCarousal_gradientOverlayStyle__DEkSg" />
           <div className="headCarousal_collegeHeadingContainer__E4uDz">
@@ -1377,14 +1184,14 @@ export default function Page() {
                 <span className="Breadcrumb_separator__e7M6o">/</span>
               </span>
               <span className="Breadcrumb_breadcrumbItem__lnXIo">
-                <span>Dr. D.Y. Patil Vidyapeeth</span>
+                <span> NMIMS Centre for Distance and Online Education</span>
               </span>
             </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
-              Dr. D.Y. Patil Vidyapeeth
+              NMIMS Centre for Distance and Online Education
             </h1>
-            <p className="headCarousal_location__7rFlL">Pune, Maharashtra</p>
-            <p className="headCarousal_ranking__1yTOY">NIRF Rank: 44</p>
+            <p className="headCarousal_location__7rFlL">Mumbai, Maharashtra</p>
+            <p className="headCarousal_ranking__1yTOY">NIRF Rank: Top 100</p>
             <div className="headCarousal_accreditation__HUqxZ">
               <Image
                 src="/assets/img/icon/naac.png"
@@ -1401,12 +1208,210 @@ export default function Page() {
                 height={130}
               />
             </div>
-            <div className="headCarousal_proceedCompareContainer__rekWb">
-              <a href="/top-university">
-                <button className="headCarousal_collegeCompare__znhHH">
-                  Add To Compare
+            <div
+              className="headCarousal_proceedCompareContainer__rekWb"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "20px",
+                padding: "20px",
+                // background: "#f8f9fa",
+                borderRadius: "10px",
+                margin: "0 auto",
+                maxWidth: "1200px",
+              }}
+            >
+              <a style={{ flex: "1", minWidth: "220px", maxWidth: "280px" }}>
+                <button
+                  className="headCarousal_collegeCompare__znhHH"
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #e9ecef 100%)",
+                    border: "none",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    fontFamily:
+                      "'__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif'",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 15px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 10px rgba(0, 0, 0, 0.1)";
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "700",
+                      color: "#ff5c35",
+                    }}
+                  >
+                    82000+
+                  </span>
+                  <br />
+                  <span style={{ fontSize: "16px", color: "#151419" }}>
+                    Alumni across the world
+                  </span>
                 </button>
               </a>
+              <a
+                href="/top-university"
+                style={{ flex: "1", minWidth: "220px", maxWidth: "280px" }}
+              >
+                <button
+                  className="headCarousal_collegeCompare__znhHH"
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #e9ecef 100%)",
+                    border: "none",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    fontFamily:
+                      "'__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif'",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 15px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 10px rgba(0, 0, 0, 0.1)";
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "700",
+                      color: "#ff5c35",
+                    }}
+                  >
+                    40+
+                  </span>
+                  <br />
+                  <span style={{ fontSize: "16px", color: "#151419" }}>
+                    Years of legacy
+                  </span>
+                </button>
+              </a>
+              <a
+                href="/top-university"
+                style={{ flex: "1", minWidth: "220px", maxWidth: "280px" }}
+              >
+                <button
+                  className="headCarousal_collegeCompare__znhHH"
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #e9ecef 100%)",
+                    border: "none",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    fontFamily:
+                      "'__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif'",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 15px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 10px rgba(0, 0, 0, 0.1)";
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "700",
+                      color: "#ff5c35",
+                    }}
+                  >
+                    157000+
+                  </span>
+                  <br />
+                  <span style={{ fontSize: "16px", color: "#151419" }}>
+                    Lives transformed
+                  </span>
+                </button>
+              </a>
+              <a
+                href="/top-university"
+                style={{ flex: "1", minWidth: "220px", maxWidth: "280px" }}
+              >
+                <button
+                  className="headCarousal_collegeCompare__znhHH"
+                  style={{
+                    width: "100%",
+                    padding: "20px",
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #e9ecef 100%)",
+                    border: "none",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    fontFamily:
+                      "'__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8, sans-serif'",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 6px 15px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 10px rgba(0, 0, 0, 0.1)";
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "700",
+                      color: "#ff5c35",
+                    }}
+                  >
+                    8000+
+                  </span>
+                  <br />
+                  <span style={{ fontSize: "16px", color: "#151419" }}>
+                    Corporate firms our alumni work for
+                  </span>
+                </button>
+              </a>
+              <style>
+                {`
+      @media (max-width: 768px) {
+        .headCarousal_proceedCompareContainer__rekWb {
+          display: none !important;
+        }
+      }
+    `}
+              </style>
             </div>
           </div>
         </div>
@@ -1424,7 +1429,6 @@ export default function Page() {
                     { id: "Certification", text: "Certifications" },
                     { id: "Admission", text: "Admission Procedure" },
                     { id: "Placement", text: "Placement" },
-                    { id: "Review", text: "Review" },
                   ].map((item) => (
                     <a
                       key={item.id}
@@ -1433,10 +1437,8 @@ export default function Page() {
                       href={
                         item.id !== "Enquire Now" ? `#${item.id}` : undefined
                       }
-                      onClick={
-                        item.id === "Enquire Now"
-                          ? () => setIsCourseModalOpen(true)
-                          : undefined
+                      aria-current={
+                        activeSection === item.id ? "true" : undefined
                       }
                     >
                       <div
@@ -1466,48 +1468,55 @@ export default function Page() {
                 </div>
                 <div className="collegeDetails_detailsContainer__6A8oL">
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
-                    <div className="about_collegeDetails__67FzM">
-                      <h2 className="about_collegeDetailsHeading__AA_dr">
-                        Dr. D.Y. Patil Vidyapeeth
-                      </h2>
-                      <p className="about_collegeDetailsDescription__7Swyd">
-                        Announcing the Centre for Online Learning (COL) of Dr.
-                        D. Y. Patil Vidyapeeth: Bridging the Gap Between
-                        Tradition and Innovation Dr. D. Y. Patil Vidyapeeth's
-                        Centre for Online Learning (DPU-COL), at the center in
-                        online education, is designed to satisfy the changing
-                        demands of today's students while guaranteeing that they
-                        gain knowledge and skills that are relevant to the
-                        industry. In contrast to conventional in-person
-                        educational approaches, COL focuses only on providing
-                        top-notch instruction via cutting-edge online techniques
-                        that combine the best aspects of both worlds. Our online
-                        programs are carefully designed to impart critical
-                        leadership and management skills, meeting the needs of
-                        the industry and enabling students to succeed. Our
-                        curriculum, which was created by a top board of
-                        academics and business executives, is full of case
-                        studies and real-world applications. Our online programs
-                        equip students with the necessary skills to succeed in
-                        their professions by providing them with a platform to
-                        investigate job options and acquire a competitive
-                        advantage in the placement arena. Accredited by NAAC,
-                        AICTE, ASSOCHAM, AIU, and WES, and recognized by
-                        prestigious organizations like the UGC, Dr. D.Y. Patil
-                        Vidyapeeth's Centre for Online Learning maintains strict
-                        academic standards to guarantee the level of education
-                        we offer. These recommendations not only support our
-                        teaching philosophy but also attest to our graduates'
-                        qualifications, giving them more academic authority in
-                        the eyes of potential employers.
-                      </p>
+                    <h2
+                      style={{
+                        fontSize: "24px",
+                        margin: "20px 0",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                        fontStyle: "normal",
+                        fontWeight: "700",
+                      }}
+                    >
+                      NMIMS Centre for Distance and Online Education
+                    </h2>
+                    <div className="CourseAbout_course_about_container__xEAH5">
+                      <div className="CourseAbout_course_about_left_col__KRo_I">
+                        <p>
+                          The institute was founded in 1994 as a distance
+                          education arm of SVKM's NMIMS. Over the last several
+                          years, NMIMS CDOE has developed and delivered quality
+                          education programs, curriculum, and services to
+                          democratise education with equal opportunity for
+                          everyone to excel at their desired skills. By building
+                          a thriving ecosystem for a community of learners,
+                          NMIMS CDOE has helped them nurture their aspiration to
+                          achieve their goals and thrive in a competitive and
+                          dynamically evolving corporate marketplace.
+                        </p>
+                      </div>
+                      <div className="CourseAbout_course_about_right_col__q4drQ">
+                        <a href="">
+                          <img
+                            alt="about_img"
+                            loading="lazy"
+                            width={800}
+                            height={500}
+                            decoding="async"
+                            data-nimg={1}
+                            className="CourseAbout_course_about_img__6V0u_"
+                            style={{ color: "transparent" }}
+                            src="/assets/img/universities/media_1733210710057.png"
+                          />
+                        </a>
+                      </div>
                     </div>
                     <div
                       className="placement_placementBanner__ACCRS"
                       style={{
-                        paddingBottom: "70px",
-                        paddingTop: "40px",
-                        marginBottom: "30px",
+                        paddingBottom: "30px",
+                        paddingTop: "30px",
+                        marginBottom: "10px",
                       }}
                     >
                       <div className="placementBanner_container__upl7e">
@@ -1521,7 +1530,7 @@ export default function Page() {
                           className="placementBanner_heading__yGlah"
                           style={{ color: "#ff5c35" }}
                         >
-                          INR 1,89,400
+                          INR 2,20,000
                         </p>
                         <span style={{ color: "#000" }}>
                           Inclusive of all taxes
@@ -1540,13 +1549,13 @@ export default function Page() {
                           className="placementBanner_heading__yGlah"
                           style={{
                             color: "#151419",
-                            fontSize: "30px",
+                            fontSize: "48px",
                             lineHeight: 1.4,
                             fontWeight: 450,
                             margin: 0,
                           }}
                         >
-                          INR 50,000
+                          INR 55,000
                         </p>
                         <p
                           className="placementBanner_description__O3FqH"
@@ -1568,14 +1577,14 @@ export default function Page() {
                           className="placementBanner_heading__yGlah"
                           style={{
                             color: "#151419",
-                            fontSize: "30px",
+                            fontSize: "48px",
                             lineHeight: 1.4,
                             fontWeight: 500,
                             margin: 0,
-                            fontFamily: "Queens", // Added font-family with fallback
+                            fontFamily: "Queens",
                           }}
                         >
-                          INR 10522 /{" "}
+                          INR 8,750 /{" "}
                           <span style={{ fontSize: "20px" }}>Month</span>
                         </p>
                         <p
@@ -1672,19 +1681,29 @@ export default function Page() {
     `}
                       </style>
                     </div>
-
                     <RollingLine />
                   </div>
                   <div className="collegeDetails_maxWidth__6vBVL" id="High">
                     <div className="Highlights_container__yqw8t">
-                      <h2 className="Highlights_heading__QnGK2">Highlights</h2>
+                      <h2
+                        style={{
+                          fontSize: "24px",
+                          margin: "20px 0",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                          fontWeight: "700",
+                        }}
+                      >
+                        Highlights
+                      </h2>
                       <div className="Highlights_grid__zFaon">
                         {[
-                          "Globally accredited programmes",
-                          "Affordable and flexible learning experience",
-                          "Online academic sessions with a weekly planner",
-                          "Webinars by industry experts",
-                          "Highly interactive e-learning content",
+                          "Easily accessible self-learning material",
+                          "Budget-friendly courses",
+                          "Facilitates live as well as recorded lectures",
+                          "Holistic and integrative approach",
+                          "Networking opportunities with notable Alumni Network",
                         ].map((highlight, index) => (
                           <div
                             className="Highlights_pointContainer__5_snP"
@@ -1702,7 +1721,16 @@ export default function Page() {
                             >
                               <path d="M8 3l5 5-5 5-5-5 5-5z" />
                             </svg>
-                            <div>{highlight}</div>
+                            <div
+                              style={{
+                                fontSize: "16px",
+                                fontFamily:
+                                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                fontStyle: "normal",
+                              }}
+                            >
+                              {highlight}
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -1744,18 +1772,27 @@ export default function Page() {
                               {[
                                 {
                                   name: "Online MBA",
-                                  feeRange:
-                                    universityData?.online_mba_fees || 189400,
+                                  feeRange: "INR 2,20,000",
                                   imageSrc: "/assets/img/universities/MBA.png",
                                 },
                                 {
                                   name: "Online BBA",
-                                  feeRange:
-                                    universityData?.online_bba_fees || 145000,
+                                  feeRange: "INR 1,50,000",
                                   imageSrc: "/assets/img/universities/BBA.png",
                                 },
-                              ].map((course) => (
-                                <div key={course.name}>
+                                {
+                                  name: "Online BCOM",
+                                  feeRange: "INR 1,08,000",
+                                  imageSrc: "/assets/img/universities/BCOM.png",
+                                },
+                                {
+                                  name: "Online DIPLOMA",
+                                  feeRange: "INR 1,10,000",
+                                  imageSrc:
+                                    "/assets/img/universities/DIPLOMA.png",
+                                },
+                              ].map((course, index) => (
+                                <div key={index}>
                                   <div className="Expert_Expert__cardContainer__2y7vz">
                                     <div className="Expert_Expert__cardData__ocQ6N">
                                       <div className="Expert_Expert__flexContainer__iCU0T">
@@ -1778,103 +1815,33 @@ export default function Page() {
                                               color: "#ee3620",
                                             }}
                                           >
-                                            INR{" "}
-                                            {course.feeRange.toLocaleString()}
-                                          </span>
+                                            {/* 24 Month */}
+                                          </span>{" "}
+                                          {course.feeRange}
                                         </p>
-                                        <a
-                                          href="#"
-                                          role="button"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#exampleModal"
-                                          className="enquire-now work-sans"
-                                          onClick={handleOpenModal}
+                                        <button
+                                          className="courses_viewSpsl__lrjH5"
+                                          onClick={() =>
+                                            setIsCourseModalOpen(true)
+                                          }
                                           aria-label={`Enquire about ${course.name}`}
-                                          style={{
-                                            padding: "5px 5px",
-                                            background:
-                                              "linear-gradient(90deg, #e89e26, #c47b1e)",
-                                            color: "#fff",
-                                            border: "none",
-                                            borderRadius: "5px",
-                                            fontSize: "14px",
-                                            fontWeight: "600",
-                                            cursor: "pointer",
-                                            width: "100%",
-                                            marginBottom: "10px",
-                                            textAlign: "center",
-                                            display: "inline-block",
-                                          }}
-                                          onMouseEnter={(e) =>
-                                            Object.assign(
-                                              e.currentTarget.style,
-                                              {
-                                                boxShadow:
-                                                  "0 6px 20px rgba(232, 158, 38, 0.5)",
-                                              }
-                                            )
-                                          }
-                                          onMouseLeave={(e) =>
-                                            Object.assign(
-                                              e.currentTarget.style,
-                                              {
-                                                boxShadow: "none",
-                                              }
-                                            )
-                                          }
                                         >
                                           Enquire Now
-                                        </a>
-                                        <button
-                                          className="view-specialization work-sans"
-                                          onClick={() =>
-                                            handleViewSpecialization(
-                                              course.name
-                                            )
-                                          }
-                                          aria-label={`View specializations for ${course.name}`}
-                                          style={{
-                                            padding: "5px 5px",
-                                            background: "transparent",
-                                            color: "#0c2d50",
-                                            border: "2px solid #0c2d50",
-                                            borderRadius: "5px",
-                                            fontSize: "14px",
-                                            fontWeight: "600",
-                                            cursor: "pointer",
-                                            width: "100%",
-                                          }}
-                                          onMouseEnter={(e) =>
-                                            Object.assign(
-                                              e.currentTarget.style,
-                                              {
-                                                background: "#0c2d50",
-                                                color: "#fff",
-                                              }
-                                            )
-                                          }
-                                          onMouseLeave={(e) =>
-                                            Object.assign(
-                                              e.currentTarget.style,
-                                              {
-                                                background: "transparent",
-                                                color: "#0c2d50",
-                                              }
-                                            )
-                                          }
-                                        >
-                                          View Specialization
                                         </button>
                                       </div>
                                     </div>
+                                    <button
+                                      className="Expert_Expert__cardButton__cRBRJ"
+                                      onClick={() =>
+                                        handleViewSpecialization(course.name)
+                                      }
+                                      aria-label={`View specializations for ${course.name}`}
+                                    >
+                                      View Specialization
+                                    </button>
                                   </div>
                                 </div>
                               ))}
-                              {/* Render Modal Outside Loop */}
-                              <EnquiryModel
-                                showModal={showModal}
-                                setShowModal={setShowModal}
-                              />
                             </div>
                           </div>
                         </div>
@@ -1885,7 +1852,16 @@ export default function Page() {
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"
                   >
-                    <h2 className="courseEligibility_eligible_heading__5Qd_3">
+                    <h2
+                      style={{
+                        fontSize: "24px",
+                        margin: "20px 0",
+                        fontFamily:
+                          "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                        fontStyle: "normal",
+                        fontWeight: "700",
+                      }}
+                    >
                       Course Eligibility
                     </h2>
                     <div className="courseEligibility_wrapper__WDP1x">
@@ -1897,46 +1873,25 @@ export default function Page() {
                           </tr>
                         </thead>
                         <tbody>
-                          {[
-                            {
-                              course: "Certificate Programme (Online)",
-                              eligibility:
-                                "Bachelor's Degree Holder / Graduate in any Discipline from a Recognised University or a Diploma Holders.",
-                            },
-                            {
-                              course: "Online MBA",
-                              eligibility:
-                                "A candidate applying for the program should have passed a bachelor's degree from a recognized university in any discipline. Minimum 50% aggregate marks or 45% in case of candidates belonging to reserved categories.",
-                            },
-                            {
-                              course: "Online BBA",
-                              eligibility:
-                                "HSC (10+2) or its equivalent exam with any stream and English as one of the subjects from a recognized Board.",
-                            },
-                            {
-                              course: "Executive MBA",
-                              eligibility:
-                                "Bachelor's degree from a recognized university with at least 50% marks and relevant work experience.",
-                            },
-                            {
-                              course: "Online BCS",
-                              eligibility:
-                                "HSC (10+2) or its equivalent with Mathematics as a subject from a recognized Board.",
-                            },
-                            {
-                              course: "Online BHS",
-                              eligibility:
-                                "HSC (10+2) or its equivalent in Science stream from a recognized Board.",
-                            },
-                          ].map((item, index) => (
-                            <tr
-                              className="courseEligibility_eligible_tbody__q_tOM"
-                              key={index}
-                            >
-                              <td>{item.course}</td>
-                              <td>{item.eligibility}</td>
-                            </tr>
-                          ))}
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Online BCom</td>
+                            <td>10+2 with minimum 50% marks</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Online BBA</td>
+                            <td>10+2 with minimum 50% marks</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Online MBA</td>
+                            <td>Bachelor's degree with minimum 50% marks</td>
+                          </tr>
+                          <tr className="courseEligibility_eligible_tbody__q_tOM">
+                            <td>Online EMBA</td>
+                            <td>
+                              Bachelor's Degree with minimum 55% marks and 3+
+                              years of work experience
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1946,13 +1901,29 @@ export default function Page() {
                     id="Enquire Now"
                   >
                     <div className="collegenquiry_collegeform__wTRAT">
-                      <h2 className="collegenquiry_form_heading__GszFG">
-                        Get Free Career Consultation
-                      </h2>
-                      <div className="collegenquiry_form_div__RSaaQ">
+                      <div
+                        style={{
+                          background: "#fff",
+                          border: "1px solid",
+                          padding: "5px 10px 15px 10px",
+                          borderRadius: "20px",
+                        }}
+                      >
+                        <h2
+                          style={{
+                            fontSize: "24px",
+                            margin: "20px 0",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                            fontWeight: "700",
+                          }}
+                        >
+                          Get Free Career Consultation
+                        </h2>
                         <form
                           className="collegenquiry_form__uF7mS"
-                          onSubmit={(e) => handleSubmit(e)}
+                          onSubmit={handleEnquirySubmit}
                         >
                           <input
                             type="text"
@@ -1971,7 +1942,7 @@ export default function Page() {
                             required
                           />
                           <input
-                            type="tel"
+                            type="number"
                             placeholder="Phone*"
                             name="phone"
                             value={formData.phone}
@@ -1985,12 +1956,10 @@ export default function Page() {
                             required
                           >
                             <option value="">Choose a Program*</option>
-                            <option value="Diploma">Diploma</option>
-                            <option value="Online BBA">Online BBA</option>
-                            <option value="Executive MBA">Executive MBA</option>
-                            <option value="Online BCS">Online BCS</option>
                             <option value="Online MBA">Online MBA</option>
-                            <option value="Online BHS">Online BHS</option>
+                            <option value="Online EMBA">Online EMBA</option>
+                            <option value="Online BBA">Online BBA</option>
+                            <option value="Online BCom">Online BCom</option>
                             <option value="Help Me Decide">
                               Help Me Decide
                             </option>
@@ -2002,42 +1971,7 @@ export default function Page() {
                             required
                           >
                             <option value="">State/Province*</option>
-                            {[
-                              "Andhra Pradesh",
-                              "Arunachal Pradesh",
-                              "Assam",
-                              "Bihar",
-                              "Chhattisgarh",
-                              "Goa",
-                              "Gujarat",
-                              "Haryana",
-                              "Himachal Pradesh",
-                              "Jharkhand",
-                              "Karnataka",
-                              "Kerala",
-                              "Madhya Pradesh",
-                              "Maharashtra",
-                              "Manipur",
-                              "Meghalaya",
-                              "Mizoram",
-                              "Nagaland",
-                              "Odisha",
-                              "Punjab",
-                              "Rajasthan",
-                              "Sikkim",
-                              "Tamil Nadu",
-                              "Telangana",
-                              "Tripura",
-                              "Uttar Pradesh",
-                              "Uttarakhand",
-                              "West Bengal",
-                              "Andaman and Nicobar Islands",
-                              "Chandigarh",
-                              "Dadra and Nagar Haveli and Daman and Diu",
-                              "Lakshadweep",
-                              "Delhi",
-                              "Puducherry",
-                            ].map((state) => (
+                            {states.map((state) => (
                               <option key={state} value={state}>
                                 {state}
                               </option>
@@ -2062,19 +1996,35 @@ export default function Page() {
                       <div className="Certificates_container__X9Jsj">
                         <div className="Certificates_detail_img_container__jHvTy">
                           <div>
-                            <h2 className="Certificates_heading__Jr9Js">
+                            <h2
+                              style={{
+                                fontSize: "24px",
+                                margin: "20px 0",
+                                fontFamily:
+                                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                fontStyle: "normal",
+                                fontWeight: "700",
+                              }}
+                            >
                               Sample Certificate
                             </h2>
-                            <div className="Certificates_subHeading__CKwq6">
-                              Earn a UGC-entitled degree, recognized around the
-                              globe
+                            <div
+                              className="Certificates_subHeading__CKwq6"
+                              style={{
+                                fontSize: "16px",
+                                fontFamily:
+                                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                fontStyle: "normal",
+                              }}
+                            >
+                              Earn a degree that is recognized around the globe
                             </div>
                             <div>
                               {[
-                                "AIU Membership",
-                                "AICTE Approved",
-                                "WES Recognised",
-                                "ASSOCHAM Membership",
+                                "Excellent teaching faculty from IIM and IIT",
+                                "24/7 student support services via calls, emails, and chats",
+                                "Offers interview opportunities with top start-up companies",
+                                "Flexible and self-paced learning throughout the program",
                               ].map((point, index) => (
                                 <div
                                   className="Certificates_pointBox__xwwq4"
@@ -2086,9 +2036,19 @@ export default function Page() {
                                     width={20}
                                     height={20}
                                     decoding="async"
-                                    src="/assets/simpli-images/check.webp"
+                                    data-nimg={1}
+                                    style={{ color: "transparent" }}
+                                    src="/assets/img/home_6/check.png"
                                   />
-                                  <div className="Certificates_point__XYWLq">
+                                  <div
+                                    className="Certificates_point__XYWLq"
+                                    style={{
+                                      fontSize: "16px",
+                                      fontFamily:
+                                        "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                      fontStyle: "normal",
+                                    }}
+                                  >
                                     {point}
                                   </div>
                                 </div>
@@ -2097,18 +2057,19 @@ export default function Page() {
                           </div>
                           <div>
                             <Image
-                              alt="Dr. D.Y. Patil Vidyapeeth sample degree certificate"
+                              alt="NMIMS sample degree certificate"
                               loading="lazy"
                               width={500}
                               height={500}
                               decoding="async"
+                              data-nimg={1}
                               className="Certificates_img__GOe9v"
                               style={{
                                 color: "transparent",
                                 border: "1px solid ",
                                 borderRadius: "20px",
                               }}
-                              src="/assets/course/DEGREE.jpeg"
+                              src="/assets/img/others/nmims-mba.jpg"
                             />
                           </div>
                         </div>
@@ -2120,26 +2081,53 @@ export default function Page() {
                     id="Admission"
                   >
                     <div className="Admissions_container__lpKQv">
-                      <h2 className="Admissions_heading__paqsP">
+                      <h2
+                        style={{
+                          fontSize: "24px",
+                          margin: "20px 0",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                          fontWeight: "700",
+                        }}
+                      >
                         Admission Process
                       </h2>
-                      <p className="Admissions_description__sKdUj">
+                      <p
+                        className="Admissions_description__sKdUj"
+                        style={{
+                          fontSize: "16px",
+                          fontFamily:
+                            "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                          fontStyle: "normal",
+                        }}
+                      >
                         The admission process takes place online. Fresh
                         admissions start in January every year. There are direct
                         admissions, and no entrance exam is conducted. The
                         admission procedure for 2025 for the online courses at
-                        Dr. D.Y. Patil Vidyapeeth is as follows:
+                        NMIMS Centre for Distance and Online Education is as
+                        follows:
                       </p>
                       {[
-                        "Learner's Authentication",
-                        "Admission Form",
-                        "Admission confirmation by the university",
+                        "Fill out the registration form with the admission fee",
+                        "Submit documents for verification",
+                        "Deposit the tuition fee",
+                        "Get confirmation notification regarding admission and credentials",
                       ].map((step, index) => (
                         <div className="Admissions_step__4mDzm" key={index}>
                           <div className="Admissions_stepCount__f9yhl">
                             STEP {index + 1}
                           </div>
-                          <div className="Admissions_stepText___L_GT">
+                          <div
+                            className="Admissions_stepText___L_GT"
+                            style={{
+                              fontSize: "16px",
+                              fontFamily:
+                                "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                              fontStyle: "normal",
+                            }}
+                          >
                             {step}
                           </div>
                         </div>
@@ -2153,15 +2141,25 @@ export default function Page() {
                   >
                     <div className="placement_container__iALXL">
                       <div>
-                        <h2 className="placement_heading__iEHZj">
+                        <h2
+                          style={{
+                            fontSize: "24px",
+                            margin: "20px 0",
+                            fontFamily:
+                              "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                            fontStyle: "normal",
+                            fontWeight: "700",
+                          }}
+                        >
                           Online Placement Partners
                         </h2>
                         <h3 className="placement_subHeading__1vY2G">
-                          Our students have an opportunity to
+                          Our students have an opportunity to:
                         </h3>
                         {[
                           "Learn employability skills through assessments and tests",
-                          "Job that suitably fits the student profile",
+                          "Connect with top recruiters from leading companies",
+                          "Find jobs that suit their profile",
                         ].map((point, index) => (
                           <div
                             className="placementSubpoint_subHeadingPoints__uE7MR"
@@ -2173,9 +2171,20 @@ export default function Page() {
                               width={20}
                               height={20}
                               decoding="async"
-                              src="/assets/simpli-images/check.webp"
+                              data-nimg={1}
+                              style={{ color: "transparent" }}
+                              src="/assets/img/home_6/check.png"
                             />
-                            <p>{point}</p>
+                            <p
+                              style={{
+                                fontSize: "16px",
+                                fontFamily:
+                                  "__Work_Sans_8a48d8, __Work_Sans_Fallback_8a48d8",
+                                fontStyle: "normal",
+                              }}
+                            >
+                              {point}
+                            </p>
                           </div>
                         ))}
                       </div>
@@ -2185,7 +2194,7 @@ export default function Page() {
                             className="placementBanner_heading__yGlah"
                             style={{ color: "#000" }}
                           >
-                            ₹ 6 LPA
+                            ₹ 12 LPA
                           </p>
                           <p
                             className="placementBanner_description__O3FqH"
@@ -2199,7 +2208,7 @@ export default function Page() {
                             className="placementBanner_heading__yGlah"
                             style={{ color: "#000" }}
                           >
-                            ₹ 21 LPA
+                            ₹ 20 LPA
                           </p>
                           <p
                             className="placementBanner_description__O3FqH"
@@ -2223,47 +2232,7 @@ export default function Page() {
                           </p>
                         </div>
                       </div>
-                      <h3 className="placement_heading__iEHZj">
-                        Our Students Work At
-                      </h3>
-                      <div className="partners_container___c9cx">
-                        {[
-                          {
-                            src: "https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/placement-partners/bajaj-capitals.webp",
-                            alt: "Bajaj Capitals logo",
-                          },
-                          {
-                            src: "https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/placement-partners/hdfc.webp",
-                            alt: "HDFC logo",
-                          },
-                          {
-                            src: "https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/placement-partners/capgemini.webp",
-                            alt: "Capgemini logo",
-                          },
-                          {
-                            src: "https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/placement-partners/american-express.webp",
-                            alt: "American Express logo",
-                          },
-                          {
-                            src: "https://store.learningroutes.in/images/colleges/Dr-DY-patil-vidyapeeth/placement-partners/RSPL.webp",
-                            alt: "RSPL logo",
-                          },
-                        ].map((partner, index) => (
-                          <div key={index}>
-                            <div className="partners_imgBox__yD_6o">
-                              <Image
-                                alt={partner.alt}
-                                fetchPriority="high"
-                                width={122}
-                                height={95}
-                                decoding="async"
-                                className="partners_plac_img__htNsk"
-                                src={partner.src}
-                              />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                      <div className="partners_container___c9cx" />
                     </div>
                   </div>
                 </div>
@@ -2299,7 +2268,7 @@ export default function Page() {
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="false"
-          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+          style={{ backgroundColor: "rgba(21, 0, 0, 0.6)" }}
         >
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
@@ -2319,7 +2288,7 @@ export default function Page() {
                   ></button>
                   <h6>Struggling with Career Growth?</h6>
                   <h6>Get Free Career Consultation</h6>
-                  <form onSubmit={(e) => handleSubmit(e, true)}>
+                  <form onSubmit={handleSubmit}>
                     <input
                       type="text"
                       name="name"
@@ -2327,6 +2296,7 @@ export default function Page() {
                       value={formData.name}
                       onChange={handleChange}
                       required
+                      class
                       className="td_form_field td_mb_30 td_medium td_white_bg w-100"
                     />
                     <input
@@ -2355,12 +2325,10 @@ export default function Page() {
                       required
                     >
                       <option value="">Choose a program*</option>
-                      <option value="Diploma">Diploma</option>
-                      <option value="Online BBA">Online BBA</option>
-                      <option value="Executive MBA">Executive MBA</option>
-                      <option value="Online BCS">Online BCS</option>
-                      <option value="Online MBA">Online MBA</option>
-                      <option value="Online BHS">Online BHS</option>
+                      <option value="Distance MBA">Distance MBA</option>
+                      <option value="Distance EMBA">Distance EMBA</option>
+                      <option value="Distance BBA">Distance BBA</option>
+                      <option value="Distance BCom">Distance BCom</option>
                       <option value="Help Me Decide">Help Me Decide</option>
                     </select>
                     <select
@@ -2371,42 +2339,7 @@ export default function Page() {
                       required
                     >
                       <option value="">States/Province*</option>
-                      {[
-                        "Andhra Pradesh",
-                        "Arunachal Pradesh",
-                        "Assam",
-                        "Bihar",
-                        "Chhattisgarh",
-                        "Goa",
-                        "Gujarat",
-                        "Haryana",
-                        "Himachal Pradesh",
-                        "Jharkhand",
-                        "Karnataka",
-                        "Kerala",
-                        "Madhya Pradesh",
-                        "Maharashtra",
-                        "Manipur",
-                        "Meghalaya",
-                        "Mizoram",
-                        "Nagaland",
-                        "Odisha",
-                        "Punjab",
-                        "Rajasthan",
-                        "Sikkim",
-                        "Tamil Nadu",
-                        "Telangana",
-                        "Tripura",
-                        "Uttar Pradesh",
-                        "Uttarakhand",
-                        "West Bengal",
-                        "Andaman and Nicobar Islands",
-                        "Chandigarh",
-                        "Dadra and Nagar Haveli and Daman and Diu",
-                        "Lakshadweep",
-                        "Delhi",
-                        "Puducherry",
-                      ].map((state) => (
+                      {states.map((state) => (
                         <option key={state} value={state}>
                           {state}
                         </option>
@@ -2438,7 +2371,6 @@ export default function Page() {
         selectedCourseName={selectedCourseName}
         selectedCourseSpecializations={selectedCourseSpecializations}
         handleCloseSpecializationModal={handleCloseSpecializationModal}
-        brochurePath={courseBrochures[selectedCourseName]}
       />
       <Footer />
     </>

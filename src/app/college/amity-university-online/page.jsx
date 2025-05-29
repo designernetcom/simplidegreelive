@@ -1,22 +1,25 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
-import SecondMenu from "../../../../components/Header/Menu/SecondMenu";
+import Link from "next/link";
+import Head from "next/head";
+import Image from "next/image";
+import { debounce } from "lodash";
+import axios from "axios";
+import Menu from "../../../../components/Header/Menu/Menu";
 import Footer from "../../../../components/Footer/Footer";
 import FirstVisitModal from "../../../../components/FirstVisitModal";
+import EnquiryModel from "../../../../components/EnquiryModel";
+
 import "../../styles/5107c2122129e0bb.css";
-import "../../styles/style.css";
 import "../../styles/3a6b4218bb14b3ef.css";
 import "../../styles/bootstrap.min.css";
 import "../../styles/33f1be5fd79e728d.css";
 import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
-import "../../styles/ecbb68b163419596.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
-import "./amitypage.css"
 import RollingLine from "../../../../components/RollingLine";
-
-import Image from "next/image";
 
 // SpecializationModal Component
 const courseSpecializations = {
@@ -295,7 +298,7 @@ function SpecializationModal({
                     >
                       Inclusive of all taxes
                     </p>
-                    <button
+                    {/* <button
                       onClick={handleOpenEnquiryModal}
                       style={{
                         padding: "5px 5px",
@@ -323,7 +326,7 @@ function SpecializationModal({
                       aria-label="Enquire about course"
                     >
                       Enquire Now
-                    </button>
+                    </button> */}
 
                     <style jsx>{`
                       @keyframes fadeIn {
@@ -932,10 +935,14 @@ function SpecializationModal({
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
-  const [isModalOpen, setIsModalOpen] = useState(false); // For FirstVisitModal modal
-  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false); // For Courses Enquire Now modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
   const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
-    useState(false); // For Specialization modal
+    useState(false);
+  const [error, setError] = useState(null); // Added for error handling
+  const [success, setSuccess] = useState(null); // Added for success handling
+  const [showModal, setShowModal] = useState(false);
+  const handleOpenModal = () => setShowModal(true);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -947,6 +954,11 @@ export default function Page() {
     useState([]);
   const [selectedCourseName, setSelectedCourseName] = useState(""); // To store the course name for modal title
 
+  const [universityData, setUniversityData] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const maxRetries = 3;
   const courseSpecializations = {
     "Online BA": [
       { name: "Sociology", fees: 99000 },
@@ -1030,7 +1042,38 @@ export default function Page() {
       { name: "EMI", fees: 11653 },
     ],
   };
+  // Fetch data from the Laravel API
+  useEffect(() => {
+    const fetchUniversityData = async () => {
+      setIsFetching(true);
+      try {
+        const response = await axios.get(
+          "https://netcomindia.xyz/api/amity-university"
+        );
+        const data = Array.isArray(response.data)
+          ? response.data[0]
+          : response.data;
+        setUniversityData(data);
+        setError(null);
+        setIsFetching(false);
+      } catch (err) {
+        console.error("Error fetching university data:", err);
+        if (retryCount < maxRetries) {
+          setTimeout(() => {
+            setRetryCount((prev) => prev + 1);
+          }, 2000);
+        } else {
+          setError({
+            general: "Failed to fetch university data. Please try again later.",
+            details: err.message,
+          });
+          setIsFetching(false);
+        }
+      }
+    };
 
+    fetchUniversityData();
+  }, [retryCount]);
   useEffect(() => {
     const sections = [
       "About",
@@ -1066,7 +1109,123 @@ export default function Page() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const handleEnquirySubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setSuccess(null);
+    setIsLoading(true);
 
+    // Client-side validation
+    if (!formData.name.trim()) {
+      setError({ general: "Name is required" });
+      setIsLoading(false);
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setError({ general: "Invalid email format" });
+      setIsLoading(false);
+      return;
+    }
+    if (!/^\d{10}$/.test(formData.phone)) {
+      setError({ general: "Phone number must be 10 digits" });
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://netcomindia.xyz/api/enquiries",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      setSuccess(response.data.message || "Enquiry submitted successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        program: "",
+        state: "",
+      });
+    } catch (err) {
+      console.error("Submission Error:", err);
+      if (err.response) {
+        setError({
+          general: err.response.data.message || "Server error occurred",
+          details: err.response.data.errors || null,
+        });
+      } else if (err.request) {
+        setError({ general: "Network error: Unable to reach the server" });
+      } else {
+        setError({ general: "An unexpected error occurred: " + err.message });
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setSuccess(null);
+    setIsLoading(true);
+
+    // Client-side validation
+    if (!formData.name.trim()) {
+      setError({ general: "Name is required" });
+      setIsLoading(false);
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setError({ general: "Invalid email format" });
+      setIsLoading(false);
+      return;
+    }
+    if (!/^\d{10}$/.test(formData.phone)) {
+      setError({ general: "Phone number must be 10 digits" });
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://netcomindia.xyz/api/enquiries",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      setSuccess(response.data.message || "Enquiry submitted successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        program: "",
+        state: "",
+      });
+      setIsCourseModalOpen(false);
+    } catch (err) {
+      console.error("Submission Error:", err);
+      if (err.response) {
+        setError({
+          general: err.response.data.message || "Server error occurred",
+          details: err.response.data.errors || null,
+        });
+      } else if (err.request) {
+        setError({ general: "Network error: Unable to reach the server" });
+      } else {
+        setError({ general: "An unexpected error occurred: " + err.message });
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -1091,12 +1250,6 @@ export default function Page() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    handleClose(); // Close modal after submission
-  };
-
   const handleViewSpecialization = (courseName) => {
     setSelectedCourseName(courseName);
     setSelectedCourseSpecializations(courseSpecializations[courseName] || []);
@@ -1109,67 +1262,66 @@ export default function Page() {
     setSelectedCourseName("");
   };
 
-
   const courses = [
     {
       name: "Online BCom",
-      feeRange: "₹ 75,000",
+      feeRange: universityData?.online_bcom_fees || 75000,
       imageSrc: "/assets/img/universities/MBA-SMU.png",
     },
     {
       name: "Online MA",
-      feeRange: "₹ 1,56,000",
+      feeRange: universityData?.online_ma_fees || 156000,
       imageSrc: "/assets/img/universities/MSC-DS.png",
     },
     {
       name: "Online BBA",
-      feeRange: "₹ 1,45,000",
+      feeRange: universityData?.online_bba_fees || 145000,
       imageSrc: "/assets/img/universities/BBA.png",
     },
     {
       name: "Online MCA",
-      feeRange: "₹ 1,56,000",
+      feeRange: universityData?.online_mca_fees || 156000,
       imageSrc: "/assets/img/universities/MCA.png",
     },
-    {
-      name: "Online MBA",
-      feeRange: "₹ 1,83,080",
-      imageSrc: "/assets/img/universities/BBA.png",
-    },
+    // {
+    //   name: "Online MBA",
+    //   feeRange: universityData?.online_mba_fees || 183080,
+    //   imageSrc: "/assets/img/universities/BBA.png",
+    // },
     {
       name: "Online MBA with Dual Specialisation",
-      feeRange: "₹ 2,75,080",
+      feeRange: universityData?.online_mba_dual_specialisation || 275080,
       imageSrc: "/assets/img/universities/MBA.png",
     },
     {
       name: "Online BA",
-      feeRange: "₹ 87,120",
+      feeRange: universityData?.online_ba_fees || 87120,
       imageSrc: "/assets/img/universities/DIPLOMA.png",
     },
     {
       name: "Online MAJMC",
-      feeRange: "₹ 1,56,400",
+      feeRange: universityData?.online_majmc || 156400,
       imageSrc: "/assets/img/universities/BBA.png",
     },
     {
       name: "Online MCOM FM",
-      feeRange: "₹ 1,10,000",
+      feeRange: universityData?.online_mcom_fm || 110000,
       imageSrc:
         "/assets/img/universities/Masters-of-Computer-Applications-.png",
     },
     {
       name: "Online BCA",
-      feeRange: "₹ 1,32,000",
+      feeRange: universityData?.online_bca_fees || 132000,
       imageSrc: "/assets/img/universities/BBA.png",
     },
     {
       name: "Online BBA-MBA",
-      feeRange: "₹ 3,18,136",
+      feeRange: universityData?.online_bba_mba || 318136,
       imageSrc: "/assets/img/universities/BBA-MUJ.png",
     },
     {
       name: "Online BCOM-MBA",
-      feeRange: "₹ 2,60,452",
+      feeRange: universityData?.online_bcom_mba || 260452,
       imageSrc: "/assets/img/universities/MCOM-MUJ.png",
     },
   ];
@@ -1179,10 +1331,52 @@ export default function Page() {
   for (let i = 0; i < courses.length; i += coursesPerSlide) {
     groupedCourses.push(courses.slice(i, i + coursesPerSlide));
   }
+  if (isFetching) {
+    return (
+      <div style={{ textAlign: "center", padding: "50px" }}>
+        <div
+          style={{
+            border: "4px solid #f3f3f3",
+            borderTop: "4px solid #3498db",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            animation: "spin 1s linear infinite",
+            margin: "0 auto 20px",
+          }}
+        ></div>
+        <p>Loading university data...</p>
+      </div>
+    );
+  }
 
+  if (error && !universityData) {
+    return (
+      <div style={{ textAlign: "center", padding: "50px", color: "red" }}>
+        <p>{error.general}</p>
+        <button
+          onClick={() => {
+            setRetryCount(0);
+            setError(null);
+            setIsFetching(true);
+          }}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#28a745",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
   return (
     <>
-      <SecondMenu />
+      <Menu />
       <div>
         <div className="headCarousal_collegeCarousal__4a5Bq">
           <img
@@ -1213,7 +1407,7 @@ export default function Page() {
               </span>
             </nav>
             <h1 className="headCarousal_collegeHeading__KBbuL">
-              Amity University Online
+              {universityData?.name || "Amity University Online"}
             </h1>
             <p className="headCarousal_location__7rFlL">Noida, Uttar Pradesh</p>
             <p className="headCarousal_ranking__1yTOY">
@@ -1329,26 +1523,9 @@ export default function Page() {
                       Amity University Online
                     </h2>
                     <div className="CourseAbout_course_about_container__xEAH5">
-                      <p>
-                        The Amity Education Group is a not-for-profit
-                        organization that was started in 1986 by the Chauhan
-                        family. Today, the University has a presence in more
-                        than 11 countries with over 1,75,000 students. To cater
-                        to the educational needs of a larger segment of
-                        individuals, Amity took the initiative to offer
-                        education through the online mode. Thus, Amity
-                        University became the first university in India to gain
-                        approval from the UGC to offer online degrees in 2009.
-                        To ensure that students make the most out of their
-                        online learning experience, the university has set up a
-                        one-of-its-kind platform, AMIGO, that takes care of all
-                        the study-related needs of students. With its innovative
-                        thinking and futuristic approach, Amity University is
-                        closing the gaps in education by making quality higher
-                        education accessible to all.
-                      </p>
+                      <p>Amity University Online</p>
                     </div>
-                    {/* <div className="about_collegeDetails__67FzM">
+                    <div className="about_collegeDetails__67FzM">
                       <p
                         style={{
                           fontSize: "16px",
@@ -1357,19 +1534,11 @@ export default function Page() {
                           fontStyle: "normal",
                         }}
                       >
-                        The institute was founded in 1994 as a distance
-                        education arm of SVKM's NMIMS. Over the last several
-                        years, NMIMS CDOE has developed and delivered quality
-                        education programs, curriculum, and services to
-                        democratise education with equal opportunity for
-                        everyone to excel at their desired skills. By building a
-                        thriving ecosystem for a community of learners, NMIMS
-                        CDOE has helped them nurture their aspiration to achieve
-                        their goals and thrive in a competitive and dynamically
-                        evolving corporate marketplace.
+                        {universityData?.about ||
+                          "The institute was founded in 1994 as a distance"}
                       </p>
                       <image src="/assets/img/icon/naac.png" />
-                    </div> */}
+                    </div>
 
                     <div
                       className="placement_placementBanner__ACCRS"
@@ -1390,7 +1559,7 @@ export default function Page() {
                           className="placementBanner_heading__yGlah"
                           style={{ color: "#ff5c35" }}
                         >
-                          INR 1,83,080
+                          INR {universityData?.full_course_fees || 183080}
                         </p>
                         <span style={{ color: "#000" }}>
                           Inclusive of all taxes
@@ -1415,7 +1584,7 @@ export default function Page() {
                             margin: 0,
                           }}
                         >
-                          INR 49,500
+                          INR {universityData?.each_semester_fees || 49500}
                         </p>
                         <p
                           className="placementBanner_description__O3FqH"
@@ -1444,7 +1613,7 @@ export default function Page() {
                             fontFamily: "Queens", // Added font-family with fallback
                           }}
                         >
-                          INR 7628 /{" "}
+                          INR {universityData?.emi_starting_at || 7628}/{" "}
                           <span style={{ fontSize: "20px" }}>Month</span>
                         </p>
                         <p
@@ -1917,11 +2086,13 @@ export default function Page() {
                                             >
                                               {course.feeRange}
                                             </p>
-                                            <button
+                                            <a
+                                              href="#"
+                                              role="button"
+                                              data-bs-toggle="modal"
+                                              data-bs-target="#exampleModal"
                                               className="enquire-now work-sans"
-                                              onClick={() =>
-                                                setIsCourseModalOpen(true)
-                                              }
+                                              onClick={handleOpenModal}
                                               aria-label={`Enquire about ${course.name}`}
                                               style={{
                                                 padding: "5px 5px",
@@ -1935,6 +2106,8 @@ export default function Page() {
                                                 cursor: "pointer",
                                                 width: "100%",
                                                 marginBottom: "10px",
+                                                textAlign: "center",
+                                                display: "inline-block",
                                               }}
                                               onMouseEnter={(e) =>
                                                 Object.assign(
@@ -1955,7 +2128,7 @@ export default function Page() {
                                               }
                                             >
                                               Enquire Now
-                                            </button>
+                                            </a>
                                             <button
                                               className="view-specialization work-sans"
                                               onClick={() =>
@@ -2029,6 +2202,10 @@ export default function Page() {
                               <span className="visually-hidden">Next</span>
                             </button>
                           </div>
+                          <EnquiryModel
+                            showModal={showModal}
+                            setShowModal={setShowModal}
+                          />
                         </div>
                       </div>
                     </div>

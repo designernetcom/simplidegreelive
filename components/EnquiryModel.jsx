@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import "./explore.module.css"
+import axios from "axios";
+import "./explore.module.css";
 
 const EnquiryModel = ({ showModal, setShowModal }) => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,9 @@ const EnquiryModel = ({ showModal, setShowModal }) => {
     program: "",
     state: "",
   });
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -18,14 +22,51 @@ const EnquiryModel = ({ showModal, setShowModal }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    setShowModal(false); // Close modal on submit
+    setError(null);
+    setSuccess(null);
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "https://netcomindia.xyz/api/enquiries",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      setSuccess(response.data.message);
+      setFormData({ name: "", email: "", phone: "", program: "", state: "" });
+      setShowModal(false);
+    } catch (err) {
+      console.error("Submission Error:", err); // Log full error for debugging
+      if (err.response) {
+        // Server responded with a status other than 2xx
+        setError({
+          general: err.response.data.message || "Server error occurred",
+          details: err.response.data.errors || null,
+        });
+      } else if (err.request) {
+        // Request was made but no response received
+        setError({ general: "Network error: Unable to reach the server" });
+      } else {
+        // Other errors
+        setError({ general: "An unexpected error occurred: " + err.message });
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
-    setShowModal(false); // Close modal on close button click
+    setShowModal(false);
+    setError(null);
+    setSuccess(null);
+    setLoading(false);
   };
 
   if (!showModal) return null;
@@ -38,7 +79,7 @@ const EnquiryModel = ({ showModal, setShowModal }) => {
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="false"
-      style={{ backgroundColor: "" }}
+      style={{ backgroundColor: "rgba(0,0,0,0.1)" }}
     >
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
@@ -59,6 +100,22 @@ const EnquiryModel = ({ showModal, setShowModal }) => {
               <h6 style={{ color: "#000" }}>Struggling with Career Growth?</h6>
               <h6 style={{ color: "#000" }}>Get Free Career Consultation</h6>
 
+              {error && (
+                <div className="alert alert-danger">
+                  <p>{error.general}</p>
+                  {error.details && (
+                    <ul>
+                      {Object.entries(error.details).map(
+                        ([key, value], index) => (
+                          <li key={index}>{`${key}: ${value}`}</li>
+                        )
+                      )}
+                    </ul>
+                  )}
+                </div>
+              )}
+              {success && <div className="alert alert-success">{success}</div>}
+
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"
@@ -68,26 +125,29 @@ const EnquiryModel = ({ showModal, setShowModal }) => {
                   onChange={handleChange}
                   required
                   className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                  disabled={loading}
                 />
 
                 <input
-                  type="email" // Use type="email" for better validation
+                  type="email"
                   name="email"
                   placeholder="Email *"
                   value={formData.email}
                   onChange={handleChange}
                   required
                   className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                  disabled={loading}
                 />
 
                 <input
-                  type="tel" // Use type="tel" for phone numbers
+                  type="tel"
                   name="phone"
                   placeholder="Phone *"
                   value={formData.phone}
                   onChange={handleChange}
                   required
                   className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                  disabled={loading}
                 />
 
                 <select
@@ -96,6 +156,7 @@ const EnquiryModel = ({ showModal, setShowModal }) => {
                   value={formData.program}
                   onChange={handleChange}
                   required
+                  disabled={loading}
                 >
                   <option value="">Choose a program*</option>
                   <option value="online_mba">Online MBA</option>
@@ -123,6 +184,7 @@ const EnquiryModel = ({ showModal, setShowModal }) => {
                   value={formData.state}
                   onChange={handleChange}
                   required
+                  disabled={loading}
                 >
                   <option value="">States/Province*</option>
                   <option value="andhra_pradesh">Andhra Pradesh</option>
@@ -169,9 +231,10 @@ const EnquiryModel = ({ showModal, setShowModal }) => {
                   <button
                     type="submit"
                     className="td_btn td_style_1 td_radius_10 td_medium w-100"
+                    disabled={loading}
                   >
                     <span className="td_btn_in td_white_color td_accent_bg">
-                      <span>Submit</span>
+                      <span>{loading ? "Submitting..." : "Submit"}</span>
                     </span>
                   </button>
                 </div>

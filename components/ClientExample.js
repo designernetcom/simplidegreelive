@@ -6,7 +6,7 @@ export default function ClientExample() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/example")
+    fetch("https://netcomindia.xyz/api/example")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

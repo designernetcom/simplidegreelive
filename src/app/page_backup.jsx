@@ -15,6 +15,7 @@ import "./styles/e881ba373a433cf6.css";
 import "./styles/afc7461932b964d5.css";
 import "./styles/cc9687947ca46cf2.css";
 import "./styles/42402eb91a3d915c.css";
+import axios from "axios";
 
 import Link from "next/link";
 import Menu from "../../components/Header/Menu/Menu";
@@ -47,6 +48,15 @@ export default function Page() {
     url: "",
     university: "",
   });
+
+  const [experts, setExperts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://netcomindia.xyz/api/experts")
+      .then((res) => setExperts(res.data))
+      .catch((err) => console.error("Error fetching experts", err));
+  }, []);
 
   const handleOpenBrochureModal = async (url, university) => {
     try {
@@ -1746,23 +1756,24 @@ export default function Page() {
               LR has a team of 250+ experts who are there to assist you and give
               you the right guidance for your successful career ahead.
             </p>
+
             <div className="Expert_Expert__allCardsContainer__kKnmL">
-              <div style={{ height: "100%" }}>
-                <div className="Expert_Expert__cardContainer__2y7vz">
-                  <div className="Expert_Expert__cardData__ocQ6N">
-                    <div className="Expert_Expert__flexContainer__iCU0T">
-                      <div className="Expert_Expert__imageContainer__zoZB6">
-                        <img
-                          alt="Expert Image - Krishna"
-                          loading="lazy"
-                          width={600}
-                          height={373}
-                          decoding="async"
-                          className="Expert_Expert__image__8wv_Z"
-                          src="/assets/img/tutor-new-3.png"
-                        />
-                        <div className="Expert_Expert__ratingContainer__UIlw9">
-                          <div>
+              {experts.map((expert) => (
+                <div key={expert.id} style={{ height: "100%" }}>
+                  <div className="Expert_Expert__cardContainer__2y7vz">
+                    <div className="Expert_Expert__cardData__ocQ6N">
+                      <div className="Expert_Expert__flexContainer__iCU0T">
+                        <div className="Expert_Expert__imageContainer__zoZB6">
+                          <img
+                            alt={`Expert Image - ${expert.name}`}
+                            loading="lazy"
+                            width={600}
+                            height={373}
+                            decoding="async"
+                            className="Expert_Expert__image__8wv_Z"
+                            src={expert.image_url}
+                          />
+                          <div className="Expert_Expert__ratingContainer__UIlw9">
                             <div className="Expert_icon_container__lDnua">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -1781,194 +1792,30 @@ export default function Page() {
                                 <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
                               </svg>
                             </div>
+                            <p className="Expert_ExpertRatingValue__2LPF2">
+                              {expert.rating}
+                            </p>
                           </div>
-                          <p className="Expert_ExpertRatingValue__2LPF2">4.7</p>
                         </div>
+                        <p className="Expert_Expert__card_text_1__NI_Zc">
+                          {expert.name}
+                        </p>
+                        <p className="Expert_Expert__card_text_2__jOGNC">
+                          {expert.position}
+                        </p>
+                        <p className="Expert_Expert__card_text_3__7CvA2">
+                          {expert.experience} Years Experience
+                        </p>
                       </div>
-                      <p className="Expert_Expert__card_text_1__NI_Zc">
-                        {" "}
-                        Rekha{" "}
-                      </p>
-                      <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor
-                      </p>
-                      <p className="Expert_Expert__card_text_3__7CvA2">
-                        3 Years Experience
-                      </p>
                     </div>
+                    <Link href="/freecounseling">
+                      <button className="Expert_Expert__cardButton__cRBRJ">
+                        Consult Now
+                      </button>
+                    </Link>
                   </div>
-                  <Link href="/freecounseling">
-                    <button className="Expert_Expert__cardButton__cRBRJ">
-                      Consult Now
-                    </button>
-                  </Link>
                 </div>
-              </div>
-              <div style={{ height: "100%" }}>
-                <div className="Expert_Expert__cardContainer__2y7vz">
-                  <div className="Expert_Expert__cardData__ocQ6N">
-                    <div className="Expert_Expert__flexContainer__iCU0T">
-                      <div className="Expert_Expert__imageContainer__zoZB6">
-                        <img
-                          alt="expertImage"
-                          loading="lazy"
-                          width={600}
-                          height={373}
-                          decoding="async"
-                          data-nimg={1}
-                          className="Expert_Expert__image__8wv_Z"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/tutor-new-1.png"
-                        />
-                        <div className="Expert_Expert__ratingContainer__UIlw9">
-                          <div>
-                            <div className="Expert_icon_container__lDnua">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="100%"
-                                height="100%"
-                                viewBox="0 0 24 24"
-                                fill="url(#gradient)"
-                              >
-                                <linearGradient id="gradient">
-                                  <stop offset="0%" stopColor="#FFC700" />
-                                  <stop offset="100%" stopColor="#FF3D00" />
-                                </linearGradient>
-                                <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
-                              </svg>
-                            </div>
-                          </div>
-                          <p className="Expert_ExpertRatingValue__2LPF2">4.6</p>
-                        </div>
-                      </div>
-                      <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Vaishali
-                      </p>
-                      <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor
-                      </p>
-                      <p className="Expert_Expert__card_text_3__7CvA2">
-                        8 Years Experience
-                      </p>
-                    </div>
-                  </div>
-                  <Link href="/freecounseling">
-                    <button className="Expert_Expert__cardButton__cRBRJ">
-                      Consult Now
-                    </button>
-                  </Link>
-                </div>
-              </div>
-              <div style={{ height: "100%" }}>
-                <div className="Expert_Expert__cardContainer__2y7vz">
-                  <div className="Expert_Expert__cardData__ocQ6N">
-                    <div className="Expert_Expert__flexContainer__iCU0T">
-                      <div className="Expert_Expert__imageContainer__zoZB6">
-                        <img
-                          alt="expertImage"
-                          loading="lazy"
-                          width={600}
-                          height={373}
-                          decoding="async"
-                          data-nimg={1}
-                          className="Expert_Expert__image__8wv_Z"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/tutor-new-2.png"
-                        />
-                        <div className="Expert_Expert__ratingContainer__UIlw9">
-                          <div>
-                            <div className="Expert_icon_container__lDnua">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="100%"
-                                height="100%"
-                                viewBox="0 0 24 24"
-                                fill="url(#gradient)"
-                              >
-                                <linearGradient id="gradient">
-                                  <stop offset="0%" stopColor="#FFC700" />
-                                  <stop offset="100%" stopColor="#FF3D00" />
-                                </linearGradient>
-                                <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
-                              </svg>
-                            </div>
-                          </div>
-                          <p className="Expert_ExpertRatingValue__2LPF2">4.5</p>
-                        </div>
-                      </div>
-                      <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Hemant
-                      </p>
-                      <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor
-                      </p>
-                      <p className="Expert_Expert__card_text_3__7CvA2">
-                        6 Years Experience
-                      </p>
-                    </div>
-                  </div>
-                  <Link href="/freecounseling">
-                    <button className="Expert_Expert__cardButton__cRBRJ">
-                      Consult Now
-                    </button>
-                  </Link>
-                </div>
-              </div>
-              <div style={{ height: "100%" }}>
-                <div className="Expert_Expert__cardContainer__2y7vz">
-                  <div className="Expert_Expert__cardData__ocQ6N">
-                    <div className="Expert_Expert__flexContainer__iCU0T">
-                      <div className="Expert_Expert__imageContainer__zoZB6">
-                        <img
-                          alt="expertImage"
-                          loading="lazy"
-                          width={600}
-                          height={373}
-                          decoding="async"
-                          data-nimg={1}
-                          className="Expert_Expert__image__8wv_Z"
-                          style={{ color: "transparent" }}
-                          src="/assets/img/tutot-new-41.png"
-                        />
-                        <div className="Expert_Expert__ratingContainer__UIlw9">
-                          <div>
-                            <div className="Expert_icon_container__lDnua">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="100%"
-                                height="100%"
-                                viewBox="0 0 24 24"
-                                fill="url(#gradient)"
-                              >
-                                <linearGradient id="gradient">
-                                  <stop offset="0%" stopColor="#FFC700" />
-                                  <stop offset="100%" stopColor="#FF3D00" />
-                                </linearGradient>
-                                <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
-                              </svg>
-                            </div>
-                          </div>
-                          <p className="Expert_ExpertRatingValue__2LPF2">4.5</p>
-                        </div>
-                      </div>
-                      <p className="Expert_Expert__card_text_1__NI_Zc">
-                        Krishna
-                      </p>
-                      <p className="Expert_Expert__card_text_2__jOGNC">
-                        Sr. Mentor
-                      </p>
-                      <p className="Expert_Expert__card_text_3__7CvA2">
-                        4 Years Experience
-                      </p>
-                    </div>
-                  </div>
-                  <Link href="/freecounseling">
-                    <button className="Expert_Expert__cardButton__cRBRJ">
-                      Consult Now
-                    </button>
-                  </Link>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

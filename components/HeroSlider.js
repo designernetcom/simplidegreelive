@@ -1,15 +1,45 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
-import "./HeroSlider.module.css";
 
 const HeroSlider = () => {
   const router = useRouter();
+  const [studentCount, setStudentCount] = useState(60000);
+
+  // Fetch initial count
+  useEffect(() => {
+    fetch("https://netcomindia.xyz/api/counter/student_count")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.value) {
+          setStudentCount(data.value);
+        }
+      });
+  }, []);
+
+  // Every 6 seconds, send a request to increment
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch("https://netcomindia.xyz/api/counter/student_count/increment", {
+        method: "POST",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.value) {
+            setStudentCount(data.value);
+          }
+        });
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const slides = [
     {
       text1: "Grab It Now: Early Bird Offer!",
@@ -49,7 +79,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="Hero_relative__x641X ">
+    <div className="Hero_relative__x641X">
       <div className="Hero_newheroContainer__lAPRu">
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -71,13 +101,17 @@ const HeroSlider = () => {
                       <div>
                         <div className="counter_countercontainer__CiYqi">
                           <div className="counter_counter__W_2Wz">
-                            <div className="counter_digit__L6cff">6</div>
-                            <div className="counter_digit__L6cff">0</div>
-                            <div className="counter_digit__L6cff">0</div>
-                            <div className="counter_digit__L6cff">0</div>
-                            <div className="counter_digit__L6cff">0</div>
-                            {/* <div className="counter_digit__L6cff">0</div>
-                            <div className="counter_digit__L6cff">0</div> */}
+                            {[...studentCount.toString()].map(
+                              (digit, index) => (
+                                <div
+                                  key={index}
+                                  className="counter_digit__L6cff"
+                                >
+                                  {digit}
+                                </div>
+                              )
+                            )}
+
                             <div
                               className="counter_livetextbanner__Vykhp"
                               style={{
@@ -86,7 +120,6 @@ const HeroSlider = () => {
                                 right: "-30px",
                                 backgroundColor: "red",
                                 color: "#fff",
-                                // fontSize: ".69vw",
                                 fontWeight: 700,
                                 padding: "1px 9px",
                                 borderRadius: "5px",

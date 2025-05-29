@@ -2,23 +2,13 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation";
 import styles from "./CollegeFinder.module.css";
 
 export default function CollegeFinder() {
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState({});
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    birthdate: "", // Added birthdate
-    program: "", // Added program
-    province: "", // Added province
-  });
-
-  const router = useRouter(); // Initialize router
+  const router = useRouter();
 
   const steps = [
     {
@@ -121,21 +111,30 @@ export default function CollegeFinder() {
     }));
   };
 
-  const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   const handleNextClick = () => {
     if (step <= steps.length && answers[steps[step - 1].key]) {
-      setStep(step + 1);
+      setStep((prevStep) => prevStep + 1);
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", { ...answers, ...formData });
-    // Redirect to top-university page
-    router.push("/top-university");
+    const response = await fetch(
+      "https://netcomindia.xyz/api/college-finder-submit",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(answers),
+      }
+    );
+
+    if (response.ok) {
+      router.push("/top-university");
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -153,7 +152,7 @@ export default function CollegeFinder() {
         </p>
 
         <h3 className={styles.heading}>
-          {step <= steps.length ? steps[step - 1].question : "Enquiry Form"}
+          {step <= steps.length ? steps[step - 1].question : "Submit"}
         </h3>
 
         {step <= steps.length && (
@@ -188,96 +187,10 @@ export default function CollegeFinder() {
           </>
         )}
 
-        {step === steps.length + 1 && (
-          <form className={styles.enquiryForm} onSubmit={handleSubmit}>
-            {/* Name Field */}
-            <div className={styles.formGroup}>
-              <label>Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Enter your full name"
-                required
-              />
-            </div>
-
-            {/* Birthdate Field */}
-            <div className={styles.formGroup}>
-              <label>Date of Birth</label>
-              <input
-                type="date"
-                name="birthdate"
-                value={formData.birthdate}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-
-            {/* Email Field */}
-            <div className={styles.formGroup}>
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-
-            {/* Phone Field */}
-            <div className={styles.formGroup}>
-              <label>Phone</label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder="Enter your phone number"
-                required
-              />
-            </div>
-
-            {/* Choose Program Field */}
-            <div className={styles.formGroup}>
-              <label>Choose Program</label>
-              <select
-                name="program" // Changed className to name
-                value={formData.program}
-                onChange={handleInputChange}
-                required
-              >
-                <option value="">Select a Program</option>
-                <option value="engineering">Engineering</option>
-                <option value="business">Business</option>
-                <option value="arts">Arts</option>
-                <option value="science">Science</option>
-              </select>
-            </div>
-
-            {/* Select Province Field */}
-            <div className={styles.formGroup}>
-              <label>Select Province</label>
-              <select
-                name="province"
-                value={formData.province}
-                onChange={handleInputChange}
-                required
-              >
-                <option value="">Select a Province</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Goa">Goa</option>
-                <option value="New Delhi">New Delhi</option>
-                <option value="Karnataka">Karnataka</option>
-              </select>
-            </div>
-
-            {/* Submit Button */}
+        {step > steps.length && (
+          <form onSubmit={handleSubmit}>
             <button type="submit" className={styles.submitButton}>
-              Submit Enquiry
+              Submit
             </button>
           </form>
         )}

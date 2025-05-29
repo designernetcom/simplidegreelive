@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import "../src/app/styles/style.css";
 
 const FirstVisitModal = () => {
-  const [showModal, setShowModal] = useState(false); // Initially false to delay display
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,16 +12,19 @@ const FirstVisitModal = () => {
     program: "",
     state: "",
   });
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  // Add useEffect to delay modal display by 3 seconds
+  // Delay modal display by 6 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
-    }, 6000); // 3000ms = 3 seconds
+    }, 6000);
 
     // Cleanup timer on component unmount
     return () => clearTimeout(timer);
-  }, []); // Empty dependency array to run once on mount
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -29,14 +33,48 @@ const FirstVisitModal = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    setShowModal(false);
+    setError(null);
+    setSuccess(null);
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "https://netcomindia.xyz/api/enquiries",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      setSuccess(response.data.message);
+      setFormData({ name: "", email: "", phone: "", program: "", state: "" });
+      setShowModal(false);
+    } catch (err) {
+      console.error("Submission Error:", err);
+      if (err.response) {
+        setError({
+          general: err.response.data.message || "Server error occurred",
+          details: err.response.data.errors || null,
+        });
+      } else if (err.request) {
+        setError({ general: "Network error: Unable to reach the server" });
+      } else {
+        setError({ general: "An unexpected error occurred: " + err.message });
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
     setShowModal(false);
+    setError(null);
+    setSuccess(null);
+    setLoading(false);
   };
 
   if (!showModal) return null;
@@ -67,8 +105,24 @@ const FirstVisitModal = () => {
                 }}
               ></button>
 
-              <h6>Struggling with Career Growth?</h6>
-              <h6>Get Free Career Consultation</h6>
+              <h6 style={{ color: "#000" }}>Struggling with Career Growth?</h6>
+              <h6 style={{ color: "#000" }}>Get Free Career Consultation</h6>
+
+              {error && (
+                <div className="alert alert-danger">
+                  <p>{error.general}</p>
+                  {error.details && (
+                    <ul>
+                      {Object.entries(error.details).map(
+                        ([key, value], index) => (
+                          <li key={index}>{`${key}: ${value}`}</li>
+                        )
+                      )}
+                    </ul>
+                  )}
+                </div>
+              )}
+              {success && <div className="alert alert-success">{success}</div>}
 
               <form onSubmit={handleSubmit}>
                 <input
@@ -79,26 +133,29 @@ const FirstVisitModal = () => {
                   onChange={handleChange}
                   required
                   className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                  disabled={loading}
                 />
 
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="Email *"
                   value={formData.email}
                   onChange={handleChange}
                   required
                   className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                  disabled={loading}
                 />
 
                 <input
-                  type="text"
+                  type="tel"
                   name="phone"
                   placeholder="Phone *"
                   value={formData.phone}
                   onChange={handleChange}
                   required
                   className="td_form_field td_mb_30 td_medium td_white_bg w-100"
+                  disabled={loading}
                 />
 
                 <select
@@ -107,6 +164,7 @@ const FirstVisitModal = () => {
                   value={formData.program}
                   onChange={handleChange}
                   required
+                  disabled={loading}
                 >
                   <option value="">Choose a program*</option>
                   <option value="online_mba">Online MBA</option>
@@ -134,6 +192,7 @@ const FirstVisitModal = () => {
                   value={formData.state}
                   onChange={handleChange}
                   required
+                  disabled={loading}
                 >
                   <option value="">States/Province*</option>
                   <option value="andhra_pradesh">Andhra Pradesh</option>
@@ -180,9 +239,10 @@ const FirstVisitModal = () => {
                   <button
                     type="submit"
                     className="td_btn td_style_1 td_radius_10 td_medium w-100"
+                    disabled={loading}
                   >
                     <span className="td_btn_in td_white_color td_accent_bg">
-                      <span>Submit</span>
+                      <span>{loading ? "Submitting..." : "Submit"}</span>
                     </span>
                   </button>
                 </div>

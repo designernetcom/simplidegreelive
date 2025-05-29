@@ -15,8 +15,14 @@ import "../../styles/cc66cf431efece60.css";
 import "../../styles/bcdb44b6ad772c90.css";
 import "../../styles/e74b165e0d429359.css";
 import "../../styles/8c8030bf7e3ee32c.css";
-import "./main.css"
+import "./main.css";
 
+import Link from "next/link";
+
+import axios from "axios";
+
+import FirstVisitModal from "../../../../components/FirstVisitModal";
+import EnquiryModel from "../../../../components/EnquiryModel";
 
 import RollingLine from "../../../../components/RollingLine";
 
@@ -293,7 +299,7 @@ function SpecializationModal({
                     >
                       Inclusive of all taxes
                     </p>
-                    <button
+                    {/* <button
                       onClick={handleOpenEnquiryModal}
                       style={{
                         padding: "5px 5px",
@@ -321,7 +327,7 @@ function SpecializationModal({
                       aria-label="Enquire about course"
                     >
                       Enquire Now
-                    </button>
+                    </button> */}
 
                     <style jsx>{`
                       @keyframes fadeIn {
@@ -929,9 +935,52 @@ function SpecializationModal({
 }
 export default function Page() {
   const [activeSection, setActiveSection] = useState("About");
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
   const [isSpecializationModalOpen, setIsSpecializationModalOpen] =
     useState(false);
+  const [error, setError] = useState(null); // Added for error handling
+  const [success, setSuccess] = useState(null); // Added for success handling
+  const [showModal, setShowModal] = useState(false);
+  const handleOpenModal = () => setShowModal(true);
+  const [universityData, setUniversityData] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const maxRetries = 3;
+
+  // Fetch data from the Laravel API
+  useEffect(() => {
+    const fetchUniversityData = async () => {
+      setIsFetching(true);
+      try {
+        const response = await axios.get(
+          "https://netcomindia.xyz/api/online-manipal"
+        );
+        const data = Array.isArray(response.data)
+          ? response.data[0]
+          : response.data;
+        setUniversityData(data);
+        setError(null);
+        setIsFetching(false);
+      } catch (err) {
+        console.error("Error fetching university data:", err);
+        if (retryCount < maxRetries) {
+          setTimeout(() => {
+            setRetryCount((prev) => prev + 1);
+          }, 2000);
+        } else {
+          setError({
+            general: "Failed to fetch university data. Please try again later.",
+            details: err.message,
+          });
+          setIsFetching(false);
+        }
+      }
+    };
+
+    fetchUniversityData();
+  }, [retryCount]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -956,7 +1005,7 @@ export default function Page() {
       { name: "HR Management", fees: 135000 },
       { name: "Marketing", fees: 135000 },
       { name: "Finance & Accounting", fees: 135000 },
-      { name: "Entrepreneurship Management & Family Business",fees:135000 },
+      { name: "Entrepreneurship Management & Family Business", fees: 135000 },
     ],
     "Online BCom": [{ name: "Commerce", fees: 99000 }],
     "Online MA-J&MC": [
@@ -1140,6 +1189,49 @@ export default function Page() {
   for (let i = 0; i < courses.length; i += coursesPerSlide) {
     groupedCourses.push(courses.slice(i, i + coursesPerSlide));
   }
+  if (isFetching) {
+    return (
+      <div style={{ textAlign: "center", padding: "50px" }}>
+        <div
+          style={{
+            border: "4px solid #f3f3f3",
+            borderTop: "4px solid #3498db",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            animation: "spin 1s linear infinite",
+            margin: "0 auto 20px",
+          }}
+        ></div>
+        <p>Loading university data...</p>
+      </div>
+    );
+  }
+
+  if (error && !universityData) {
+    return (
+      <div style={{ textAlign: "center", padding: "50px", color: "red" }}>
+        <p>{error.general}</p>
+        <button
+          onClick={() => {
+            setRetryCount(0);
+            setError(null);
+            setIsFetching(true);
+          }}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#28a745",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
   return (
     <>
       <Head>
@@ -1264,7 +1356,8 @@ export default function Page() {
                   <div className="collegeDetails_maxWidth__6vBVL" id="About">
                     <div className="about_collegeDetails__67FzM">
                       <h2 className="about_collegeDetailsHeading__AA_dr">
-                        Manipal University Jaipur
+                        {universityData?.name ||
+                          "Manipal University Jaipur (MUJ) "}
                       </h2>
                       <p className="about_collegeDetailsDescription__7Swyd">
                         Manipal University Jaipur (MUJ) is a NAAC A+ accredited,
@@ -1525,6 +1618,7 @@ export default function Page() {
                           >
                             Explore online learning courses
                           </p>
+
                           <div
                             id="carouselExampleControls"
                             className="carousel slide"
@@ -1601,13 +1695,18 @@ export default function Page() {
                                                 textAlign: "center",
                                               }}
                                             >
-                                              {course.feeRange}
+                                              INR{" "}
+                                              {course.feeRange.toLocaleString()}
                                             </p>
-                                            <button
+
+                                            {/* Updated Enquire Now Button */}
+                                            <a
+                                              href="#"
+                                              role="button"
+                                              data-bs-toggle="modal"
+                                              data-bs-target="#exampleModal"
                                               className="enquire-now work-sans"
-                                              onClick={() =>
-                                                setIsCourseModalOpen(true)
-                                              }
+                                              onClick={handleOpenModal}
                                               aria-label={`Enquire about ${course.name}`}
                                               style={{
                                                 padding: "5px 5px",
@@ -1621,6 +1720,8 @@ export default function Page() {
                                                 cursor: "pointer",
                                                 width: "100%",
                                                 marginBottom: "10px",
+                                                textAlign: "center",
+                                                display: "inline-block",
                                               }}
                                               onMouseEnter={(e) =>
                                                 Object.assign(
@@ -1641,7 +1742,8 @@ export default function Page() {
                                               }
                                             >
                                               Enquire Now
-                                            </button>
+                                            </a>
+
                                             <button
                                               className="view-specialization work-sans"
                                               onClick={() =>
@@ -1690,6 +1792,8 @@ export default function Page() {
                                 </div>
                               ))}
                             </div>
+
+                            {/* Carousel Controls */}
                             <button
                               className="carousel-control-prev"
                               type="button"
@@ -1718,7 +1822,14 @@ export default function Page() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Modal outside carousel */}
+                    <EnquiryModel
+                      showModal={showModal}
+                      setShowModal={setShowModal}
+                    />
                   </div>
+
                   <div
                     className="collegeDetails_maxWidth__6vBVL"
                     id="Course Eligibility"

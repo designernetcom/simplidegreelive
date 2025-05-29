@@ -6,6 +6,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "store.learningroutes.in",
         pathname: "/images/**",
+        
       },
     ],
   },
