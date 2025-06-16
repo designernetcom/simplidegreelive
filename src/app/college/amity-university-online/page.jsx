@@ -1048,7 +1048,7 @@ export default function Page() {
       setIsFetching(true);
       try {
         const response = await axios.get(
-          "https://netcomindia.xyz/api/amity-university"
+          `${process.env.NEXT_PUBLIC_API_URL}/amity-university`
         );
         const data = Array.isArray(response.data)
           ? response.data[0]
